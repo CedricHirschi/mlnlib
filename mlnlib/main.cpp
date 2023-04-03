@@ -10,14 +10,19 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include "mln/mln_gpio.h"
+#include "mln/mln_uart.h"
 
 mln_gpio led_builtin = mln_gpio(PB3, OUTPUT);
 mln_gpio btn_builtin = mln_gpio(PB2, INPUT);
+
+mln_uart uart3 = mln_uart(UART3, 115200);
 
 int main(void)
 {
 	led_builtin.invert(1);
 	btn_builtin.invert(1);
+	
+	printf("Hello, world!\n");
 	
     while (1) 
 	{

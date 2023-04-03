@@ -178,6 +178,12 @@
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="mln\mln_uart.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mln\mln_uart.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="mln" />

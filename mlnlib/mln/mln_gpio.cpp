@@ -12,6 +12,11 @@
 #define BITMAP(pin) (1 << pin)
 
 // default constructor
+mln_gpio::mln_gpio()
+{
+} //mln_gpio
+
+// constructor
 mln_gpio::mln_gpio(PIN_t new_pin, PIN_DIR_t new_dir, uint8_t new_inverted)
 {
 	pin = new_pin;
