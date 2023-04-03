@@ -11,13 +11,16 @@
 
 #include <avr/io.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "mln_gpio.h"
 
-
+#ifndef F_CPU
 #define F_CPU					4000000UL
+#endif
+
 #define MLN_UART_BAUD			115200
-#define MLN_UART_BUF_SIZE		8
+#define MLN_UART_BUF_SIZE		32
 
 #define MLN_UART0_PIN_TX		PA0
 #define MLN_UART0_PIN_RX		PA1
@@ -51,7 +54,6 @@
 #endif
 
 #define MLN_UART_BAUD_NUM(BAUD)		((float)(F_CPU * 64 / (16 * (float)BAUD)) + 0.5)
-#define MLN_UART_GET_INST(INST_NUM) (*(&USART0 + 0x20 * INST_NUM))
 #define IS_INT(CHAR)				((CHAR >= 48) && (CHAR <= 57))
 
 typedef enum mln_uart_inst_e
@@ -73,29 +75,53 @@ typedef enum mln_uart_inst_e
 class mln_uart
 {
 public:
-	USART_t inst;
+
+	//////////////////////////////////////////////////////////////////////////
+	
+	USART_t* inst;
+	
 	mln_gpio pin_tx;
 	mln_gpio pin_rx;
+	
+	uint8_t buffer[MLN_UART_BUF_SIZE];
+	uint8_t index;
+	
+	void (*isr)(void);
+	
+	//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//////////////////////////////////////////////////////////////////////////
 	
 	mln_uart(UART_t new_inst, uint32_t baud);
 	~mln_uart();
 	
-	void write(const uint8_t data)
-	{
-		while(!(inst.STATUS & USART_DREIF_bm));
-		
-		inst.TXDATAL = data;
-	}
+	//////////////////////////////////////////////////////////////////////////
 	
-	void set_stdout(void);
-	int print_char(char character, FILE *stream)
-	{
-		write(character);
-		return 0;
-	}
-	FILE stream = FDEV_SETUP_STREAM(print_char, NULL, _FDEV_SETUP_WRITE);
+	void init_pins(UART_t new_inst);
+	
+	//////////////////////////////////////////////////////////////////////////
+	
+	void set_isr(void (*new_isr)(void));
+	
+	//////////////////////////////////////////////////////////////////////////
+
+	void write(const uint8_t data);
+	uint8_t read(void);
+	
+	void push(void);
+	uint8_t pull(uint8_t* buffer);
+	
+	//////////////////////////////////////////////////////////////////////////
+	
+	bool is_busy_tx(void);
+	bool is_busy_rx(void);
+	
+	bool data_available(void);
+	
+	//////////////////////////////////////////////////////////////////////////
+	
 private:
 	
 }; //mln_uart
+
 
 #endif //__MLN_UART_H__
