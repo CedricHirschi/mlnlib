@@ -6,7 +6,9 @@
  */ 
 
 #include <avr/io.h>
+#include "mln/mln_gpio.h"
 
+mln_gpio led_builtin = mln_gpio(PB3);
 
 int main(void)
 {
