@@ -8,51 +8,67 @@
 
 #include "mln_gpio.h"
 
-PORT_t mln_gpio_ports[] = {
-	PORTA, PORTC, PORTD,
-	#ifdef PORTB
-	PORTB,
-	#endif
-	#ifdef PORTE
-	PORTE,
-	#endif
-	PORTF,
-	#ifdef PORTG
-	PORTG
-	#endif
-};
 
-PORT_t MLN_GPIO_PIN_GET_PORT(PIN_t pin)
-{
-	return mln_gpio_ports[pin / 8];
-}
-
-uint8_t MLN_GPIO_PIN_GET_NUM(PIN_t pin)
-{
-	return pin % 8;
-}
+#define BITMAP(pin) (1 << pin)
 
 // default constructor
-mln_gpio::mln_gpio(PIN_t new_pin, PIN_DIR_t new_dir)
+mln_gpio::mln_gpio(PIN_t new_pin, PIN_DIR_t new_dir, uint8_t new_inverted)
 {
 	pin = new_pin;
-	port = MLN_GPIO_PIN_GET_PORT(new_pin);
-	pin_num = MLN_GPIO_PIN_GET_NUM(new_pin);
+	inverted = new_inverted;
 	
-	set_dir(new_dir);
+	conf_dir(new_dir);
 } //mln_gpio
 
-void mln_gpio::set_dir(PIN_DIR_t new_dir)
+void mln_gpio::conf_dir(PIN_DIR_t new_dir)
 {
 	dir = new_dir;
 	
-	switch(dir)
-	{
-		case OUTPUT:
-			break;
-		case INPUT:
-			break;
-		case INPUT_PULLUP:
-			break;
-	}
+	if(dir == OUTPUT)
+		pin.port.DIR |= (1 << pin.pin_num);
+	else
+		pin.port.DIR &= ~(1 << pin.pin_num);
+	
+	conf_pull(new_dir);
+}
+
+void mln_gpio::conf_pull(PIN_DIR_t dir)
+{
+	if(dir == INPUT_PULLUP)
+		*((uint8_t *)(&pin.port) + 0x10 + pin.pin_num) |= PORT_PULLUPEN_bm;
+	else
+		*((uint8_t *)(&pin.port) + 0x10 + pin.pin_num) &= ~PORT_PULLUPEN_bm;
+}
+
+void mln_gpio::set(void)
+{
+	inverted ? pin.port.DIRCLR = BITMAP(pin.pin_num) : pin.port.DIRSET = BITMAP(pin.pin_num);
+}
+
+void mln_gpio::clear(void)
+{
+	inverted ? pin.port.DIRSET = BITMAP(pin.pin_num) : pin.port.DIRCLR = BITMAP(pin.pin_num);
+}
+
+void mln_gpio::toggle(void)
+{
+	pin.port.DIR ^= BITMAP(pin.pin_num);
+}
+
+void mln_gpio::put(uint8_t val)
+{
+	val ? inverted ? clear() : set() : clear();
+}
+
+void mln_gpio::invert(uint8_t new_inverted)
+{
+	if(dir == OUTPUT && new_inverted != inverted)
+		toggle();
+	
+	inverted = new_inverted;
+}
+
+uint8_t mln_gpio::get(void)
+{
+	return inverted ? !(pin.port.OUT >> pin.pin_num) & 0x01 : (pin.port.OUT >> pin.pin_num) & 0x01;
 }
