@@ -1,4 +1,4 @@
-/* 
+/*
 * mln_spi.h
 *
 * Created: 04.04.2023 21:24:31
@@ -30,20 +30,18 @@ class mln_spi
 public:
 	SPI_t *spi;
 	mln_gpio cs;
-	
+
 	mln_spi(SPI_t *new_spi, PIN_t cs, uint8_t mode);
 	mln_spi(SPI_t *new_spi, PIN_t cs);
 	mln_spi(SPI_t *new_spi);
-	
+	mln_spi();
+
 	void exchange(uint8_t* buffer, uint8_t length);
 	void write(uint8_t* buffer, uint8_t length);
 	void read(uint8_t* buffer, uint8_t length);
-	
-protected:
+
 private:
 
 }; //mln_spi
 
 #endif //__MLN_SPI_H__
-
-

@@ -33,11 +33,13 @@ LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
-../mln
+../mln \
+../devices
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../devices/mcp4822.cpp \
 ../mln/mln_gpio.cpp \
 ../main.cpp \
 ../mln/mln_spi.cpp \
@@ -52,6 +54,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+devices/mcp4822.o \
 mln/mln_gpio.o \
 main.o \
 mln/mln_spi.o \
@@ -59,6 +62,7 @@ mln/mln_timer.o \
 mln/mln_uart.o
 
 OBJS_AS_ARGS +=  \
+devices/mcp4822.o \
 mln/mln_gpio.o \
 main.o \
 mln/mln_spi.o \
@@ -66,6 +70,7 @@ mln/mln_timer.o \
 mln/mln_uart.o
 
 C_DEPS +=  \
+devices/mcp4822.d \
 mln/mln_gpio.d \
 main.d \
 mln/mln_spi.d \
@@ -73,6 +78,7 @@ mln/mln_timer.d \
 mln/mln_uart.d
 
 C_DEPS_AS_ARGS +=  \
+devices/mcp4822.d \
 mln/mln_gpio.d \
 main.d \
 mln/mln_spi.d \
@@ -93,6 +99,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+devices/mcp4822.o: ../devices/mcp4822.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\AVR-Dx_DFP\1.10.114\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=avr128db48 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\AVR-Dx_DFP\1.10.114\gcc\dev\avr128db48" -c -std=gnu++14 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 mln/mln_gpio.o: ../mln/mln_gpio.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0

@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+devices\mcp4822.cpp
+
 mln\mln_gpio.cpp
 
 main.cpp

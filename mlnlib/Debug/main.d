@@ -20,7 +20,8 @@ main.d main.o: .././main.cpp .././mln/mln_common.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  .././mln/mln_gpio.h .././mln/mln_uart.h .././mln/mln_gpio.h \
- .././mln/mln_timer.h .././mln/mln_spi.h
+ .././mln/mln_timer.h .././devices/mcp4822.h \
+ .././devices/../mln/mln_spi.h .././devices/../mln/mln_gpio.h
 
 .././mln/mln_common.h:
 
@@ -72,4 +73,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././mln/mln_timer.h:
 
-.././mln/mln_spi.h:
+.././devices/mcp4822.h:
+
+.././devices/../mln/mln_spi.h:
+
+.././devices/../mln/mln_gpio.h:
