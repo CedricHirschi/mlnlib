@@ -3,53 +3,41 @@
  *
  * Created: 03.04.2023 11:13:26
  * Author : cedr0
- */ 
+ */
 
 #include "mln/mln_common.h"
 #include "mln/mln_gpio.h"
 #include "mln/mln_uart.h"
 #include "mln/mln_timer.h"
+#include "mln/mln_spi.h"
 
+mln_uart uart = mln_uart(UART3, 115200);
+
+mln_spi spi = mln_spi(&SPI0, PC7);
+
+mln_gpio ldac = mln_gpio(PC3, OUTPUT);
 mln_gpio led_builtin = mln_gpio(PB3, OUTPUT);
-mln_gpio btn_builtin = mln_gpio(PB2, INPUT_PULLUP);
 
-mln_uart uart3 = mln_uart(UART3, 115200);
+mln_timer led_timer = mln_timer(TIMER0, 500);
 
-mln_timer timer0 = mln_timer(TIMER0, 250);
-mln_timer timer1 = mln_timer(TIMER1, 1000);
-
-void led_task(void)
-{
-	led_builtin.toggle();
-}
-
-void print_task(void)
-{
-	int16_t offset0 = (int16_t)((timer0.get_period() - 250.0f) * 10000);
-	int16_t offset1 = (int16_t)((timer1.get_period() - 1000.0f) * 10000);
-	
-	printf("Errors (0.1us):\t%d (led task)\t%d (print task)\n", offset0, offset1);
-	btn_builtin.get() ? printf("Button pressed\n") : printf("button released\n");
-}
+uint16_t dac_value = 0;
+uint8_t buffer[2] = {0};
 
 int main(void)
 {
-	led_builtin.invert(true);
-	btn_builtin.invert(true);
-	
-	timer0.set_isr(led_task);
-	timer1.set_isr(print_task);
-	
+	led_timer.set_isr([](void){led_builtin.toggle();});
+
 	sei();
-	
-	timer0.start();
-	timer1.start();
-	
-	SLPCTRL.CTRLA = SLPCTRL_SMODE_IDLE_gc;
-	
-    while (1) 
+
+	led_timer.start();
+
+	while (1)
 	{
-		SLPCTRL.CTRLA |= SLPCTRL_SEN_bm;
+		buffer[0] = 0b00110000 | (uint8_t)(dac_value >> 8); buffer[1] = (uint8_t)(dac_value & 0xFF);
+		dac_value = (dac_value + 4) % 4096;
+		spi.write(buffer, 2);
+		ldac.clear();
+		ldac.set();
     }
 }
 

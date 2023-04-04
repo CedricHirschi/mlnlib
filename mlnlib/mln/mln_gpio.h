@@ -12,82 +12,82 @@
 #include <avr/io.h>
 
 
-// define all pins of the MCU (PA0 - PA7, ... , PG0 - PG7) as PIN_t define each port only if PORT is definded in the device header file
+// define all pins of the MCU (PA0 - PA7, ... , PG0 - PG7) as PIN_t define each port only if PORT is defined in the device header file
 #ifdef PORTA
-#define PA0 {&PORTA, 0}
-#define PA1 {&PORTA, 1}
-#define PA2 {&PORTA, 2}
-#define PA3 {&PORTA, 3}
-#define PA4 {&PORTA, 4}
-#define PA5 {&PORTA, 5}
-#define PA6 {&PORTA, 6}
-#define PA7 {&PORTA, 7}
+#define PA0 (PIN_t){&PORTA, 0}
+#define PA1 (PIN_t){&PORTA, 1}
+#define PA2 (PIN_t){&PORTA, 2}
+#define PA3 (PIN_t){&PORTA, 3}
+#define PA4 (PIN_t){&PORTA, 4}
+#define PA5 (PIN_t){&PORTA, 5}
+#define PA6 (PIN_t){&PORTA, 6}
+#define PA7 (PIN_t){&PORTA, 7}
 #endif
 
 #ifdef PORTB
-#define PB0 {&PORTB, 0}
-#define PB1 {&PORTB, 1}
-#define PB2 {&PORTB, 2}
-#define PB3 {&PORTB, 3}
-#define PB4 {&PORTB, 4}
-#define PB5 {&PORTB, 5}
-#define PB6 {&PORTB, 6}
-#define PB7 {&PORTB, 7}
+#define PB0 (PIN_t){&PORTB, 0}
+#define PB1 (PIN_t){&PORTB, 1}
+#define PB2 (PIN_t){&PORTB, 2}
+#define PB3 (PIN_t){&PORTB, 3}
+#define PB4 (PIN_t){&PORTB, 4}
+#define PB5 (PIN_t){&PORTB, 5}
+#define PB6 (PIN_t){&PORTB, 6}
+#define PB7 (PIN_t){&PORTB, 7}
 #endif
 
 #ifdef PORTC
-#define PC0 {&PORTC, 0}
-#define PC1 {&PORTC, 1}
-#define PC2 {&PORTC, 2}
-#define PC3 {&PORTC, 3}
-#define PC4 {&PORTC, 4}
-#define PC5 {&PORTC, 5}
-#define PC6 {&PORTC, 6}
-#define PC7 {&PORTC, 7}
+#define PC0 (PIN_t){&PORTC, 0}
+#define PC1 (PIN_t){&PORTC, 1}
+#define PC2 (PIN_t){&PORTC, 2}
+#define PC3 (PIN_t){&PORTC, 3}
+#define PC4 (PIN_t){&PORTC, 4}
+#define PC5 (PIN_t){&PORTC, 5}
+#define PC6 (PIN_t){&PORTC, 6}
+#define PC7 (PIN_t){&PORTC, 7}
 #endif
 
 #ifdef PORTD
-#define PD0 {&PORTD, 0}
-#define PD1 {&PORTD, 1}
-#define PD2 {&PORTD, 2}
-#define PD3 {&PORTD, 3}
-#define PD4 {&PORTD, 4}
-#define PD5 {&PORTD, 5}
-#define PD6 {&PORTD, 6}
-#define PD7 {&PORTD, 7}
+#define PD0 (PIN_t){&PORTD, 0}
+#define PD1 (PIN_t){&PORTD, 1}
+#define PD2 (PIN_t){&PORTD, 2}
+#define PD3 (PIN_t){&PORTD, 3}
+#define PD4 (PIN_t){&PORTD, 4}
+#define PD5 (PIN_t){&PORTD, 5}
+#define PD6 (PIN_t){&PORTD, 6}
+#define PD7 (PIN_t){&PORTD, 7}
 #endif
 
 #ifdef PORTE
-#define PE0 {&PORTE, 0}
-#define PE1 {&PORTE, 1}
-#define PE2 {&PORTE, 2}
-#define PE3 {&PORTE, 3}
-#define PE4 {&PORTE, 4}
-#define PE5 {&PORTE, 5}
-#define PE6 {&PORTE, 6}
-#define PE7 {&PORTE, 7}
+#define PE0 (PIN_t){&PORTE, 0}
+#define PE1 (PIN_t){&PORTE, 1}
+#define PE2 (PIN_t){&PORTE, 2}
+#define PE3 (PIN_t){&PORTE, 3}
+#define PE4 (PIN_t){&PORTE, 4}
+#define PE5 (PIN_t){&PORTE, 5}
+#define PE6 (PIN_t){&PORTE, 6}
+#define PE7 (PIN_t){&PORTE, 7}
 #endif
 
 #ifdef PORTF
-#define PF0 {&PORTF, 0}
-#define PF1 {&PORTF, 1}
-#define PF2 {&PORTF, 2}
-#define PF3 {&PORTF, 3}
-#define PF4 {&PORTF, 4}
-#define PF5 {&PORTF, 5}
-#define PF6 {&PORTF, 6}
-#define PF7 {&PORTF, 7}
+#define PF0 (PIN_t){&PORTF, 0}
+#define PF1 (PIN_t){&PORTF, 1}
+#define PF2 (PIN_t){&PORTF, 2}
+#define PF3 (PIN_t){&PORTF, 3}
+#define PF4 (PIN_t){&PORTF, 4}
+#define PF5 (PIN_t){&PORTF, 5}
+#define PF6 (PIN_t){&PORTF, 6}
+#define PF7 (PIN_t){&PORTF, 7}
 #endif
 
 #ifdef PORTG
-#define PG0 {&PORTG, 0}
-#define PG1 {&PORTG, 1}
-#define PG2 {&PORTG, 2}
-#define PG3 {&PORTG, 3}
-#define PG4 {&PORTG, 4}
-#define PG5 {&PORTG, 5}
-#define PG6 {&PORTG, 6}
-#define PG7 {&PORTG, 7}
+#define PG0 (PIN_t){&PORTG, 0}
+#define PG1 (PIN_t){&PORTG, 1}
+#define PG2 (PIN_t){&PORTG, 2}
+#define PG3 (PIN_t){&PORTG, 3}
+#define PG4 (PIN_t){&PORTG, 4}
+#define PG5 (PIN_t){&PORTG, 5}
+#define PG6 (PIN_t){&PORTG, 6}
+#define PG7 (PIN_t){&PORTG, 7}
 #endif
 
 typedef struct mln_gpio_pin_s

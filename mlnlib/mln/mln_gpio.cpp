@@ -48,12 +48,12 @@ void mln_gpio::conf_pull(PIN_DIR_t dir)
 
 void mln_gpio::set(void)
 {
-	inverted ? pin.port->DIRCLR = BITMAP(pin.pin_num) : pin.port->DIRSET = BITMAP(pin.pin_num);
+	inverted ? pin.port->OUTCLR = BITMAP(pin.pin_num) : pin.port->OUTSET = BITMAP(pin.pin_num);
 }
 
 void mln_gpio::clear(void)
 {
-	inverted ? pin.port->DIRSET = BITMAP(pin.pin_num) : pin.port->DIRCLR = BITMAP(pin.pin_num);
+	inverted ? pin.port->OUTSET = BITMAP(pin.pin_num) : pin.port->OUTCLR = BITMAP(pin.pin_num);
 }
 
 void mln_gpio::toggle(void)
