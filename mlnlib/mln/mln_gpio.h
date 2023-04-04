@@ -122,8 +122,8 @@ public:
 	void set(void);
 	void clear(void);
 	void toggle(void);
-	void put(uint8_t val);
-	void invert(uint8_t val);
+	void put(bool val);
+	void invert(bool val);
 	
 	uint8_t get(void);
 	

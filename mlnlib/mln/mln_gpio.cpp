@@ -61,12 +61,12 @@ void mln_gpio::toggle(void)
 	pin.port->OUT ^= BITMAP(pin.pin_num);
 }
 
-void mln_gpio::put(uint8_t val)
+void mln_gpio::put(bool val)
 {
 	val ? inverted ? clear() : set() : clear();
 }
 
-void mln_gpio::invert(uint8_t new_inverted)
+void mln_gpio::invert(bool new_inverted)
 {
 	if(dir == OUTPUT && new_inverted != inverted)
 		toggle();

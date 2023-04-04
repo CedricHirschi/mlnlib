@@ -181,6 +181,12 @@
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="mln\mln_timer.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mln\mln_timer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="mln\mln_uart.cpp">
       <SubType>compile</SubType>
     </Compile>

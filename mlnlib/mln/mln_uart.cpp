@@ -13,6 +13,39 @@
 
 mln_uart *mln_uart_stream_uart;
 
+USART_t* MLN_UART_TO_USART(UART_t uart)
+{
+	switch(uart)
+	{
+		case UART0:
+			return &USART0;
+		break;
+		case UART1:
+			return &USART1;
+		break;
+		case UART2:
+			return &USART2;
+		break;
+		#ifdef USART3
+		case UART3:
+			return &USART3;
+		break;
+		#endif
+		#ifdef USART4
+		case UART4:
+			return &USART4;
+		break;
+		#endif
+		#ifdef USART5
+		case UART5:
+			return &USART5;
+		break;
+		#endif
+	}
+	
+	return &USART0;
+}
+
 int mln_uart_stream_write(char character, FILE *f)
 {
 	mln_uart_stream_uart->write(character);
@@ -47,33 +80,7 @@ mln_uart::mln_uart(UART_t new_inst, uint32_t baud)
 	memset(buffer, 0, sizeof(buffer));
 	index = 0;
 		
-	switch(new_inst)
-	{
-		case UART0:
-			inst = &USART0;
-			break;
-		case UART1:
-			inst = &USART1;
-			break;
-		case UART2:
-			inst = &USART2;
-			break;
-		#ifdef USART3
-		case UART3:
-			inst = &USART3;
-			break;
-		#endif
-		#ifdef USART4
-		case UART4:
-			inst = &USART4;
-			break;
-		#endif
-		#ifdef USART5
-		case UART5:
-			inst = &USART5;
-			break;
-		#endif
-	}
+	inst = MLN_UART_TO_USART(new_inst);
 	
 	init_pins(new_inst);
 	
@@ -187,4 +194,13 @@ bool mln_uart::is_busy_rx(void)
 bool mln_uart::data_available(void)
 {
 	return index;
+}
+
+
+
+ISR(USART3_RXC_vect)
+{
+	mln_uart_stream_uart->push();
+	if(!mln_uart_stream_uart->is_busy_rx())
+		mln_uart_stream_uart->isr();
 }

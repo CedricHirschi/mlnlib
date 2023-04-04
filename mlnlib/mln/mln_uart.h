@@ -12,6 +12,7 @@
 #include <avr/io.h>
 #include <stdio.h>
 #include <string.h>
+#include <avr/interrupt.h>
 
 #include "mln_gpio.h"
 
@@ -71,6 +72,8 @@ typedef enum mln_uart_inst_e
 	UART5,
 	#endif
 } UART_t;
+
+USART_t* MLN_UART_TO_USART(UART_t uart);
 
 int mln_uart_stream_write(char character, FILE *f);
 int mln_uart_stream_read(FILE *f);
