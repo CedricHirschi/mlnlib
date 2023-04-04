@@ -11,6 +11,34 @@
 //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //////////////////////////////////////////////////////////////////////////
 
+mln_uart *mln_uart_stream_uart;
+
+int mln_uart_stream_write(char character, FILE *f)
+{
+	mln_uart_stream_uart->write(character);
+	return 0;
+}
+
+int mln_uart_stream_read(FILE *f)
+{
+	return mln_uart_stream_uart->read();
+}
+
+/* void mln_uart_init_stream(mln_uart* uart)
+{
+	mln_uart_stream_uart = uart;
+	
+	uart->f.get = mln_uart_stream_read;
+	uart->f.put = mln_uart_stream_write;
+	uart->f.flags = _FDEV_SETUP_RW;
+
+	stdout = &uart->f;
+	stdin = &uart->f;
+} */
+
+//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//////////////////////////////////////////////////////////////////////////
+
 mln_uart::mln_uart(UART_t new_inst, uint32_t baud)
 {
 	if(new_inst > MLN_UART_NUM_INSTS)
@@ -54,10 +82,8 @@ mln_uart::mln_uart(UART_t new_inst, uint32_t baud)
 	inst->CTRLA = USART_RXCIE_bm;
 	
 	inst->CTRLB = USART_RXEN_bm | USART_RXMODE_NORMAL_gc | USART_TXEN_bm;
-}
-
-mln_uart::~mln_uart()
-{
+	
+	init_stream();
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -99,6 +125,18 @@ void mln_uart::init_pins(UART_t new_inst)
 	}
 }
 
+void mln_uart::init_stream(void)
+{
+	mln_uart_stream_uart = this;
+	
+	mln_uart_stream_uart->f.get = mln_uart_stream_read;
+	mln_uart_stream_uart->f.put = mln_uart_stream_write;
+	mln_uart_stream_uart->f.flags = _FDEV_SETUP_RW;
+
+	stdout = &mln_uart_stream_uart->f;
+	stdin = &mln_uart_stream_uart->f;
+}
+
 //////////////////////////////////////////////////////////////////////////
 
 void mln_uart::set_isr(void (*new_isr)(void))
@@ -128,7 +166,7 @@ void mln_uart::push(void)
 	index = (index + 1) % MLN_UART_BUF_SIZE;
 }
 
-uint8_t mln_uart::pull(uint8_t* new_buffer)
+void mln_uart::pull(uint8_t* new_buffer)
 {
 	memccpy(new_buffer, buffer, 0, MLN_UART_BUF_SIZE);
 	index = 0;

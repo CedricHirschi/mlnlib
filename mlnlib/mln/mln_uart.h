@@ -72,6 +72,9 @@ typedef enum mln_uart_inst_e
 	#endif
 } UART_t;
 
+int mln_uart_stream_write(char character, FILE *f);
+int mln_uart_stream_read(FILE *f);
+
 class mln_uart
 {
 public:
@@ -86,17 +89,19 @@ public:
 	uint8_t buffer[MLN_UART_BUF_SIZE];
 	uint8_t index;
 	
+	FILE f;
+	
 	void (*isr)(void);
 	
 	//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	//////////////////////////////////////////////////////////////////////////
 	
 	mln_uart(UART_t new_inst, uint32_t baud);
-	~mln_uart();
 	
 	//////////////////////////////////////////////////////////////////////////
 	
 	void init_pins(UART_t new_inst);
+	void init_stream(void);
 	
 	//////////////////////////////////////////////////////////////////////////
 	
@@ -108,7 +113,7 @@ public:
 	uint8_t read(void);
 	
 	void push(void);
-	uint8_t pull(uint8_t* buffer);
+	void pull(uint8_t* buffer);
 	
 	//////////////////////////////////////////////////////////////////////////
 	
@@ -123,5 +128,6 @@ private:
 	
 }; //mln_uart
 
+// void mln_uart_init_stream(mln_uart* uart);
 
 #endif //__MLN_UART_H__
