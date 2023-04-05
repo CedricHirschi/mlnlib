@@ -4,6 +4,8 @@
 
 devices\mcp4822.cpp
 
+mln\mln_adc.cpp
+
 mln\mln_gpio.cpp
 
 main.cpp

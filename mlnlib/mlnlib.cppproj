@@ -176,7 +176,16 @@
     <Compile Include="devices\mcp4822.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="mln\mln_adc.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mln\mln_adc.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="mln\mln_common.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mln\mln_dac.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="mln\mln_gpio.cpp">
@@ -204,6 +213,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="mln\mln_uart.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mln\mln_vref.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="mln\tester.h">
