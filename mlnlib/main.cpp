@@ -49,6 +49,8 @@ int main(void)
 			(gain == GAIN1) ? (gain = GAIN2) : (gain = GAIN1);
 
 			dac.set_gain(gain);
+			
+			// printf("Gain: %u\n", dac.gain);
 		}
     }
 }

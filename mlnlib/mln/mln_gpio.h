@@ -111,11 +111,11 @@ typedef enum mln_gpio_pin_pull_e
 
 class mln_gpio
 {
-public:
 	PIN_t pin;
 	PIN_DIR_t dir;
 	uint8_t inverted;
 	
+public:
 	mln_gpio();
 	mln_gpio(PIN_t new_pin, PIN_DIR_t new_dir, uint8_t new_inverted = 0);
 	
@@ -129,10 +129,6 @@ public:
 	
 	void conf_dir(PIN_DIR_t new_dir);
 	void conf_pull(PIN_DIR_t new_pull);
-
-	// assignment operator
-private:
-
 }; //mln_gpio
 
 #endif //__MLN_GPIO_H__

@@ -27,21 +27,19 @@ typedef enum mln_spi_channel_s
 
 class mcp4822
 {
-public:
 	mln_spi spi;
 	mln_gpio ldac;
+	
 	MCP4822_GAIN_t gain;
 
 	uint8_t buffer[2];
-
+	
+public:
 	mcp4822(SPI_t *new_spi, PIN_t cs, PIN_t new_ldac);
 
 	void set_gain(MCP4822_GAIN_t new_gain);
 
 	void write(MCP4822_CHANNEL_t channel, uint16_t value);
-
-private:
-
 }; //mcp4822
 
 #endif //__MCP4822_H__

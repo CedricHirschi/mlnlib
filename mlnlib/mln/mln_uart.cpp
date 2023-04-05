@@ -8,7 +8,6 @@
 
 #include "mln_uart.h"
 
-//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //////////////////////////////////////////////////////////////////////////
 
 mln_uart *mln_uart_stream_uart;
@@ -69,7 +68,6 @@ int mln_uart_stream_read(FILE *f)
 	stdin = &uart->f;
 } */
 
-//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //////////////////////////////////////////////////////////////////////////
 
 mln_uart::mln_uart(UART_t new_inst, uint32_t baud)
@@ -180,6 +178,11 @@ void mln_uart::pull(uint8_t* new_buffer)
 	memset(buffer, 0, sizeof(buffer));
 }
 
+void mln_uart::run_isr(void)
+{
+	isr();
+}
+
 //////////////////////////////////////////////////////////////////////////
 
 bool mln_uart::is_busy_tx(void)
@@ -202,5 +205,5 @@ ISR(USART3_RXC_vect)
 {
 	mln_uart_stream_uart->push();
 	if(!mln_uart_stream_uart->is_busy_rx())
-		mln_uart_stream_uart->isr();
+		mln_uart_stream_uart->run_isr();
 }

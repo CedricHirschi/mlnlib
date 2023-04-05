@@ -31,11 +31,11 @@ uint8_t TIMER_GET_DIV(uint16_t period);
 
 class mln_timer
 {
-public:
 	TCA_t *tim;
-	
+
 	float actual_period;
 	
+public:
 	void(*isr)(void);
 	
 #ifdef TCA1
@@ -51,9 +51,6 @@ public:
 	
 	bool is_running(void);
 	float get_period(void);
-	
-private:
-
 }; //mln_timer
 
 #endif //__MLN_TIMER_H__
