@@ -196,12 +196,12 @@ Where:
 - $T_{max}$ is the maximum period in seconds
 - $P$ is the timer clock divider (e.g., 1, 2, 4, 8, 16, 64, 256, or 1'024)
 - $F_{CPU}$ is the microcontroller's clock frequency in Hz (e.g., 4 MHz)
-- $top$ is the top value that is written in the `PER` register ( max. $2^n - 1$ for a $n$-bit timer)
+- $top$ is the top value that is written in the `PER` register (the maximum value the counter counts up to) ( max. $2^n - 1$ for a $n$-bit timer)
 
 For example, if you have a 16-bit timer with unchanged `PER` register, a prescaler of 256 and a clock frequency of 4 MHz, you can calculate the maximum period as follows:
 
 $$
-T_{max} = \frac{256 \cdot (65,535)}{4'000'000} \approx 4.19\ s
+T_{max} = \frac{256 \cdot 65,535}{4'000'000} \approx 4.19\ s
 $$
 
 ### Calculating the register value
@@ -240,7 +240,7 @@ Where:
 For example, if you have a $per$ value of 30000, a prescaler of 64, and a clock frequency of 4 MHz, you can calculate the achieved period as follows:
 
 $$
-T_{ach} = \frac{(30000 + 1) \cdot 64}{4'000'000} \approx 480\ ms
+T_{ach} = \frac{(30'000 + 1) \cdot 64}{4'000'000} \approx 480\ ms
 $$
 
 ### Calculating the achieved error and maximum error
@@ -248,7 +248,7 @@ $$
 Calculating the error in regards to the desired period $T_{des}$, you can use the following formula:
 
 $$
-\epsilon = T_{ach} - T_{des} = \frac{(\left \lfloor \frac{F_{CPU} \cdot T_{des}}{P} - 1 \right \rfloor + 1) \cdot P}{F_{CPU}} - T_{des} = \frac{\left \lfloor \frac{F_{CPU} \cdot T_{des}}{P} \right \rfloor \cdot P}{F_{CPU}} - T_{des}
+\epsilon = T_{ach} - T_{des} = \frac{\left [ \left (\left \lfloor \frac{F_{CPU} \cdot T_{des}}{P} \right \rfloor - 1 \right ) + 1 \right] \cdot P}{F_{CPU}} - T_{des} = \frac{\left \lfloor \frac{F_{CPU} \cdot T_{des}}{P} \right \rfloor \cdot P}{F_{CPU}} - T_{des}
 $$
 
 The maximum error is $P / F_{CPU}$, which is the smallest possible period increment.

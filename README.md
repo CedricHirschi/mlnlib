@@ -6,17 +6,17 @@ The libraries are written in C++ and are designed to be used with the g++ compil
 
 Libraries for the following peripherals are currently included:
 
-* GPIO (no PWM yet)
-* Timer tasks (TCA)
-* SPI
-* UART
-* VREF
-* ADC
-* DAC
+* [GPIO](mlnlib/mln/mln_gpio.h) (no PWM yet)
+* [Timer tasks](mlnlib/mln/mln_timer.h) (TCA, no PWM yet)
+* [SPI](mlnlib/mln/mln_spi.h)
+* [UART](mlnlib/mln/mln_uart.h)
+* [VREF](mlnlib/mln/mln_vref.h)
+* [ADC](mlnlib/mln/mln_adc.h)
+* [DAC](mlnlib/mln/mln_dac.h)
 
 There are also some implementations for some external devices:
 
-* MCP4822
+* [MCP4822](mlnlib/devices/mcp4822.h)
 
 ## Installation
 
@@ -29,8 +29,15 @@ Manuals can be found in the [`man`](man) folder.
 These include:
 
 * Manuals for the libraries (can also be accessed by clicking on the links above)
-* A manual for some methods that are used in the libraries
+* A manual for some [methods](man/methods.md) that are used in the libraries
 
 ## Examples
 
 Examples for the libraries can be found in the [`examples`](examples) folder.
+
+## Building for testing
+
+The library can be tested inside [`main.cpp`](mlnlib/main.cpp). As this library was developed in Microchip Studio 7, the following methods are available to build the library for testing:
+
+1. Open the project in Microchip Studio 7 and build / run the project
+2. Run `make all` in the [`Debug`](mlnlib/Debug) folder to get the binaries and upload them to the microcontroller using a different tool
