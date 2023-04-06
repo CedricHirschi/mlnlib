@@ -1,0 +1,10 @@
+# ignore binary files such as .o, .d or .eep, .elf, .hex, .lss, .map, .srec
+*.o
+*.d
+
+*.eep
+*.elf
+*.hex
+*.lss
+*.map
+*.srec
