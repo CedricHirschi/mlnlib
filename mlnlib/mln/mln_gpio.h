@@ -90,45 +90,62 @@
 #define PG7 (PIN_t){&PORTG, 7}
 #endif
 
-typedef struct mln_gpio_pin_s
+typedef struct
 {
 	PORT_t *port;
 	uint8_t pin_num;
 } PIN_t;
 
-typedef enum mln_gpio_pin_dirs_e
+typedef enum
 {
 	OUTPUT,
 	INPUT,
 	INPUT_PULLUP
 } PIN_DIR_t;
 
-typedef enum mln_gpio_pin_pull_e
-{
-	NOPULL,
-	PULLUP
-} PIN_PULL_t;
-
 class mln_gpio
 {
-	PIN_t pin;
-	PIN_DIR_t dir;
-	uint8_t inverted;
+	PORT_t *port;
+	volatile uint8_t pin_num;
+	volatile uint8_t pin_bm;
 	
 public:
-	mln_gpio();
-	mln_gpio(PIN_t new_pin, PIN_DIR_t new_dir, uint8_t new_inverted = 0);
+	mln_gpio() = default;
+	inline mln_gpio(const PIN_t& new_pin, const PIN_DIR_t& new_dir)
+	{
+		port = new_pin.port;
+		pin_num = new_pin.pin_num;
+		pin_bm = (1 << pin_num);
+		
+		(new_dir ? port->DIRCLR : port->DIRSET) = pin_bm;
+	}
 	
-	void set(void);
-	void clear(void);
-	void toggle(void);
-	void put(bool val);
-	void invert(bool val);
+	inline const void set(void) { port->OUTSET = pin_bm; }
+	inline const void clear(void) { port->OUTCLR = pin_bm; }
+	inline const void toggle(void) { port->OUTTGL = pin_bm; }
+	inline const void put(bool val) { (val ? port->OUTSET : port->OUTCLR) = pin_bm; }
 	
-	uint8_t get(void);
+	inline const bool get(void) { return port->IN & pin_bm; }
 	
-	void conf_dir(PIN_DIR_t new_dir);
-	void conf_pull(PIN_DIR_t new_pull);
+	inline void conf_dir(const PIN_DIR_t& new_dir)
+	{
+		if(new_dir == OUTPUT)
+		port->DIR |= pin_bm;
+		else
+		port->DIR &= ~pin_bm;
+		
+		conf_pull(new_dir);
+	}
+	inline void conf_pull(const PIN_DIR_t& new_pull)
+	{
+		uint8_t* conf_port = (uint8_t *)port + 0x10 + pin_num;
+		
+		if(new_pull == INPUT_PULLUP)
+			*conf_port |= PORT_PULLUPEN_bm;
+		else
+			*conf_port &= ~PORT_PULLUPEN_bm;
+	}
+	
 }; //mln_gpio
 
 #endif //__MLN_GPIO_H__
