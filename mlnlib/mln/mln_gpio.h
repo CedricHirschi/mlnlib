@@ -92,7 +92,7 @@
 
 typedef struct
 {
-	PORT_t *port;
+	volatile PORT_t *port;
 	uint8_t pin_num;
 } PIN_t;
 
@@ -105,9 +105,9 @@ typedef enum
 
 class mln_gpio
 {
-	PORT_t *port;
-	volatile uint8_t pin_num;
-	volatile uint8_t pin_bm;
+	volatile PORT_t *port;
+	uint8_t pin_num;
+	uint8_t pin_bm;
 	
 public:
 	mln_gpio() = default;

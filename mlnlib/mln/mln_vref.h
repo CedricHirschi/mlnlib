@@ -29,10 +29,7 @@ struct mln_vref
 {
 	bool standby = false;
 
-	void config(bool new_standby)
-	{
-		standby = new_standby;
-	}
+	void config(bool new_standby) { standby = new_standby; }
 
 	void set(VREF_SEL_t dac, VREF_SEL_t adc)
 	{

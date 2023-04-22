@@ -42,22 +42,20 @@ int main(void)
 
 	while (1)
 	{
+		dac_value = (dac_value + 16) % 4096;
+
+		dac_intern.set(dac_value / 4);
 		dac.write(CHANNELA, dac_value);
 		dac.write(CHANNELB, 4095 - dac_value);
-		led_builtin.set();
-		led_builtin.clear();
     }
 }
 
 void led_task(void)
 {
-	led_builtin.toggle();
+	led_builtin.clear();
+	led_builtin.set();
 
 	printf("A = %u\tB = %u\tdac = %u\n", adc.read(PD0), adc.read(PD1), adc.read(DAC));
-
-	dac_value = (dac_value + 16) % 4096;
-
-	dac_intern.set(dac_value / 4);
 
 	if(uart.data_available())
 	{
