@@ -13,30 +13,34 @@ struct mln_dac
 {
 	bool standby = false;
 	bool buffer = false;
-
-	void config(bool new_standby, bool new_buffer)
+	
+	/*
+	* @brief Configure the DAC peripheral
+	* 
+	* @param standby Whether peripheral is active when device is in standby
+	* @param buffer Whether DAC output is output on pin
+	*/
+	inline void config(bool standby, bool buffer)
 	{
-		standby = new_standby;
-		buffer = new_buffer;
-	}
-
-	void start(void)
-	{
-		DAC0.CTRLA |= 0x01;
-
 		buffer ? (DAC0.CTRLA |= 0x40) : (DAC0.CTRLA &= ~0x40);
 		standby ? (DAC0.CTRLA |= 0x80) : (DAC0.CTRLA &= ~0x80);
 	}
-
-	void stop(void)
-	{
-		DAC0.CTRLA &= ~0x01;
-	}
-
-	void set(uint16_t value)
-	{
-		DAC0.DATA = value << 6;
-	}
+	
+	/*
+	* @brief Enable the DAC peripheral
+	*/
+	inline const void enable(void) { DAC0.CTRLA |= DAC_ENABLE_bm; }
+	/*
+	* @brief Disable the DAC peripheral
+	*/
+	inline const void disable(void) { DAC0.CTRLA &= ~DAC_ENABLE_bm; }
+	
+	/*
+	* @brief Set the output of the DAC peripheral
+	*
+	* @param value The output to set to
+	*/
+	inline const void set(uint16_t value) { DAC0.DATA = value << 6; }
 };
 
 #endif /* MLN_DAC_H_ */

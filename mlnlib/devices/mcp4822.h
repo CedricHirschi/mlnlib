@@ -56,7 +56,13 @@ public:
 	 * @param cs Chip select pin
 	 * @param new_ldac LDAC pin
 	 */
-	mcp4822(SPI_t *new_spi, PIN_t cs, PIN_t new_ldac);
+	mcp4822(SPI_t *new_spi, PIN_t cs, PIN_t new_ldac)
+	{
+		spi = mln_spi(new_spi, cs);
+		ldac = mln_gpio(new_ldac, OUTPUT);
+
+		ldac.set();
+	}
 
 	/**
 	 * @brief Set the gain of the DAC
@@ -65,7 +71,7 @@ public:
 	 *
 	 * @note The gain is set for both channels, only applies from the next write
 	 */
-	void set_gain(MCP4822_GAIN_t new_gain);
+	void set_gain(MCP4822_GAIN_t new_gain) { gain = new_gain; }
 
 	/**
 	 * @brief Write a value to the DAC
@@ -73,7 +79,15 @@ public:
 	 * @param channel The channel to write to
 	 * @param value The value to write
 	 */
-	void write(MCP4822_CHANNEL_t channel, uint16_t value);
+	void write(MCP4822_CHANNEL_t channel, uint16_t value)
+	{
+		buffer[0] = (channel << 7) | (gain << 5) | MCP4822_ENABLE_bm | (uint8_t)(value >> 8);
+		buffer[1] = (uint8_t)(value & 0xFF);
+
+		spi.write(buffer, 2);
+		ldac.clear();
+		ldac.set();
+	}
 }; // mcp4822
 
 #endif //__MCP4822_H__

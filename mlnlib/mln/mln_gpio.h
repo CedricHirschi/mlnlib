@@ -120,32 +120,54 @@ public:
 		(new_dir ? port->DIRCLR : port->DIRSET) = pin_bm;
 	}
 	
+	/*
+	* @brief Set pin to HIGH
+	*/
 	inline const void set(void) { port->OUTSET = pin_bm; }
+	/*
+	* @brief Clear pin to LOW
+	*/
 	inline const void clear(void) { port->OUTCLR = pin_bm; }
+	/*
+	* @brief Toggle pin value
+	*/
 	inline const void toggle(void) { port->OUTTGL = pin_bm; }
+	/*
+	* @brief Put value on pin
+	*
+	* @param val Value to put on pin
+	*/
 	inline const void put(bool val) { (val ? port->OUTSET : port->OUTCLR) = pin_bm; }
 	
+	/*
+	* @brief Get value of pin
+	*/
 	inline const bool get(void) { return port->IN & pin_bm; }
 	
-	inline void conf_dir(const PIN_DIR_t& new_dir)
+	/*
+	* @brief Configure direction of pin
+	*
+	* @param dir Direction to be set
+	*/
+	inline void conf_dir(const PIN_DIR_t& dir)
 	{
-		if(new_dir == OUTPUT)
-		port->DIR |= pin_bm;
-		else
-		port->DIR &= ~pin_bm;
+		if(dir == OUTPUT) port->DIR |= pin_bm;
+		else port->DIR &= ~pin_bm;
 		
-		conf_pull(new_dir);
+		conf_pull(dir);
 	}
-	inline void conf_pull(const PIN_DIR_t& new_pull)
+	/*
+	* @brief Configure pull of pin
+	*
+	* @param pull Direction to be set
+	*/
+	inline void conf_pull(const PIN_DIR_t& pull)
 	{
 		uint8_t* conf_port = (uint8_t *)port + 0x10 + pin_num;
 		
-		if(new_pull == INPUT_PULLUP)
-			*conf_port |= PORT_PULLUPEN_bm;
-		else
-			*conf_port &= ~PORT_PULLUPEN_bm;
+		if(pull == INPUT_PULLUP) *conf_port |= PORT_PULLUPEN_bm;
+		else *conf_port &= ~PORT_PULLUPEN_bm;
 	}
-	
 }; //mln_gpio
 
 #endif //__MLN_GPIO_H__

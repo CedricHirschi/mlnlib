@@ -30,15 +30,117 @@ class mln_spi
 	mln_gpio cs;
 
 public:
-	mln_spi(SPI_t *new_spi, PIN_t cs, uint8_t mode);
-	mln_spi(SPI_t *new_spi, PIN_t cs);
-	mln_spi(SPI_t *new_spi, uint8_t mode);
-	mln_spi(SPI_t *new_spi);
-	mln_spi();
+	mln_spi() : spi(&SPI0) {}
+	mln_spi(SPI_t *new_spi)
+	{
+		spi = new_spi;
 
-	void exchange(uint8_t *buffer, uint8_t length);
-	void write(uint8_t *buffer, uint8_t length);
-	void read(uint8_t *buffer, uint8_t length);
+		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_MOSI : MLN_SPI1_PIN_MOSI), OUTPUT);
+		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_MISO : MLN_SPI1_PIN_MISO), INPUT);
+		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_SCK : MLN_SPI1_PIN_SCK), OUTPUT);
+
+		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | SPI_CLK2X_bm;
+	}
+	mln_spi(SPI_t *new_spi, uint8_t mode)
+	{
+		spi = new_spi;
+
+		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_MOSI : MLN_SPI1_PIN_MOSI), OUTPUT);
+		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_MISO : MLN_SPI1_PIN_MISO), INPUT);
+		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_SCK : MLN_SPI1_PIN_SCK), OUTPUT);
+
+		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | SPI_CLK2X_bm;
+		spi->CTRLB = mode;
+	}
+	mln_spi(SPI_t *new_spi, PIN_t new_cs)
+	{
+		spi = new_spi;
+		cs = mln_gpio(new_cs, OUTPUT);
+
+		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_MOSI : MLN_SPI1_PIN_MOSI), OUTPUT);
+		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_MISO : MLN_SPI1_PIN_MISO), INPUT);
+		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_SCK : MLN_SPI1_PIN_SCK), OUTPUT);
+
+		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | SPI_CLK2X_bm;
+	}
+	mln_spi(SPI_t *new_spi, PIN_t new_cs, uint8_t mode)
+	{
+		spi = new_spi;
+		cs = mln_gpio(new_cs, OUTPUT);
+
+		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_MOSI : MLN_SPI1_PIN_MOSI), OUTPUT);
+		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_MISO : MLN_SPI1_PIN_MISO), INPUT);
+		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_SCK : MLN_SPI1_PIN_SCK), OUTPUT);
+
+		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | SPI_CLK2X_bm;
+		spi->CTRLB = mode;
+	}
+
+	/*
+	* @brief Exchange package with SPI peripheral
+	*
+	* @param[in] *buffer Pointer to data buffer to be sent
+	* @param[out] *buffer Pointer to data buffer received
+	* @param length Length of buffer
+	*/
+	inline const void exchange(uint8_t *buffer, uint8_t length)
+	{
+		cs.clear();
+
+		while (length--)
+		{
+			spi->DATA = *buffer;
+			
+			while (!(spi->INTFLAGS & SPI_RXCIF_bm));
+			
+			*buffer = spi->DATA;
+			buffer++;
+		}
+
+		cs.clear();
+	}
+	/*
+	* @brief Send package with SPI peripheral
+	*
+	* @param *buffer Pointer to data buffer to be sent
+	* @param length Length of buffer
+	*/
+	inline const void write(uint8_t *buffer, uint8_t length)
+	{
+		cs.clear();
+
+		while (length--)
+		{
+			spi->DATA = *buffer;
+			buffer++;
+			
+			while (!(spi->INTFLAGS & SPI_RXCIF_bm));
+		}
+
+		cs.set();
+	}
+	/*
+	* @brief Receive package with SPI peripheral
+	*
+	* @param[out] *buffer Pointer to data buffer to be received
+	* @param length Length of buffer
+	*/
+	inline const void read(uint8_t *buffer, uint8_t length)
+	{
+		cs.clear();
+
+		while (length--)
+		{
+			spi->DATA = 0;
+			
+			while (!(spi->INTFLAGS & SPI_RXCIF_bm));
+			
+			*buffer = spi->DATA;
+			buffer++;
+		}
+
+		cs.set();
+	}
 }; // mln_spi
 
 #endif //__MLN_SPI_H__

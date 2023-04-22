@@ -39,12 +39,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../devices/mcp4822.cpp \
-../mln/mln_adc.cpp \
-../main.cpp \
-../mln/mln_spi.cpp \
-../mln/mln_timer.cpp \
-../mln/mln_uart.cpp
+../main.cpp
 
 
 PREPROCESSING_SRCS += 
@@ -54,36 +49,16 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-devices/mcp4822.o \
-mln/mln_adc.o \
-main.o \
-mln/mln_spi.o \
-mln/mln_timer.o \
-mln/mln_uart.o
+main.o
 
 OBJS_AS_ARGS +=  \
-devices/mcp4822.o \
-mln/mln_adc.o \
-main.o \
-mln/mln_spi.o \
-mln/mln_timer.o \
-mln/mln_uart.o
+main.o
 
 C_DEPS +=  \
-devices/mcp4822.d \
-mln/mln_adc.d \
-main.d \
-mln/mln_spi.d \
-mln/mln_timer.d \
-mln/mln_uart.d
+main.d
 
 C_DEPS_AS_ARGS +=  \
-devices/mcp4822.d \
-mln/mln_adc.d \
-main.d \
-mln/mln_spi.d \
-mln/mln_timer.d \
-mln/mln_uart.d
+main.d
 
 OUTPUT_FILE_PATH +=mlnlib.elf
 
@@ -99,42 +74,7 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-devices/mcp4822.o: ../devices/mcp4822.cpp
-	@echo Building file: $<
-	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\AVR-Dx_DFP\1.10.114\include"  -O3 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=avr128db48 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\AVR-Dx_DFP\1.10.114\gcc\dev\avr128db48" -c -std=gnu++14 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-mln/mln_adc.o: ../mln/mln_adc.cpp
-	@echo Building file: $<
-	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\AVR-Dx_DFP\1.10.114\include"  -O3 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=avr128db48 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\AVR-Dx_DFP\1.10.114\gcc\dev\avr128db48" -c -std=gnu++14 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
 ./main.o: .././main.cpp
-	@echo Building file: $<
-	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\AVR-Dx_DFP\1.10.114\include"  -O3 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=avr128db48 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\AVR-Dx_DFP\1.10.114\gcc\dev\avr128db48" -c -std=gnu++14 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-mln/mln_spi.o: ../mln/mln_spi.cpp
-	@echo Building file: $<
-	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\AVR-Dx_DFP\1.10.114\include"  -O3 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=avr128db48 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\AVR-Dx_DFP\1.10.114\gcc\dev\avr128db48" -c -std=gnu++14 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-mln/mln_timer.o: ../mln/mln_timer.cpp
-	@echo Building file: $<
-	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\AVR-Dx_DFP\1.10.114\include"  -O3 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=avr128db48 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\AVR-Dx_DFP\1.10.114\gcc\dev\avr128db48" -c -std=gnu++14 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-mln/mln_uart.o: ../mln/mln_uart.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\AVR-Dx_DFP\1.10.114\include"  -O3 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=avr128db48 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\AVR-Dx_DFP\1.10.114\gcc\dev\avr128db48" -c -std=gnu++14 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

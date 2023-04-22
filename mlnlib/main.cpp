@@ -7,12 +7,16 @@
 
 #include "mln/mln_common.h"
 
-mln_gpio led_builtin = mln_gpio(PB3, OUTPUT);
+mln_gpio led_builtin(PB3, OUTPUT);
 
-mln_uart uart = mln_uart(UART3, 115200);
+mln_uart uart(UART3, 115200);
 
-mln_adc adc = mln_adc();
-mln_dac dac_intern = mln_dac();
+mln_vref vref;
+mln_adc adc;
+mln_dac dac_intern;
+mcp4822 dac(&SPI0, PC7, PC3);
+
+mln_timer led_timer(TIMER0, 250);
 
 uint16_t dac_value = 0;
 
@@ -20,31 +24,24 @@ void led_task(void);
 
 int main(void)
 {
-	mln_timer led_timer = mln_timer(TIMER0, 250);
-
-	mln_vref vref;
-	mcp4822 dac = mcp4822(&SPI0, PC7, PC3);
-
-	uint8_t direction = 0;
-	
 	vref.config(true);
-	dac_intern.config(true, false);
-
-	led_timer.set_isr(led_task);
 	vref.set(_2V048, _2V048);
+	
+	dac_intern.config(true, true);		
 	dac.set_gain(GAIN1);
-
-	adc.enable(true);
-	dac_intern.start();
+	adc.enable();
+	dac_intern.enable();
+	
+	led_timer.set_isr(led_task);
 	led_timer.start();
 
 	sei();
 
 	while (1)
 	{
-		dac_value = (dac_value + 16) % 4096;
+		dac_value = (dac_value + 1) % 4096;
 
-		dac_intern.set(dac_value / 4);
+		dac_intern.set(dac_value >> 2);
 		dac.write(CHANNELA, dac_value);
 		dac.write(CHANNELB, 4095 - dac_value);
     }
@@ -52,15 +49,15 @@ int main(void)
 
 void led_task(void)
 {
-	led_builtin.clear();
-	led_builtin.set();
+	led_builtin.toggle();
 
-	printf("A = %u\tB = %u\tdac = %u\n", adc.read(PD0), adc.read(PD1), adc.read(DAC));
+	printf("%u\t%u\t%u\t%u\n", dac_value, adc.read(PD0), adc.read(PD1), adc.read(DAC));
 
 	if(uart.data_available())
 	{
-		uint8_t buffer[MLN_UART_BUF_SIZE];
+		uint8_t n = uart.data_available();
+		uint8_t buffer[n];
 		uart.pull(buffer);
-		printf("Received '%s'\n", buffer);
+		printf("Received '%s' of size %u\n", buffer, n);
 	}
 }
