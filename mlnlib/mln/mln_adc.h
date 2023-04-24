@@ -74,19 +74,19 @@ class mln_adc
 	inline const uint16_t result(void) { return adc->RES >> MLN_ADC_SHIFT(adc->CTRLB); }
 
 public:
-	mln_adc()
+	inline mln_adc()
 	{
 		adc = &ADC0;
 
 		adc->MUXPOS = GND;
 	}
-	mln_adc(PIN_t pin)
+	inline mln_adc(PIN_t pin)
 	{
 		adc = &ADC0;
 
 		set_in(pin);
 	}
-	mln_adc(ADC_IN_t in)
+	inline mln_adc(ADC_IN_t in)
 	{
 		adc = &ADC0;
 

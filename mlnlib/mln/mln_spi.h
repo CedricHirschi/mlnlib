@@ -33,7 +33,7 @@ class mln_spi
 
 public:
 	mln_spi() : spi(&SPI0) {}
-	mln_spi(SPI_t *new_spi)
+	inline mln_spi(SPI_t *new_spi)
 	{
 		spi = new_spi;
 
@@ -43,7 +43,7 @@ public:
 
 		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | MLN_SPI_CLKSEL;
 	}
-	mln_spi(SPI_t *new_spi, uint8_t mode)
+	inline mln_spi(SPI_t *new_spi, uint8_t mode)
 	{
 		spi = new_spi;
 
@@ -54,7 +54,7 @@ public:
 		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | MLN_SPI_CLKSEL;
 		spi->CTRLB = mode;
 	}
-	mln_spi(SPI_t *new_spi, PIN_t new_cs)
+	inline mln_spi(SPI_t *new_spi, PIN_t new_cs)
 	{
 		spi = new_spi;
 		cs = mln_gpio(new_cs, OUTPUT);
@@ -65,7 +65,7 @@ public:
 
 		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | MLN_SPI_CLKSEL;
 	}
-	mln_spi(SPI_t *new_spi, PIN_t new_cs, uint8_t mode)
+	inline mln_spi(SPI_t *new_spi, PIN_t new_cs, uint8_t mode)
 	{
 		spi = new_spi;
 		cs = mln_gpio(new_cs, OUTPUT);

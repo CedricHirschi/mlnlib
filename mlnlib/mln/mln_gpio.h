@@ -103,22 +103,42 @@ typedef enum
 	INPUT_PULLUP
 } PIN_DIR_t;
 
+typedef enum
+{
+	DISABLED,
+	BOTHEDGES,
+	RISING,
+	FALLING,
+	LOWLEVEL = 5
+} PIN_ISC_t;
+
 class mln_gpio
 {
 	volatile PORT_t *port;
+	volatile uint8_t conf_port;
 	uint8_t pin_num;
 	uint8_t pin_bm;
 	
 public:
-	mln_gpio() = default;
-	inline mln_gpio(const PIN_t& new_pin, const PIN_DIR_t& new_dir)
+	inline mln_gpio() = default;
+	inline mln_gpio(const PIN_t& new_pin, const PIN_DIR_t& dir, const bool inv = false)
 	{
 		port = new_pin.port;
 		pin_num = new_pin.pin_num;
 		pin_bm = (1 << pin_num);
 		
-		(new_dir ? port->DIRCLR : port->DIRSET) = pin_bm;
+		(dir ? port->DIRCLR : port->DIRSET) = pin_bm;
+
+		conf_port = *((volatile uint8_t *)port + 0x10 + pin_num);
+		conf_port = (uint8_t)(inv << 7);
 	}
+
+	/*
+	* @brief Attach interrupt to pin
+	*
+	* @param dir Interrupt type
+	*/
+	inline void attach_interrupt(PIN_ISC_t dir) { conf_port = (conf_port & 0xF8) | dir; }
 	
 	/*
 	* @brief Set pin to HIGH
@@ -163,10 +183,8 @@ public:
 	*/
 	inline void conf_pull(const PIN_DIR_t& pull)
 	{
-		uint8_t* conf_port = (uint8_t *)port + 0x10 + pin_num;
-		
-		if(pull == INPUT_PULLUP) *conf_port |= PORT_PULLUPEN_bm;
-		else *conf_port &= ~PORT_PULLUPEN_bm;
+		if(pull == INPUT_PULLUP) conf_port |= PORT_PULLUPEN_bm;
+		else conf_port &= ~PORT_PULLUPEN_bm;
 	}
 }; //mln_gpio
 

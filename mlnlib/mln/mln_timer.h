@@ -70,11 +70,11 @@ public:
 	void(*isr)(void);
 
 #ifdef TCA1
-	mln_timer(TIMER_t new_tim, uint16_t period)
+	inline mln_timer(TIMER_t new_tim, uint16_t period)
 	{
 	(new_tim == TIMER0) ? (tim = &TCA0) : (tim = &TCA1);
 #else
-	mln_timer(uint16_t period)
+	inline mln_timer(uint16_t period)
 	{
 		tim = &TCA0;
 #endif

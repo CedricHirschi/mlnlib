@@ -128,7 +128,7 @@ class mln_uart
 
 	void (*isr)(void);
 
-	void init_pins(UART_t new_inst)
+	inline void init_pins(UART_t new_inst)
 	{
 		switch(new_inst)
 		{
@@ -164,7 +164,7 @@ class mln_uart
 			#endif
 		}
 	}
-	void init_stream(void)
+	inline void init_stream(void)
 	{
 		mln_uart_stream_uart = this;
 
@@ -177,7 +177,7 @@ class mln_uart
 	}
 
 public:
-	mln_uart(UART_t new_inst, uint32_t baud)
+	inline mln_uart(UART_t new_inst, uint32_t baud)
 	{
 		if(new_inst > MLN_UART_NUM_INSTS)
 		return;

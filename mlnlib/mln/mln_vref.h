@@ -34,7 +34,7 @@ struct mln_vref
 	*
 	* @param new_standby Whether peripheral is active when device is in standby
 	*/
-	void config(bool new_standby) { standby = new_standby; }
+	inline void config(bool new_standby) { standby = new_standby; }
 	
 	/*
 	* @brief Set voltages of VREF peripheral
@@ -42,7 +42,7 @@ struct mln_vref
 	* @param dac Reference voltage of DAC peripheral to set
 	* @param adc Reference voltage of ADC peripheral to set
 	*/
-	void set(VREF_SEL_t dac, VREF_SEL_t adc)
+	inline const void set(VREF_SEL_t dac, VREF_SEL_t adc)
 	{
 		VREF.DAC0REF = (standby << 7) | dac;
 		VREF.ADC0REF = (standby << 7) | adc;
