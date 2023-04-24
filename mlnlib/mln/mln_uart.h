@@ -17,7 +17,7 @@
 #include "mln_gpio.h"
 
 #ifndef F_CPU
-#define F_CPU					24000000UL
+#error "F_CPU not defined"
 #endif
 
 #define MLN_UART_BAUD			115200

@@ -14,8 +14,7 @@
 #include <avr/interrupt.h>
 
 #ifndef F_CPU
-#pragma message("F_CPU already defined")
-#define F_CPU 24000000UL
+#error "F_CPU not defined"
 #endif
 
 #ifdef TCA1

@@ -9,9 +9,6 @@
 #ifndef MLN_COMMON_H_
 #define MLN_COMMON_H_
 
-
-#define F_CPU 24000000UL
-
 #include <stdio.h>
 #include <string.h>
 #include <avr/io.h>
