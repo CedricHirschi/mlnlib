@@ -24,6 +24,8 @@
 #define MLN_SPI1_PIN_SCK PC2  // ALT: PB6, PC5
 #define MLN_SPI1_PIN_SS PC3	  // ALT: PB7, PC7
 
+#define MLN_SPI_CLKSEL (SPI_CLK2X_bm)
+
 class mln_spi
 {
 	SPI_t *spi;
@@ -39,7 +41,7 @@ public:
 		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_MISO : MLN_SPI1_PIN_MISO), INPUT);
 		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_SCK : MLN_SPI1_PIN_SCK), OUTPUT);
 
-		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | SPI_CLK2X_bm;
+		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | MLN_SPI_CLKSEL;
 	}
 	mln_spi(SPI_t *new_spi, uint8_t mode)
 	{
@@ -49,7 +51,7 @@ public:
 		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_MISO : MLN_SPI1_PIN_MISO), INPUT);
 		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_SCK : MLN_SPI1_PIN_SCK), OUTPUT);
 
-		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | SPI_CLK2X_bm;
+		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | MLN_SPI_CLKSEL;
 		spi->CTRLB = mode;
 	}
 	mln_spi(SPI_t *new_spi, PIN_t new_cs)
@@ -61,7 +63,7 @@ public:
 		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_MISO : MLN_SPI1_PIN_MISO), INPUT);
 		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_SCK : MLN_SPI1_PIN_SCK), OUTPUT);
 
-		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | SPI_CLK2X_bm;
+		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | MLN_SPI_CLKSEL;
 	}
 	mln_spi(SPI_t *new_spi, PIN_t new_cs, uint8_t mode)
 	{
@@ -72,7 +74,7 @@ public:
 		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_MISO : MLN_SPI1_PIN_MISO), INPUT);
 		mln_gpio(((spi == &SPI0) ? MLN_SPI0_PIN_SCK : MLN_SPI1_PIN_SCK), OUTPUT);
 
-		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | SPI_CLK2X_bm;
+		spi->CTRLA = SPI_ENABLE_bm | SPI_MASTER_bm | MLN_SPI_CLKSEL;
 		spi->CTRLB = mode;
 	}
 
@@ -90,9 +92,9 @@ public:
 		while (length--)
 		{
 			spi->DATA = *buffer;
-			
+
 			while (!(spi->INTFLAGS & SPI_RXCIF_bm));
-			
+
 			*buffer = spi->DATA;
 			buffer++;
 		}
@@ -113,7 +115,7 @@ public:
 		{
 			spi->DATA = *buffer;
 			buffer++;
-			
+
 			while (!(spi->INTFLAGS & SPI_RXCIF_bm));
 		}
 
@@ -132,9 +134,9 @@ public:
 		while (length--)
 		{
 			spi->DATA = 0;
-			
+
 			while (!(spi->INTFLAGS & SPI_RXCIF_bm));
-			
+
 			*buffer = spi->DATA;
 			buffer++;
 		}

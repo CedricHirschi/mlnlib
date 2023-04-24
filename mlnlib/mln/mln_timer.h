@@ -1,4 +1,4 @@
-/* 
+/*
 * mln_timer.h
 *
 * Created: 04.04.2023 10:57:42
@@ -14,10 +14,9 @@
 #include <avr/interrupt.h>
 
 #ifndef F_CPU
-#define F_CPU 4000000UL
+#pragma message("F_CPU already defined")
+#define F_CPU 24000000UL
 #endif
-
-#define MLN_TIMER_MAX_PERIOD(divs)	(65535 * divs * 1000 / F_CPU)
 
 #ifdef TCA1
 typedef enum mln_timer_inst_e
@@ -36,6 +35,7 @@ mln_timer *timer1_isr;
 #endif
 
 const uint16_t mln_timer_divs[] = {1, 2, 4, 8, 16, 64, 256, 1024};
+uint32_t mln_max_periods[] = {65, 131, 262, 524, 1048, 4194, 16776, 67107};
 const TCA_SINGLE_CLKSEL_t mln_timer_divs_bm[] = {
 	TCA_SINGLE_CLKSEL_DIV1_gc,
 	TCA_SINGLE_CLKSEL_DIV2_gc,
@@ -47,17 +47,17 @@ const TCA_SINGLE_CLKSEL_t mln_timer_divs_bm[] = {
 	TCA_SINGLE_CLKSEL_DIV1024_gc
 };
 
-uint8_t MLN_TIMER_GET_DIV(uint16_t T)
+uint8_t MLN_TIMER_GET_DIV(uint32_t T)
 {
 	uint8_t index = 0;
-	
-	while(T > MLN_TIMER_MAX_PERIOD(mln_timer_divs[index]))
+
+	while(T > mln_max_periods[index])
 	{
 		index++;
 		if(index == sizeof(mln_timer_divs) / sizeof(uint16_t))
-		return -1;
+			return -1;
 	}
-	
+
 	return index;
 }
 
@@ -66,10 +66,10 @@ class mln_timer
 	TCA_t *tim;
 
 	float actual_period;
-	
+
 public:
 	void(*isr)(void);
-	
+
 #ifdef TCA1
 	mln_timer(TIMER_t new_tim, uint16_t period)
 	{
@@ -79,33 +79,36 @@ public:
 	{
 		tim = &TCA0;
 #endif
-		
+
+		for(uint8_t i = 0; i < sizeof(mln_timer_divs) / sizeof(uint16_t); i++)
+			mln_max_periods[i] /= F_CPU / 1000000UL;
+
 		uint8_t div_index = MLN_TIMER_GET_DIV(period);
 		TCA_SINGLE_CLKSEL_t TCA_SINGLE_CLKSEL_DIV_bm = mln_timer_divs_bm[div_index];
-		uint16_t max_period = (uint16_t)((float)period / (float)MLN_TIMER_MAX_PERIOD(mln_timer_divs[div_index]) * 65535.0f);
-		
+		uint16_t max_period = (uint16_t)((float)period * 65535.0f / (float)mln_max_periods[div_index]);
+
 		tim->SINGLE.INTCTRL = TCA_SINGLE_OVF_bm;
 		tim->SINGLE.PER = max_period;
 		tim->SINGLE.CTRLA = TCA_SINGLE_RUNSTDBY_bm;
 		tim->SINGLE.CTRLA |= TCA_SINGLE_CLKSEL_DIV_bm;
-		
-		actual_period = (float)max_period / 65535.0f * (float)MLN_TIMER_MAX_PERIOD(mln_timer_divs[div_index]);
+
+		actual_period = (float)max_period / 65535.0f * (float)mln_timer_divs[div_index];
 	}
-	
+
 	/*
 	* @brief Set ISR function of TCA peripheral
 	*/
 	inline void set_isr(void(*f)(void))
 	{
 		isr = f;
-		
+
 #ifdef TCA1
 		(tim == &TCA0) ? (timer0_isr = this) : (timer1_isr = this);
 #else
 		timer0_isr = this;
 #endif
 	}
-	
+
 	/*
 	* @brief Start TCA peripheral
 	*/
@@ -114,7 +117,7 @@ public:
 	* @brief Stop TCA peripheral
 	*/
 	inline const void stop(void) { tim->SINGLE.CTRLA &= ~TCA_SINGLE_ENABLE_bm; }
-	
+
 	/*
 	* @brief Check if TCA peripheral is running
 	*
@@ -132,7 +135,7 @@ public:
 ISR(TCA0_OVF_vect)
 {
 	if(timer0_isr->isr) timer0_isr->isr();
-	
+
 	TCA0.SINGLE.INTFLAGS = TCA_SINGLE_OVF_bm;
 }
 
@@ -140,7 +143,7 @@ ISR(TCA0_OVF_vect)
 ISR(TCA1_OVF_vect)
 {
 	if(timer1_isr->isr) timer1_isr->isr();
-	
+
 	TCA1.SINGLE.INTFLAGS = TCA_SINGLE_OVF_bm;
 }
 #endif

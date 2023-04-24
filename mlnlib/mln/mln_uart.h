@@ -1,4 +1,4 @@
-/* 
+/*
 * mln_uart.h
 *
 * Created: 03.04.2023 16:16:30
@@ -17,7 +17,7 @@
 #include "mln_gpio.h"
 
 #ifndef F_CPU
-#define F_CPU					4000000UL
+#define F_CPU					24000000UL
 #endif
 
 #define MLN_UART_BAUD			115200
@@ -106,7 +106,7 @@ USART_t* MLN_UART_TO_USART(UART_t uart)
 		break;
 		#endif
 	}
-	
+
 	return &USART0;
 }
 
@@ -117,17 +117,17 @@ int mln_uart_stream_read(FILE *f);
 class mln_uart
 {
 	USART_t* inst;
-	
+
 	mln_gpio pin_tx;
 	mln_gpio pin_rx;
-	
+
 	uint8_t buffer[MLN_UART_BUF_SIZE];
 	uint8_t index;
-	
+
 	FILE f;
-	
+
 	void (*isr)(void);
-	
+
 	void init_pins(UART_t new_inst)
 	{
 		switch(new_inst)
@@ -167,7 +167,7 @@ class mln_uart
 	void init_stream(void)
 	{
 		mln_uart_stream_uart = this;
-		
+
 		mln_uart_stream_uart->f.get = mln_uart_stream_read;
 		mln_uart_stream_uart->f.put = mln_uart_stream_write;
 		mln_uart_stream_uart->f.flags = _FDEV_SETUP_RW;
@@ -175,41 +175,41 @@ class mln_uart
 		stdout = &mln_uart_stream_uart->f;
 		stdin = &mln_uart_stream_uart->f;
 	}
-	
+
 public:
 	mln_uart(UART_t new_inst, uint32_t baud)
 	{
 		if(new_inst > MLN_UART_NUM_INSTS)
 		return;
-		
+
 		memset(buffer, 0, sizeof(buffer));
 		index = 0;
-		
+
 		inst = MLN_UART_TO_USART(new_inst);
-		
+
 		init_pins(new_inst);
-		
+
 		inst->BAUD = (uint16_t)MLN_UART_BAUD_NUM(baud);
-		
+
 		inst->CTRLA = USART_RXCIE_bm;
-		
+
 		inst->CTRLB = USART_RXEN_bm | USART_RXMODE_NORMAL_gc | USART_TXEN_bm;
-		
+
 		init_stream();
 	}
-	
+
 	/*
 	* @brief Set ISR function of USART peripheral
 	*/
 	inline void set_isr(void (*new_isr)(void)) { isr = new_isr; }
-	
+
 	/*
 	* @brief Write one byte to USART peripheral
 	*/
 	inline const void write(const uint8_t data)
 	{
 		while(is_busy_tx());
-		
+
 		inst->TXDATAL = data;
 	}
 	/*
@@ -218,10 +218,10 @@ public:
 	inline const uint8_t read(void)
 	{
 		while (is_busy_rx());
-		
+
 		return ((inst->RXDATAH & 0x1) << 8) | inst->RXDATAL;
 	}
-	
+
 	/*
 	* @brief Push new read data into RX buffer of SPI class
 	*/
@@ -241,13 +241,13 @@ public:
 	{
 		memccpy(new_buffer, buffer, 0, MLN_UART_BUF_SIZE);
 		memset(buffer, 0, sizeof(buffer));
-		
+
 		uint8_t copied = index;
 		index = 0;
-		
+
 		return copied;
 	}
-	
+
 	/*
 	* @brief Check whether USART peripheral TX is busy
 	*
@@ -266,7 +266,7 @@ public:
 	* @returns Amount of bytes available
 	*/
 	inline const uint8_t data_available(void) { return index; }
-	
+
 	/*
 	* @brief Run the saved ISR function of the USART class
 	*/

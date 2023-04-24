@@ -3,7 +3,7 @@
  *
  * Created: 04.04.2023 09:02:04
  *  Author: cedr0
- */ 
+ */
 
 
 #ifndef TESTER_H_

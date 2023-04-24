@@ -10,7 +10,7 @@
 #define MLN_COMMON_H_
 
 
-#define F_CPU 4000000UL
+#define F_CPU 24000000UL
 
 #include <stdio.h>
 #include <string.h>
@@ -26,5 +26,11 @@
 #include "mln_dac.h"
 #include "mln_spi.h"
 #include "../devices/mcp4822.h"
+
+void mln_init(void)
+{
+	CCP = CCP_IOREG_gc;
+	CLKCTRL.OSCHFCTRLA = CLKCTRL_FRQSEL_24M_gc;
+}
 
 #endif /* MLN_COMMON_H_ */

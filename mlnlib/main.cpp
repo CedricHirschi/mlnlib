@@ -24,14 +24,16 @@ void led_task(void);
 
 int main(void)
 {
+	mln_init();
+
 	vref.config(true);
 	vref.set(_2V048, _2V048);
-	
-	dac_intern.config(true, true);		
+
+	dac_intern.config(true, true);
 	dac.set_gain(GAIN1);
 	adc.enable();
 	dac_intern.enable();
-	
+
 	led_timer.set_isr(led_task);
 	led_timer.start();
 
@@ -39,7 +41,7 @@ int main(void)
 
 	while (1)
 	{
-		dac_value = (dac_value + 1) % 4096;
+		dac_value = (dac_value + 16) % 4096;
 
 		dac_intern.set(dac_value >> 2);
 		dac.write(CHANNELA, dac_value);
