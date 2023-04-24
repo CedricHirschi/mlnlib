@@ -1,4 +1,4 @@
-/* 
+/*
 * mln_gpio.h
 *
 * Created: 03.04.2023 11:41:24
@@ -115,10 +115,10 @@ typedef enum
 class mln_gpio
 {
 	volatile PORT_t *port;
-	volatile uint8_t conf_port;
+	volatile uint8_t *pin_conf;
 	uint8_t pin_num;
 	uint8_t pin_bm;
-	
+
 public:
 	inline mln_gpio() = default;
 	inline mln_gpio(const PIN_t& new_pin, const PIN_DIR_t& dir, const bool inv = false)
@@ -126,11 +126,11 @@ public:
 		port = new_pin.port;
 		pin_num = new_pin.pin_num;
 		pin_bm = (1 << pin_num);
-		
-		(dir ? port->DIRCLR : port->DIRSET) = pin_bm;
+		pin_conf = (uint8_t *)port + 0x10 + pin_num;
+		*pin_conf = PORT_INVEN_bm * inv;
 
-		conf_port = *((volatile uint8_t *)port + 0x10 + pin_num);
-		conf_port = (uint8_t)(inv << 7);
+		conf_dir(dir);
+		conf_pull(dir);
 	}
 
 	/*
@@ -138,8 +138,8 @@ public:
 	*
 	* @param dir Interrupt type
 	*/
-	inline void attach_interrupt(PIN_ISC_t dir) { conf_port = (conf_port & 0xF8) | dir; }
-	
+	inline void attach_interrupt(PIN_ISC_t dir) { *pin_conf = (*pin_conf & 0xF8) | dir; }
+
 	/*
 	* @brief Set pin to HIGH
 	*/
@@ -158,12 +158,12 @@ public:
 	* @param val Value to put on pin
 	*/
 	inline const void put(bool val) { (val ? port->OUTSET : port->OUTCLR) = pin_bm; }
-	
+
 	/*
 	* @brief Get value of pin
 	*/
 	inline const bool get(void) { return port->IN & pin_bm; }
-	
+
 	/*
 	* @brief Configure direction of pin
 	*
@@ -173,7 +173,7 @@ public:
 	{
 		if(dir == OUTPUT) port->DIR |= pin_bm;
 		else port->DIR &= ~pin_bm;
-		
+
 		conf_pull(dir);
 	}
 	/*
@@ -183,8 +183,8 @@ public:
 	*/
 	inline void conf_pull(const PIN_DIR_t& pull)
 	{
-		if(pull == INPUT_PULLUP) conf_port |= PORT_PULLUPEN_bm;
-		else conf_port &= ~PORT_PULLUPEN_bm;
+		if(pull == INPUT_PULLUP) *pin_conf |= PORT_PULLUPEN_bm;
+		else *pin_conf &= ~PORT_PULLUPEN_bm;
 	}
 }; //mln_gpio
 

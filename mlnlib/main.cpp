@@ -7,16 +7,17 @@
 
 #include "mln/mln_common.h"
 
-mln_gpio led_builtin(PB3, OUTPUT);
-
 mln_uart uart(UART3, 115200);
+
+mln_gpio btn_builtin(PB2, INPUT_PULLUP, true);
+mln_gpio led_builtin(PB3, OUTPUT, true);
 
 mln_vref vref;
 mln_adc adc;
 mln_dac dac_intern;
 mcp4822 dac(&SPI0, PC7, PC3);
 
-mln_timer led_timer(TIMER0, 250);
+mln_timer led_timer(TIMER0, 1000);
 
 uint16_t dac_value = 0;
 
@@ -37,6 +38,8 @@ int main(void)
 	led_timer.set_isr(led_task);
 	led_timer.start();
 
+	btn_builtin.attach_interrupt(RISING);
+
 	sei();
 
 	while (1)
@@ -51,9 +54,10 @@ int main(void)
 
 void led_task(void)
 {
-	led_builtin.toggle();
+	printf(led_builtin.get() ? "LED is on\t" : "LED is off\t");
+	printf(btn_builtin.get() ? "BTN is pressed\n" : "BTN is released\n");
 
-	printf("%u\t%u\t%u\t%u\n", dac_value, adc.read(PD0), adc.read(PD1), adc.read(DAC));
+	// printf("%u\t%u\t%u\t%u\n", dac_value, adc.read(PD0), adc.read(PD1), adc.read(DAC));
 
 	if(uart.data_available())
 	{
@@ -62,4 +66,11 @@ void led_task(void)
 		uart.pull(buffer);
 		printf("Received '%s' of size %u\n", buffer, n);
 	}
+}
+
+ISR(PORTB_PORT_vect)
+{
+	led_builtin.toggle();
+
+	PORTB.INTFLAGS = PIN2_bm;
 }
