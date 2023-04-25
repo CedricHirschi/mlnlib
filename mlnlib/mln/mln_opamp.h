@@ -160,6 +160,7 @@ class mln_opamp
 				break;
 			}
 			break;
+#ifdef OPAMP2
 		case 2:
 			switch (pin)
 			{
@@ -177,6 +178,7 @@ class mln_opamp
 				break;
 			}
 			break;
+#endif
 		}
 	}
 
@@ -224,6 +226,7 @@ class mln_opamp
 				break;
 			}
 			break;
+#ifdef OPAMP2
 		case 2:
 			switch (mux)
 			{
@@ -244,27 +247,34 @@ class mln_opamp
 				break;
 			}
 			break;
+#endif
 		}
 	}
 
 	void init_pins(void)
 	{
-		if(setup->output) init_pin(OPA_SETUP::PIN_OUT);
+		if (setup->output)
+			init_pin(OPA_SETUP::PIN_OUT);
 
 		switch (setup->config)
 		{
 		case OPA_SETUP::TOPINS:
-			if(setup->pin_neg == OPA_SETUP::MUXNEG_INN) init_pin(OPA_SETUP::PIN_INN);
-			if(setup->pin_pos == OPA_SETUP::MUXPOS_INP) init_pin(OPA_SETUP::PIN_INP);
+			if (setup->pin_neg == OPA_SETUP::MUXNEG_INN)
+				init_pin(OPA_SETUP::PIN_INN);
+			if (setup->pin_pos == OPA_SETUP::MUXPOS_INP)
+				init_pin(OPA_SETUP::PIN_INP);
 			break;
 		case OPA_SETUP::FOLLOWER:
-			if(setup->pin_pos == OPA_SETUP::MUXPOS_INP) init_pin(OPA_SETUP::PIN_INP);
+			if (setup->pin_pos == OPA_SETUP::MUXPOS_INP)
+				init_pin(OPA_SETUP::PIN_INP);
 			break;
 		case OPA_SETUP::NONINV:
-			if(setup->pin_pos == OPA_SETUP::MUXPOS_INP) init_pin(OPA_SETUP::PIN_INP);
+			if (setup->pin_pos == OPA_SETUP::MUXPOS_INP)
+				init_pin(OPA_SETUP::PIN_INP);
 			break;
 		case OPA_SETUP::INV:
-			if(setup->pin_neg == OPA_SETUP::MUXNEG_INN) init_pin(OPA_SETUP::PIN_INN);
+			if (setup->pin_neg == OPA_SETUP::MUXNEG_INN)
+				init_pin(OPA_SETUP::PIN_INN);
 			break;
 		}
 	}
@@ -332,17 +342,19 @@ public:
 		// setup wiper muxes
 		set_wiper_muxes();
 
-		switch(setup->opamp_n)
+		switch (setup->opamp_n)
 		{
-			case 0:
-				OPAMP.OP0CTRLA = OPAMP_OP0CTRLA_OUTMODE_NORMAL_gc | OPAMP_ALWAYSON_bm;
-				break;
-			case 1:
+		case 0:
+			OPAMP.OP0CTRLA = OPAMP_OP0CTRLA_OUTMODE_NORMAL_gc | OPAMP_ALWAYSON_bm;
+			break;
+		case 1:
 			OPAMP.OP1CTRLA = OPAMP_OP1CTRLA_OUTMODE_NORMAL_gc | OPAMP_ALWAYSON_bm;
-				break;
-			case 2:
-				OPAMP.OP2CTRLA = OPAMP_OP2CTRLA_OUTMODE_NORMAL_gc | OPAMP_ALWAYSON_bm;
-				break;
+			break;
+#ifdef OPAMP2
+		case 2:
+			OPAMP.OP2CTRLA = OPAMP_OP2CTRLA_OUTMODE_NORMAL_gc | OPAMP_ALWAYSON_bm;
+			break;
+#endif
 		}
 
 		// OPAMP.OP1INMUX = OPAMP_OP0INMUX_MUXNEG_WIP_gc | OPAMP_OP0INMUX_MUXPOS_INP_gc;
@@ -361,8 +373,10 @@ public:
 			return (OPAMP.OP0STATUS & OPAMP_SETTLED_bm);
 		case 1:
 			return (OPAMP.OP1STATUS & OPAMP_SETTLED_bm);
+#ifdef OPAMP2
 		case 2:
 			return (OPAMP.OP2STATUS & OPAMP_SETTLED_bm);
+#endif
 		}
 
 		return false;
