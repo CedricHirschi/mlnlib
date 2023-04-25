@@ -7,6 +7,8 @@
 
 #include "mln/mln_common.h"
 
+#include "mln/mln_opamp.h"
+
 mln_uart uart(UART3, 115200);
 
 mln_gpio btn_builtin(PB2, INPUT_PULLUP, true);
@@ -28,7 +30,7 @@ int main(void)
 	mln_init();
 
 	vref.config(true);
-	vref.set(_2V048, _2V048);
+	vref.set(_1V024, _1V024);
 
 	dac_intern.config(true, true);
 	dac.set_gain(GAIN1);
@@ -39,6 +41,14 @@ int main(void)
 	led_timer.start();
 
 	btn_builtin.attach_interrupt(RISING);
+
+	OPAMP_SETUP_t setup;
+	setup.config = OPA_SETUP::NONINV;
+	setup.gain_noninv = OPA_SETUP::GAIN_2;
+	setup.pin_pos = OPA_SETUP::MUXPOS_DAC;
+	setup.opamp_n = 1;
+
+	mln_opamp opamp(&setup);
 
 	sei();
 

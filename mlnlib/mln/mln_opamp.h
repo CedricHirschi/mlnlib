@@ -105,10 +105,17 @@ namespace OPA_SETUP
 typedef struct OPAMP_SETUP_s
 {
 	uint8_t opamp_n = 0;
+
 	OPA_SETUP::CONFIG_t config = OPA_SETUP::TOPINS;
+
 	OPA_SETUP::GAIN_INV_t gain_inv = OPA_SETUP::GAIN_INV_0_06;
 	OPA_SETUP::GAIN_NONINV_t gain_noninv = OPA_SETUP::GAIN_1_06;
+
+	OPA_SETUP::MUXPOS_IN_t pin_pos = OPA_SETUP::MUXPOS_INP;
+	OPA_SETUP::MUXNEG_IN_t pin_neg = OPA_SETUP::MUXNEG_INN;
+
 	bool run_in_standby = false;
+	bool output = true;
 } OPAMP_SETUP_t;
 
 class mln_opamp
@@ -123,16 +130,16 @@ class mln_opamp
 			switch (pin)
 			{
 			case OPA_SETUP::PIN_INN:
-				PORTA.DIRCLR = PIN4_bm;
-				PORTA.PIN4CTRL = 0x00;
+				PORTD.DIRCLR = PIN3_bm;
+				PORTD.PIN3CTRL = 0x00;
 				break;
 			case OPA_SETUP::PIN_INP:
-				PORTA.DIRCLR = PIN5_bm;
-				PORTA.PIN5CTRL = 0x00;
+				PORTD.DIRCLR = PIN1_bm;
+				PORTD.PIN1CTRL = 0x00;
 				break;
 			case OPA_SETUP::PIN_OUT:
-				PORTA.DIRSET = PIN6_bm;
-				PORTA.PIN6CTRL = 0x00;
+				PORTD.DIRSET = PIN2_bm;
+				PORTD.PIN2CTRL = 0x00;
 				break;
 			}
 			break;
@@ -140,16 +147,16 @@ class mln_opamp
 			switch (pin)
 			{
 			case OPA_SETUP::PIN_INN:
-				PORTA.DIRCLR = PIN7_bm;
-				PORTA.PIN7CTRL = 0x00;
+				PORTD.DIRCLR = PIN7_bm;
+				PORTD.PIN7CTRL = 0x00;
 				break;
 			case OPA_SETUP::PIN_INP:
-				PORTA.DIRCLR = PIN2_bm;
-				PORTA.PIN2CTRL = 0x00;
+				PORTD.DIRCLR = PIN4_bm;
+				PORTD.PIN4CTRL = 0x00;
 				break;
 			case OPA_SETUP::PIN_OUT:
-				PORTA.DIRSET = PIN3_bm;
-				PORTA.PIN3CTRL = 0x00;
+				PORTD.DIRSET = PIN5_bm;
+				PORTD.PIN5CTRL = 0x00;
 				break;
 			}
 			break;
@@ -157,16 +164,16 @@ class mln_opamp
 			switch (pin)
 			{
 			case OPA_SETUP::PIN_INN:
-				PORTA.DIRCLR = PIN0_bm;
-				PORTA.PIN0CTRL = 0x00;
+				PORTE.DIRCLR = PIN3_bm;
+				PORTE.PIN3CTRL = 0x00;
 				break;
 			case OPA_SETUP::PIN_INP:
-				PORTA.DIRCLR = PIN1_bm;
-				PORTA.PIN1CTRL = 0x00;
+				PORTE.DIRCLR = PIN1_bm;
+				PORTE.PIN1CTRL = 0x00;
 				break;
 			case OPA_SETUP::PIN_OUT:
-				PORTA.DIRSET = PIN3_bm;
-				PORTA.PIN3CTRL = 0x00;
+				PORTE.DIRSET = PIN2_bm;
+				PORTE.PIN2CTRL = 0x00;
 				break;
 			}
 			break;
@@ -193,7 +200,7 @@ class mln_opamp
 				OPAMP.OP0RESMUX = (OPAMP.OP0RESMUX & ~0x1C) | (value << 2);
 				break;
 			case OPA_SETUP::MUXWIP:
-				OPAMP.OP0RESMUX = (OPAMP.OP0RESMUX & ~0xE0) | value;
+				OPAMP.OP0RESMUX = (OPAMP.OP0RESMUX & ~0xE0) | (value << 5);
 				break;
 			}
 			break;
@@ -213,7 +220,7 @@ class mln_opamp
 				OPAMP.OP1RESMUX = (OPAMP.OP1RESMUX & ~0x1C) | (value << 2);
 				break;
 			case OPA_SETUP::MUXWIP:
-				OPAMP.OP1RESMUX = (OPAMP.OP1RESMUX & ~0xE0) | value;
+				OPAMP.OP1RESMUX = (OPAMP.OP1RESMUX & ~0xE0) | (value << 5);
 				break;
 			}
 			break;
@@ -233,7 +240,7 @@ class mln_opamp
 				OPAMP.OP2RESMUX = (OPAMP.OP2RESMUX & ~0x1C) | (value << 2);
 				break;
 			case OPA_SETUP::MUXWIP:
-				OPAMP.OP2RESMUX = (OPAMP.OP2RESMUX & ~0xE0) | value;
+				OPAMP.OP2RESMUX = (OPAMP.OP2RESMUX & ~0xE0) | (value << 5);
 				break;
 			}
 			break;
@@ -242,21 +249,22 @@ class mln_opamp
 
 	void init_pins(void)
 	{
-		init_pin(OPA_SETUP::PIN_OUT);
+		if(setup->output) init_pin(OPA_SETUP::PIN_OUT);
+
 		switch (setup->config)
 		{
 		case OPA_SETUP::TOPINS:
-			init_pin(OPA_SETUP::PIN_INN);
-			init_pin(OPA_SETUP::PIN_INP);
+			if(setup->pin_neg == OPA_SETUP::MUXNEG_INN) init_pin(OPA_SETUP::PIN_INN);
+			if(setup->pin_pos == OPA_SETUP::MUXPOS_INP) init_pin(OPA_SETUP::PIN_INP);
 			break;
 		case OPA_SETUP::FOLLOWER:
-			init_pin(OPA_SETUP::PIN_INP);
+			if(setup->pin_pos == OPA_SETUP::MUXPOS_INP) init_pin(OPA_SETUP::PIN_INP);
 			break;
 		case OPA_SETUP::NONINV:
-			init_pin(OPA_SETUP::PIN_INP);
+			if(setup->pin_pos == OPA_SETUP::MUXPOS_INP) init_pin(OPA_SETUP::PIN_INP);
 			break;
 		case OPA_SETUP::INV:
-			init_pin(OPA_SETUP::PIN_INN);
+			if(setup->pin_neg == OPA_SETUP::MUXNEG_INN) init_pin(OPA_SETUP::PIN_INN);
 			break;
 		}
 	}
@@ -266,12 +274,16 @@ class mln_opamp
 		switch (setup->config)
 		{
 		case OPA_SETUP::TOPINS:
+			set_mux(OPA_SETUP::MUXNEG, setup->pin_neg);
+			set_mux(OPA_SETUP::MUXPOS, setup->pin_pos);
 			break;
 		case OPA_SETUP::FOLLOWER:
 			set_mux(OPA_SETUP::MUXNEG, OPA_SETUP::MUXNEG_OUT);
+			set_mux(OPA_SETUP::MUXPOS, setup->pin_pos);
 			break;
 		case OPA_SETUP::NONINV:
 			set_mux(OPA_SETUP::MUXNEG, OPA_SETUP::MUXNEG_WIP);
+			set_mux(OPA_SETUP::MUXPOS, setup->pin_pos);
 			break;
 		case OPA_SETUP::INV:
 			set_mux(OPA_SETUP::MUXNEG, OPA_SETUP::MUXNEG_WIP);
@@ -294,7 +306,7 @@ class mln_opamp
 			set_mux(OPA_SETUP::MUXTOP, OPA_SETUP::MUXTOP_OUT);
 			break;
 		case OPA_SETUP::INV:
-			set_mux(OPA_SETUP::MUXBOT, OPA_SETUP::MUXBOT_INN);
+			set_mux(OPA_SETUP::MUXBOT, setup->pin_neg);
 			set_mux(OPA_SETUP::MUXWIP, (OPA_SETUP::MUXWIP_IN_t)setup->gain_inv);
 			set_mux(OPA_SETUP::MUXTOP, OPA_SETUP::MUXTOP_OUT);
 			break;
@@ -311,14 +323,34 @@ public:
 		// setup pins
 		init_pins();
 
+		// PORTD.PIN4CTRL = PORT_ISC_INPUT_DISABLE_gc;
+		// PORTD.PIN7CTRL = PORT_ISC_INPUT_DISABLE_gc;
+
 		// setup input muxes
 		set_input_muxes();
 
 		// setup wiper muxes
 		set_wiper_muxes();
 
-		while (!has_settled())
-			;
+		switch(setup->opamp_n)
+		{
+			case 0:
+				OPAMP.OP0CTRLA = OPAMP_OP0CTRLA_OUTMODE_NORMAL_gc | OPAMP_ALWAYSON_bm;
+				break;
+			case 1:
+			OPAMP.OP1CTRLA = OPAMP_OP1CTRLA_OUTMODE_NORMAL_gc | OPAMP_ALWAYSON_bm;
+				break;
+			case 2:
+				OPAMP.OP2CTRLA = OPAMP_OP2CTRLA_OUTMODE_NORMAL_gc | OPAMP_ALWAYSON_bm;
+				break;
+		}
+
+		// OPAMP.OP1INMUX = OPAMP_OP0INMUX_MUXNEG_WIP_gc | OPAMP_OP0INMUX_MUXPOS_INP_gc;
+		// OPAMP.OP1RESMUX = OPAMP_OP0RESMUX_MUXBOT_GND_gc | OPAMP_OP0RESMUX_MUXWIP_WIP3_gc | OPAMP_OP0RESMUX_MUXTOP_OUT_gc;
+
+		OPAMP.CTRLA = OPAMP_ENABLE_bm;
+
+		// while (!has_settled());
 	}
 
 	bool has_settled(void)
