@@ -57,7 +57,7 @@ void led_task(void)
 	printf(led_builtin.get() ? "LED is on\t" : "LED is off\t");
 	printf(btn_builtin.get() ? "BTN is pressed\n" : "BTN is released\n");
 
-	// printf("%u\t%u\t%u\t%u\n", dac_value, adc.read(PD0), adc.read(PD1), adc.read(DAC));
+	printf("%u\t%u\t%u\t%u\n", dac_value, adc.read(PD0), adc.read(PD1), adc.read(DAC));
 
 	if(uart.data_available())
 	{
