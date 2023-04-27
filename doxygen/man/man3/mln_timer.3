@@ -13,7 +13,7 @@ mln_timer \- TCA peripheral class\&.
 
 .in +1c
 .ti -1c
-.RI "\fBmln_timer\fP (uint16_t &period)"
+.RI "\fBmln_timer\fP (uint16_t period)"
 .br
 .RI "\fBmln_timer\fP class initializer "
 .ti -1c
@@ -50,10 +50,10 @@ TCA peripheral class\&.
 
 
 .PP
-Definition at line \fB87\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB93\fP of file \fBmln_timer\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "mln_timer::mln_timer (uint16_t & period)\fC [inline]\fP"
+.SS "mln_timer::mln_timer (uint16_t period)\fC [inline]\fP"
 
 .PP
 \fBmln_timer\fP class initializer 
@@ -65,13 +65,13 @@ Definition at line \fB87\fP of file \fBmln_timer\&.h\fP\&.
 .PP
 
 .PP
-Definition at line \fB118\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB124\fP of file \fBmln_timer\&.h\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "const float mln_timer::get_period (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB179\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB185\fP of file \fBmln_timer\&.h\fP\&.
 .SS "const bool mln_timer::is_running (void)\fC [inline]\fP"
 
 .PP
@@ -91,25 +91,25 @@ Whether TCA peripheral is running
 .PP
 
 .PP
-Definition at line \fB172\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB178\fP of file \fBmln_timer\&.h\fP\&.
 .SS "void mln_timer::set_isr (void(*)(void) f)\fC [inline]\fP"
 
 .PP
 Set ISR function of TCA peripheral\&. 
 .PP
-Definition at line \fB142\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB148\fP of file \fBmln_timer\&.h\fP\&.
 .SS "const void mln_timer::start (void)\fC [inline]\fP"
 
 .PP
 Start TCA peripheral\&. 
 .PP
-Definition at line \fB157\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB163\fP of file \fBmln_timer\&.h\fP\&.
 .SS "const void mln_timer::stop (void)\fC [inline]\fP"
 
 .PP
 Stop TCA peripheral\&. 
 .PP
-Definition at line \fB162\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB168\fP of file \fBmln_timer\&.h\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "void(* mln_timer::isr) (void)"
@@ -117,7 +117,7 @@ Definition at line \fB162\fP of file \fBmln_timer\&.h\fP\&.
 .PP
 ISR function currently stored in the class\&. 
 .PP
-Definition at line \fB98\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB104\fP of file \fBmln_timer\&.h\fP\&.
 
 .SH "Author"
 .PP 

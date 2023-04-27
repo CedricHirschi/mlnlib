@@ -76,7 +76,7 @@
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00113}00113\ }
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00118}00118\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ init\_pins(USART\_t*\ new\_inst)}
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00119}00119\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(new\_inst\ -\/\ \&USART0)}
+\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}((new\_inst\ -\/\ \&USART0)\ /\ 2)}
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pin\_tx\ =\ \mbox{\hyperlink{classmln__gpio}{mln\_gpio}}(\mbox{\hyperlink{mln__uart_8h_a1a434695c07951710eb0a173a65f279f}{MLN\_UART0\_PIN\_TX}},\ \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffa1b3e51e05bb8ee323f13de27944188a1}{MLN\_GPIO\_DIR\_OUTPUT}});}
@@ -123,16 +123,16 @@
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00168}00168\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00169}00169\ }
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00170}00170\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00171}\mbox{\hyperlink{classmln__uart_abb28597c8a6166c4396ca47f12424a55}{00171}}\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmln__uart_abb28597c8a6166c4396ca47f12424a55}{mln\_uart}}(USART\_t*\ new\_inst,\ \textcolor{keyword}{const}\ uint32\_t\&\ baud)}
-\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00172}00172\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((new\_inst\ -\/\ \&USART0)\ >\ \mbox{\hyperlink{mln__uart_8h_ad728e72885f09aa314f2436dfe99293d}{MLN\_UART\_NUM\_INSTS}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00171}\mbox{\hyperlink{classmln__uart_af0bfb0e87493c5d264962646b0ce1730}{00171}}\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmln__uart_af0bfb0e87493c5d264962646b0ce1730}{mln\_uart}}(USART\_t*\ new\_inst,\ uint32\_t\ baud)}
+\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00172}00172\ \ \ \ \ \{\ \ \ }
+\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((new\_inst\ -\/\ \&USART0)\ /\ 2\ >\ \mbox{\hyperlink{mln__uart_8h_ad728e72885f09aa314f2436dfe99293d}{MLN\_UART\_NUM\_INSTS}})\ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00174}00174\ }
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00175}00175\ \ \ \ \ \ \ \ \ memset(buffer,\ 0,\ \textcolor{keyword}{sizeof}(buffer));}
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00176}00176\ \ \ \ \ \ \ \ \ index\ =\ 0;}
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00177}00177\ }
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00178}00178\ \ \ \ \ \ \ \ \ inst\ =\ new\_inst;}
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00179}00179\ }
-\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00180}00180\ \ \ \ \ \ \ \ \ init\_pins(new\_inst);}
+\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00180}00180\ \ \ \ \ \ \ \ \ init\_pins(inst);}
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00181}00181\ }
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00182}00182\ \ \ \ \ \ \ \ \ inst-\/>BAUD\ =\ (uint16\_t)\mbox{\hyperlink{mln__uart_8h_a9978acfe9e00540d2e18286481e786ef}{MLN\_UART\_BAUD\_NUM}}(baud);}
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00183}00183\ }
@@ -232,10 +232,11 @@
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00277}\mbox{\hyperlink{mln__uart_8h_a1f11fdfd6a878a854419434a4a401693}{00277}}\ \mbox{\hyperlink{mln__uart_8h_a1f11fdfd6a878a854419434a4a401693}{ISR}}(USART3\_RXC\_vect)}
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00278}00278\ \{}
 \DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00279}00279\ \ \ \ \ \mbox{\hyperlink{mln__uart_8h_a768b1692fd426a153624045053f62395}{mln\_uart\_stream\_uart}}-\/>\mbox{\hyperlink{classmln__uart_ac2a9b7607750c2623b9c4a1a4e7d42d3}{push}}();}
-\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00280}00280\ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{mln__uart_8h_a768b1692fd426a153624045053f62395}{mln\_uart\_stream\_uart}}-\/>\mbox{\hyperlink{classmln__uart_af0c4c2c4fe9410c26be25854ea42abae}{is\_busy\_rx}}())}
-\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00281}00281\ \ \ \ \ \mbox{\hyperlink{mln__uart_8h_a768b1692fd426a153624045053f62395}{mln\_uart\_stream\_uart}}-\/>\mbox{\hyperlink{classmln__uart_a0c237c85758c352b5c83a73a86c0410b}{run\_isr}}();}
-\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00282}00282\ \}}
-\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00283}00283\ }
-\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00284}00284\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\_\_MLN\_UART\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00281}00281\ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{mln__uart_8h_a768b1692fd426a153624045053f62395}{mln\_uart\_stream\_uart}}-\/>\mbox{\hyperlink{classmln__uart_af0c4c2c4fe9410c26be25854ea42abae}{is\_busy\_rx}}())}
+\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00282}00282\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{mln__uart_8h_a768b1692fd426a153624045053f62395}{mln\_uart\_stream\_uart}}-\/>\mbox{\hyperlink{classmln__uart_a0c237c85758c352b5c83a73a86c0410b}{run\_isr}}();}
+\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00283}00283\ \}}
+\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{mln__uart_8h_source_l00285}00285\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\_\_MLN\_UART\_H\_\_}}
 
 \end{DoxyCode}

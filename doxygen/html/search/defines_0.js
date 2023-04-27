@@ -32,13 +32,14 @@ var searchData=
   ['mln_5fspi1_5fpin_5fss_29',['MLN_SPI1_PIN_SS',['../mln__spi_8h.html#afdcffc16829e8e297f537fa2a792ab1e',1,'mln_spi.h']]],
   ['mln_5fspi_5fbuf_5fsize_30',['MLN_SPI_BUF_SIZE',['../mln__spi_8h.html#af5afc696c24818e0431d36db500598fb',1,'mln_spi.h']]],
   ['mln_5fspi_5fclksel_31',['MLN_SPI_CLKSEL',['../mln__spi_8h.html#acf55d7f707711aa7274c7dcd23cb8f34',1,'mln_spi.h']]],
-  ['mln_5fuart0_5fpin_5frx_32',['MLN_UART0_PIN_RX',['../mln__uart_8h.html#ab005771276881b9a746a85e1932caca4',1,'mln_uart.h']]],
-  ['mln_5fuart0_5fpin_5ftx_33',['MLN_UART0_PIN_TX',['../mln__uart_8h.html#a1a434695c07951710eb0a173a65f279f',1,'mln_uart.h']]],
-  ['mln_5fuart1_5fpin_5frx_34',['MLN_UART1_PIN_RX',['../mln__uart_8h.html#a32b2fb0bd8d40942dacdedae86748f55',1,'mln_uart.h']]],
-  ['mln_5fuart1_5fpin_5ftx_35',['MLN_UART1_PIN_TX',['../mln__uart_8h.html#a9c2c8bc428b370f8f37e9fab7b0208b5',1,'mln_uart.h']]],
-  ['mln_5fuart2_5fpin_5frx_36',['MLN_UART2_PIN_RX',['../mln__uart_8h.html#a1e086a98b618a643b43fe26adac726cc',1,'mln_uart.h']]],
-  ['mln_5fuart2_5fpin_5ftx_37',['MLN_UART2_PIN_TX',['../mln__uart_8h.html#ab5cf516196dab3fb027cb0a1394c1189',1,'mln_uart.h']]],
-  ['mln_5fuart_5fbaud_5fnum_38',['MLN_UART_BAUD_NUM',['../mln__uart_8h.html#a9978acfe9e00540d2e18286481e786ef',1,'mln_uart.h']]],
-  ['mln_5fuart_5fbuf_5fsize_39',['MLN_UART_BUF_SIZE',['../mln__uart_8h.html#af296e92127536a1e65460c4de0458815',1,'mln_uart.h']]],
-  ['mln_5fuart_5fnum_5finsts_40',['MLN_UART_NUM_INSTS',['../mln__uart_8h.html#ad728e72885f09aa314f2436dfe99293d',1,'mln_uart.h']]]
+  ['mln_5ftimer_5fdiv_32',['MLN_TIMER_DIV',['../mln__timer_8h.html#ac68f1facca19ba4a28669dd35228c055',1,'mln_timer.h']]],
+  ['mln_5fuart0_5fpin_5frx_33',['MLN_UART0_PIN_RX',['../mln__uart_8h.html#ab005771276881b9a746a85e1932caca4',1,'mln_uart.h']]],
+  ['mln_5fuart0_5fpin_5ftx_34',['MLN_UART0_PIN_TX',['../mln__uart_8h.html#a1a434695c07951710eb0a173a65f279f',1,'mln_uart.h']]],
+  ['mln_5fuart1_5fpin_5frx_35',['MLN_UART1_PIN_RX',['../mln__uart_8h.html#a32b2fb0bd8d40942dacdedae86748f55',1,'mln_uart.h']]],
+  ['mln_5fuart1_5fpin_5ftx_36',['MLN_UART1_PIN_TX',['../mln__uart_8h.html#a9c2c8bc428b370f8f37e9fab7b0208b5',1,'mln_uart.h']]],
+  ['mln_5fuart2_5fpin_5frx_37',['MLN_UART2_PIN_RX',['../mln__uart_8h.html#a1e086a98b618a643b43fe26adac726cc',1,'mln_uart.h']]],
+  ['mln_5fuart2_5fpin_5ftx_38',['MLN_UART2_PIN_TX',['../mln__uart_8h.html#ab5cf516196dab3fb027cb0a1394c1189',1,'mln_uart.h']]],
+  ['mln_5fuart_5fbaud_5fnum_39',['MLN_UART_BAUD_NUM',['../mln__uart_8h.html#a9978acfe9e00540d2e18286481e786ef',1,'mln_uart.h']]],
+  ['mln_5fuart_5fbuf_5fsize_40',['MLN_UART_BUF_SIZE',['../mln__uart_8h.html#af296e92127536a1e65460c4de0458815',1,'mln_uart.h']]],
+  ['mln_5fuart_5fnum_5finsts_41',['MLN_UART_NUM_INSTS',['../mln__uart_8h.html#ad728e72885f09aa314f2436dfe99293d',1,'mln_uart.h']]]
 ];

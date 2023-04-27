@@ -17,6 +17,8 @@
 #error "F_CPU not defined"
 #endif
 
+#define MLN_TIMER_DIV (F_CPU / 1000000UL)
+
 #ifdef TCA1
 typedef enum mln_timer_inst_e
 {
@@ -70,11 +72,15 @@ uint8_t MLN_TIMER_GET_DIV(uint32_t period)
 {
 	uint8_t index = 0;
 
-	while(period > mln_timer_max_periods[index] / (F_CPU / 1000000UL))
-	{
+	uint32_t max_period = mln_timer_max_periods[index] / MLN_TIMER_DIV;
+
+	while(period > max_period)
+	{	
 		index++;
 
 		if(index == sizeof(mln_timer_divs) / sizeof(uint16_t)) return -1;
+
+		max_period = mln_timer_max_periods[index] / MLN_TIMER_DIV;
 	}
 
 	return index;
@@ -126,14 +132,14 @@ public:
 
 		uint8_t div_index = MLN_TIMER_GET_DIV(period);
 		TCA_SINGLE_CLKSEL_t TCA_SINGLE_CLKSEL_DIV_bm = mln_timer_divs_bm[div_index];
-		uint16_t max_period = (uint16_t)((float)period * 65535.0f / (float)mln_timer_max_periods[div_index]);
+		uint16_t max_period = (uint16_t)((float)period / (float)mln_timer_max_periods[div_index] * (float)MLN_TIMER_DIV * 65535.0f);
 
 		tim->SINGLE.INTCTRL = TCA_SINGLE_OVF_bm;
 		tim->SINGLE.PER = max_period;
 		tim->SINGLE.CTRLA = TCA_SINGLE_RUNSTDBY_bm;
 		tim->SINGLE.CTRLA |= TCA_SINGLE_CLKSEL_DIV_bm;
 
-		actual_period = (float)max_period / 65535.0f * (float)mln_timer_divs[div_index];
+		actual_period = (float)max_period * (float)mln_timer_max_periods[div_index] / 65535.0f / MLN_TIMER_DIV;
 	}
 
 	/**

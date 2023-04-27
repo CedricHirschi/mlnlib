@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gain_0',['gain',['../structmln__opamp__noninverting__init__t.html#a3efc50eab8537bc884df64a3cb1a865e',1,'mln_opamp_noninverting_init_t::gain()'],['../structmln__opamp__inverting__init__t.html#aa45d742667435f689283cf61c0d8e90c',1,'mln_opamp_inverting_init_t::gain()']]]
+  ['dac_5fvalue_0',['dac_value',['../main_8cpp.html#a9711231c27eb5b80f85226026e02c4bb',1,'main.cpp']]]
 ];

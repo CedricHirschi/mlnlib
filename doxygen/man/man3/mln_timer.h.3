@@ -21,6 +21,13 @@ mlnlib/mln/mln_timer.h
 .br
 .RI "TCA peripheral class\&. "
 .in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMLN_TIMER_DIV\fP   (F_CPU / 1000000UL)"
+.br
+.in -1c
 .SS "Functions"
 
 .in +1c
@@ -52,6 +59,12 @@ mlnlib/mln/mln_timer.h
 .br
 .RI "Available clock dividers in the TCA peripheral as bitmasks\&. "
 .in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MLN_TIMER_DIV   (F_CPU / 1000000UL)"
+
+.PP
+Definition at line \fB20\fP of file \fBmln_timer\&.h\fP\&.
 .SH "Function Documentation"
 .PP 
 .SS "ISR (TCA0_OVF_vect)"
@@ -66,7 +79,7 @@ Does nothing but reset the corresponding flag
 .PP
 
 .PP
-Definition at line \fB188\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB194\fP of file \fBmln_timer\&.h\fP\&.
 .SS "uint8_t MLN_TIMER_GET_DIV (uint32_t period)"
 
 .PP
@@ -84,7 +97,7 @@ Index for \fCmln_timer_\&.\&.\&.\fP arrays
 .PP
 
 .PP
-Definition at line \fB69\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB71\fP of file \fBmln_timer\&.h\fP\&.
 .SH "Variable Documentation"
 .PP 
 .SS "const uint16_t mln_timer_divs[] = {1, 2, 4, 8, 16, 64, 256, 1024}"
@@ -92,7 +105,7 @@ Definition at line \fB69\fP of file \fBmln_timer\&.h\fP\&.
 .PP
 Available clock dividers in the TCA peripheral in numerical form\&. 
 .PP
-Definition at line \fB40\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB42\fP of file \fBmln_timer\&.h\fP\&.
 .SS "const TCA_SINGLE_CLKSEL_t mln_timer_divs_bm[]"
 \fBInitial value:\fP.PP
 .nf
@@ -111,17 +124,17 @@ Definition at line \fB40\fP of file \fBmln_timer\&.h\fP\&.
 .PP
 Available clock dividers in the TCA peripheral as bitmasks\&. 
 .PP
-Definition at line \fB50\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB52\fP of file \fBmln_timer\&.h\fP\&.
 .SS "uint32_t mln_timer_max_periods[] = {65, 131, 262, 524, 1048, 4194, 16776, 67107}"
 
 .PP
 The maximum periods achievable by clock division, in ms at 1MHz\&. 
 .PP
-Definition at line \fB45\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB47\fP of file \fBmln_timer\&.h\fP\&.
 .SS "\fBmln_timer\fP* timer0_isr"
 
 .PP
-Definition at line \fB30\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB32\fP of file \fBmln_timer\&.h\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for mlnlib from the source code\&.

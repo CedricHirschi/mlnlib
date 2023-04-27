@@ -1,6 +1,6 @@
 var classmln__uart =
 [
-    [ "mln_uart", "classmln__uart.html#abb28597c8a6166c4396ca47f12424a55", null ],
+    [ "mln_uart", "classmln__uart.html#af0bfb0e87493c5d264962646b0ce1730", null ],
     [ "data_available", "classmln__uart.html#af705656475771cd2df0d8f3fed1624c4", null ],
     [ "is_busy_rx", "classmln__uart.html#af0c4c2c4fe9410c26be25854ea42abae", null ],
     [ "is_busy_tx", "classmln__uart.html#a154c813c497997ca1b80202c55fcabdc", null ],

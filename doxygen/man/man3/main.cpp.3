@@ -15,38 +15,57 @@ mlnlib/main.cpp
 
 .in +1c
 .ti -1c
+.RI "void \fBled_task\fP (void)"
+.br
+.ti -1c
 .RI "int \fBmain\fP (void)"
 .br
 .RI "Main function\&. "
 .ti -1c
-.RI "\fBISR\fP (PORTA_PORT_vect)"
+.RI "\fBISR\fP (PORTB_PORT_vect)"
 .br
-.RI "Interrupt service routine for PORTA\&. "
 .in -1c
 .SS "Variables"
 
 .in +1c
 .ti -1c
-.RI "\fBmln_gpio\fP \fBbtn_builtin\fP (PA5, \fBMLN_GPIO_DIR_INPUT_PULLUP\fP, true)"
+.RI "\fBmln_uart\fP uart & \fBUSART3\fP"
 .br
 .ti -1c
-.RI "\fBmln_gpio\fP \fBled_builtin\fP (PA6, \fBMLN_GPIO_DIR_OUTPUT\fP, true)"
+.RI "\fBmln_gpio\fP \fBbtn_builtin\fP (PB2, \fBMLN_GPIO_DIR_INPUT_PULLUP\fP, true)"
 .br
 .ti -1c
-.RI "\fBmln_opamp_inverting_init_t\fP \fBopamp_init\fP"
+.RI "\fBmln_gpio\fP \fBled_builtin\fP (PB3, \fBMLN_GPIO_DIR_OUTPUT\fP, true)"
 .br
 .ti -1c
-.RI "\fBmln_adc\fP \fBadc\fP (PD2)"
+.RI "\fBmln_adc\fP \fBadc\fP"
+.br
+.ti -1c
+.RI "\fBmcp4822\fP dac & \fBSPI0\fP"
+.br
+.ti -1c
+.RI "\fBmln_timer\fP \fBled_timer\fP (MLN_TIMER_0, 1000)"
+.br
+.ti -1c
+.RI "uint16_t \fBdac_value\fP = 0"
+.br
+.ti -1c
+.RI "\fBmln_opamp_follower_init_t\fP \fBopamp_init\fP"
+.br
+.ti -1c
+.RI "\fBmln_opamp_noninverting_init_t\fP \fBopamp1_init\fP"
 .br
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "ISR (PORTA_PORT_vect)"
+.SS "ISR (PORTB_PORT_vect)"
 
 .PP
-Interrupt service routine for PORTA\&. 
+Definition at line \fB107\fP of file \fBmain\&.cpp\fP\&.
+.SS "void led_task (void)"
+
 .PP
-Definition at line \fB112\fP of file \fBmain\&.cpp\fP\&.
+Definition at line \fB91\fP of file \fBmain\&.cpp\fP\&.
 .SS "int main (void)"
 
 .PP
@@ -59,31 +78,65 @@ int Should never return
 .PP
 
 .PP
-Definition at line \fB45\fP of file \fBmain\&.cpp\fP\&.
+Definition at line \fB53\fP of file \fBmain\&.cpp\fP\&.
 .SH "Variable Documentation"
 .PP 
-.SS "\fBmln_adc\fP adc(PD2) (PD2)"
+.SS "\fBmln_adc\fP adc"
 
-.SS "\fBmln_gpio\fP btn_builtin(PA5, \fBMLN_GPIO_DIR_INPUT_PULLUP\fP, true) (PA5, \fBMLN_GPIO_DIR_INPUT_PULLUP\fP, true)"
+.PP
+Definition at line \fB17\fP of file \fBmain\&.cpp\fP\&.
+.SS "\fBmln_gpio\fP btn_builtin(PB2, \fBMLN_GPIO_DIR_INPUT_PULLUP\fP, true) (PB2, \fBMLN_GPIO_DIR_INPUT_PULLUP\fP, true)"
 
-.SS "\fBmln_gpio\fP led_builtin(PA6, \fBMLN_GPIO_DIR_OUTPUT\fP, true) (PA6, \fBMLN_GPIO_DIR_OUTPUT\fP, true)"
+.SS "uint16_t dac_value = 0"
 
-.SS "\fBmln_opamp_inverting_init_t\fP opamp_init"
+.PP
+Definition at line \fB22\fP of file \fBmain\&.cpp\fP\&.
+.SS "\fBmln_gpio\fP led_builtin(PB3, \fBMLN_GPIO_DIR_OUTPUT\fP, true) (PB3, \fBMLN_GPIO_DIR_OUTPUT\fP, true)"
+
+.SS "\fBmln_timer\fP led_timer(MLN_TIMER_0, 1000) (MLN_TIMER_0, 1000)"
+
+.SS "\fBmln_opamp_noninverting_init_t\fP opamp1_init"
 \fBInitial value:\fP.PP
 .nf
 = {
-    \&.opamp = MLN_OPAMP_DEVICE_0,
-    \&.runstdby = false,
+    \&.opamp = MLN_OPAMP_DEVICE_1,
+
+    \&.runstdby = true,
     \&.output = true,
-    \&.lowpower = false,
-    \&.gain = MLN_OPAMP_GAIN_INVERTING_1,
-    \&.in_pos = MLN_OPAMP_INVERTING_IN_POS_VDDDIV2,
-    \&.in_neg = MLN_OPAMP_INVERTING_IN_NEG_INN
+    \&.lowpower = true,
+
+    \&.gain = MLN_OPAMP_GAIN_NONINVERTING_2,
+
+    \&.in = MLN_OPAMP_NONINVERTING_IN_LINKOUT
 }
 .fi
 
 .PP
-Definition at line \fB28\fP of file \fBmain\&.cpp\fP\&.
+Definition at line \fB36\fP of file \fBmain\&.cpp\fP\&.
+.SS "\fBmln_opamp_follower_init_t\fP opamp_init"
+\fBInitial value:\fP.PP
+.nf
+= {
+    \&.opamp = MLN_OPAMP_DEVICE_0,
+    
+    \&.runstdby = true,
+    \&.output = true,
+    \&.lowpower = true,
+
+    \&.in = MLN_OPAMP_FOLLOWER_IN_DAC
+}
+.fi
+
+.PP
+Definition at line \fB26\fP of file \fBmain\&.cpp\fP\&.
+.SS "\fBmcp4822\fP dac& SPI0"
+
+.PP
+Definition at line \fB18\fP of file \fBmain\&.cpp\fP\&.
+.SS "\fBmln_uart\fP uart& USART3"
+
+.PP
+Definition at line \fB12\fP of file \fBmain\&.cpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for mlnlib from the source code\&.

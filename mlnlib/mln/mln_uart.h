@@ -117,7 +117,7 @@ class mln_uart
 	 */
 	inline void init_pins(USART_t* new_inst)
 	{
-		switch(new_inst - &USART0)
+		switch((new_inst - &USART0) / 2)
 		{
 			case 0:
 				pin_tx = mln_gpio(MLN_UART0_PIN_TX, MLN_GPIO_DIR_OUTPUT);
@@ -168,16 +168,16 @@ class mln_uart
 	}
 
 public:
-	inline mln_uart(USART_t* new_inst, const uint32_t& baud)
-	{
-		if((new_inst - &USART0) > MLN_UART_NUM_INSTS) return;
+	inline mln_uart(USART_t* new_inst, uint32_t baud)
+	{	
+		if((new_inst - &USART0) / 2 > MLN_UART_NUM_INSTS) return;
 
 		memset(buffer, 0, sizeof(buffer));
 		index = 0;
 
 		inst = new_inst;
 
-		init_pins(new_inst);
+		init_pins(inst);
 
 		inst->BAUD = (uint16_t)MLN_UART_BAUD_NUM(baud);
 
@@ -277,8 +277,9 @@ int mln_uart_stream_read(FILE *f)
 ISR(USART3_RXC_vect)
 {
 	mln_uart_stream_uart->push();
+
 	if(!mln_uart_stream_uart->is_busy_rx())
-	mln_uart_stream_uart->run_isr();
+		mln_uart_stream_uart->run_isr();
 }
 
 #endif //__MLN_UART_H__

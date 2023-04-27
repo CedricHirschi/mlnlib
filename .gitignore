@@ -8,3 +8,6 @@
 *.lss
 *.map
 *.srec
+
+# ignore doxygen folder
+doxygen/
