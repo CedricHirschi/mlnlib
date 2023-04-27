@@ -7,6 +7,9 @@ mlnlib/mln/mln_vref.h \- This peripheral is used to generate reference voltages 
 .SH SYNOPSIS
 .br
 .PP
+\fC#include <avr/io\&.h>\fP
+.br
+
 .SS "Namespaces"
 
 .in +1c
@@ -27,7 +30,7 @@ mlnlib/mln/mln_vref.h \- This peripheral is used to generate reference voltages 
 
 .in +1c
 .ti -1c
-.RI "const void \fBmln_vref::set\fP (\fBMLN_VREF_SEL_t\fP dac=\fBMLN_VREF_2V048\fP, \fBMLN_VREF_SEL_t\fP adc=\fBMLN_VREF_2V048\fP, \fBMLN_VREF_SEL_t\fP ac=\fBMLN_VREF_2V048\fP, bool standby=false)"
+.RI "const void \fBmln_vref::set\fP (\fBMLN_VREF_SEL_t\fP \fBadc\fP=\fBMLN_VREF_2V048\fP, \fBMLN_VREF_SEL_t\fP dac=\fBMLN_VREF_2V048\fP, \fBMLN_VREF_SEL_t\fP ac=\fBMLN_VREF_2V048\fP, bool standby=false)"
 .br
 .RI "Configure and set voltages of the VREF peripheral\&. "
 .in -1c
@@ -82,7 +85,7 @@ Reference voltage selection for DAC and ADC\&.
 .TP
 \fB\fIMLN_VREF_VREFA \fP\fP
 .PP
-Definition at line \fB19\fP of file \fBmln_vref\&.h\fP\&.
+Definition at line \fB21\fP of file \fBmln_vref\&.h\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for mlnlib from the source code\&.

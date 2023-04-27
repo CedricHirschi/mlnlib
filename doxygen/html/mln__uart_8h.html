@@ -93,13 +93,14 @@ $(document).ready(function(){initNavTree('mln__uart_8h.html',''); initResizable(
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">mln_uart.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This peripheral is used to communicate with USART.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
@@ -111,13 +112,13 @@ $(document).ready(function(){initNavTree('mln__uart_8h.html',''); initResizable(
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmln__uart.html">mln_uart</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">USART peripheral class.  <a href="classmln__uart.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a0f174722955e54972f2c8155da6da4c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__uart_8h.html#a0f174722955e54972f2c8155da6da4c9">MLN_UART_BAUD</a>&#160;&#160;&#160;115200</td></tr>
-<tr class="separator:a0f174722955e54972f2c8155da6da4c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af296e92127536a1e65460c4de0458815"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__uart_8h.html#af296e92127536a1e65460c4de0458815">MLN_UART_BUF_SIZE</a>&#160;&#160;&#160;32</td></tr>
+<tr class="memdesc:af296e92127536a1e65460c4de0458815"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum UART buffer size.  <br /></td></tr>
 <tr class="separator:af296e92127536a1e65460c4de0458815"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a434695c07951710eb0a173a65f279f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__uart_8h.html#a1a434695c07951710eb0a173a65f279f">MLN_UART0_PIN_TX</a>&#160;&#160;&#160;PA0</td></tr>
 <tr class="separator:a1a434695c07951710eb0a173a65f279f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,30 +135,16 @@ Macros</h2></td></tr>
 <tr class="memitem:ad728e72885f09aa314f2436dfe99293d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__uart_8h.html#ad728e72885f09aa314f2436dfe99293d">MLN_UART_NUM_INSTS</a>&#160;&#160;&#160;3</td></tr>
 <tr class="separator:ad728e72885f09aa314f2436dfe99293d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9978acfe9e00540d2e18286481e786ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__uart_8h.html#a9978acfe9e00540d2e18286481e786ef">MLN_UART_BAUD_NUM</a>(BAUD)&#160;&#160;&#160;((float)(F_CPU * 64 / (16 * (float)BAUD)) + 0.5)</td></tr>
+<tr class="memdesc:a9978acfe9e00540d2e18286481e786ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to calculate register value from baud rate.  <br /></td></tr>
 <tr class="separator:a9978acfe9e00540d2e18286481e786ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af539f863c1d0f56684541fc0f4501aa3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__uart_8h.html#af539f863c1d0f56684541fc0f4501aa3">IS_INT</a>(CHAR)&#160;&#160;&#160;((CHAR &gt;= 48) &amp;&amp; (CHAR &lt;= 57))</td></tr>
-<tr class="separator:af539f863c1d0f56684541fc0f4501aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a467eea334c7c7896fd41a52a9e1b2458"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="mln__uart_8h.html#a0e76943e2cd4eba35764d225d1dad569">mln_uart_inst_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__uart_8h.html#a467eea334c7c7896fd41a52a9e1b2458">UART_t</a></td></tr>
-<tr class="separator:a467eea334c7c7896fd41a52a9e1b2458"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a0e76943e2cd4eba35764d225d1dad569"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__uart_8h.html#a0e76943e2cd4eba35764d225d1dad569">mln_uart_inst_e</a> { <a class="el" href="mln__uart_8h.html#a0e76943e2cd4eba35764d225d1dad569a9283de1a2e6eea552574a50ca586df8e">UART0</a>
-, <a class="el" href="mln__uart_8h.html#a0e76943e2cd4eba35764d225d1dad569ad78b5dd576e9a3ab80d6c77ff9d1cd27">UART1</a>
-, <a class="el" href="mln__uart_8h.html#a0e76943e2cd4eba35764d225d1dad569a1131083beae26b9314a6fca36032b44a">UART2</a>
- }</td></tr>
-<tr class="separator:a0e76943e2cd4eba35764d225d1dad569"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad26ae90573f43a3ffcaf44936260ec6c"><td class="memItemLeft" align="right" valign="top">USART_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__uart_8h.html#ad26ae90573f43a3ffcaf44936260ec6c">MLN_UART_TO_USART</a> (<a class="el" href="mln__uart_8h.html#a467eea334c7c7896fd41a52a9e1b2458">UART_t</a> uart)</td></tr>
-<tr class="separator:ad26ae90573f43a3ffcaf44936260ec6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf9b46a7020b85c33ea70568078d17ec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__uart_8h.html#adf9b46a7020b85c33ea70568078d17ec">mln_uart_stream_write</a> (char character, FILE *f)</td></tr>
+<tr class="memdesc:adf9b46a7020b85c33ea70568078d17ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to write from std stream to USART peripheral.  <br /></td></tr>
 <tr class="separator:adf9b46a7020b85c33ea70568078d17ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f1e39e7e87ce420c069533972807f70"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__uart_8h.html#a6f1e39e7e87ce420c069533972807f70">mln_uart_stream_read</a> (FILE *f)</td></tr>
+<tr class="memdesc:a6f1e39e7e87ce420c069533972807f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to read USART peripheral to std stream.  <br /></td></tr>
 <tr class="separator:a6f1e39e7e87ce420c069533972807f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f11fdfd6a878a854419434a4a401693"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__uart_8h.html#a1f11fdfd6a878a854419434a4a401693">ISR</a> (USART3_RXC_vect)</td></tr>
 <tr class="separator:a1f11fdfd6a878a854419434a4a401693"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,29 +152,18 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a768b1692fd426a153624045053f62395"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmln__uart.html">mln_uart</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__uart_8h.html#a768b1692fd426a153624045053f62395">mln_uart_stream_uart</a></td></tr>
+<tr class="memdesc:a768b1692fd426a153624045053f62395"><td class="mdescLeft">&#160;</td><td class="mdescRight">USART stream (for printf functionality)  <br /></td></tr>
 <tr class="separator:a768b1692fd426a153624045053f62395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="af539f863c1d0f56684541fc0f4501aa3" name="af539f863c1d0f56684541fc0f4501aa3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af539f863c1d0f56684541fc0f4501aa3">&#9670;&#160;</a></span>IS_INT</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This peripheral is used to communicate with USART. </p>
+<dl class="section author"><dt>Author</dt><dd>Cédric Hirschi (<a href="#" onclick="location.href='mai'+'lto:'+'ced'+'r0'+'2@l'+'iv'+'e.c'+'om'; return false;">cedr0<span class="obfuscator">.nosp@m.</span>2@li<span class="obfuscator">.nosp@m.</span>ve.co<span class="obfuscator">.nosp@m.</span>m</a>) </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2023-04-27</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IS_INT</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">CHAR</td><td>)</td>
-          <td>&#160;&#160;&#160;((CHAR &gt;= 48) &amp;&amp; (CHAR &lt;= 57))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00058">58</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
-
-</div>
-</div>
+<p class="definition">Definition in file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ab005771276881b9a746a85e1932caca4" name="ab005771276881b9a746a85e1932caca4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab005771276881b9a746a85e1932caca4">&#9670;&#160;</a></span>MLN_UART0_PIN_RX</h2>
 
@@ -200,7 +176,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00027">27</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00036">36</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
 
 </div>
 </div>
@@ -216,7 +192,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00026">26</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00035">35</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
 
 </div>
 </div>
@@ -232,7 +208,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00029">29</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00038">38</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
 
 </div>
 </div>
@@ -248,7 +224,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00028">28</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00037">37</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
 
 </div>
 </div>
@@ -264,7 +240,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00031">31</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00040">40</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
 
 </div>
 </div>
@@ -280,23 +256,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00030">30</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
-
-</div>
-</div>
-<a id="a0f174722955e54972f2c8155da6da4c9" name="a0f174722955e54972f2c8155da6da4c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f174722955e54972f2c8155da6da4c9">&#9670;&#160;</a></span>MLN_UART_BAUD</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MLN_UART_BAUD&#160;&#160;&#160;115200</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00023">23</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00039">39</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
 
 </div>
 </div>
@@ -316,7 +276,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00057">57</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+<p>Macro to calculate register value from baud rate. </p>
+
+<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00070">70</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
 
 </div>
 </div>
@@ -332,7 +294,12 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00024">24</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+<p>Maximum UART buffer size. </p>
+<dl class="section note"><dt>Note</dt><dd>Currently RX only </dd>
+<dd>
+Can be changed without further problems </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00033">33</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
 
 </div>
 </div>
@@ -348,44 +315,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00054">54</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="a467eea334c7c7896fd41a52a9e1b2458" name="a467eea334c7c7896fd41a52a9e1b2458"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a467eea334c7c7896fd41a52a9e1b2458">&#9670;&#160;</a></span>UART_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef enum <a class="el" href="mln__uart_8h.html#a0e76943e2cd4eba35764d225d1dad569">mln_uart_inst_e</a> <a class="el" href="mln__uart_8h.html#a467eea334c7c7896fd41a52a9e1b2458">UART_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a0e76943e2cd4eba35764d225d1dad569" name="a0e76943e2cd4eba35764d225d1dad569"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e76943e2cd4eba35764d225d1dad569">&#9670;&#160;</a></span>mln_uart_inst_e</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="mln__uart_8h.html#a0e76943e2cd4eba35764d225d1dad569">mln_uart_inst_e</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a0e76943e2cd4eba35764d225d1dad569a9283de1a2e6eea552574a50ca586df8e" name="a0e76943e2cd4eba35764d225d1dad569a9283de1a2e6eea552574a50ca586df8e"></a>UART0&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a0e76943e2cd4eba35764d225d1dad569ad78b5dd576e9a3ab80d6c77ff9d1cd27" name="a0e76943e2cd4eba35764d225d1dad569ad78b5dd576e9a3ab80d6c77ff9d1cd27"></a>UART1&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a0e76943e2cd4eba35764d225d1dad569a1131083beae26b9314a6fca36032b44a" name="a0e76943e2cd4eba35764d225d1dad569a1131083beae26b9314a6fca36032b44a"></a>UART2&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00060">60</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00063">63</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
 
 </div>
 </div>
@@ -406,7 +336,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00287">287</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00277">277</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
 
 </div>
 </div>
@@ -426,7 +356,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00282">282</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+<p>Helper function to read USART peripheral to std stream. </p>
+
+<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00272">272</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
 
 </div>
 </div>
@@ -456,27 +388,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00276">276</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+<p>Helper function to write from std stream to USART peripheral. </p>
 
-</div>
-</div>
-<a id="ad26ae90573f43a3ffcaf44936260ec6c" name="ad26ae90573f43a3ffcaf44936260ec6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad26ae90573f43a3ffcaf44936260ec6c">&#9670;&#160;</a></span>MLN_UART_TO_USART()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">USART_t * MLN_UART_TO_USART </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="mln__uart_8h.html#a467eea334c7c7896fd41a52a9e1b2458">UART_t</a>&#160;</td>
-          <td class="paramname"><em>uart</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00080">80</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00266">266</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
 
 </div>
 </div>
@@ -493,7 +407,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00078">78</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
+<p>USART stream (for printf functionality) </p>
+
+<p class="definition">Definition at line <a class="el" href="mln__uart_8h_source.html#l00082">82</a> of file <a class="el" href="mln__uart_8h_source.html">mln_uart.h</a>.</p>
 
 </div>
 </div>

@@ -11,7 +11,7 @@ mln_dac \- DAC peripheral namespace\&.
 
 .in +1c
 .ti -1c
-.RI "void \fBconfig\fP (bool standby, bool buffer)"
+.RI "const void \fBconfig\fP (bool standby, bool buffer)"
 .br
 .RI "Configure the DAC peripheral\&. "
 .ti -1c
@@ -34,7 +34,7 @@ DAC peripheral namespace\&.
 
 .SH "Function Documentation"
 .PP 
-.SS "void mln_dac::config (bool standby, bool buffer)\fC [inline]\fP"
+.SS "const void mln_dac::config (bool standby, bool buffer)\fC [inline]\fP"
 
 .PP
 Configure the DAC peripheral\&. 
@@ -48,19 +48,19 @@ Configure the DAC peripheral\&.
 .PP
 
 .PP
-Definition at line \fB28\fP of file \fBmln_dac\&.h\fP\&.
+Definition at line \fB30\fP of file \fBmln_dac\&.h\fP\&.
 .SS "const void mln_dac::disable (void)\fC [inline]\fP"
 
 .PP
 Disable the DAC peripheral\&. 
 .PP
-Definition at line \fB43\fP of file \fBmln_dac\&.h\fP\&.
+Definition at line \fB45\fP of file \fBmln_dac\&.h\fP\&.
 .SS "const void mln_dac::enable (void)\fC [inline]\fP"
 
 .PP
 Enable the DAC peripheral\&. 
 .PP
-Definition at line \fB38\fP of file \fBmln_dac\&.h\fP\&.
+Definition at line \fB40\fP of file \fBmln_dac\&.h\fP\&.
 .SS "const void mln_dac::set (uint16_t value)\fC [inline]\fP"
 
 .PP
@@ -68,12 +68,17 @@ Set the output of the DAC peripheral\&.
 .PP
 \fBParameters\fP
 .RS 4
-\fIvalue\fP The output of the DAC peripheral 
+\fIvalue\fP The output of the DAC peripheral
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Remember to call \fCenable\fP to enable the peripheral 
 .RE
 .PP
 
 .PP
-Definition at line \fB51\fP of file \fBmln_dac\&.h\fP\&.
+Definition at line \fB54\fP of file \fBmln_dac\&.h\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for mlnlib from the source code\&.

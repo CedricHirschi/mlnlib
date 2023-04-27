@@ -24,9 +24,9 @@
 \DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00020}00020\ \textcolor{preprocessor}{\#ifdef\ TCA1}}
 \DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00021}00021\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ mln\_timer\_inst\_e}
 \DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00022}00022\ \{}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00023}00023\ \ \ \ \ TIMER0,}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00024}00024\ \ \ \ \ TIMER1}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00025}00025\ \}\ TIMER\_t;}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00023}00023\ \ \ \ \ MLN\_TIMER\_0\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00024}00024\ \ \ \ \ MLN\_TIMER\_1}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00025}00025\ \}\ mln\_timer\_t;}
 \DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00026}00026\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00027}00027\ }
 \DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00028}00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmln__timer}{mln\_timer}};}
@@ -37,120 +37,108 @@
 \DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00033}00033\ \mbox{\hyperlink{classmln__timer}{mln\_timer}}\ *timer1\_isr;}
 \DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00034}00034\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00035}00035\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00036}\mbox{\hyperlink{mln__timer_8h_a6c25be2a0a9cf79a5f1a4b9f1477c5b2}{00036}}\ \textcolor{keyword}{const}\ uint16\_t\ \mbox{\hyperlink{mln__timer_8h_a6c25be2a0a9cf79a5f1a4b9f1477c5b2}{mln\_timer\_divs}}[]\ =\ \{1,\ 2,\ 4,\ 8,\ 16,\ 64,\ 256,\ 1024\};}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00037}\mbox{\hyperlink{mln__timer_8h_afbcc0d4136120d41a1113af338705b37}{00037}}\ uint32\_t\ \mbox{\hyperlink{mln__timer_8h_afbcc0d4136120d41a1113af338705b37}{mln\_max\_periods}}[]\ =\ \{65,\ 131,\ 262,\ 524,\ 1048,\ 4194,\ 16776,\ 67107\};}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00038}\mbox{\hyperlink{mln__timer_8h_a046cdd9ee0b957825702e84b535caf56}{00038}}\ \textcolor{keyword}{const}\ TCA\_SINGLE\_CLKSEL\_t\ \mbox{\hyperlink{mln__timer_8h_a046cdd9ee0b957825702e84b535caf56}{mln\_timer\_divs\_bm}}[]\ =\ \{}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00039}00039\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV1\_gc,}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00040}00040\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV2\_gc,}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00041}00041\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV4\_gc,}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00042}00042\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV8\_gc,}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00043}00043\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV16\_gc,}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00044}00044\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV64\_gc,}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00045}00045\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV256\_gc,}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00046}00046\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV1024\_gc}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00047}00047\ \};}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00048}00048\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00049}\mbox{\hyperlink{mln__timer_8h_a941f8e0ed2c3abc92dd2d61fdfef845e}{00049}}\ uint8\_t\ \mbox{\hyperlink{mln__timer_8h_a941f8e0ed2c3abc92dd2d61fdfef845e}{MLN\_TIMER\_GET\_DIV}}(uint32\_t\ T)}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00050}00050\ \{}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00051}00051\ \ \ \ \ uint8\_t\ index\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00052}00052\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{while}(T\ >\ \mbox{\hyperlink{mln__timer_8h_afbcc0d4136120d41a1113af338705b37}{mln\_max\_periods}}[index])}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00054}00054\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ index++;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(index\ ==\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{mln__timer_8h_a6c25be2a0a9cf79a5f1a4b9f1477c5b2}{mln\_timer\_divs}})\ /\ \textcolor{keyword}{sizeof}(uint16\_t))}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00058}00058\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00059}00059\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{return}\ index;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00061}00061\ \}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00062}00062\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00063}\mbox{\hyperlink{classmln__timer}{00063}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmln__timer}{mln\_timer}}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00064}00064\ \{}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00065}00065\ \ \ \ \ TCA\_t\ *tim;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00066}00066\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{float}\ actual\_period;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00068}00068\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00069}00069\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00070}\mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{00070}}\ \ \ \ \ void(*\mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{isr}})(void);}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00071}00071\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00072}00072\ \textcolor{preprocessor}{\#ifdef\ TCA1}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00073}00073\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmln__timer}{mln\_timer}}(TIMER\_t\ new\_tim,\ uint16\_t\ period)}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00040}\mbox{\hyperlink{mln__timer_8h_a6c25be2a0a9cf79a5f1a4b9f1477c5b2}{00040}}\ \textcolor{keyword}{const}\ uint16\_t\ \mbox{\hyperlink{mln__timer_8h_a6c25be2a0a9cf79a5f1a4b9f1477c5b2}{mln\_timer\_divs}}[]\ =\ \{1,\ 2,\ 4,\ 8,\ 16,\ 64,\ 256,\ 1024\};}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00045}\mbox{\hyperlink{mln__timer_8h_ae75531c80076103d1cf0808af85c17d3}{00045}}\ uint32\_t\ \mbox{\hyperlink{mln__timer_8h_ae75531c80076103d1cf0808af85c17d3}{mln\_timer\_max\_periods}}[]\ =\ \{65,\ 131,\ 262,\ 524,\ 1048,\ 4194,\ 16776,\ 67107\};}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00050}\mbox{\hyperlink{mln__timer_8h_a046cdd9ee0b957825702e84b535caf56}{00050}}\ \textcolor{keyword}{const}\ TCA\_SINGLE\_CLKSEL\_t\ \mbox{\hyperlink{mln__timer_8h_a046cdd9ee0b957825702e84b535caf56}{mln\_timer\_divs\_bm}}[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00051}00051\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV1\_gc,}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00052}00052\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV2\_gc,}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00053}00053\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV4\_gc,}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00054}00054\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV8\_gc,}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00055}00055\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV16\_gc,}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00056}00056\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV64\_gc,}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00057}00057\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV256\_gc,}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00058}00058\ \ \ \ \ TCA\_SINGLE\_CLKSEL\_DIV1024\_gc}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00059}00059\ \};}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00069}\mbox{\hyperlink{mln__timer_8h_a277a817875df0f08a3c56759de8b9f88}{00069}}\ uint8\_t\ \mbox{\hyperlink{mln__timer_8h_a277a817875df0f08a3c56759de8b9f88}{MLN\_TIMER\_GET\_DIV}}(uint32\_t\ period)}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00070}00070\ \{}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00071}00071\ \ \ \ \ uint8\_t\ index\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{while}(period\ >\ \mbox{\hyperlink{mln__timer_8h_ae75531c80076103d1cf0808af85c17d3}{mln\_timer\_max\_periods}}[index]\ /\ (F\_CPU\ /\ 1000000UL))}
 \DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00074}00074\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00075}00075\ \ \ \ \ (new\_tim\ ==\ TIMER0)\ ?\ (tim\ =\ \&TCA0)\ :\ (tim\ =\ \&TCA1);}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00076}00076\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00077}\mbox{\hyperlink{classmln__timer_ac44fb64119f1adc515488dfa36fb5981}{00077}}\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmln__timer_ac44fb64119f1adc515488dfa36fb5981}{mln\_timer}}(uint16\_t\ period)}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00078}00078\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ tim\ =\ \&TCA0;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00080}00080\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00081}00081\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(uint8\_t\ i\ =\ 0;\ i\ <\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{mln__timer_8h_a6c25be2a0a9cf79a5f1a4b9f1477c5b2}{mln\_timer\_divs}})\ /\ \textcolor{keyword}{sizeof}(uint16\_t);\ i++)}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{mln__timer_8h_afbcc0d4136120d41a1113af338705b37}{mln\_max\_periods}}[i]\ /=\ F\_CPU\ /\ 1000000UL;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00084}00084\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ uint8\_t\ div\_index\ =\ \mbox{\hyperlink{mln__timer_8h_a941f8e0ed2c3abc92dd2d61fdfef845e}{MLN\_TIMER\_GET\_DIV}}(period);}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ TCA\_SINGLE\_CLKSEL\_t\ TCA\_SINGLE\_CLKSEL\_DIV\_bm\ =\ \mbox{\hyperlink{mln__timer_8h_a046cdd9ee0b957825702e84b535caf56}{mln\_timer\_divs\_bm}}[div\_index];}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ uint16\_t\ max\_period\ =\ (uint16\_t)((\textcolor{keywordtype}{float})period\ *\ 65535.0f\ /\ (float)\mbox{\hyperlink{mln__timer_8h_afbcc0d4136120d41a1113af338705b37}{mln\_max\_periods}}[div\_index]);}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00088}00088\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ tim-\/>SINGLE.INTCTRL\ =\ TCA\_SINGLE\_OVF\_bm;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ tim-\/>SINGLE.PER\ =\ max\_period;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ tim-\/>SINGLE.CTRLA\ =\ TCA\_SINGLE\_RUNSTDBY\_bm;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ tim-\/>SINGLE.CTRLA\ |=\ TCA\_SINGLE\_CLKSEL\_DIV\_bm;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00093}00093\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00094}00094\ \ \ \ \ \ \ \ \ actual\_period\ =\ (float)max\_period\ /\ 65535.0f\ *\ (\textcolor{keywordtype}{float})\mbox{\hyperlink{mln__timer_8h_a6c25be2a0a9cf79a5f1a4b9f1477c5b2}{mln\_timer\_divs}}[div\_index];}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00095}00095\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00096}00096\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00097}00097\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00098}00098\ \textcolor{comment}{\ \ \ \ *\ @brief\ Set\ ISR\ function\ of\ TCA\ peripheral}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00099}00099\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00100}\mbox{\hyperlink{classmln__timer_aeb16cfd705c6627d22cf0d311094242b}{00100}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__timer_aeb16cfd705c6627d22cf0d311094242b}{set\_isr}}(\textcolor{keywordtype}{void}(*f)(\textcolor{keywordtype}{void}))}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00101}00101\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00102}00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{isr}}\ =\ f;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00103}00103\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00104}00104\ \textcolor{preprocessor}{\#ifdef\ TCA1}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ (tim\ ==\ \&TCA0)\ ?\ (\mbox{\hyperlink{mln__timer_8h_a6e8dd1c2b28f60698ee31371a23993ee}{timer0\_isr}}\ =\ \textcolor{keyword}{this})\ :\ (timer1\_isr\ =\ \textcolor{keyword}{this});}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00106}00106\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00107}00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{mln__timer_8h_a6e8dd1c2b28f60698ee31371a23993ee}{timer0\_isr}}\ =\ \textcolor{keyword}{this};}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00108}00108\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00109}00109\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00110}00110\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00111}00111\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00112}00112\ \textcolor{comment}{\ \ \ \ *\ @brief\ Start\ TCA\ peripheral}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00113}00113\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00114}\mbox{\hyperlink{classmln__timer_a6d22a0a1ba7339fb17bd8f137726bace}{00114}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__timer_a6d22a0a1ba7339fb17bd8f137726bace}{start}}(\textcolor{keywordtype}{void})\ \{\ tim-\/>SINGLE.CTRLA\ |=\ TCA\_SINGLE\_ENABLE\_bm;\ \}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00115}00115\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00116}00116\ \textcolor{comment}{\ \ \ \ *\ @brief\ Stop\ TCA\ peripheral}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00117}00117\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00118}\mbox{\hyperlink{classmln__timer_ad06a5923262d674648369b0fe8fee7fe}{00118}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__timer_ad06a5923262d674648369b0fe8fee7fe}{stop}}(\textcolor{keywordtype}{void})\ \{\ tim-\/>SINGLE.CTRLA\ \&=\ \string~TCA\_SINGLE\_ENABLE\_bm;\ \}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00119}00119\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00120}00120\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00121}00121\ \textcolor{comment}{\ \ \ \ *\ @brief\ Check\ if\ TCA\ peripheral\ is\ running}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00122}00122\ \textcolor{comment}{\ \ \ \ *}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00123}00123\ \textcolor{comment}{\ \ \ \ *\ @returns\ Whether\ TCA\ peripheral\ is\ running}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00124}00124\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00125}\mbox{\hyperlink{classmln__timer_aa4f9753cdeeb66e4489b6ba5802379e7}{00125}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmln__timer_aa4f9753cdeeb66e4489b6ba5802379e7}{is\_running}}(\textcolor{keywordtype}{void})\ \{\ \textcolor{keywordflow}{return}\ tim-\/>SINGLE.CTRLA\ \&\ TCA\_SINGLE\_ENABLE\_bm;\ \}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00126}00126\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00127}00127\ \textcolor{comment}{\ \ \ \ *\ @brief\ Check\ the\ actual\ ISR\ period\ of\ the\ TCA\ timer}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00128}00128\ \textcolor{comment}{\ \ \ \ *}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00129}00129\ \textcolor{comment}{\ \ \ \ *\ @returns\ Actual\ period\ of\ TCA\ timer}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00130}00130\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00131}\mbox{\hyperlink{classmln__timer_adfdd8df8386b642eb810a914391668bb}{00131}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmln__timer_adfdd8df8386b642eb810a914391668bb}{get\_period}}(\textcolor{keywordtype}{void})\ \{\ \textcolor{keywordflow}{return}\ actual\_period;\ \}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00132}00132\ \};\ \textcolor{comment}{//mln\_timer}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00133}00133\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00134}\mbox{\hyperlink{mln__timer_8h_a9c263623c85a6f82cee2e0ed5610625e}{00134}}\ \mbox{\hyperlink{mln__timer_8h_a9c263623c85a6f82cee2e0ed5610625e}{ISR}}(TCA0\_OVF\_vect)}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00135}00135\ \{}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00136}00136\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{mln__timer_8h_a6e8dd1c2b28f60698ee31371a23993ee}{timer0\_isr}}-\/>\mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{isr}})\ \mbox{\hyperlink{mln__timer_8h_a6e8dd1c2b28f60698ee31371a23993ee}{timer0\_isr}}-\/>\mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{isr}}();}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00137}00137\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00138}00138\ \ \ \ \ TCA0.SINGLE.INTFLAGS\ =\ TCA\_SINGLE\_OVF\_bm;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00139}00139\ \}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00140}00140\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00141}00141\ \textcolor{preprocessor}{\#ifdef\ TCA1}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00142}00142\ \mbox{\hyperlink{mln__timer_8h_a9c263623c85a6f82cee2e0ed5610625e}{ISR}}(TCA1\_OVF\_vect)}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00143}00143\ \{}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00144}00144\ \ \ \ \ \textcolor{keywordflow}{if}(timer1\_isr-\/>\mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{isr}})\ timer1\_isr-\/>\mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{isr}}();}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ index++;}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(index\ ==\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{mln__timer_8h_a6c25be2a0a9cf79a5f1a4b9f1477c5b2}{mln\_timer\_divs}})\ /\ \textcolor{keyword}{sizeof}(uint16\_t))\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00080}00080\ \ \ \ \ \textcolor{keywordflow}{return}\ index;}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00081}00081\ \}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00087}\mbox{\hyperlink{classmln__timer}{00087}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmln__timer}{mln\_timer}}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00088}00088\ \{}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00089}00089\ \ \ \ \ TCA\_t\ *tim;}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00091}00091\ \ \ \ \ \textcolor{keywordtype}{float}\ actual\_period;}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00093}00093\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00098}\mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{00098}}\ \ \ \ \ void(*\mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{isr}})(void);}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00100}00100\ \textcolor{preprocessor}{\#ifdef\ TCA1}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00108}00108\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmln__timer}{mln\_timer}}(mln\_timer\_t\ new\_tim,\ uint16\_t\&\ period)}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00109}00109\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00110}00110\ \ \ \ \ (new\_tim\ ==\ MLN\_TIMER\_0)\ ?\ (tim\ =\ \&TCA0)\ :\ (tim\ =\ \&TCA1);}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00111}00111\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00118}\mbox{\hyperlink{classmln__timer_afe8132eb2d8c662cde554e41cccfd449}{00118}}\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmln__timer_afe8132eb2d8c662cde554e41cccfd449}{mln\_timer}}(uint16\_t\&\ period)}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00119}00119\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ tim\ =\ \&TCA0;}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00121}00121\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Is\ currently\ done\ inside\ MLN\_TIMER\_GET\_DIV\ function\ to\ not\ divide\ multiple\ times}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ Check\ if\ this\ is\ working\ properly}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for(uint8\_t\ i\ =\ 0;\ i\ <\ sizeof(mln\_timer\_divs)\ /\ sizeof(uint16\_t);\ i++)}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ mln\_timer\_max\_periods[i]\ /=\ F\_CPU\ /\ 1000000UL;}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ uint8\_t\ div\_index\ =\ \mbox{\hyperlink{mln__timer_8h_a277a817875df0f08a3c56759de8b9f88}{MLN\_TIMER\_GET\_DIV}}(period);}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00128}00128\ \ \ \ \ \ \ \ \ TCA\_SINGLE\_CLKSEL\_t\ TCA\_SINGLE\_CLKSEL\_DIV\_bm\ =\ \mbox{\hyperlink{mln__timer_8h_a046cdd9ee0b957825702e84b535caf56}{mln\_timer\_divs\_bm}}[div\_index];}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00129}00129\ \ \ \ \ \ \ \ \ uint16\_t\ max\_period\ =\ (uint16\_t)((\textcolor{keywordtype}{float})period\ *\ 65535.0f\ /\ (float)\mbox{\hyperlink{mln__timer_8h_ae75531c80076103d1cf0808af85c17d3}{mln\_timer\_max\_periods}}[div\_index]);}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00131}00131\ \ \ \ \ \ \ \ \ tim-\/>SINGLE.INTCTRL\ =\ TCA\_SINGLE\_OVF\_bm;}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00132}00132\ \ \ \ \ \ \ \ \ tim-\/>SINGLE.PER\ =\ max\_period;}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00133}00133\ \ \ \ \ \ \ \ \ tim-\/>SINGLE.CTRLA\ =\ TCA\_SINGLE\_RUNSTDBY\_bm;}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00134}00134\ \ \ \ \ \ \ \ \ tim-\/>SINGLE.CTRLA\ |=\ TCA\_SINGLE\_CLKSEL\_DIV\_bm;}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00136}00136\ \ \ \ \ \ \ \ \ actual\_period\ =\ (float)max\_period\ /\ 65535.0f\ *\ (\textcolor{keywordtype}{float})\mbox{\hyperlink{mln__timer_8h_a6c25be2a0a9cf79a5f1a4b9f1477c5b2}{mln\_timer\_divs}}[div\_index];}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00137}00137\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00142}\mbox{\hyperlink{classmln__timer_aeb16cfd705c6627d22cf0d311094242b}{00142}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__timer_aeb16cfd705c6627d22cf0d311094242b}{set\_isr}}(\textcolor{keywordtype}{void}(*f)(\textcolor{keywordtype}{void}))}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00143}00143\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00144}00144\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{isr}}\ =\ f;}
 \DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00145}00145\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00146}00146\ \ \ \ \ TCA1.SINGLE.INTFLAGS\ =\ TCA\_SINGLE\_OVF\_bm;}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00147}00147\ \}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00148}00148\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00149}00149\ }
-\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00150}00150\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\_\_MLN\_TIMER\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00146}00146\ \textcolor{preprocessor}{\#ifdef\ TCA1}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00147}00147\ \ \ \ \ \ \ \ \ (tim\ ==\ \&TCA0)\ ?\ (\mbox{\hyperlink{mln__timer_8h_a6e8dd1c2b28f60698ee31371a23993ee}{timer0\_isr}}\ =\ \textcolor{keyword}{this})\ :\ (timer1\_isr\ =\ \textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00148}00148\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00149}00149\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{mln__timer_8h_a6e8dd1c2b28f60698ee31371a23993ee}{timer0\_isr}}\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00150}00150\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00151}00151\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00157}\mbox{\hyperlink{classmln__timer_a6d22a0a1ba7339fb17bd8f137726bace}{00157}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__timer_a6d22a0a1ba7339fb17bd8f137726bace}{start}}(\textcolor{keywordtype}{void})\ \{\ tim-\/>SINGLE.CTRLA\ |=\ TCA\_SINGLE\_ENABLE\_bm;\ \}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00162}\mbox{\hyperlink{classmln__timer_ad06a5923262d674648369b0fe8fee7fe}{00162}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__timer_ad06a5923262d674648369b0fe8fee7fe}{stop}}(\textcolor{keywordtype}{void})\ \{\ tim-\/>SINGLE.CTRLA\ \&=\ \string~TCA\_SINGLE\_ENABLE\_bm;\ \}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00172}\mbox{\hyperlink{classmln__timer_aa4f9753cdeeb66e4489b6ba5802379e7}{00172}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmln__timer_aa4f9753cdeeb66e4489b6ba5802379e7}{is\_running}}(\textcolor{keywordtype}{void})\ \{\ \textcolor{keywordflow}{return}\ tim-\/>SINGLE.CTRLA\ \&\ TCA\_SINGLE\_ENABLE\_bm;\ \}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00173}00173\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00174}00174\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Check\ the\ actual\ ISR\ period\ of\ the\ TCA\ timer}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00175}00175\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00176}00176\ \textcolor{comment}{\ \ \ \ \ *\ @returns\ Actual\ period\ of\ TCA\ timer}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00177}00177\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00178}00178\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00179}\mbox{\hyperlink{classmln__timer_adfdd8df8386b642eb810a914391668bb}{00179}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmln__timer_adfdd8df8386b642eb810a914391668bb}{get\_period}}(\textcolor{keywordtype}{void})\ \{\ \textcolor{keywordflow}{return}\ actual\_period;\ \}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00180}00180\ \};\ \textcolor{comment}{//mln\_timer}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00188}\mbox{\hyperlink{mln__timer_8h_a9c263623c85a6f82cee2e0ed5610625e}{00188}}\ \mbox{\hyperlink{mln__timer_8h_a9c263623c85a6f82cee2e0ed5610625e}{ISR}}(TCA0\_OVF\_vect)}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00189}00189\ \{}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00190}00190\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{mln__timer_8h_a6e8dd1c2b28f60698ee31371a23993ee}{timer0\_isr}}-\/>\mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{isr}})\ \mbox{\hyperlink{mln__timer_8h_a6e8dd1c2b28f60698ee31371a23993ee}{timer0\_isr}}-\/>\mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{isr}}();}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00192}00192\ \ \ \ \ TCA0.SINGLE.INTFLAGS\ =\ TCA\_SINGLE\_OVF\_bm;}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00193}00193\ \}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00195}00195\ \textcolor{preprocessor}{\#ifdef\ TCA1}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00202}00202\ \mbox{\hyperlink{mln__timer_8h_a9c263623c85a6f82cee2e0ed5610625e}{ISR}}(TCA1\_OVF\_vect)}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00203}00203\ \{}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00204}00204\ \ \ \ \ \textcolor{keywordflow}{if}(timer1\_isr-\/>\mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{isr}})\ timer1\_isr-\/>\mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{isr}}();}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00206}00206\ \ \ \ \ TCA1.SINGLE.INTFLAGS\ =\ TCA\_SINGLE\_OVF\_bm;}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00207}00207\ \}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00208}00208\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{mln__timer_8h_source_l00210}00210\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\_\_MLN\_TIMER\_H\_\_}}
 
 \end{DoxyCode}

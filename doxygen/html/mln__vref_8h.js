@@ -8,5 +8,5 @@ var mln__vref_8h =
       [ "MLN_VREF_VDD", "mln__vref_8h.html#ae495fc779ce5af55e739c012fe4caf4aaf0fc30fefdb9426b1cdf59ae84e0e4d9", null ],
       [ "MLN_VREF_VREFA", "mln__vref_8h.html#ae495fc779ce5af55e739c012fe4caf4aa6d44b1ba408a47fa64ed75f136f19ab7", null ]
     ] ],
-    [ "set", "mln__vref_8h.html#ac2d67fc43f0d9fe40f09b3a3c34686ad", null ]
+    [ "set", "mln__vref_8h.html#a692b2b7ba6828000729917de5eb8b7aa", null ]
 ];

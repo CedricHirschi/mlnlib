@@ -2,12 +2,17 @@
 \label{classmln__uart}\index{mln\_uart@{mln\_uart}}
 
 
+USART peripheral class.  
+
+
+
+
 {\ttfamily \#include $<$mln\+\_\+uart.\+h$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classmln__uart_ac04d8c0586c16aad3225ea283fd013c7}{mln\+\_\+uart}} (\mbox{\hyperlink{mln__uart_8h_a467eea334c7c7896fd41a52a9e1b2458}{UART\+\_\+t}} new\+\_\+inst, uint32\+\_\+t baud)
+\mbox{\hyperlink{classmln__uart_abb28597c8a6166c4396ca47f12424a55}{mln\+\_\+uart}} (USART\+\_\+t $\ast$new\+\_\+inst, const uint32\+\_\+t \&baud)
 \item 
 void \mbox{\hyperlink{classmln__uart_adc22948c3bbceebd2a4b396860e0d356}{set\+\_\+isr}} (void($\ast$new\+\_\+isr)(void))
 \item 
@@ -30,22 +35,24 @@ const void \mbox{\hyperlink{classmln__uart_a0c237c85758c352b5c83a73a86c0410b}{ru
 
 
 \doxysubsection{Detailed Description}
+USART peripheral class. 
 
 
-Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00117}{117}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00100}{100}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classmln__uart_ac04d8c0586c16aad3225ea283fd013c7}\label{classmln__uart_ac04d8c0586c16aad3225ea283fd013c7}} 
+\mbox{\Hypertarget{classmln__uart_abb28597c8a6166c4396ca47f12424a55}\label{classmln__uart_abb28597c8a6166c4396ca47f12424a55}} 
 \index{mln\_uart@{mln\_uart}!mln\_uart@{mln\_uart}}
 \index{mln\_uart@{mln\_uart}!mln\_uart@{mln\_uart}}
 \doxysubsubsection{\texorpdfstring{mln\_uart()}{mln\_uart()}}
-{\footnotesize\ttfamily mln\+\_\+uart\+::mln\+\_\+uart (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mln__uart_8h_a467eea334c7c7896fd41a52a9e1b2458}{UART\+\_\+t}}}]{new\+\_\+inst,  }\item[{uint32\+\_\+t}]{baud }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily mln\+\_\+uart\+::mln\+\_\+uart (\begin{DoxyParamCaption}\item[{USART\+\_\+t $\ast$}]{new\+\_\+inst,  }\item[{const uint32\+\_\+t \&}]{baud }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00180}{180}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00171}{171}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
 
 
 
@@ -58,7 +65,7 @@ Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00180}{180}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00268}{268}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00258}{258}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
 
 \mbox{\Hypertarget{classmln__uart_af0c4c2c4fe9410c26be25854ea42abae}\label{classmln__uart_af0c4c2c4fe9410c26be25854ea42abae}} 
 \index{mln\_uart@{mln\_uart}!is\_busy\_rx@{is\_busy\_rx}}
@@ -68,7 +75,7 @@ Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00268}{268}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00262}{262}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00252}{252}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
 
 \mbox{\Hypertarget{classmln__uart_a154c813c497997ca1b80202c55fcabdc}\label{classmln__uart_a154c813c497997ca1b80202c55fcabdc}} 
 \index{mln\_uart@{mln\_uart}!is\_busy\_tx@{is\_busy\_tx}}
@@ -78,7 +85,7 @@ Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00262}{262}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00256}{256}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00246}{246}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
 
 \mbox{\Hypertarget{classmln__uart_a5b81e87c2bd1249bacc266f92024e4db}\label{classmln__uart_a5b81e87c2bd1249bacc266f92024e4db}} 
 \index{mln\_uart@{mln\_uart}!pull@{pull}}
@@ -88,7 +95,7 @@ Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00256}{256}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00240}{240}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00230}{230}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
 
 \mbox{\Hypertarget{classmln__uart_ac2a9b7607750c2623b9c4a1a4e7d42d3}\label{classmln__uart_ac2a9b7607750c2623b9c4a1a4e7d42d3}} 
 \index{mln\_uart@{mln\_uart}!push@{push}}
@@ -98,7 +105,7 @@ Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00240}{240}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00228}{228}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00218}{218}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
 
 \mbox{\Hypertarget{classmln__uart_aae2b6c410d718d6ce64e0990895c1cf8}\label{classmln__uart_aae2b6c410d718d6ce64e0990895c1cf8}} 
 \index{mln\_uart@{mln\_uart}!read@{read}}
@@ -108,7 +115,7 @@ Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00228}{228}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00218}{218}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00208}{208}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
 
 \mbox{\Hypertarget{classmln__uart_a0c237c85758c352b5c83a73a86c0410b}\label{classmln__uart_a0c237c85758c352b5c83a73a86c0410b}} 
 \index{mln\_uart@{mln\_uart}!run\_isr@{run\_isr}}
@@ -118,7 +125,7 @@ Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00218}{218}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00273}{273}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00263}{263}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
 
 \mbox{\Hypertarget{classmln__uart_adc22948c3bbceebd2a4b396860e0d356}\label{classmln__uart_adc22948c3bbceebd2a4b396860e0d356}} 
 \index{mln\_uart@{mln\_uart}!set\_isr@{set\_isr}}
@@ -128,7 +135,7 @@ Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00273}{273}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00204}{204}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00194}{194}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
 
 \mbox{\Hypertarget{classmln__uart_a191f2aaf8afffffe993395c60c71d93e}\label{classmln__uart_a191f2aaf8afffffe993395c60c71d93e}} 
 \index{mln\_uart@{mln\_uart}!write@{write}}
@@ -138,7 +145,7 @@ Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00204}{204}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00209}{209}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00199}{199}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
 
 
 

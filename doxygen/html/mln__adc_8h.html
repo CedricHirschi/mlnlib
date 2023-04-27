@@ -93,11 +93,13 @@ $(document).ready(function(){initNavTree('mln__adc_8h.html',''); initResizable()
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle"><div class="title">mln_adc.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This peripheral is used to measure analog voltages.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="mln__gpio_8h_source.html">mln_gpio.h</a>&quot;</code><br />
 </div>
@@ -106,81 +108,85 @@ $(document).ready(function(){initNavTree('mln__adc_8h.html',''); initResizable()
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmln__adc.html">mln_adc</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC peripheral class.  <a href="classmln__adc.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a681b8ad90b7d1c8e335ad74f10c2e2f2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__adc_8h.html#a681b8ad90b7d1c8e335ad74f10c2e2f2">MLN_ADC_PIN_TO_IN</a>(pin)&#160;&#160;&#160;((pin.port - &amp;PORTD) * 8 + pin.pin_num)</td></tr>
+<tr class="memdesc:a681b8ad90b7d1c8e335ad74f10c2e2f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert <a class="el" href="classmln__gpio.html" title="GPIO peripheral class.">mln_gpio</a> pin to adc input.  <br /></td></tr>
 <tr class="separator:a681b8ad90b7d1c8e335ad74f10c2e2f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99ff5bc1f436c18f7f78fedf8f12fee0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__adc_8h.html#a99ff5bc1f436c18f7f78fedf8f12fee0">MLN_ADC_SHIFT</a>(samples)&#160;&#160;&#160;(samples &gt;= 4 ? 4 : samples)</td></tr>
+<tr class="memdesc:a99ff5bc1f436c18f7f78fedf8f12fee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to get the required shift of an ADC reading according to samples taken.  <br /></td></tr>
 <tr class="separator:a99ff5bc1f436c18f7f78fedf8f12fee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a4f03e1a0f2be54fd4eb97865059aa016"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="mln__adc_8h.html#ae23a33ba21fc4356971ad6158e159048">mln_adc_alt_in_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__adc_8h.html#a4f03e1a0f2be54fd4eb97865059aa016">ADC_IN_t</a></td></tr>
-<tr class="separator:a4f03e1a0f2be54fd4eb97865059aa016"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d661f184eb34e9770e0e930f1c1b94d"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="mln__adc_8h.html#a42a13d30380ca3f35a8da79dffe825b7">mln_adc_res_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__adc_8h.html#a3d661f184eb34e9770e0e930f1c1b94d">ADC_RES_t</a></td></tr>
-<tr class="separator:a3d661f184eb34e9770e0e930f1c1b94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88e3055fb02640f0981b595e3fc1c8c1"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073">mln_adc_presc_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__adc_8h.html#a88e3055fb02640f0981b595e3fc1c8c1">ADC_PRE_t</a></td></tr>
-<tr class="separator:a88e3055fb02640f0981b595e3fc1c8c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7152c224e51badcff6e1155eacc6bf29"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="mln__adc_8h.html#a40306ec3e591cedf7136426ee654c9ad">mln_adc_samp_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__adc_8h.html#a7152c224e51badcff6e1155eacc6bf29">ADC_SAMP_t</a></td></tr>
-<tr class="separator:a7152c224e51badcff6e1155eacc6bf29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ae23a33ba21fc4356971ad6158e159048"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__adc_8h.html#ae23a33ba21fc4356971ad6158e159048">mln_adc_alt_in_e</a> { <br />
-&#160;&#160;<a class="el" href="mln__adc_8h.html#ae23a33ba21fc4356971ad6158e159048a8a45fa8d32083de717b8256709c2022f">GND</a> = 0x40
-, <a class="el" href="mln__adc_8h.html#ae23a33ba21fc4356971ad6158e159048a84977e125ea46510daa0602e075c8c6e">TEMPSENSE</a> = 0x42
-, <a class="el" href="mln__adc_8h.html#ae23a33ba21fc4356971ad6158e159048a164a3213a5701c9dfafd88ce8f1c9e62">VDDDIV10</a> = 0x44
-, <a class="el" href="mln__adc_8h.html#ae23a33ba21fc4356971ad6158e159048aa69021e4c9a8d0603dbbb3dc5a72fa24">VDDIO2DIV10</a> = 0x45
+<tr class="memitem:a8b46c7c728d2203051bada5c588b72e9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__adc_8h.html#a8b46c7c728d2203051bada5c588b72e9">mln_adc_in_t</a> { <br />
+&#160;&#160;<a class="el" href="mln__adc_8h.html#a8b46c7c728d2203051bada5c588b72e9ae0f2d0ddeb1124f8665b0b0374772000">MLN_ADC_IN_GND</a> = 0x40
+, <a class="el" href="mln__adc_8h.html#a8b46c7c728d2203051bada5c588b72e9aa48a57e4e68db8fc8c035ba0916f7991">MLN_ADC_IN_TEMPSENSE</a> = 0x42
+, <a class="el" href="mln__adc_8h.html#a8b46c7c728d2203051bada5c588b72e9a52a7d98be097e05a1fbbb0bfff85e5b0">MLN_ADC_IN_VDDDIV10</a> = 0x44
+, <a class="el" href="mln__adc_8h.html#a8b46c7c728d2203051bada5c588b72e9a196ac19c3a3b299694bd9fa8fa17d57f">MLN_ADC_IN_VDDIO2DIV10</a> = 0x45
 , <br />
-&#160;&#160;<a class="el" href="mln__adc_8h.html#ae23a33ba21fc4356971ad6158e159048a1bdc96b7f14d9f3d2551d0eee290ef43">DAC</a> = 0x48
-, <a class="el" href="mln__adc_8h.html#ae23a33ba21fc4356971ad6158e159048ad24a8827f117a80bcc11587d8b979877">DACREF0</a> = 0x49
-, <a class="el" href="mln__adc_8h.html#ae23a33ba21fc4356971ad6158e159048a0c96851478b1fb0a49264716c506a11a">DACREF1</a> = 0x4A
-, <a class="el" href="mln__adc_8h.html#ae23a33ba21fc4356971ad6158e159048a8da65b8f393c57ae5d00ffd6ba78f13e">DACREF2</a> = 0x4B
+&#160;&#160;<a class="el" href="mln__adc_8h.html#a8b46c7c728d2203051bada5c588b72e9af11e174a2e8c30d46d7a1284472808ef">MLN_ADC_IN_DAC</a> = 0x48
+, <a class="el" href="mln__adc_8h.html#a8b46c7c728d2203051bada5c588b72e9a7ca092e24d7fc8d9a7ace31116e577ee">MLN_ADC_IN_DACREF0</a> = 0x49
+, <a class="el" href="mln__adc_8h.html#a8b46c7c728d2203051bada5c588b72e9a6dc0594f7f1c35df3e0ab813a75a5765">MLN_ADC_IN_DACREF1</a> = 0x4A
+, <a class="el" href="mln__adc_8h.html#a8b46c7c728d2203051bada5c588b72e9a04358347251e57e0cc0996315a4ae8fd">MLN_ADC_IN_DACREF2</a> = 0x4B
 <br />
  }</td></tr>
-<tr class="separator:ae23a33ba21fc4356971ad6158e159048"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42a13d30380ca3f35a8da79dffe825b7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__adc_8h.html#a42a13d30380ca3f35a8da79dffe825b7">mln_adc_res_e</a> { <a class="el" href="mln__adc_8h.html#a42a13d30380ca3f35a8da79dffe825b7a04abac7139599aa4759fe5b5eacbb782">HIRES</a>
-, <a class="el" href="mln__adc_8h.html#a42a13d30380ca3f35a8da79dffe825b7a84c5e8a9d619fe58ebb53cc6b4397403">LORES</a>
+<tr class="memdesc:a8b46c7c728d2203051bada5c588b72e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC input selection enum.  <a href="mln__adc_8h.html#a8b46c7c728d2203051bada5c588b72e9">More...</a><br /></td></tr>
+<tr class="separator:a8b46c7c728d2203051bada5c588b72e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d59f42a8f91323537152a301270a004"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__adc_8h.html#a0d59f42a8f91323537152a301270a004">mln_adc_resolution_t</a> { <a class="el" href="mln__adc_8h.html#a0d59f42a8f91323537152a301270a004a240434a90dbca2bdcd7e9d524096c975">MLN_ADC_RESOLUTION_HIGH</a> = 0
+, <a class="el" href="mln__adc_8h.html#a0d59f42a8f91323537152a301270a004a6caecfa7277be6b2e64d78397717c568">MLN_ADC_RESOLUTION_LOW</a>
  }</td></tr>
-<tr class="separator:a42a13d30380ca3f35a8da79dffe825b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a028bb23c38ce58798e592bdaf034f073"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073">mln_adc_presc_e</a> { <br />
-&#160;&#160;<a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073a56519a2284b7043319337ae0db4aa2e6">DIV2</a>
-, <a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073afd673dd0902bd9851e1e24da847c3594">DIV4</a>
-, <a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073afb74f38e5812d698bd7e53240bc3541b">DIV8</a>
-, <a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073a7b3f25afeb7433fa1eb24dcd4e79ce49">DIV12</a>
+<tr class="memdesc:a0d59f42a8f91323537152a301270a004"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC resolution selection enum.  <a href="mln__adc_8h.html#a0d59f42a8f91323537152a301270a004">More...</a><br /></td></tr>
+<tr class="separator:a0d59f42a8f91323537152a301270a004"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8686df8036c6ba2fc811904bf82cfa18"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18">mln_adc_prescaler_t</a> { <br />
+&#160;&#160;<a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18a0d5aa31ef12977424590b033eeab4d0a">MLN_ADC_DIV2</a> = 0
+, <a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18a7e65f324717b4c0a56aeb829d6144f49">MLN_ADC_DIV4</a>
+, <a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18a67b9687dff32c52d04e31e47693b1f51">MLN_ADC_DIV8</a>
+, <a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18a05be8a20c54bda53e1cbf439e09e0422">MLN_ADC_DIV12</a>
 , <br />
-&#160;&#160;<a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073a892fd83911da21980b01397a7f9ebe01">DIV16</a>
-, <a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073accefdbe99760b4d05e67cae516eb29eb">DIV20</a>
-, <a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073a4ced6186e0bbb48f201d45573aedefd5">DIV24</a>
-, <a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073a3b20ffc63c4fcb1febb09570c193b6db">DIV28</a>
+&#160;&#160;<a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18a0ef1e184d55f71a49dbb913ae41a4f9e">MLN_ADC_DIV16</a>
+, <a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18af98f61e3c9f758676e6773c3dcfe6013">MLN_ADC_DIV20</a>
+, <a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18a6926e9f238b1c19c4b00e70e2aecde60">MLN_ADC_DIV24</a>
+, <a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18a9723e89b46ac9a1ad4e55c5e2ef87ff0">MLN_ADC_DIV28</a>
 , <br />
-&#160;&#160;<a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073aeeeb2f538f7d157cc9d2d16b35810375">DIV32</a>
-, <a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073a78bc0874f4205f351f47db0ee0587c8d">DIV48</a>
-, <a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073abae69f433c0382aefc926500c9045df6">DIV64</a>
-, <a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073a5f8712e3e70a4f05a7d275344b3ce2e1">DIV96</a>
+&#160;&#160;<a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18aba13533cdcfa4a99268308d037c44d0f">MLN_ADC_DIV32</a>
+, <a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18a0aba09102fe68ddcb6ffbc2767c16f30">MLN_ADC_DIV48</a>
+, <a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18ac01338c3ecc4ef458fdaba783b48353a">MLN_ADC_DIV64</a>
+, <a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18a51ab198d9147b81370cec2073df10d97">MLN_ADC_DIV96</a>
 , <br />
-&#160;&#160;<a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073aa7914be1a89f098621e2f390856d16d4">DIV128</a>
-, <a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073a9f0f823686c79d394b381f82dc6edd8f">DIV256</a>
+&#160;&#160;<a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18afddf51219243bb59ace5c7b7f4430406">MLN_ADC_DIV128</a>
+, <a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18a18cbe48ca48f38d976b5e682ca23ee4d">MLN_ADC_DIV256</a>
 <br />
  }</td></tr>
-<tr class="separator:a028bb23c38ce58798e592bdaf034f073"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40306ec3e591cedf7136426ee654c9ad"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__adc_8h.html#a40306ec3e591cedf7136426ee654c9ad">mln_adc_samp_e</a> { <br />
-&#160;&#160;<a class="el" href="mln__adc_8h.html#a40306ec3e591cedf7136426ee654c9adac157bdf0b85a40d2619cbc8bc1ae5fe2">NONE</a>
-, <a class="el" href="mln__adc_8h.html#a40306ec3e591cedf7136426ee654c9ada915affc8d83376dd5f2c3b6095fe6aa5">ACC2</a>
-, <a class="el" href="mln__adc_8h.html#a40306ec3e591cedf7136426ee654c9adac819489da295517e35b588783cf50bd5">ACC4</a>
-, <a class="el" href="mln__adc_8h.html#a40306ec3e591cedf7136426ee654c9ada069b20c0487c26df215005029a2ee4b3">ACC8</a>
+<tr class="memdesc:a8686df8036c6ba2fc811904bf82cfa18"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC prescaler selection enum.  <a href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18">More...</a><br /></td></tr>
+<tr class="separator:a8686df8036c6ba2fc811904bf82cfa18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59aa030466723b07fda5aab69e6390a5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__adc_8h.html#a59aa030466723b07fda5aab69e6390a5">mln_adc_accumulation_t</a> { <br />
+&#160;&#160;<a class="el" href="mln__adc_8h.html#a59aa030466723b07fda5aab69e6390a5a43137a9bc78370efd37cd5cf0ae0b43f">MLN_ADC_ACCNONE</a> = 0
+, <a class="el" href="mln__adc_8h.html#a59aa030466723b07fda5aab69e6390a5a67c300111cc5a8c288e7f50dfdcf9782">MLN_ADC_ACC2</a>
+, <a class="el" href="mln__adc_8h.html#a59aa030466723b07fda5aab69e6390a5a2ab16542cc722821aabf39eddb02046b">MLN_ADC_ACC4</a>
+, <a class="el" href="mln__adc_8h.html#a59aa030466723b07fda5aab69e6390a5a6012dd8b8eee310a4de5c88b2e95351c">MLN_ADC_ACC8</a>
 , <br />
-&#160;&#160;<a class="el" href="mln__adc_8h.html#a40306ec3e591cedf7136426ee654c9adad42892d3f4f8a02c19edd85b021d69af">ACC16</a>
-, <a class="el" href="mln__adc_8h.html#a40306ec3e591cedf7136426ee654c9ada75efcab31be4459dcb4ee8b5c9a78fe0">ACC32</a>
-, <a class="el" href="mln__adc_8h.html#a40306ec3e591cedf7136426ee654c9ada9167d825625b78af94867953a90af9c6">ACC64</a>
-, <a class="el" href="mln__adc_8h.html#a40306ec3e591cedf7136426ee654c9adaf9f578efa5ef43a84c65f5a944157803">ACC128</a>
+&#160;&#160;<a class="el" href="mln__adc_8h.html#a59aa030466723b07fda5aab69e6390a5a30b89356b78706956d6f2f14eb769d16">MLN_ADC_ACC16</a>
+, <a class="el" href="mln__adc_8h.html#a59aa030466723b07fda5aab69e6390a5a673d897eb4ab6c728ef5a226e5591c9f">MLN_ADC_ACC32</a>
+, <a class="el" href="mln__adc_8h.html#a59aa030466723b07fda5aab69e6390a5a265352e9af1f6a9004a8641ab0f4539d">MLN_ADC_ACC64</a>
+, <a class="el" href="mln__adc_8h.html#a59aa030466723b07fda5aab69e6390a5ac6036bbba4fa3a2fdbf8ef875021524f">MLN_ADC_ACC128</a>
 <br />
  }</td></tr>
-<tr class="separator:a40306ec3e591cedf7136426ee654c9ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a59aa030466723b07fda5aab69e6390a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC prescaler accumulation enum.  <a href="mln__adc_8h.html#a59aa030466723b07fda5aab69e6390a5">More...</a><br /></td></tr>
+<tr class="separator:a59aa030466723b07fda5aab69e6390a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This peripheral is used to measure analog voltages. </p>
+<dl class="section author"><dt>Author</dt><dd>Cédric Hirschi (<a href="#" onclick="location.href='mai'+'lto:'+'ced'+'r0'+'2@l'+'iv'+'e.c'+'om'; return false;">cedr0<span class="obfuscator">.nosp@m.</span>2@li<span class="obfuscator">.nosp@m.</span>ve.co<span class="obfuscator">.nosp@m.</span>m</a>) </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2023-04-27</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="mln__adc_8h_source.html">mln_adc.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a681b8ad90b7d1c8e335ad74f10c2e2f2" name="a681b8ad90b7d1c8e335ad74f10c2e2f2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a681b8ad90b7d1c8e335ad74f10c2e2f2">&#9670;&#160;</a></span>MLN_ADC_PIN_TO_IN</h2>
 
@@ -197,7 +203,9 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__adc_8h_source.html#l00016">16</a> of file <a class="el" href="mln__adc_8h_source.html">mln_adc.h</a>.</p>
+<p>Macro to convert <a class="el" href="classmln__gpio.html" title="GPIO peripheral class.">mln_gpio</a> pin to adc input. </p>
+
+<p class="definition">Definition at line <a class="el" href="mln__adc_8h_source.html#l00023">23</a> of file <a class="el" href="mln__adc_8h_source.html">mln_adc.h</a>.</p>
 
 </div>
 </div>
@@ -217,169 +225,122 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__adc_8h_source.html#l00017">17</a> of file <a class="el" href="mln__adc_8h_source.html">mln_adc.h</a>.</p>
+<p>Macro to get the required shift of an ADC reading according to samples taken. </p>
 
-</div>
-</div>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="a4f03e1a0f2be54fd4eb97865059aa016" name="a4f03e1a0f2be54fd4eb97865059aa016"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f03e1a0f2be54fd4eb97865059aa016">&#9670;&#160;</a></span>ADC_IN_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef enum <a class="el" href="mln__adc_8h.html#ae23a33ba21fc4356971ad6158e159048">mln_adc_alt_in_e</a> <a class="el" href="mln__adc_8h.html#a4f03e1a0f2be54fd4eb97865059aa016">ADC_IN_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a88e3055fb02640f0981b595e3fc1c8c1" name="a88e3055fb02640f0981b595e3fc1c8c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88e3055fb02640f0981b595e3fc1c8c1">&#9670;&#160;</a></span>ADC_PRE_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef enum <a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073">mln_adc_presc_e</a> <a class="el" href="mln__adc_8h.html#a88e3055fb02640f0981b595e3fc1c8c1">ADC_PRE_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3d661f184eb34e9770e0e930f1c1b94d" name="a3d661f184eb34e9770e0e930f1c1b94d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d661f184eb34e9770e0e930f1c1b94d">&#9670;&#160;</a></span>ADC_RES_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef enum <a class="el" href="mln__adc_8h.html#a42a13d30380ca3f35a8da79dffe825b7">mln_adc_res_e</a> <a class="el" href="mln__adc_8h.html#a3d661f184eb34e9770e0e930f1c1b94d">ADC_RES_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7152c224e51badcff6e1155eacc6bf29" name="a7152c224e51badcff6e1155eacc6bf29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7152c224e51badcff6e1155eacc6bf29">&#9670;&#160;</a></span>ADC_SAMP_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef enum <a class="el" href="mln__adc_8h.html#a40306ec3e591cedf7136426ee654c9ad">mln_adc_samp_e</a> <a class="el" href="mln__adc_8h.html#a7152c224e51badcff6e1155eacc6bf29">ADC_SAMP_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p class="definition">Definition at line <a class="el" href="mln__adc_8h_source.html#l00028">28</a> of file <a class="el" href="mln__adc_8h_source.html">mln_adc.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="ae23a33ba21fc4356971ad6158e159048" name="ae23a33ba21fc4356971ad6158e159048"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae23a33ba21fc4356971ad6158e159048">&#9670;&#160;</a></span>mln_adc_alt_in_e</h2>
+<a id="a59aa030466723b07fda5aab69e6390a5" name="a59aa030466723b07fda5aab69e6390a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59aa030466723b07fda5aab69e6390a5">&#9670;&#160;</a></span>mln_adc_accumulation_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="mln__adc_8h.html#ae23a33ba21fc4356971ad6158e159048">mln_adc_alt_in_e</a></td>
+          <td class="memname">enum <a class="el" href="mln__adc_8h.html#a59aa030466723b07fda5aab69e6390a5">mln_adc_accumulation_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>ADC prescaler accumulation enum. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae23a33ba21fc4356971ad6158e159048a8a45fa8d32083de717b8256709c2022f" name="ae23a33ba21fc4356971ad6158e159048a8a45fa8d32083de717b8256709c2022f"></a>GND&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ae23a33ba21fc4356971ad6158e159048a84977e125ea46510daa0602e075c8c6e" name="ae23a33ba21fc4356971ad6158e159048a84977e125ea46510daa0602e075c8c6e"></a>TEMPSENSE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ae23a33ba21fc4356971ad6158e159048a164a3213a5701c9dfafd88ce8f1c9e62" name="ae23a33ba21fc4356971ad6158e159048a164a3213a5701c9dfafd88ce8f1c9e62"></a>VDDDIV10&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ae23a33ba21fc4356971ad6158e159048aa69021e4c9a8d0603dbbb3dc5a72fa24" name="ae23a33ba21fc4356971ad6158e159048aa69021e4c9a8d0603dbbb3dc5a72fa24"></a>VDDIO2DIV10&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ae23a33ba21fc4356971ad6158e159048a1bdc96b7f14d9f3d2551d0eee290ef43" name="ae23a33ba21fc4356971ad6158e159048a1bdc96b7f14d9f3d2551d0eee290ef43"></a>DAC&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ae23a33ba21fc4356971ad6158e159048ad24a8827f117a80bcc11587d8b979877" name="ae23a33ba21fc4356971ad6158e159048ad24a8827f117a80bcc11587d8b979877"></a>DACREF0&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ae23a33ba21fc4356971ad6158e159048a0c96851478b1fb0a49264716c506a11a" name="ae23a33ba21fc4356971ad6158e159048a0c96851478b1fb0a49264716c506a11a"></a>DACREF1&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ae23a33ba21fc4356971ad6158e159048a8da65b8f393c57ae5d00ffd6ba78f13e" name="ae23a33ba21fc4356971ad6158e159048a8da65b8f393c57ae5d00ffd6ba78f13e"></a>DACREF2&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a59aa030466723b07fda5aab69e6390a5a43137a9bc78370efd37cd5cf0ae0b43f" name="a59aa030466723b07fda5aab69e6390a5a43137a9bc78370efd37cd5cf0ae0b43f"></a>MLN_ADC_ACCNONE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a59aa030466723b07fda5aab69e6390a5a67c300111cc5a8c288e7f50dfdcf9782" name="a59aa030466723b07fda5aab69e6390a5a67c300111cc5a8c288e7f50dfdcf9782"></a>MLN_ADC_ACC2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a59aa030466723b07fda5aab69e6390a5a2ab16542cc722821aabf39eddb02046b" name="a59aa030466723b07fda5aab69e6390a5a2ab16542cc722821aabf39eddb02046b"></a>MLN_ADC_ACC4&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a59aa030466723b07fda5aab69e6390a5a6012dd8b8eee310a4de5c88b2e95351c" name="a59aa030466723b07fda5aab69e6390a5a6012dd8b8eee310a4de5c88b2e95351c"></a>MLN_ADC_ACC8&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a59aa030466723b07fda5aab69e6390a5a30b89356b78706956d6f2f14eb769d16" name="a59aa030466723b07fda5aab69e6390a5a30b89356b78706956d6f2f14eb769d16"></a>MLN_ADC_ACC16&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a59aa030466723b07fda5aab69e6390a5a673d897eb4ab6c728ef5a226e5591c9f" name="a59aa030466723b07fda5aab69e6390a5a673d897eb4ab6c728ef5a226e5591c9f"></a>MLN_ADC_ACC32&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a59aa030466723b07fda5aab69e6390a5a265352e9af1f6a9004a8641ab0f4539d" name="a59aa030466723b07fda5aab69e6390a5a265352e9af1f6a9004a8641ab0f4539d"></a>MLN_ADC_ACC64&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a59aa030466723b07fda5aab69e6390a5ac6036bbba4fa3a2fdbf8ef875021524f" name="a59aa030466723b07fda5aab69e6390a5ac6036bbba4fa3a2fdbf8ef875021524f"></a>MLN_ADC_ACC128&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="mln__adc_8h_source.html#l00019">19</a> of file <a class="el" href="mln__adc_8h_source.html">mln_adc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__adc_8h_source.html#l00082">82</a> of file <a class="el" href="mln__adc_8h_source.html">mln_adc.h</a>.</p>
 
 </div>
 </div>
-<a id="a028bb23c38ce58798e592bdaf034f073" name="a028bb23c38ce58798e592bdaf034f073"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a028bb23c38ce58798e592bdaf034f073">&#9670;&#160;</a></span>mln_adc_presc_e</h2>
+<a id="a8b46c7c728d2203051bada5c588b72e9" name="a8b46c7c728d2203051bada5c588b72e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b46c7c728d2203051bada5c588b72e9">&#9670;&#160;</a></span>mln_adc_in_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="mln__adc_8h.html#a028bb23c38ce58798e592bdaf034f073">mln_adc_presc_e</a></td>
+          <td class="memname">enum <a class="el" href="mln__adc_8h.html#a8b46c7c728d2203051bada5c588b72e9">mln_adc_in_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>ADC input selection enum. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a028bb23c38ce58798e592bdaf034f073a56519a2284b7043319337ae0db4aa2e6" name="a028bb23c38ce58798e592bdaf034f073a56519a2284b7043319337ae0db4aa2e6"></a>DIV2&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a028bb23c38ce58798e592bdaf034f073afd673dd0902bd9851e1e24da847c3594" name="a028bb23c38ce58798e592bdaf034f073afd673dd0902bd9851e1e24da847c3594"></a>DIV4&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a028bb23c38ce58798e592bdaf034f073afb74f38e5812d698bd7e53240bc3541b" name="a028bb23c38ce58798e592bdaf034f073afb74f38e5812d698bd7e53240bc3541b"></a>DIV8&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a028bb23c38ce58798e592bdaf034f073a7b3f25afeb7433fa1eb24dcd4e79ce49" name="a028bb23c38ce58798e592bdaf034f073a7b3f25afeb7433fa1eb24dcd4e79ce49"></a>DIV12&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a028bb23c38ce58798e592bdaf034f073a892fd83911da21980b01397a7f9ebe01" name="a028bb23c38ce58798e592bdaf034f073a892fd83911da21980b01397a7f9ebe01"></a>DIV16&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a028bb23c38ce58798e592bdaf034f073accefdbe99760b4d05e67cae516eb29eb" name="a028bb23c38ce58798e592bdaf034f073accefdbe99760b4d05e67cae516eb29eb"></a>DIV20&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a028bb23c38ce58798e592bdaf034f073a4ced6186e0bbb48f201d45573aedefd5" name="a028bb23c38ce58798e592bdaf034f073a4ced6186e0bbb48f201d45573aedefd5"></a>DIV24&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a028bb23c38ce58798e592bdaf034f073a3b20ffc63c4fcb1febb09570c193b6db" name="a028bb23c38ce58798e592bdaf034f073a3b20ffc63c4fcb1febb09570c193b6db"></a>DIV28&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a028bb23c38ce58798e592bdaf034f073aeeeb2f538f7d157cc9d2d16b35810375" name="a028bb23c38ce58798e592bdaf034f073aeeeb2f538f7d157cc9d2d16b35810375"></a>DIV32&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a028bb23c38ce58798e592bdaf034f073a78bc0874f4205f351f47db0ee0587c8d" name="a028bb23c38ce58798e592bdaf034f073a78bc0874f4205f351f47db0ee0587c8d"></a>DIV48&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a028bb23c38ce58798e592bdaf034f073abae69f433c0382aefc926500c9045df6" name="a028bb23c38ce58798e592bdaf034f073abae69f433c0382aefc926500c9045df6"></a>DIV64&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a028bb23c38ce58798e592bdaf034f073a5f8712e3e70a4f05a7d275344b3ce2e1" name="a028bb23c38ce58798e592bdaf034f073a5f8712e3e70a4f05a7d275344b3ce2e1"></a>DIV96&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a028bb23c38ce58798e592bdaf034f073aa7914be1a89f098621e2f390856d16d4" name="a028bb23c38ce58798e592bdaf034f073aa7914be1a89f098621e2f390856d16d4"></a>DIV128&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a028bb23c38ce58798e592bdaf034f073a9f0f823686c79d394b381f82dc6edd8f" name="a028bb23c38ce58798e592bdaf034f073a9f0f823686c79d394b381f82dc6edd8f"></a>DIV256&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8b46c7c728d2203051bada5c588b72e9ae0f2d0ddeb1124f8665b0b0374772000" name="a8b46c7c728d2203051bada5c588b72e9ae0f2d0ddeb1124f8665b0b0374772000"></a>MLN_ADC_IN_GND&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b46c7c728d2203051bada5c588b72e9aa48a57e4e68db8fc8c035ba0916f7991" name="a8b46c7c728d2203051bada5c588b72e9aa48a57e4e68db8fc8c035ba0916f7991"></a>MLN_ADC_IN_TEMPSENSE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b46c7c728d2203051bada5c588b72e9a52a7d98be097e05a1fbbb0bfff85e5b0" name="a8b46c7c728d2203051bada5c588b72e9a52a7d98be097e05a1fbbb0bfff85e5b0"></a>MLN_ADC_IN_VDDDIV10&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b46c7c728d2203051bada5c588b72e9a196ac19c3a3b299694bd9fa8fa17d57f" name="a8b46c7c728d2203051bada5c588b72e9a196ac19c3a3b299694bd9fa8fa17d57f"></a>MLN_ADC_IN_VDDIO2DIV10&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b46c7c728d2203051bada5c588b72e9af11e174a2e8c30d46d7a1284472808ef" name="a8b46c7c728d2203051bada5c588b72e9af11e174a2e8c30d46d7a1284472808ef"></a>MLN_ADC_IN_DAC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b46c7c728d2203051bada5c588b72e9a7ca092e24d7fc8d9a7ace31116e577ee" name="a8b46c7c728d2203051bada5c588b72e9a7ca092e24d7fc8d9a7ace31116e577ee"></a>MLN_ADC_IN_DACREF0&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b46c7c728d2203051bada5c588b72e9a6dc0594f7f1c35df3e0ab813a75a5765" name="a8b46c7c728d2203051bada5c588b72e9a6dc0594f7f1c35df3e0ab813a75a5765"></a>MLN_ADC_IN_DACREF1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b46c7c728d2203051bada5c588b72e9a04358347251e57e0cc0996315a4ae8fd" name="a8b46c7c728d2203051bada5c588b72e9a04358347251e57e0cc0996315a4ae8fd"></a>MLN_ADC_IN_DACREF2&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="mln__adc_8h_source.html#l00037">37</a> of file <a class="el" href="mln__adc_8h_source.html">mln_adc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__adc_8h_source.html#l00034">34</a> of file <a class="el" href="mln__adc_8h_source.html">mln_adc.h</a>.</p>
 
 </div>
 </div>
-<a id="a42a13d30380ca3f35a8da79dffe825b7" name="a42a13d30380ca3f35a8da79dffe825b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42a13d30380ca3f35a8da79dffe825b7">&#9670;&#160;</a></span>mln_adc_res_e</h2>
+<a id="a8686df8036c6ba2fc811904bf82cfa18" name="a8686df8036c6ba2fc811904bf82cfa18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8686df8036c6ba2fc811904bf82cfa18">&#9670;&#160;</a></span>mln_adc_prescaler_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="mln__adc_8h.html#a42a13d30380ca3f35a8da79dffe825b7">mln_adc_res_e</a></td>
+          <td class="memname">enum <a class="el" href="mln__adc_8h.html#a8686df8036c6ba2fc811904bf82cfa18">mln_adc_prescaler_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>ADC prescaler selection enum. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a42a13d30380ca3f35a8da79dffe825b7a04abac7139599aa4759fe5b5eacbb782" name="a42a13d30380ca3f35a8da79dffe825b7a04abac7139599aa4759fe5b5eacbb782"></a>HIRES&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a42a13d30380ca3f35a8da79dffe825b7a84c5e8a9d619fe58ebb53cc6b4397403" name="a42a13d30380ca3f35a8da79dffe825b7a84c5e8a9d619fe58ebb53cc6b4397403"></a>LORES&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8686df8036c6ba2fc811904bf82cfa18a0d5aa31ef12977424590b033eeab4d0a" name="a8686df8036c6ba2fc811904bf82cfa18a0d5aa31ef12977424590b033eeab4d0a"></a>MLN_ADC_DIV2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8686df8036c6ba2fc811904bf82cfa18a7e65f324717b4c0a56aeb829d6144f49" name="a8686df8036c6ba2fc811904bf82cfa18a7e65f324717b4c0a56aeb829d6144f49"></a>MLN_ADC_DIV4&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8686df8036c6ba2fc811904bf82cfa18a67b9687dff32c52d04e31e47693b1f51" name="a8686df8036c6ba2fc811904bf82cfa18a67b9687dff32c52d04e31e47693b1f51"></a>MLN_ADC_DIV8&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8686df8036c6ba2fc811904bf82cfa18a05be8a20c54bda53e1cbf439e09e0422" name="a8686df8036c6ba2fc811904bf82cfa18a05be8a20c54bda53e1cbf439e09e0422"></a>MLN_ADC_DIV12&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8686df8036c6ba2fc811904bf82cfa18a0ef1e184d55f71a49dbb913ae41a4f9e" name="a8686df8036c6ba2fc811904bf82cfa18a0ef1e184d55f71a49dbb913ae41a4f9e"></a>MLN_ADC_DIV16&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8686df8036c6ba2fc811904bf82cfa18af98f61e3c9f758676e6773c3dcfe6013" name="a8686df8036c6ba2fc811904bf82cfa18af98f61e3c9f758676e6773c3dcfe6013"></a>MLN_ADC_DIV20&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8686df8036c6ba2fc811904bf82cfa18a6926e9f238b1c19c4b00e70e2aecde60" name="a8686df8036c6ba2fc811904bf82cfa18a6926e9f238b1c19c4b00e70e2aecde60"></a>MLN_ADC_DIV24&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8686df8036c6ba2fc811904bf82cfa18a9723e89b46ac9a1ad4e55c5e2ef87ff0" name="a8686df8036c6ba2fc811904bf82cfa18a9723e89b46ac9a1ad4e55c5e2ef87ff0"></a>MLN_ADC_DIV28&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8686df8036c6ba2fc811904bf82cfa18aba13533cdcfa4a99268308d037c44d0f" name="a8686df8036c6ba2fc811904bf82cfa18aba13533cdcfa4a99268308d037c44d0f"></a>MLN_ADC_DIV32&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8686df8036c6ba2fc811904bf82cfa18a0aba09102fe68ddcb6ffbc2767c16f30" name="a8686df8036c6ba2fc811904bf82cfa18a0aba09102fe68ddcb6ffbc2767c16f30"></a>MLN_ADC_DIV48&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8686df8036c6ba2fc811904bf82cfa18ac01338c3ecc4ef458fdaba783b48353a" name="a8686df8036c6ba2fc811904bf82cfa18ac01338c3ecc4ef458fdaba783b48353a"></a>MLN_ADC_DIV64&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8686df8036c6ba2fc811904bf82cfa18a51ab198d9147b81370cec2073df10d97" name="a8686df8036c6ba2fc811904bf82cfa18a51ab198d9147b81370cec2073df10d97"></a>MLN_ADC_DIV96&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8686df8036c6ba2fc811904bf82cfa18afddf51219243bb59ace5c7b7f4430406" name="a8686df8036c6ba2fc811904bf82cfa18afddf51219243bb59ace5c7b7f4430406"></a>MLN_ADC_DIV128&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8686df8036c6ba2fc811904bf82cfa18a18cbe48ca48f38d976b5e682ca23ee4d" name="a8686df8036c6ba2fc811904bf82cfa18a18cbe48ca48f38d976b5e682ca23ee4d"></a>MLN_ADC_DIV256&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="mln__adc_8h_source.html#l00031">31</a> of file <a class="el" href="mln__adc_8h_source.html">mln_adc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__adc_8h_source.html#l00060">60</a> of file <a class="el" href="mln__adc_8h_source.html">mln_adc.h</a>.</p>
 
 </div>
 </div>
-<a id="a40306ec3e591cedf7136426ee654c9ad" name="a40306ec3e591cedf7136426ee654c9ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40306ec3e591cedf7136426ee654c9ad">&#9670;&#160;</a></span>mln_adc_samp_e</h2>
+<a id="a0d59f42a8f91323537152a301270a004" name="a0d59f42a8f91323537152a301270a004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d59f42a8f91323537152a301270a004">&#9670;&#160;</a></span>mln_adc_resolution_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="mln__adc_8h.html#a40306ec3e591cedf7136426ee654c9ad">mln_adc_samp_e</a></td>
+          <td class="memname">enum <a class="el" href="mln__adc_8h.html#a0d59f42a8f91323537152a301270a004">mln_adc_resolution_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>ADC resolution selection enum. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a40306ec3e591cedf7136426ee654c9adac157bdf0b85a40d2619cbc8bc1ae5fe2" name="a40306ec3e591cedf7136426ee654c9adac157bdf0b85a40d2619cbc8bc1ae5fe2"></a>NONE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a40306ec3e591cedf7136426ee654c9ada915affc8d83376dd5f2c3b6095fe6aa5" name="a40306ec3e591cedf7136426ee654c9ada915affc8d83376dd5f2c3b6095fe6aa5"></a>ACC2&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a40306ec3e591cedf7136426ee654c9adac819489da295517e35b588783cf50bd5" name="a40306ec3e591cedf7136426ee654c9adac819489da295517e35b588783cf50bd5"></a>ACC4&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a40306ec3e591cedf7136426ee654c9ada069b20c0487c26df215005029a2ee4b3" name="a40306ec3e591cedf7136426ee654c9ada069b20c0487c26df215005029a2ee4b3"></a>ACC8&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a40306ec3e591cedf7136426ee654c9adad42892d3f4f8a02c19edd85b021d69af" name="a40306ec3e591cedf7136426ee654c9adad42892d3f4f8a02c19edd85b021d69af"></a>ACC16&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a40306ec3e591cedf7136426ee654c9ada75efcab31be4459dcb4ee8b5c9a78fe0" name="a40306ec3e591cedf7136426ee654c9ada75efcab31be4459dcb4ee8b5c9a78fe0"></a>ACC32&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a40306ec3e591cedf7136426ee654c9ada9167d825625b78af94867953a90af9c6" name="a40306ec3e591cedf7136426ee654c9ada9167d825625b78af94867953a90af9c6"></a>ACC64&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a40306ec3e591cedf7136426ee654c9adaf9f578efa5ef43a84c65f5a944157803" name="a40306ec3e591cedf7136426ee654c9adaf9f578efa5ef43a84c65f5a944157803"></a>ACC128&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a0d59f42a8f91323537152a301270a004a240434a90dbca2bdcd7e9d524096c975" name="a0d59f42a8f91323537152a301270a004a240434a90dbca2bdcd7e9d524096c975"></a>MLN_ADC_RESOLUTION_HIGH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0d59f42a8f91323537152a301270a004a6caecfa7277be6b2e64d78397717c568" name="a0d59f42a8f91323537152a301270a004a6caecfa7277be6b2e64d78397717c568"></a>MLN_ADC_RESOLUTION_LOW&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="mln__adc_8h_source.html#l00055">55</a> of file <a class="el" href="mln__adc_8h_source.html">mln_adc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__adc_8h_source.html#l00050">50</a> of file <a class="el" href="mln__adc_8h_source.html">mln_adc.h</a>.</p>
 
 </div>
 </div>

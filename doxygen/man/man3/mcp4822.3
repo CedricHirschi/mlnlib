@@ -13,15 +13,15 @@ mcp4822 \- MCP4822 DAC driver\&.
 
 .in +1c
 .ti -1c
-.RI "\fBmcp4822\fP (SPI_t *new_spi, \fBPIN_t\fP cs, \fBPIN_t\fP new_ldac)"
+.RI "\fBmcp4822\fP (SPI_t *new_spi, \fBmln_pin_t\fP &cs, \fBmln_pin_t\fP &new_ldac)"
 .br
 .RI "Construct a new \fBmcp4822\fP object\&. "
 .ti -1c
-.RI "void \fBset_gain\fP (\fBMCP4822_GAIN_t\fP new_gain)"
+.RI "void \fBset_gain\fP (\fBmln_mcp4822_gain_t\fP new_gain)"
 .br
 .RI "Set the gain of the DAC\&. "
 .ti -1c
-.RI "void \fBwrite\fP (\fBMCP4822_CHANNEL_t\fP channel, uint16_t value)"
+.RI "void \fBwrite\fP (const \fBmln_mcp4822_channel_t\fP channel, const uint16_t value)"
 .br
 .RI "Write a value to the DAC\&. "
 .in -1c
@@ -38,10 +38,10 @@ Utilizes the \fBmln_spi\fP and \fBmln_gpio\fP libraries
 .PP
 
 .PP
-Definition at line \fB38\fP of file \fBmcp4822\&.h\fP\&.
+Definition at line \fB42\fP of file \fBmcp4822\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "mcp4822::mcp4822 (SPI_t * new_spi, \fBPIN_t\fP cs, \fBPIN_t\fP new_ldac)\fC [inline]\fP"
+.SS "mcp4822::mcp4822 (SPI_t * new_spi, \fBmln_pin_t\fP & cs, \fBmln_pin_t\fP & new_ldac)\fC [inline]\fP"
 
 .PP
 Construct a new \fBmcp4822\fP object\&. 
@@ -57,10 +57,10 @@ Construct a new \fBmcp4822\fP object\&.
 .PP
 
 .PP
-Definition at line \fB59\fP of file \fBmcp4822\&.h\fP\&.
+Definition at line \fB63\fP of file \fBmcp4822\&.h\fP\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "void mcp4822::set_gain (\fBMCP4822_GAIN_t\fP new_gain)\fC [inline]\fP"
+.SS "void mcp4822::set_gain (\fBmln_mcp4822_gain_t\fP new_gain)\fC [inline]\fP"
 
 .PP
 Set the gain of the DAC\&. 
@@ -77,8 +77,8 @@ The gain is set for both channels, only applies from the next write
 .PP
 
 .PP
-Definition at line \fB74\fP of file \fBmcp4822\&.h\fP\&.
-.SS "void mcp4822::write (\fBMCP4822_CHANNEL_t\fP channel, uint16_t value)\fC [inline]\fP"
+Definition at line \fB78\fP of file \fBmcp4822\&.h\fP\&.
+.SS "void mcp4822::write (const \fBmln_mcp4822_channel_t\fP channel, const uint16_t value)\fC [inline]\fP"
 
 .PP
 Write a value to the DAC\&. 
@@ -92,7 +92,7 @@ Write a value to the DAC\&.
 .PP
 
 .PP
-Definition at line \fB82\fP of file \fBmcp4822\&.h\fP\&.
+Definition at line \fB86\fP of file \fBmcp4822\&.h\fP\&.
 
 .SH "Author"
 .PP 

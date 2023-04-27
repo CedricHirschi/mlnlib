@@ -10,25 +10,29 @@
 
 #include "../mln/mln_spi.h"
 
-#define MCP4822_ENABLE_bm (1 << 4)
+#define MLN_MCP4822_ENABLE_bm (1 << 4)
 
-// defines available gains of the MCP4822
-typedef enum mln_spi_gain_s
+/**
+ * @brief MCP4822 gain enum
+ *
+ */
+typedef enum
 {
-	// 2x gain
-	GAIN2,
-	// 1x gain
-	GAIN1
-} MCP4822_GAIN_t;
+	MLN_MCP4822_GAIN2 = 0,
+	MLN_MCP4822_GAIN1
+} mln_mcp4822_gain_t;
 
-// defines available channels of the MCP4822
-typedef enum mln_spi_channel_s
+/**
+ * @brief MCP4822 channel enum
+ *
+ */
+typedef enum
 {
 	// channel A
 	CHANNELA,
 	// channel B
 	CHANNELB
-} MCP4822_CHANNEL_t;
+} mln_mcp4822_channel_t;
 
 /**
  * @brief MCP4822 DAC driver
@@ -43,7 +47,7 @@ class mcp4822
 	mln_gpio ldac;
 
 	// current gain
-	MCP4822_GAIN_t gain;
+	mln_mcp4822_gain_t gain;
 
 	// buffer for SPI transfer
 	uint8_t buffer[2];
@@ -56,10 +60,10 @@ public:
 	 * @param cs Chip select pin
 	 * @param new_ldac LDAC pin
 	 */
-	mcp4822(SPI_t *new_spi, PIN_t cs, PIN_t new_ldac)
+	mcp4822(SPI_t *new_spi, mln_pin_t cs, mln_pin_t new_ldac)
 	{
 		spi = mln_spi(new_spi, cs);
-		ldac = mln_gpio(new_ldac, OUTPUT);
+		ldac = mln_gpio(new_ldac, MLN_GPIO_DIR_OUTPUT);
 
 		ldac.set();
 	}
@@ -71,7 +75,7 @@ public:
 	 *
 	 * @note The gain is set for both channels, only applies from the next write
 	 */
-	void set_gain(MCP4822_GAIN_t new_gain) { gain = new_gain; }
+	void set_gain(mln_mcp4822_gain_t new_gain) { gain = new_gain; }
 
 	/**
 	 * @brief Write a value to the DAC
@@ -79,9 +83,9 @@ public:
 	 * @param channel The channel to write to
 	 * @param value The value to write
 	 */
-	void write(MCP4822_CHANNEL_t channel, uint16_t value)
+	void write(const mln_mcp4822_channel_t channel, const uint16_t value)
 	{
-		buffer[0] = (channel << 7) | (gain << 5) | MCP4822_ENABLE_bm | (uint8_t)(value >> 8);
+		buffer[0] = (channel << 7) | (gain << 5) | MLN_MCP4822_ENABLE_bm | (uint8_t)(value >> 8);
 		buffer[1] = (uint8_t)(value & 0xFF);
 
 		spi.write(buffer, 2);

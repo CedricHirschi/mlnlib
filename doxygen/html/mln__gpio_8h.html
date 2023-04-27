@@ -96,77 +96,96 @@ $(document).ready(function(){initNavTree('mln__gpio_8h.html',''); initResizable(
   <div class="headertitle"><div class="title">mln_gpio.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This peripheral is used to control the data flow from the pins of the device.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
 </div>
 <p><a href="mln__gpio_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_p_i_n__t.html">PIN_t</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmln__pin__t.html">mln_pin_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard pin struct.  <a href="structmln__pin__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmln__gpio.html">mln_gpio</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO peripheral class.  <a href="classmln__gpio.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a76799e70246140bb0ef2dbbf0af942fd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__gpio_8h.html#a76799e70246140bb0ef2dbbf0af942fd">PIN_DIR_t</a> { <a class="el" href="mln__gpio_8h.html#a76799e70246140bb0ef2dbbf0af942fda2ab08d3e103968f5f4f26b66a52e99d6">OUTPUT</a>
-, <a class="el" href="mln__gpio_8h.html#a76799e70246140bb0ef2dbbf0af942fdae310c909d76b003d016bef8bdf16936a">INPUT</a>
-, <a class="el" href="mln__gpio_8h.html#a76799e70246140bb0ef2dbbf0af942fda851c2ac60276ada62e8d9ba216c7a487">INPUT_PULLUP</a>
+<tr class="memitem:a3b39a8438117dc8dc97942e72edc36ff"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__gpio_8h.html#a3b39a8438117dc8dc97942e72edc36ff">mln_gpio_dir_t</a> { <a class="el" href="mln__gpio_8h.html#a3b39a8438117dc8dc97942e72edc36ffa1b3e51e05bb8ee323f13de27944188a1">MLN_GPIO_DIR_OUTPUT</a> = 0
+, <a class="el" href="mln__gpio_8h.html#a3b39a8438117dc8dc97942e72edc36ffad40bc076b4fe2b96519c9fdffd537350">MLN_GPIO_DIR_INPUT</a>
+, <a class="el" href="mln__gpio_8h.html#a3b39a8438117dc8dc97942e72edc36ffa2ee2e3980d3b90d98e24fd0188d6c746">MLN_GPIO_DIR_INPUT_PULLUP</a>
  }</td></tr>
-<tr class="separator:a76799e70246140bb0ef2dbbf0af942fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a615d224b3b0e9f89d18718a544213020"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__gpio_8h.html#a615d224b3b0e9f89d18718a544213020">PIN_ISC_t</a> { <br />
-&#160;&#160;<a class="el" href="mln__gpio_8h.html#a615d224b3b0e9f89d18718a544213020a40f39385238042f6ec0cbac821a19fc4">DISABLED</a>
-, <a class="el" href="mln__gpio_8h.html#a615d224b3b0e9f89d18718a544213020a1c6e097f5d1eb37e8627a2fea2ce6b8d">BOTHEDGES</a>
-, <a class="el" href="mln__gpio_8h.html#a615d224b3b0e9f89d18718a544213020ad93abe7aced82e9a4fcac4127a36ece3">RISING</a>
-, <a class="el" href="mln__gpio_8h.html#a615d224b3b0e9f89d18718a544213020ad24712a6a30c1d431b927d1ba2f84b66">FALLING</a>
+<tr class="memdesc:a3b39a8438117dc8dc97942e72edc36ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin direction enum.  <a href="mln__gpio_8h.html#a3b39a8438117dc8dc97942e72edc36ff">More...</a><br /></td></tr>
+<tr class="separator:a3b39a8438117dc8dc97942e72edc36ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a874d15679b0e76b5d3a88d83f001ad6c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__gpio_8h.html#a874d15679b0e76b5d3a88d83f001ad6c">mln_gpio_isc_t</a> { <br />
+&#160;&#160;<a class="el" href="mln__gpio_8h.html#a874d15679b0e76b5d3a88d83f001ad6ca8e7030d21ed7fd33c6ce627bf5ef0744">MLN_GPIO_ISC_DISABLED</a> = 0
+, <a class="el" href="mln__gpio_8h.html#a874d15679b0e76b5d3a88d83f001ad6caa51e061e7ee6580432c0d58e7afcd865">MLN_GPIO_ISC_BOTHEDGES</a>
+, <a class="el" href="mln__gpio_8h.html#a874d15679b0e76b5d3a88d83f001ad6ca9f4cd0bdd1127b127621e55c27162fa6">MLN_GPIO_ISC_RISING</a>
+, <a class="el" href="mln__gpio_8h.html#a874d15679b0e76b5d3a88d83f001ad6ca61e5f5448e1082b69f233a5221147322">MLN_GPIO_ISC_FALLING</a>
 , <br />
-&#160;&#160;<a class="el" href="mln__gpio_8h.html#a615d224b3b0e9f89d18718a544213020a31b72f97fff0dd57a7ba86e9f8fcbc06">LOWLEVEL</a> = 5
+&#160;&#160;<a class="el" href="mln__gpio_8h.html#a874d15679b0e76b5d3a88d83f001ad6ca602874b38c525b4b26856032749eb7a7">MLN_GPIO_ISC_LOWLEVEL</a> = 5
 <br />
  }</td></tr>
-<tr class="separator:a615d224b3b0e9f89d18718a544213020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a874d15679b0e76b5d3a88d83f001ad6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin interrupt type enum.  <a href="mln__gpio_8h.html#a874d15679b0e76b5d3a88d83f001ad6c">More...</a><br /></td></tr>
+<tr class="separator:a874d15679b0e76b5d3a88d83f001ad6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a76799e70246140bb0ef2dbbf0af942fd" name="a76799e70246140bb0ef2dbbf0af942fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76799e70246140bb0ef2dbbf0af942fd">&#9670;&#160;</a></span>PIN_DIR_t</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This peripheral is used to control the data flow from the pins of the device. </p>
+<dl class="section author"><dt>Author</dt><dd>Cédric Hirschi (<a href="#" onclick="location.href='mai'+'lto:'+'ced'+'r0'+'2@l'+'iv'+'e.c'+'om'; return false;">cedr0<span class="obfuscator">.nosp@m.</span>2@li<span class="obfuscator">.nosp@m.</span>ve.co<span class="obfuscator">.nosp@m.</span>m</a>) </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2023-04-27</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="mln__gpio_8h_source.html">mln_gpio.h</a>.</p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a3b39a8438117dc8dc97942e72edc36ff" name="a3b39a8438117dc8dc97942e72edc36ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b39a8438117dc8dc97942e72edc36ff">&#9670;&#160;</a></span>mln_gpio_dir_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="mln__gpio_8h.html#a76799e70246140bb0ef2dbbf0af942fd">PIN_DIR_t</a></td>
+          <td class="memname">enum <a class="el" href="mln__gpio_8h.html#a3b39a8438117dc8dc97942e72edc36ff">mln_gpio_dir_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Pin direction enum. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a76799e70246140bb0ef2dbbf0af942fda2ab08d3e103968f5f4f26b66a52e99d6" name="a76799e70246140bb0ef2dbbf0af942fda2ab08d3e103968f5f4f26b66a52e99d6"></a>OUTPUT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a76799e70246140bb0ef2dbbf0af942fdae310c909d76b003d016bef8bdf16936a" name="a76799e70246140bb0ef2dbbf0af942fdae310c909d76b003d016bef8bdf16936a"></a>INPUT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a76799e70246140bb0ef2dbbf0af942fda851c2ac60276ada62e8d9ba216c7a487" name="a76799e70246140bb0ef2dbbf0af942fda851c2ac60276ada62e8d9ba216c7a487"></a>INPUT_PULLUP&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3b39a8438117dc8dc97942e72edc36ffa1b3e51e05bb8ee323f13de27944188a1" name="a3b39a8438117dc8dc97942e72edc36ffa1b3e51e05bb8ee323f13de27944188a1"></a>MLN_GPIO_DIR_OUTPUT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3b39a8438117dc8dc97942e72edc36ffad40bc076b4fe2b96519c9fdffd537350" name="a3b39a8438117dc8dc97942e72edc36ffad40bc076b4fe2b96519c9fdffd537350"></a>MLN_GPIO_DIR_INPUT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3b39a8438117dc8dc97942e72edc36ffa2ee2e3980d3b90d98e24fd0188d6c746" name="a3b39a8438117dc8dc97942e72edc36ffa2ee2e3980d3b90d98e24fd0188d6c746"></a>MLN_GPIO_DIR_INPUT_PULLUP&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="mln__gpio_8h_source.html#l00099">99</a> of file <a class="el" href="mln__gpio_8h_source.html">mln_gpio.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__gpio_8h_source.html#l00108">108</a> of file <a class="el" href="mln__gpio_8h_source.html">mln_gpio.h</a>.</p>
 
 </div>
 </div>
-<a id="a615d224b3b0e9f89d18718a544213020" name="a615d224b3b0e9f89d18718a544213020"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a615d224b3b0e9f89d18718a544213020">&#9670;&#160;</a></span>PIN_ISC_t</h2>
+<a id="a874d15679b0e76b5d3a88d83f001ad6c" name="a874d15679b0e76b5d3a88d83f001ad6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a874d15679b0e76b5d3a88d83f001ad6c">&#9670;&#160;</a></span>mln_gpio_isc_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="mln__gpio_8h.html#a615d224b3b0e9f89d18718a544213020">PIN_ISC_t</a></td>
+          <td class="memname">enum <a class="el" href="mln__gpio_8h.html#a874d15679b0e76b5d3a88d83f001ad6c">mln_gpio_isc_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Pin interrupt type enum. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a615d224b3b0e9f89d18718a544213020a40f39385238042f6ec0cbac821a19fc4" name="a615d224b3b0e9f89d18718a544213020a40f39385238042f6ec0cbac821a19fc4"></a>DISABLED&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a615d224b3b0e9f89d18718a544213020a1c6e097f5d1eb37e8627a2fea2ce6b8d" name="a615d224b3b0e9f89d18718a544213020a1c6e097f5d1eb37e8627a2fea2ce6b8d"></a>BOTHEDGES&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a615d224b3b0e9f89d18718a544213020ad93abe7aced82e9a4fcac4127a36ece3" name="a615d224b3b0e9f89d18718a544213020ad93abe7aced82e9a4fcac4127a36ece3"></a>RISING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a615d224b3b0e9f89d18718a544213020ad24712a6a30c1d431b927d1ba2f84b66" name="a615d224b3b0e9f89d18718a544213020ad24712a6a30c1d431b927d1ba2f84b66"></a>FALLING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a615d224b3b0e9f89d18718a544213020a31b72f97fff0dd57a7ba86e9f8fcbc06" name="a615d224b3b0e9f89d18718a544213020a31b72f97fff0dd57a7ba86e9f8fcbc06"></a>LOWLEVEL&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a874d15679b0e76b5d3a88d83f001ad6ca8e7030d21ed7fd33c6ce627bf5ef0744" name="a874d15679b0e76b5d3a88d83f001ad6ca8e7030d21ed7fd33c6ce627bf5ef0744"></a>MLN_GPIO_ISC_DISABLED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a874d15679b0e76b5d3a88d83f001ad6caa51e061e7ee6580432c0d58e7afcd865" name="a874d15679b0e76b5d3a88d83f001ad6caa51e061e7ee6580432c0d58e7afcd865"></a>MLN_GPIO_ISC_BOTHEDGES&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a874d15679b0e76b5d3a88d83f001ad6ca9f4cd0bdd1127b127621e55c27162fa6" name="a874d15679b0e76b5d3a88d83f001ad6ca9f4cd0bdd1127b127621e55c27162fa6"></a>MLN_GPIO_ISC_RISING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a874d15679b0e76b5d3a88d83f001ad6ca61e5f5448e1082b69f233a5221147322" name="a874d15679b0e76b5d3a88d83f001ad6ca61e5f5448e1082b69f233a5221147322"></a>MLN_GPIO_ISC_FALLING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a874d15679b0e76b5d3a88d83f001ad6ca602874b38c525b4b26856032749eb7a7" name="a874d15679b0e76b5d3a88d83f001ad6ca602874b38c525b4b26856032749eb7a7"></a>MLN_GPIO_ISC_LOWLEVEL&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="mln__gpio_8h_source.html#l00106">106</a> of file <a class="el" href="mln__gpio_8h_source.html">mln_gpio.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__gpio_8h_source.html#l00119">119</a> of file <a class="el" href="mln__gpio_8h_source.html">mln_gpio.h</a>.</p>
 
 </div>
 </div>

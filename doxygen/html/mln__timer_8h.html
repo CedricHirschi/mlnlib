@@ -106,13 +106,16 @@ $(document).ready(function(){initNavTree('mln__timer_8h.html',''); initResizable
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmln__timer.html">mln_timer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">TCA peripheral class.  <a href="classmln__timer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a941f8e0ed2c3abc92dd2d61fdfef845e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__timer_8h.html#a941f8e0ed2c3abc92dd2d61fdfef845e">MLN_TIMER_GET_DIV</a> (uint32_t T)</td></tr>
-<tr class="separator:a941f8e0ed2c3abc92dd2d61fdfef845e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a277a817875df0f08a3c56759de8b9f88"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__timer_8h.html#a277a817875df0f08a3c56759de8b9f88">MLN_TIMER_GET_DIV</a> (uint32_t period)</td></tr>
+<tr class="memdesc:a277a817875df0f08a3c56759de8b9f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to get the lowest possible clock division to get certain period.  <br /></td></tr>
+<tr class="separator:a277a817875df0f08a3c56759de8b9f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c263623c85a6f82cee2e0ed5610625e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__timer_8h.html#a9c263623c85a6f82cee2e0ed5610625e">ISR</a> (TCA0_OVF_vect)</td></tr>
+<tr class="memdesc:a9c263623c85a6f82cee2e0ed5610625e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard ISR for TCA0.  <br /></td></tr>
 <tr class="separator:a9c263623c85a6f82cee2e0ed5610625e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -120,10 +123,13 @@ Variables</h2></td></tr>
 <tr class="memitem:a6e8dd1c2b28f60698ee31371a23993ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmln__timer.html">mln_timer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__timer_8h.html#a6e8dd1c2b28f60698ee31371a23993ee">timer0_isr</a></td></tr>
 <tr class="separator:a6e8dd1c2b28f60698ee31371a23993ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c25be2a0a9cf79a5f1a4b9f1477c5b2"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__timer_8h.html#a6c25be2a0a9cf79a5f1a4b9f1477c5b2">mln_timer_divs</a> [] = {1, 2, 4, 8, 16, 64, 256, 1024}</td></tr>
+<tr class="memdesc:a6c25be2a0a9cf79a5f1a4b9f1477c5b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Available clock dividers in the TCA peripheral in numerical form.  <br /></td></tr>
 <tr class="separator:a6c25be2a0a9cf79a5f1a4b9f1477c5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbcc0d4136120d41a1113af338705b37"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__timer_8h.html#afbcc0d4136120d41a1113af338705b37">mln_max_periods</a> [] = {65, 131, 262, 524, 1048, 4194, 16776, 67107}</td></tr>
-<tr class="separator:afbcc0d4136120d41a1113af338705b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae75531c80076103d1cf0808af85c17d3"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__timer_8h.html#ae75531c80076103d1cf0808af85c17d3">mln_timer_max_periods</a> [] = {65, 131, 262, 524, 1048, 4194, 16776, 67107}</td></tr>
+<tr class="memdesc:ae75531c80076103d1cf0808af85c17d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum periods achievable by clock division, in ms at 1MHz.  <br /></td></tr>
+<tr class="separator:ae75531c80076103d1cf0808af85c17d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a046cdd9ee0b957825702e84b535caf56"><td class="memItemLeft" align="right" valign="top">const TCA_SINGLE_CLKSEL_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__timer_8h.html#a046cdd9ee0b957825702e84b535caf56">mln_timer_divs_bm</a> []</td></tr>
+<tr class="memdesc:a046cdd9ee0b957825702e84b535caf56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Available clock dividers in the TCA peripheral as bitmasks.  <br /></td></tr>
 <tr class="separator:a046cdd9ee0b957825702e84b535caf56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -143,12 +149,15 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__timer_8h_source.html#l00134">134</a> of file <a class="el" href="mln__timer_8h_source.html">mln_timer.h</a>.</p>
+<p>Standard ISR for TCA0. </p>
+<dl class="section note"><dt>Note</dt><dd>Does nothing but reset the corresponding flag </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mln__timer_8h_source.html#l00188">188</a> of file <a class="el" href="mln__timer_8h_source.html">mln_timer.h</a>.</p>
 
 </div>
 </div>
-<a id="a941f8e0ed2c3abc92dd2d61fdfef845e" name="a941f8e0ed2c3abc92dd2d61fdfef845e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a941f8e0ed2c3abc92dd2d61fdfef845e">&#9670;&#160;</a></span>MLN_TIMER_GET_DIV()</h2>
+<a id="a277a817875df0f08a3c56759de8b9f88" name="a277a817875df0f08a3c56759de8b9f88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a277a817875df0f08a3c56759de8b9f88">&#9670;&#160;</a></span>MLN_TIMER_GET_DIV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,33 +166,26 @@ Variables</h2></td></tr>
           <td class="memname">uint8_t MLN_TIMER_GET_DIV </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>T</em></td><td>)</td>
+          <td class="paramname"><em>period</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__timer_8h_source.html#l00049">49</a> of file <a class="el" href="mln__timer_8h_source.html">mln_timer.h</a>.</p>
+<p>Helper function to get the lowest possible clock division to get certain period. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">period</td><td>Required period</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Index for <code>mln_timer_...</code> arrays </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mln__timer_8h_source.html#l00069">69</a> of file <a class="el" href="mln__timer_8h_source.html">mln_timer.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="afbcc0d4136120d41a1113af338705b37" name="afbcc0d4136120d41a1113af338705b37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbcc0d4136120d41a1113af338705b37">&#9670;&#160;</a></span>mln_max_periods</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t mln_max_periods[] = {65, 131, 262, 524, 1048, 4194, 16776, 67107}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="mln__timer_8h_source.html#l00037">37</a> of file <a class="el" href="mln__timer_8h_source.html">mln_timer.h</a>.</p>
-
-</div>
-</div>
 <a id="a6c25be2a0a9cf79a5f1a4b9f1477c5b2" name="a6c25be2a0a9cf79a5f1a4b9f1477c5b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c25be2a0a9cf79a5f1a4b9f1477c5b2">&#9670;&#160;</a></span>mln_timer_divs</h2>
 
@@ -196,7 +198,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__timer_8h_source.html#l00036">36</a> of file <a class="el" href="mln__timer_8h_source.html">mln_timer.h</a>.</p>
+<p>Available clock dividers in the TCA peripheral in numerical form. </p>
+
+<p class="definition">Definition at line <a class="el" href="mln__timer_8h_source.html#l00040">40</a> of file <a class="el" href="mln__timer_8h_source.html">mln_timer.h</a>.</p>
 
 </div>
 </div>
@@ -222,7 +226,27 @@ Variables</h2></td></tr>
 <div class="line">    TCA_SINGLE_CLKSEL_DIV1024_gc</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="mln__timer_8h_source.html#l00038">38</a> of file <a class="el" href="mln__timer_8h_source.html">mln_timer.h</a>.</p>
+<p>Available clock dividers in the TCA peripheral as bitmasks. </p>
+
+<p class="definition">Definition at line <a class="el" href="mln__timer_8h_source.html#l00050">50</a> of file <a class="el" href="mln__timer_8h_source.html">mln_timer.h</a>.</p>
+
+</div>
+</div>
+<a id="ae75531c80076103d1cf0808af85c17d3" name="ae75531c80076103d1cf0808af85c17d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae75531c80076103d1cf0808af85c17d3">&#9670;&#160;</a></span>mln_timer_max_periods</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t mln_timer_max_periods[] = {65, 131, 262, 524, 1048, 4194, 16776, 67107}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The maximum periods achievable by clock division, in ms at 1MHz. </p>
+
+<p class="definition">Definition at line <a class="el" href="mln__timer_8h_source.html#l00045">45</a> of file <a class="el" href="mln__timer_8h_source.html">mln_timer.h</a>.</p>
 
 </div>
 </div>

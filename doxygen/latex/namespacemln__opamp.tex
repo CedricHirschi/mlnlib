@@ -1,0 +1,222 @@
+\hypertarget{namespacemln__opamp}{}\doxysection{mln\+\_\+opamp Namespace Reference}
+\label{namespacemln__opamp}\index{mln\_opamp@{mln\_opamp}}
+
+
+Opamp peripheral namespace.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const void \mbox{\hyperlink{namespacemln__opamp_ac9965ec24ade069bc4a7a739497df142}{init\+\_\+resmux}} (const \mbox{\hyperlink{mln__opamp_8h_af933df376949fd10542121c2129b7371}{mln\+\_\+opamp\+\_\+device\+\_\+t}} \&opamp, const uint8\+\_\+t \&muxbot, const uint8\+\_\+t \&muxwip, const uint8\+\_\+t \&muxtop)
+\begin{DoxyCompactList}\small\item\em Helper function to set the RESMUX register. \end{DoxyCompactList}\item 
+const void \mbox{\hyperlink{namespacemln__opamp_a4ce3a5b37432e37c667746efcb2b8c5a}{init\+\_\+inmux}} (const \mbox{\hyperlink{mln__opamp_8h_af933df376949fd10542121c2129b7371}{mln\+\_\+opamp\+\_\+device\+\_\+t}} \&opamp, const uint8\+\_\+t \&muxpos, const uint8\+\_\+t \&muxneg)
+\begin{DoxyCompactList}\small\item\em Helper function to set the INMUX register. \end{DoxyCompactList}\item 
+const void \mbox{\hyperlink{namespacemln__opamp_a0a0427ac35a59542fc395c8d72517e95}{enable}} (const \mbox{\hyperlink{mln__opamp_8h_af933df376949fd10542121c2129b7371}{mln\+\_\+opamp\+\_\+device\+\_\+t}} \&opamp, const bool runstdby, const bool output, const bool lowpower)
+\begin{DoxyCompactList}\small\item\em Helper function to enable the opamp. \end{DoxyCompactList}\item 
+const void \mbox{\hyperlink{namespacemln__opamp_aeb5706e96c49d3fe7a7d65f29164e27d}{enable}} (void)
+\begin{DoxyCompactList}\small\item\em Enable Opamp peripheral. \end{DoxyCompactList}\item 
+const void \mbox{\hyperlink{namespacemln__opamp_a55e930138c7f5bd00bdb349f1c2d034b}{disable}} (void)
+\begin{DoxyCompactList}\small\item\em Disable Opamp peripheral. \end{DoxyCompactList}\item 
+const void \mbox{\hyperlink{namespacemln__opamp_acf2adf43ce7883bd341a2f4ad1a61435}{init}} (const \mbox{\hyperlink{structmln__opamp__direct__init__t}{mln\+\_\+opamp\+\_\+direct\+\_\+init\+\_\+t}} \&init)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{namespacemln__opamp}{mln\+\_\+opamp}} object (direct) \end{DoxyCompactList}\item 
+const void \mbox{\hyperlink{namespacemln__opamp_a36c5a08e9119da136ab848754879ff11}{init}} (const \mbox{\hyperlink{structmln__opamp__follower__init__t}{mln\+\_\+opamp\+\_\+follower\+\_\+init\+\_\+t}} \&init)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{namespacemln__opamp}{mln\+\_\+opamp}} object (follower) \end{DoxyCompactList}\item 
+const void \mbox{\hyperlink{namespacemln__opamp_a73bee02c68a8d1ace2d5bbadc50c19c5}{init}} (const \mbox{\hyperlink{structmln__opamp__noninverting__init__t}{mln\+\_\+opamp\+\_\+noninverting\+\_\+init\+\_\+t}} \&init)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{namespacemln__opamp}{mln\+\_\+opamp}} object (non-\/inverting) \end{DoxyCompactList}\item 
+const void \mbox{\hyperlink{namespacemln__opamp_a8a9105145e18299dcd0bb4b5527580fd}{init}} (const \mbox{\hyperlink{structmln__opamp__inverting__init__t}{mln\+\_\+opamp\+\_\+inverting\+\_\+init\+\_\+t}} \&init)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{namespacemln__opamp}{mln\+\_\+opamp}} object (inverting) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Opamp peripheral namespace. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacemln__opamp_a55e930138c7f5bd00bdb349f1c2d034b}\label{namespacemln__opamp_a55e930138c7f5bd00bdb349f1c2d034b}} 
+\index{mln\_opamp@{mln\_opamp}!disable@{disable}}
+\index{disable@{disable}!mln\_opamp@{mln\_opamp}}
+\doxysubsubsection{\texorpdfstring{disable()}{disable()}}
+{\footnotesize\ttfamily const void mln\+\_\+opamp\+::disable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Disable Opamp peripheral. 
+
+\begin{DoxyWarning}{Warning}
+Disables all Opamps 
+\end{DoxyWarning}
+
+
+Definition at line \mbox{\hyperlink{mln__opamp_8h_source_l00387}{387}} of file \mbox{\hyperlink{mln__opamp_8h_source}{mln\+\_\+opamp.\+h}}.
+
+\mbox{\Hypertarget{namespacemln__opamp_a0a0427ac35a59542fc395c8d72517e95}\label{namespacemln__opamp_a0a0427ac35a59542fc395c8d72517e95}} 
+\index{mln\_opamp@{mln\_opamp}!enable@{enable}}
+\index{enable@{enable}!mln\_opamp@{mln\_opamp}}
+\doxysubsubsection{\texorpdfstring{enable()}{enable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const void mln\+\_\+opamp\+::enable (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{mln__opamp_8h_af933df376949fd10542121c2129b7371}{mln\+\_\+opamp\+\_\+device\+\_\+t}} \&}]{opamp,  }\item[{const bool}]{runstdby,  }\item[{const bool}]{output,  }\item[{const bool}]{lowpower }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Helper function to enable the opamp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em runstdby} & Run in standby \\
+\hline
+{\em output} & Enable output \\
+\hline
+{\em lowpower} & Low power mode \\
+\hline
+{\em opamp\+\_\+n} & Device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Is being called by the {\ttfamily init} functions 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{mln__opamp_8h_source_l00348}{348}} of file \mbox{\hyperlink{mln__opamp_8h_source}{mln\+\_\+opamp.\+h}}.
+
+\mbox{\Hypertarget{namespacemln__opamp_aeb5706e96c49d3fe7a7d65f29164e27d}\label{namespacemln__opamp_aeb5706e96c49d3fe7a7d65f29164e27d}} 
+\index{mln\_opamp@{mln\_opamp}!enable@{enable}}
+\index{enable@{enable}!mln\_opamp@{mln\_opamp}}
+\doxysubsubsection{\texorpdfstring{enable()}{enable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const void mln\+\_\+opamp\+::enable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Enable Opamp peripheral. 
+
+\begin{DoxyNote}{Note}
+Doesn\textquotesingle{}t configure/enable single Opamps 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{mln__opamp_8h_source_l00379}{379}} of file \mbox{\hyperlink{mln__opamp_8h_source}{mln\+\_\+opamp.\+h}}.
+
+\mbox{\Hypertarget{namespacemln__opamp_acf2adf43ce7883bd341a2f4ad1a61435}\label{namespacemln__opamp_acf2adf43ce7883bd341a2f4ad1a61435}} 
+\index{mln\_opamp@{mln\_opamp}!init@{init}}
+\index{init@{init}!mln\_opamp@{mln\_opamp}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily const void mln\+\_\+opamp\+::init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structmln__opamp__direct__init__t}{mln\+\_\+opamp\+\_\+direct\+\_\+init\+\_\+t}} \&}]{init }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{namespacemln__opamp}{mln\+\_\+opamp}} object (direct) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init} & Opamp configuration struct (direct) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mln__opamp_8h_source_l00394}{394}} of file \mbox{\hyperlink{mln__opamp_8h_source}{mln\+\_\+opamp.\+h}}.
+
+\mbox{\Hypertarget{namespacemln__opamp_a36c5a08e9119da136ab848754879ff11}\label{namespacemln__opamp_a36c5a08e9119da136ab848754879ff11}} 
+\index{mln\_opamp@{mln\_opamp}!init@{init}}
+\index{init@{init}!mln\_opamp@{mln\_opamp}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily const void mln\+\_\+opamp\+::init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structmln__opamp__follower__init__t}{mln\+\_\+opamp\+\_\+follower\+\_\+init\+\_\+t}} \&}]{init }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{namespacemln__opamp}{mln\+\_\+opamp}} object (follower) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init} & Opamp configuration struct (follower) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mln__opamp_8h_source_l00409}{409}} of file \mbox{\hyperlink{mln__opamp_8h_source}{mln\+\_\+opamp.\+h}}.
+
+\mbox{\Hypertarget{namespacemln__opamp_a8a9105145e18299dcd0bb4b5527580fd}\label{namespacemln__opamp_a8a9105145e18299dcd0bb4b5527580fd}} 
+\index{mln\_opamp@{mln\_opamp}!init@{init}}
+\index{init@{init}!mln\_opamp@{mln\_opamp}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily const void mln\+\_\+opamp\+::init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structmln__opamp__inverting__init__t}{mln\+\_\+opamp\+\_\+inverting\+\_\+init\+\_\+t}} \&}]{init }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{namespacemln__opamp}{mln\+\_\+opamp}} object (inverting) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init} & Opamp configuration struct (inverting) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mln__opamp_8h_source_l00438}{438}} of file \mbox{\hyperlink{mln__opamp_8h_source}{mln\+\_\+opamp.\+h}}.
+
+\mbox{\Hypertarget{namespacemln__opamp_a73bee02c68a8d1ace2d5bbadc50c19c5}\label{namespacemln__opamp_a73bee02c68a8d1ace2d5bbadc50c19c5}} 
+\index{mln\_opamp@{mln\_opamp}!init@{init}}
+\index{init@{init}!mln\_opamp@{mln\_opamp}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily const void mln\+\_\+opamp\+::init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structmln__opamp__noninverting__init__t}{mln\+\_\+opamp\+\_\+noninverting\+\_\+init\+\_\+t}} \&}]{init }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{namespacemln__opamp}{mln\+\_\+opamp}} object (non-\/inverting) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init} & Opamp configuration struct (non-\/inverting) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mln__opamp_8h_source_l00423}{423}} of file \mbox{\hyperlink{mln__opamp_8h_source}{mln\+\_\+opamp.\+h}}.
+
+\mbox{\Hypertarget{namespacemln__opamp_a4ce3a5b37432e37c667746efcb2b8c5a}\label{namespacemln__opamp_a4ce3a5b37432e37c667746efcb2b8c5a}} 
+\index{mln\_opamp@{mln\_opamp}!init\_inmux@{init\_inmux}}
+\index{init\_inmux@{init\_inmux}!mln\_opamp@{mln\_opamp}}
+\doxysubsubsection{\texorpdfstring{init\_inmux()}{init\_inmux()}}
+{\footnotesize\ttfamily const void mln\+\_\+opamp\+::init\+\_\+inmux (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{mln__opamp_8h_af933df376949fd10542121c2129b7371}{mln\+\_\+opamp\+\_\+device\+\_\+t}} \&}]{opamp,  }\item[{const uint8\+\_\+t \&}]{muxpos,  }\item[{const uint8\+\_\+t \&}]{muxneg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Helper function to set the INMUX register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em opamp} & Device \\
+\hline
+{\em muxpos} & Positive input mux \\
+\hline
+{\em muxneg} & Negative input mux \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mln__opamp_8h_source_l00320}{320}} of file \mbox{\hyperlink{mln__opamp_8h_source}{mln\+\_\+opamp.\+h}}.
+
+\mbox{\Hypertarget{namespacemln__opamp_ac9965ec24ade069bc4a7a739497df142}\label{namespacemln__opamp_ac9965ec24ade069bc4a7a739497df142}} 
+\index{mln\_opamp@{mln\_opamp}!init\_resmux@{init\_resmux}}
+\index{init\_resmux@{init\_resmux}!mln\_opamp@{mln\_opamp}}
+\doxysubsubsection{\texorpdfstring{init\_resmux()}{init\_resmux()}}
+{\footnotesize\ttfamily const void mln\+\_\+opamp\+::init\+\_\+resmux (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{mln__opamp_8h_af933df376949fd10542121c2129b7371}{mln\+\_\+opamp\+\_\+device\+\_\+t}} \&}]{opamp,  }\item[{const uint8\+\_\+t \&}]{muxbot,  }\item[{const uint8\+\_\+t \&}]{muxwip,  }\item[{const uint8\+\_\+t \&}]{muxtop }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Helper function to set the RESMUX register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em opamp} & Device \\
+\hline
+{\em muxbot} & Bottom resistor mux \\
+\hline
+{\em muxwip} & Wiper resistor mux \\
+\hline
+{\em muxtop} & Top resistor mux \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mln__opamp_8h_source_l00295}{295}} of file \mbox{\hyperlink{mln__opamp_8h_source}{mln\+\_\+opamp.\+h}}.
+

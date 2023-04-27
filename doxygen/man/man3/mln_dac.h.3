@@ -7,6 +7,9 @@ mlnlib/mln/mln_dac.h \- This peripheral is used to generate variable analog volt
 .SH SYNOPSIS
 .br
 .PP
+\fC#include <avr/io\&.h>\fP
+.br
+
 .SS "Namespaces"
 
 .in +1c
@@ -19,7 +22,7 @@ mlnlib/mln/mln_dac.h \- This peripheral is used to generate variable analog volt
 
 .in +1c
 .ti -1c
-.RI "void \fBmln_dac::config\fP (bool standby, bool buffer)"
+.RI "const void \fBmln_dac::config\fP (bool standby, bool buffer)"
 .br
 .RI "Configure the DAC peripheral\&. "
 .ti -1c

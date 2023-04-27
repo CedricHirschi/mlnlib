@@ -12,11 +12,11 @@ MCP4822 DAC driver.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classmcp4822_af197f1fb877c276e14da81be6b5d943e}{mcp4822}} (SPI\+\_\+t $\ast$new\+\_\+spi, \mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}} cs, \mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}} new\+\_\+ldac)
+\mbox{\hyperlink{classmcp4822_ac2ce639350ba7a309227a3e510ceb183}{mcp4822}} (SPI\+\_\+t $\ast$new\+\_\+spi, \mbox{\hyperlink{structmln__pin__t}{mln\+\_\+pin\+\_\+t}} \&cs, \mbox{\hyperlink{structmln__pin__t}{mln\+\_\+pin\+\_\+t}} \&new\+\_\+ldac)
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classmcp4822}{mcp4822}} object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classmcp4822_a14c3bb0cbbb9e726156ec01136661ece}{set\+\_\+gain}} (\mbox{\hyperlink{mcp4822_8h_a879195ec270451ec6332d445fcfc2e4e}{MCP4822\+\_\+\+GAIN\+\_\+t}} new\+\_\+gain)
+void \mbox{\hyperlink{classmcp4822_ab5995c3e631c799d35da2b1ae2ab021a}{set\+\_\+gain}} (\mbox{\hyperlink{mcp4822_8h_a405a5c74199b2cc7e82ed3bead405a91}{mln\+\_\+mcp4822\+\_\+gain\+\_\+t}} new\+\_\+gain)
 \begin{DoxyCompactList}\small\item\em Set the gain of the DAC. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classmcp4822_a8c444d2209b4c4c5ab3d8ebc99071a75}{write}} (\mbox{\hyperlink{mcp4822_8h_a616d1661b8f2ff64df13b8a248a6849c}{MCP4822\+\_\+\+CHANNEL\+\_\+t}} channel, uint16\+\_\+t value)
+void \mbox{\hyperlink{classmcp4822_ad9d33f039c793af64c51c77a6203197c}{write}} (const \mbox{\hyperlink{mcp4822_8h_a7e58481bb9c447a43a8cf2f482bcfcbb}{mln\+\_\+mcp4822\+\_\+channel\+\_\+t}} channel, const uint16\+\_\+t value)
 \begin{DoxyCompactList}\small\item\em Write a value to the DAC. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -28,16 +28,16 @@ Utilizes the \mbox{\hyperlink{classmln__spi}{mln\+\_\+spi}} and \mbox{\hyperlink
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{mcp4822_8h_source_l00038}{38}} of file \mbox{\hyperlink{mcp4822_8h_source}{mcp4822.\+h}}.
+Definition at line \mbox{\hyperlink{mcp4822_8h_source_l00042}{42}} of file \mbox{\hyperlink{mcp4822_8h_source}{mcp4822.\+h}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classmcp4822_af197f1fb877c276e14da81be6b5d943e}\label{classmcp4822_af197f1fb877c276e14da81be6b5d943e}} 
+\mbox{\Hypertarget{classmcp4822_ac2ce639350ba7a309227a3e510ceb183}\label{classmcp4822_ac2ce639350ba7a309227a3e510ceb183}} 
 \index{mcp4822@{mcp4822}!mcp4822@{mcp4822}}
 \index{mcp4822@{mcp4822}!mcp4822@{mcp4822}}
 \doxysubsubsection{\texorpdfstring{mcp4822()}{mcp4822()}}
-{\footnotesize\ttfamily mcp4822\+::mcp4822 (\begin{DoxyParamCaption}\item[{SPI\+\_\+t $\ast$}]{new\+\_\+spi,  }\item[{\mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}}}]{cs,  }\item[{\mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}}}]{new\+\_\+ldac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily mcp4822\+::mcp4822 (\begin{DoxyParamCaption}\item[{SPI\+\_\+t $\ast$}]{new\+\_\+spi,  }\item[{\mbox{\hyperlink{structmln__pin__t}{mln\+\_\+pin\+\_\+t}} \&}]{cs,  }\item[{\mbox{\hyperlink{structmln__pin__t}{mln\+\_\+pin\+\_\+t}} \&}]{new\+\_\+ldac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -54,16 +54,16 @@ Construct a new \mbox{\hyperlink{classmcp4822}{mcp4822}} object.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{mcp4822_8h_source_l00059}{59}} of file \mbox{\hyperlink{mcp4822_8h_source}{mcp4822.\+h}}.
+Definition at line \mbox{\hyperlink{mcp4822_8h_source_l00063}{63}} of file \mbox{\hyperlink{mcp4822_8h_source}{mcp4822.\+h}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classmcp4822_a14c3bb0cbbb9e726156ec01136661ece}\label{classmcp4822_a14c3bb0cbbb9e726156ec01136661ece}} 
+\mbox{\Hypertarget{classmcp4822_ab5995c3e631c799d35da2b1ae2ab021a}\label{classmcp4822_ab5995c3e631c799d35da2b1ae2ab021a}} 
 \index{mcp4822@{mcp4822}!set\_gain@{set\_gain}}
 \index{set\_gain@{set\_gain}!mcp4822@{mcp4822}}
 \doxysubsubsection{\texorpdfstring{set\_gain()}{set\_gain()}}
-{\footnotesize\ttfamily void mcp4822\+::set\+\_\+gain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mcp4822_8h_a879195ec270451ec6332d445fcfc2e4e}{MCP4822\+\_\+\+GAIN\+\_\+t}}}]{new\+\_\+gain }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void mcp4822\+::set\+\_\+gain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mcp4822_8h_a405a5c74199b2cc7e82ed3bead405a91}{mln\+\_\+mcp4822\+\_\+gain\+\_\+t}}}]{new\+\_\+gain }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -79,13 +79,13 @@ The gain is set for both channels, only applies from the next write
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{mcp4822_8h_source_l00074}{74}} of file \mbox{\hyperlink{mcp4822_8h_source}{mcp4822.\+h}}.
+Definition at line \mbox{\hyperlink{mcp4822_8h_source_l00078}{78}} of file \mbox{\hyperlink{mcp4822_8h_source}{mcp4822.\+h}}.
 
-\mbox{\Hypertarget{classmcp4822_a8c444d2209b4c4c5ab3d8ebc99071a75}\label{classmcp4822_a8c444d2209b4c4c5ab3d8ebc99071a75}} 
+\mbox{\Hypertarget{classmcp4822_ad9d33f039c793af64c51c77a6203197c}\label{classmcp4822_ad9d33f039c793af64c51c77a6203197c}} 
 \index{mcp4822@{mcp4822}!write@{write}}
 \index{write@{write}!mcp4822@{mcp4822}}
 \doxysubsubsection{\texorpdfstring{write()}{write()}}
-{\footnotesize\ttfamily void mcp4822\+::write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mcp4822_8h_a616d1661b8f2ff64df13b8a248a6849c}{MCP4822\+\_\+\+CHANNEL\+\_\+t}}}]{channel,  }\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void mcp4822\+::write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{mcp4822_8h_a7e58481bb9c447a43a8cf2f482bcfcbb}{mln\+\_\+mcp4822\+\_\+channel\+\_\+t}}}]{channel,  }\item[{const uint16\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -100,7 +100,7 @@ Write a value to the DAC.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{mcp4822_8h_source_l00082}{82}} of file \mbox{\hyperlink{mcp4822_8h_source}{mcp4822.\+h}}.
+Definition at line \mbox{\hyperlink{mcp4822_8h_source_l00086}{86}} of file \mbox{\hyperlink{mcp4822_8h_source}{mcp4822.\+h}}.
 
 
 

@@ -96,6 +96,9 @@ $(document).ready(function(){initNavTree('mln__spi_8h.html',''); initResizable()
   <div class="headertitle"><div class="title">mln_spi.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This peripheral is used to communicate with SPI.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="mln__gpio_8h_source.html">mln_gpio.h</a>&quot;</code><br />
 </div>
@@ -104,11 +107,13 @@ $(document).ready(function(){initNavTree('mln__spi_8h.html',''); initResizable()
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmln__spi.html">mln_spi</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI peripheral class.  <a href="classmln__spi.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:af5afc696c24818e0431d36db500598fb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__spi_8h.html#af5afc696c24818e0431d36db500598fb">MLN_SPI_BUF_SIZE</a>&#160;&#160;&#160;32</td></tr>
+<tr class="memdesc:af5afc696c24818e0431d36db500598fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum SPI buffer size.  <br /></td></tr>
 <tr class="separator:af5afc696c24818e0431d36db500598fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24cda3093f72f18e6e33ed1ff360a34b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__spi_8h.html#a24cda3093f72f18e6e33ed1ff360a34b">MLN_SPI0_PIN_MOSI</a>&#160;&#160;&#160;PA4</td></tr>
 <tr class="separator:a24cda3093f72f18e6e33ed1ff360a34b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,9 +132,18 @@ Macros</h2></td></tr>
 <tr class="memitem:afdcffc16829e8e297f537fa2a792ab1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__spi_8h.html#afdcffc16829e8e297f537fa2a792ab1e">MLN_SPI1_PIN_SS</a>&#160;&#160;&#160;PC3</td></tr>
 <tr class="separator:afdcffc16829e8e297f537fa2a792ab1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf55d7f707711aa7274c7dcd23cb8f34"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mln__spi_8h.html#acf55d7f707711aa7274c7dcd23cb8f34">MLN_SPI_CLKSEL</a>&#160;&#160;&#160;(SPI_CLK2X_bm)</td></tr>
+<tr class="memdesc:acf55d7f707711aa7274c7dcd23cb8f34"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI peripheral speed bitmaps.  <br /></td></tr>
 <tr class="separator:acf55d7f707711aa7274c7dcd23cb8f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This peripheral is used to communicate with SPI. </p>
+<dl class="section author"><dt>Author</dt><dd>Cédric Hirschi (<a href="#" onclick="location.href='mai'+'lto:'+'ced'+'r0'+'2@l'+'iv'+'e.c'+'om'; return false;">cedr0<span class="obfuscator">.nosp@m.</span>2@li<span class="obfuscator">.nosp@m.</span>ve.co<span class="obfuscator">.nosp@m.</span>m</a>) </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2023-04-27</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a83aeda8c3c52108d136aa4e2a810e6c2" name="a83aeda8c3c52108d136aa4e2a810e6c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a83aeda8c3c52108d136aa4e2a810e6c2">&#9670;&#160;</a></span>MLN_SPI0_PIN_MISO</h2>
 
@@ -142,7 +156,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00018">18</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00029">29</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
 
 </div>
 </div>
@@ -158,7 +172,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00017">17</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00028">28</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
 
 </div>
 </div>
@@ -174,7 +188,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00019">19</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00030">30</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
 
 </div>
 </div>
@@ -190,7 +204,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00020">20</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00031">31</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
 
 </div>
 </div>
@@ -206,7 +220,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00023">23</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00034">34</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
 
 </div>
 </div>
@@ -222,7 +236,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00022">22</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00033">33</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
 
 </div>
 </div>
@@ -238,7 +252,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00024">24</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00035">35</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
 
 </div>
 </div>
@@ -254,7 +268,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00025">25</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00036">36</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
 
 </div>
 </div>
@@ -270,7 +284,12 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00015">15</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
+<p>Maximum SPI buffer size. </p>
+<dl class="section note"><dt>Note</dt><dd>Currently RX only </dd>
+<dd>
+Can be changed without further problems </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00026">26</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
 
 </div>
 </div>
@@ -286,7 +305,10 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00027">27</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
+<p>SPI peripheral speed bitmaps. </p>
+<dl class="section note"><dt>Note</dt><dd>Can be changed without further problems </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mln__spi_8h_source.html#l00044">44</a> of file <a class="el" href="mln__spi_8h_source.html">mln_spi.h</a>.</p>
 
 </div>
 </div>

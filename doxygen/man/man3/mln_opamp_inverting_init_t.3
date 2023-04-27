@@ -1,0 +1,96 @@
+.TH "mln_opamp_inverting_init_t" 3 "Thu Apr 27 2023" "Version alpha" "mlnlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mln_opamp_inverting_init_t \- Opamp inverting configuration struct\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mln_opamp\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBmln_opamp_device_t\fP \fBopamp\fP = \fBMLN_OPAMP_DEVICE_0\fP"
+.br
+.ti -1c
+.RI "bool \fBrunstdby\fP = false"
+.br
+.ti -1c
+.RI "bool \fBoutput\fP = true"
+.br
+.ti -1c
+.RI "bool \fBlowpower\fP = false"
+.br
+.ti -1c
+.RI "\fBmln_opamp_gain_inverting_t\fP \fBgain\fP = \fBMLN_OPAMP_GAIN_INVERTING_1\fP"
+.br
+.ti -1c
+.RI "\fBmln_opamp_inverting_in_pos_t\fP \fBin_pos\fP = \fBMLN_OPAMP_INVERTING_IN_POS_VDDDIV2\fP"
+.br
+.ti -1c
+.RI "\fBmln_opamp_inverting_in_neg_t\fP \fBin_neg\fP = \fBMLN_OPAMP_INVERTING_IN_NEG_INN\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Opamp inverting configuration struct\&. 
+
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIopamp_n\fP Opamp device (0-3) 
+.br
+\fIrunstdby\fP If true, the peripheral is also running in device standby 
+.br
+\fIoutput\fP If true, the output is enabled 
+.br
+\fIlowpower\fP If true, the low power mode is enabled (reduced output range) 
+.br
+\fIgain\fP Gain selection 
+.br
+\fIin_pos\fP Positive input selection 
+.br
+\fIin_neg\fP Negative input selection 
+.RE
+.PP
+
+.PP
+Definition at line \fB267\fP of file \fBmln_opamp\&.h\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBmln_opamp_gain_inverting_t\fP mln_opamp_inverting_init_t::gain = \fBMLN_OPAMP_GAIN_INVERTING_1\fP"
+
+.PP
+Definition at line \fB275\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "\fBmln_opamp_inverting_in_neg_t\fP mln_opamp_inverting_init_t::in_neg = \fBMLN_OPAMP_INVERTING_IN_NEG_INN\fP"
+
+.PP
+Definition at line \fB278\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "\fBmln_opamp_inverting_in_pos_t\fP mln_opamp_inverting_init_t::in_pos = \fBMLN_OPAMP_INVERTING_IN_POS_VDDDIV2\fP"
+
+.PP
+Definition at line \fB277\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "bool mln_opamp_inverting_init_t::lowpower = false"
+
+.PP
+Definition at line \fB273\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "\fBmln_opamp_device_t\fP mln_opamp_inverting_init_t::opamp = \fBMLN_OPAMP_DEVICE_0\fP"
+
+.PP
+Definition at line \fB269\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "bool mln_opamp_inverting_init_t::output = true"
+
+.PP
+Definition at line \fB272\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "bool mln_opamp_inverting_init_t::runstdby = false"
+
+.PP
+Definition at line \fB271\fP of file \fBmln_opamp\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mlnlib from the source code\&.

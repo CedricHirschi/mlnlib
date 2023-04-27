@@ -27,7 +27,7 @@ namespace mln_dac
 	 * @param buffer If true, the dac output is buffered and output to the pin
 	 *
 	 */
-	inline void config(bool standby, bool buffer)
+	inline const void config(bool standby, bool buffer)
 	{
 		buffer ? (DAC0.CTRLA |= 0x40) : (DAC0.CTRLA &= ~0x40);
 		standby ? (DAC0.CTRLA |= 0x80) : (DAC0.CTRLA &= ~0x80);
@@ -49,6 +49,7 @@ namespace mln_dac
 	 *
 	 * @param value The output of the DAC peripheral
 	 *
+	 * @note Remember to call `enable` to enable the peripheral
 	 */
 	inline const void set(uint16_t value) { DAC0.DATA = value << 6; }
 };

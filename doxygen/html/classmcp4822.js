@@ -1,6 +1,6 @@
 var classmcp4822 =
 [
-    [ "mcp4822", "classmcp4822.html#af197f1fb877c276e14da81be6b5d943e", null ],
-    [ "set_gain", "classmcp4822.html#a14c3bb0cbbb9e726156ec01136661ece", null ],
-    [ "write", "classmcp4822.html#a8c444d2209b4c4c5ab3d8ebc99071a75", null ]
+    [ "mcp4822", "classmcp4822.html#ac2ce639350ba7a309227a3e510ceb183", null ],
+    [ "set_gain", "classmcp4822.html#ab5995c3e631c799d35da2b1ae2ab021a", null ],
+    [ "write", "classmcp4822.html#ad9d33f039c793af64c51c77a6203197c", null ]
 ];

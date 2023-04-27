@@ -8,7 +8,7 @@ DAC peripheral namespace.
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{namespacemln__dac_afb65786de6445dd838c426e4aff225f5}{config}} (bool standby, bool buffer)
+const void \mbox{\hyperlink{namespacemln__dac_ab2c0496dcd73d12a31eef2d5eabdf83b}{config}} (bool standby, bool buffer)
 \begin{DoxyCompactList}\small\item\em Configure the DAC peripheral. \end{DoxyCompactList}\item 
 const void \mbox{\hyperlink{namespacemln__dac_a2d97bbee2cf33201636fc81a9b2cf7fd}{enable}} (void)
 \begin{DoxyCompactList}\small\item\em Enable the DAC peripheral. \end{DoxyCompactList}\item 
@@ -24,11 +24,11 @@ DAC peripheral namespace.
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{namespacemln__dac_afb65786de6445dd838c426e4aff225f5}\label{namespacemln__dac_afb65786de6445dd838c426e4aff225f5}} 
+\mbox{\Hypertarget{namespacemln__dac_ab2c0496dcd73d12a31eef2d5eabdf83b}\label{namespacemln__dac_ab2c0496dcd73d12a31eef2d5eabdf83b}} 
 \index{mln\_dac@{mln\_dac}!config@{config}}
 \index{config@{config}!mln\_dac@{mln\_dac}}
 \doxysubsubsection{\texorpdfstring{config()}{config()}}
-{\footnotesize\ttfamily void mln\+\_\+dac\+::config (\begin{DoxyParamCaption}\item[{bool}]{standby,  }\item[{bool}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily const void mln\+\_\+dac\+::config (\begin{DoxyParamCaption}\item[{bool}]{standby,  }\item[{bool}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -43,7 +43,7 @@ Configure the DAC peripheral.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{mln__dac_8h_source_l00028}{28}} of file \mbox{\hyperlink{mln__dac_8h_source}{mln\+\_\+dac.\+h}}.
+Definition at line \mbox{\hyperlink{mln__dac_8h_source_l00030}{30}} of file \mbox{\hyperlink{mln__dac_8h_source}{mln\+\_\+dac.\+h}}.
 
 \mbox{\Hypertarget{namespacemln__dac_a52324ac73ef79d3a9e78e5633e861f58}\label{namespacemln__dac_a52324ac73ef79d3a9e78e5633e861f58}} 
 \index{mln\_dac@{mln\_dac}!disable@{disable}}
@@ -57,7 +57,7 @@ Disable the DAC peripheral.
 
 
 
-Definition at line \mbox{\hyperlink{mln__dac_8h_source_l00043}{43}} of file \mbox{\hyperlink{mln__dac_8h_source}{mln\+\_\+dac.\+h}}.
+Definition at line \mbox{\hyperlink{mln__dac_8h_source_l00045}{45}} of file \mbox{\hyperlink{mln__dac_8h_source}{mln\+\_\+dac.\+h}}.
 
 \mbox{\Hypertarget{namespacemln__dac_a2d97bbee2cf33201636fc81a9b2cf7fd}\label{namespacemln__dac_a2d97bbee2cf33201636fc81a9b2cf7fd}} 
 \index{mln\_dac@{mln\_dac}!enable@{enable}}
@@ -71,7 +71,7 @@ Enable the DAC peripheral.
 
 
 
-Definition at line \mbox{\hyperlink{mln__dac_8h_source_l00038}{38}} of file \mbox{\hyperlink{mln__dac_8h_source}{mln\+\_\+dac.\+h}}.
+Definition at line \mbox{\hyperlink{mln__dac_8h_source_l00040}{40}} of file \mbox{\hyperlink{mln__dac_8h_source}{mln\+\_\+dac.\+h}}.
 
 \mbox{\Hypertarget{namespacemln__dac_a4d7ff2ec27518ae7f3db709efaf73d8d}\label{namespacemln__dac_a4d7ff2ec27518ae7f3db709efaf73d8d}} 
 \index{mln\_dac@{mln\_dac}!set@{set}}
@@ -85,10 +85,13 @@ Set the output of the DAC peripheral.
 
 
 \begin{DoxyParams}{Parameters}
-{\em value} & The output of the DAC peripheral \\
+{\em value} & The output of the DAC peripheral\\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Remember to call {\ttfamily enable} to enable the peripheral 
+\end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{mln__dac_8h_source_l00051}{51}} of file \mbox{\hyperlink{mln__dac_8h_source}{mln\+\_\+dac.\+h}}.
+Definition at line \mbox{\hyperlink{mln__dac_8h_source_l00054}{54}} of file \mbox{\hyperlink{mln__dac_8h_source}{mln\+\_\+dac.\+h}}.
 

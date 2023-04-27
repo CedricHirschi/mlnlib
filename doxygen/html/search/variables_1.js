@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['config_0',['config',['../struct_o_p_a_m_p___s_e_t_u_p__s.html#a8349b42bfbd4bc0125c201b0dd833690',1,'OPAMP_SETUP_s']]]
+  ['btn_5fbuiltin_0',['btn_builtin',['../main_8cpp.html#afbb7011896fb3c48ce1748da2bb809d5',1,'main.cpp']]]
 ];

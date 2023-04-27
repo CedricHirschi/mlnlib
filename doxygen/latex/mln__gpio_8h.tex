@@ -1,86 +1,120 @@
 \hypertarget{mln__gpio_8h}{}\doxysection{mlnlib/mln/mln\+\_\+gpio.h File Reference}
 \label{mln__gpio_8h}\index{mlnlib/mln/mln\_gpio.h@{mlnlib/mln/mln\_gpio.h}}
+
+
+This peripheral is used to control the data flow from the pins of the device.  
+
+
 {\ttfamily \#include $<$avr/io.\+h$>$}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}}
-\item 
+struct \mbox{\hyperlink{structmln__pin__t}{mln\+\_\+pin\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Standard pin struct. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classmln__gpio}{mln\+\_\+gpio}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em GPIO peripheral class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}{PIN\+\_\+\+DIR\+\_\+t}} \{ \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda2ab08d3e103968f5f4f26b66a52e99d6}{OUTPUT}}
-, \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fdae310c909d76b003d016bef8bdf16936a}{INPUT}}
-, \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda851c2ac60276ada62e8d9ba216c7a487}{INPUT\+\_\+\+PULLUP}}
+enum \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ff}{mln\+\_\+gpio\+\_\+dir\+\_\+t}} \{ \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffa1b3e51e05bb8ee323f13de27944188a1}{MLN\+\_\+\+GPIO\+\_\+\+DIR\+\_\+\+OUTPUT}} = 0
+, \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffad40bc076b4fe2b96519c9fdffd537350}{MLN\+\_\+\+GPIO\+\_\+\+DIR\+\_\+\+INPUT}}
+, \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffa2ee2e3980d3b90d98e24fd0188d6c746}{MLN\+\_\+\+GPIO\+\_\+\+DIR\+\_\+\+INPUT\+\_\+\+PULLUP}}
  \}
-\item 
-enum \mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020}{PIN\+\_\+\+ISC\+\_\+t}} \{ \newline
-\mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a40f39385238042f6ec0cbac821a19fc4}{DISABLED}}
-, \mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a1c6e097f5d1eb37e8627a2fea2ce6b8d}{BOTHEDGES}}
-, \mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020ad93abe7aced82e9a4fcac4127a36ece3}{RISING}}
-, \mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020ad24712a6a30c1d431b927d1ba2f84b66}{FALLING}}
+\begin{DoxyCompactList}\small\item\em Pin direction enum. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6c}{mln\+\_\+gpio\+\_\+isc\+\_\+t}} \{ \newline
+\mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca8e7030d21ed7fd33c6ce627bf5ef0744}{MLN\+\_\+\+GPIO\+\_\+\+ISC\+\_\+\+DISABLED}} = 0
+, \mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6caa51e061e7ee6580432c0d58e7afcd865}{MLN\+\_\+\+GPIO\+\_\+\+ISC\+\_\+\+BOTHEDGES}}
+, \mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca9f4cd0bdd1127b127621e55c27162fa6}{MLN\+\_\+\+GPIO\+\_\+\+ISC\+\_\+\+RISING}}
+, \mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca61e5f5448e1082b69f233a5221147322}{MLN\+\_\+\+GPIO\+\_\+\+ISC\+\_\+\+FALLING}}
 , \newline
-\mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a31b72f97fff0dd57a7ba86e9f8fcbc06}{LOWLEVEL}} = 5
+\mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca602874b38c525b4b26856032749eb7a7}{MLN\+\_\+\+GPIO\+\_\+\+ISC\+\_\+\+LOWLEVEL}} = 5
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Pin interrupt type enum. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This peripheral is used to control the data flow from the pins of the device. 
+
+\begin{DoxyAuthor}{Author}
+Cédric Hirschi (\href{mailto:cedr02@live.com}{\texttt{ cedr02@live.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/04-\/27
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+Definition in file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
+
 
 
 \doxysubsection{Enumeration Type Documentation}
-\mbox{\Hypertarget{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}\label{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}} 
-\index{mln\_gpio.h@{mln\_gpio.h}!PIN\_DIR\_t@{PIN\_DIR\_t}}
-\index{PIN\_DIR\_t@{PIN\_DIR\_t}!mln\_gpio.h@{mln\_gpio.h}}
-\doxysubsubsection{\texorpdfstring{PIN\_DIR\_t}{PIN\_DIR\_t}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}{PIN\+\_\+\+DIR\+\_\+t}}}
+\mbox{\Hypertarget{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ff}\label{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ff}} 
+\index{mln\_gpio.h@{mln\_gpio.h}!mln\_gpio\_dir\_t@{mln\_gpio\_dir\_t}}
+\index{mln\_gpio\_dir\_t@{mln\_gpio\_dir\_t}!mln\_gpio.h@{mln\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{mln\_gpio\_dir\_t}{mln\_gpio\_dir\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ff}{mln\+\_\+gpio\+\_\+dir\+\_\+t}}}
+
+
+
+Pin direction enum. 
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT@{OUTPUT}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!OUTPUT@{OUTPUT}}}\mbox{\Hypertarget{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda2ab08d3e103968f5f4f26b66a52e99d6}\label{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda2ab08d3e103968f5f4f26b66a52e99d6}} 
-OUTPUT&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_GPIO\_DIR\_OUTPUT@{MLN\_GPIO\_DIR\_OUTPUT}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!MLN\_GPIO\_DIR\_OUTPUT@{MLN\_GPIO\_DIR\_OUTPUT}}}\mbox{\Hypertarget{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffa1b3e51e05bb8ee323f13de27944188a1}\label{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffa1b3e51e05bb8ee323f13de27944188a1}} 
+MLN\+\_\+\+GPIO\+\_\+\+DIR\+\_\+\+OUTPUT&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{INPUT@{INPUT}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!INPUT@{INPUT}}}\mbox{\Hypertarget{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fdae310c909d76b003d016bef8bdf16936a}\label{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fdae310c909d76b003d016bef8bdf16936a}} 
-INPUT&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_GPIO\_DIR\_INPUT@{MLN\_GPIO\_DIR\_INPUT}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!MLN\_GPIO\_DIR\_INPUT@{MLN\_GPIO\_DIR\_INPUT}}}\mbox{\Hypertarget{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffad40bc076b4fe2b96519c9fdffd537350}\label{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffad40bc076b4fe2b96519c9fdffd537350}} 
+MLN\+\_\+\+GPIO\+\_\+\+DIR\+\_\+\+INPUT&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{INPUT\_PULLUP@{INPUT\_PULLUP}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!INPUT\_PULLUP@{INPUT\_PULLUP}}}\mbox{\Hypertarget{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda851c2ac60276ada62e8d9ba216c7a487}\label{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda851c2ac60276ada62e8d9ba216c7a487}} 
-INPUT\+\_\+\+PULLUP&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_GPIO\_DIR\_INPUT\_PULLUP@{MLN\_GPIO\_DIR\_INPUT\_PULLUP}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!MLN\_GPIO\_DIR\_INPUT\_PULLUP@{MLN\_GPIO\_DIR\_INPUT\_PULLUP}}}\mbox{\Hypertarget{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffa2ee2e3980d3b90d98e24fd0188d6c746}\label{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffa2ee2e3980d3b90d98e24fd0188d6c746}} 
+MLN\+\_\+\+GPIO\+\_\+\+DIR\+\_\+\+INPUT\+\_\+\+PULLUP&\\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{mln__gpio_8h_source_l00099}{99}} of file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
+Definition at line \mbox{\hyperlink{mln__gpio_8h_source_l00108}{108}} of file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
 
-\mbox{\Hypertarget{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020}\label{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020}} 
-\index{mln\_gpio.h@{mln\_gpio.h}!PIN\_ISC\_t@{PIN\_ISC\_t}}
-\index{PIN\_ISC\_t@{PIN\_ISC\_t}!mln\_gpio.h@{mln\_gpio.h}}
-\doxysubsubsection{\texorpdfstring{PIN\_ISC\_t}{PIN\_ISC\_t}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020}{PIN\+\_\+\+ISC\+\_\+t}}}
+\mbox{\Hypertarget{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6c}\label{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6c}} 
+\index{mln\_gpio.h@{mln\_gpio.h}!mln\_gpio\_isc\_t@{mln\_gpio\_isc\_t}}
+\index{mln\_gpio\_isc\_t@{mln\_gpio\_isc\_t}!mln\_gpio.h@{mln\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{mln\_gpio\_isc\_t}{mln\_gpio\_isc\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6c}{mln\+\_\+gpio\+\_\+isc\+\_\+t}}}
+
+
+
+Pin interrupt type enum. 
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DISABLED@{DISABLED}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!DISABLED@{DISABLED}}}\mbox{\Hypertarget{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a40f39385238042f6ec0cbac821a19fc4}\label{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a40f39385238042f6ec0cbac821a19fc4}} 
-DISABLED&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_GPIO\_ISC\_DISABLED@{MLN\_GPIO\_ISC\_DISABLED}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!MLN\_GPIO\_ISC\_DISABLED@{MLN\_GPIO\_ISC\_DISABLED}}}\mbox{\Hypertarget{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca8e7030d21ed7fd33c6ce627bf5ef0744}\label{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca8e7030d21ed7fd33c6ce627bf5ef0744}} 
+MLN\+\_\+\+GPIO\+\_\+\+ISC\+\_\+\+DISABLED&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{BOTHEDGES@{BOTHEDGES}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!BOTHEDGES@{BOTHEDGES}}}\mbox{\Hypertarget{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a1c6e097f5d1eb37e8627a2fea2ce6b8d}\label{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a1c6e097f5d1eb37e8627a2fea2ce6b8d}} 
-BOTHEDGES&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_GPIO\_ISC\_BOTHEDGES@{MLN\_GPIO\_ISC\_BOTHEDGES}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!MLN\_GPIO\_ISC\_BOTHEDGES@{MLN\_GPIO\_ISC\_BOTHEDGES}}}\mbox{\Hypertarget{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6caa51e061e7ee6580432c0d58e7afcd865}\label{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6caa51e061e7ee6580432c0d58e7afcd865}} 
+MLN\+\_\+\+GPIO\+\_\+\+ISC\+\_\+\+BOTHEDGES&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{RISING@{RISING}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!RISING@{RISING}}}\mbox{\Hypertarget{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020ad93abe7aced82e9a4fcac4127a36ece3}\label{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020ad93abe7aced82e9a4fcac4127a36ece3}} 
-RISING&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_GPIO\_ISC\_RISING@{MLN\_GPIO\_ISC\_RISING}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!MLN\_GPIO\_ISC\_RISING@{MLN\_GPIO\_ISC\_RISING}}}\mbox{\Hypertarget{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca9f4cd0bdd1127b127621e55c27162fa6}\label{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca9f4cd0bdd1127b127621e55c27162fa6}} 
+MLN\+\_\+\+GPIO\+\_\+\+ISC\+\_\+\+RISING&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{FALLING@{FALLING}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!FALLING@{FALLING}}}\mbox{\Hypertarget{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020ad24712a6a30c1d431b927d1ba2f84b66}\label{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020ad24712a6a30c1d431b927d1ba2f84b66}} 
-FALLING&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_GPIO\_ISC\_FALLING@{MLN\_GPIO\_ISC\_FALLING}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!MLN\_GPIO\_ISC\_FALLING@{MLN\_GPIO\_ISC\_FALLING}}}\mbox{\Hypertarget{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca61e5f5448e1082b69f233a5221147322}\label{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca61e5f5448e1082b69f233a5221147322}} 
+MLN\+\_\+\+GPIO\+\_\+\+ISC\+\_\+\+FALLING&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{LOWLEVEL@{LOWLEVEL}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!LOWLEVEL@{LOWLEVEL}}}\mbox{\Hypertarget{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a31b72f97fff0dd57a7ba86e9f8fcbc06}\label{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a31b72f97fff0dd57a7ba86e9f8fcbc06}} 
-LOWLEVEL&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_GPIO\_ISC\_LOWLEVEL@{MLN\_GPIO\_ISC\_LOWLEVEL}!mln\_gpio.h@{mln\_gpio.h}}\index{mln\_gpio.h@{mln\_gpio.h}!MLN\_GPIO\_ISC\_LOWLEVEL@{MLN\_GPIO\_ISC\_LOWLEVEL}}}\mbox{\Hypertarget{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca602874b38c525b4b26856032749eb7a7}\label{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca602874b38c525b4b26856032749eb7a7}} 
+MLN\+\_\+\+GPIO\+\_\+\+ISC\+\_\+\+LOWLEVEL&\\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{mln__gpio_8h_source_l00106}{106}} of file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
+Definition at line \mbox{\hyperlink{mln__gpio_8h_source_l00119}{119}} of file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
 

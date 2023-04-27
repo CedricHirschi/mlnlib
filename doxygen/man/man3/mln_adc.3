@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-mln_adc
+mln_adc \- ADC peripheral class\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -14,95 +15,279 @@ mln_adc
 .ti -1c
 .RI "\fBmln_adc\fP ()"
 .br
+.RI "Default \fC\fBmln_adc\fP\fP class initializer\&. "
 .ti -1c
-.RI "\fBmln_adc\fP (\fBPIN_t\fP pin)"
+.RI "\fBmln_adc\fP (const \fBmln_pin_t\fP &pin)"
 .br
+.RI "Initialize \fC\fBmln_adc\fP\fP class from pin\&. "
 .ti -1c
-.RI "\fBmln_adc\fP (\fBADC_IN_t\fP in)"
+.RI "\fBmln_adc\fP (const \fBmln_adc_in_t\fP in)"
 .br
+.RI "Initialize \fC\fBmln_adc\fP\fP class from adc input\&. "
 .ti -1c
-.RI "const void \fBconfig\fP (bool standby=false, \fBADC_RES_t\fP res=\fBHIRES\fP, \fBADC_SAMP_t\fP samp=\fBNONE\fP, \fBADC_PRE_t\fP presc=\fBDIV2\fP)"
+.RI "const void \fBconfig\fP (const bool standby=false, const \fBmln_adc_resolution_t\fP res=\fBMLN_ADC_RESOLUTION_HIGH\fP, const \fBmln_adc_accumulation_t\fP samp=\fBMLN_ADC_ACCNONE\fP, const \fBmln_adc_prescaler_t\fP presc=\fBMLN_ADC_DIV2\fP)"
 .br
+.RI "Configure the ADC peripheral\&. "
 .ti -1c
-.RI "const void \fBenable\fP ()"
+.RI "const void \fBenable\fP (void)"
 .br
+.RI "Enable the ADC peripheral\&. "
 .ti -1c
 .RI "const void \fBdisable\fP (void)"
 .br
+.RI "Disable the ADC peripheral\&. "
 .ti -1c
-.RI "void \fBset_in\fP (\fBPIN_t\fP new_pin)"
+.RI "void \fBset_in\fP (const \fBmln_pin_t\fP &pin)"
 .br
+.RI "Configure the input pin of the ADC peripheral\&. "
 .ti -1c
-.RI "const void \fBset_in\fP (\fBADC_IN_t\fP in)"
+.RI "const void \fBset_in\fP (const \fBmln_adc_in_t\fP in)"
 .br
+.RI "Configure the input of the ADC peripheral\&. "
 .ti -1c
 .RI "const void \fBstart\fP (void)"
 .br
+.RI "Start reading of ADC peripheral\&. "
+.ti -1c
+.RI "const bool \fBhas_result\fP (void)"
+.br
+.RI "Check whether ADC peripheral has a result ready\&. "
 .ti -1c
 .RI "const uint16_t \fBread\fP (void)"
 .br
+.RI "Read current result from ADC peripheral\&. "
 .ti -1c
-.RI "uint16_t \fBread\fP (\fBPIN_t\fP pin)"
+.RI "const uint16_t \fBread\fP (const \fBmln_pin_t\fP &pin)"
 .br
+.RI "Change input pin and read result from ADC peripheral\&. "
 .ti -1c
-.RI "const uint16_t \fBread\fP (\fBADC_IN_t\fP in)"
+.RI "const uint16_t \fBread\fP (const \fBmln_adc_in_t\fP in)"
 .br
+.RI "Change input and read result from ADC peripheral\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line \fB67\fP of file \fBmln_adc\&.h\fP\&.
+ADC peripheral class\&. 
+
+
+.PP
+Definition at line \fB98\fP of file \fBmln_adc\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "mln_adc::mln_adc ()\fC [inline]\fP"
 
 .PP
-Definition at line \fB77\fP of file \fBmln_adc\&.h\fP\&.
-.SS "mln_adc::mln_adc (\fBPIN_t\fP pin)\fC [inline]\fP"
+Default \fC\fBmln_adc\fP\fP class initializer\&. 
+.PP
+\fBNote\fP
+.RS 4
+Selects ADC0 as peripheral and GND as input 
+.RE
+.PP
 
 .PP
-Definition at line \fB83\fP of file \fBmln_adc\&.h\fP\&.
-.SS "mln_adc::mln_adc (\fBADC_IN_t\fP in)\fC [inline]\fP"
+Definition at line \fB125\fP of file \fBmln_adc\&.h\fP\&.
+.SS "mln_adc::mln_adc (const \fBmln_pin_t\fP & pin)\fC [inline]\fP"
 
 .PP
-Definition at line \fB89\fP of file \fBmln_adc\&.h\fP\&.
+Initialize \fC\fBmln_adc\fP\fP class from pin\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpin\fP Pin to set adc to
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Set the pin as input before this 
+.RE
+.PP
+
+.PP
+Definition at line \fB138\fP of file \fBmln_adc\&.h\fP\&.
+.SS "mln_adc::mln_adc (const \fBmln_adc_in_t\fP in)\fC [inline]\fP"
+
+.PP
+Initialize \fC\fBmln_adc\fP\fP class from adc input\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpin\fP Pin to set adc to 
+.RE
+.PP
+
+.PP
+Definition at line \fB150\fP of file \fBmln_adc\&.h\fP\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "const void mln_adc::config (bool standby = \fCfalse\fP, \fBADC_RES_t\fP res = \fC\fBHIRES\fP\fP, \fBADC_SAMP_t\fP samp = \fC\fBNONE\fP\fP, \fBADC_PRE_t\fP presc = \fC\fBDIV2\fP\fP)\fC [inline]\fP"
+.SS "const void mln_adc::config (const bool standby = \fCfalse\fP, const \fBmln_adc_resolution_t\fP res = \fC\fBMLN_ADC_RESOLUTION_HIGH\fP\fP, const \fBmln_adc_accumulation_t\fP samp = \fC\fBMLN_ADC_ACCNONE\fP\fP, const \fBmln_adc_prescaler_t\fP presc = \fC\fBMLN_ADC_DIV2\fP\fP)\fC [inline]\fP"
 
 .PP
-Definition at line \fB104\fP of file \fBmln_adc\&.h\fP\&.
+Configure the ADC peripheral\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstandby\fP If true, the peripheral is also running in device standby 
+.br
+\fIres\fP Resolution to be utilized 
+.br
+\fIsamp\fP Number of samples to be acquired per reading 
+.br
+\fIpresc\fP The frequency prescaler to be used 
+.RE
+.PP
+
+.PP
+Definition at line \fB165\fP of file \fBmln_adc\&.h\fP\&.
 .SS "const void mln_adc::disable (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB123\fP of file \fBmln_adc\&.h\fP\&.
-.SS "const void mln_adc::enable ()\fC [inline]\fP"
+Disable the ADC peripheral\&. 
+.PP
+Definition at line \fB189\fP of file \fBmln_adc\&.h\fP\&.
+.SS "const void mln_adc::enable (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB119\fP of file \fBmln_adc\&.h\fP\&.
-.SS "const uint16_t mln_adc::read (\fBADC_IN_t\fP in)\fC [inline]\fP"
+Enable the ADC peripheral\&. 
+.PP
+Definition at line \fB184\fP of file \fBmln_adc\&.h\fP\&.
+.SS "const bool mln_adc::has_result (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB204\fP of file \fBmln_adc\&.h\fP\&.
-.SS "uint16_t mln_adc::read (\fBPIN_t\fP pin)\fC [inline]\fP"
+Check whether ADC peripheral has a result ready\&. 
+.PP
+\fBReturns\fP
+.RS 4
+Whether ADC peripheral has a result ready 
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fItrue\fP Result is ready 
+.br
+\fIfalse\fP Result not ready 
+.RE
+.PP
 
 .PP
-Definition at line \fB186\fP of file \fBmln_adc\&.h\fP\&.
+Definition at line \fB238\fP of file \fBmln_adc\&.h\fP\&.
+.SS "const uint16_t mln_adc::read (const \fBmln_adc_in_t\fP in)\fC [inline]\fP"
+
+.PP
+Change input and read result from ADC peripheral\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpin\fP Pin to change to
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fI-1\fP If peripheral is disabled 
+.br
+\fIresult\fP else
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+If no reading is available, a new reading is started and waited until result is available 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Previous reading will be discarded, if available and not already read out 
+.RE
+.PP
+
+.PP
+Definition at line \fB296\fP of file \fBmln_adc\&.h\fP\&.
+.SS "const uint16_t mln_adc::read (const \fBmln_pin_t\fP & pin)\fC [inline]\fP"
+
+.PP
+Change input pin and read result from ADC peripheral\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpin\fP Pin to change to
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fI-1\fP If peripheral is disabled 
+.br
+\fIresult\fP else
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+If no reading is available, a new reading is started and waited until result is available 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Previous reading will be discarded, if available and not already read out 
+.RE
+.PP
+
+.PP
+Definition at line \fB273\fP of file \fBmln_adc\&.h\fP\&.
 .SS "const uint16_t mln_adc::read (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB168\fP of file \fBmln_adc\&.h\fP\&.
-.SS "const void mln_adc::set_in (\fBADC_IN_t\fP in)\fC [inline]\fP"
+Read current result from ADC peripheral\&. 
+.PP
+\fBReturn values\fP
+.RS 4
+\fI-1\fP If peripheral is disabled 
+.br
+\fIresult\fP else
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+If no reading is available, a new reading is started and waited until result is available 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Previous reading will be returned, if available and not already read out 
+.RE
+.PP
 
 .PP
-Definition at line \fB147\fP of file \fBmln_adc\&.h\fP\&.
-.SS "void mln_adc::set_in (\fBPIN_t\fP new_pin)\fC [inline]\fP"
+Definition at line \fB250\fP of file \fBmln_adc\&.h\fP\&.
+.SS "const void mln_adc::set_in (const \fBmln_adc_in_t\fP in)\fC [inline]\fP"
 
 .PP
-Definition at line \fB130\fP of file \fBmln_adc\&.h\fP\&.
+Configure the input of the ADC peripheral\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIin\fP Input to read from 
+.RE
+.PP
+
+.PP
+Definition at line \fB215\fP of file \fBmln_adc\&.h\fP\&.
+.SS "void mln_adc::set_in (const \fBmln_pin_t\fP & pin)\fC [inline]\fP"
+
+.PP
+Configure the input pin of the ADC peripheral\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpin\fP Pin to read from 
+.RE
+.PP
+
+.PP
+Definition at line \fB197\fP of file \fBmln_adc\&.h\fP\&.
 .SS "const void mln_adc::start (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB152\fP of file \fBmln_adc\&.h\fP\&.
+Start reading of ADC peripheral\&. 
+.PP
+Definition at line \fB221\fP of file \fBmln_adc\&.h\fP\&.
 
 .SH "Author"
 .PP 

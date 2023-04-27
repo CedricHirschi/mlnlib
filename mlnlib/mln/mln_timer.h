@@ -20,9 +20,9 @@
 #ifdef TCA1
 typedef enum mln_timer_inst_e
 {
-	TIMER0,
-	TIMER1
-} TIMER_t;
+	MLN_TIMER_0 = 0,
+	MLN_TIMER_1
+} mln_timer_t;
 #endif
 
 class mln_timer;
@@ -33,8 +33,20 @@ mln_timer *timer0_isr;
 mln_timer *timer1_isr;
 #endif
 
+/**
+ * @brief Available clock dividers in the TCA peripheral in numerical form
+ *
+ */
 const uint16_t mln_timer_divs[] = {1, 2, 4, 8, 16, 64, 256, 1024};
-uint32_t mln_max_periods[] = {65, 131, 262, 524, 1048, 4194, 16776, 67107};
+/**
+ * @brief The maximum periods achievable by clock division, in ms at 1MHz
+ *
+ */
+uint32_t mln_timer_max_periods[] = {65, 131, 262, 524, 1048, 4194, 16776, 67107};
+/**
+ * @brief Available clock dividers in the TCA peripheral as bitmasks
+ *
+ */
 const TCA_SINGLE_CLKSEL_t mln_timer_divs_bm[] = {
 	TCA_SINGLE_CLKSEL_DIV1_gc,
 	TCA_SINGLE_CLKSEL_DIV2_gc,
@@ -46,20 +58,32 @@ const TCA_SINGLE_CLKSEL_t mln_timer_divs_bm[] = {
 	TCA_SINGLE_CLKSEL_DIV1024_gc
 };
 
-uint8_t MLN_TIMER_GET_DIV(uint32_t T)
+/**
+ * @brief Helper function to get the lowest possible clock division to get certain period
+ *
+ * @param period Required period
+ *
+ * @returns Index for `mln_timer_...` arrays
+ *
+ */
+uint8_t MLN_TIMER_GET_DIV(uint32_t period)
 {
 	uint8_t index = 0;
 
-	while(T > mln_max_periods[index])
+	while(period > mln_timer_max_periods[index] / (F_CPU / 1000000UL))
 	{
 		index++;
-		if(index == sizeof(mln_timer_divs) / sizeof(uint16_t))
-			return -1;
+
+		if(index == sizeof(mln_timer_divs) / sizeof(uint16_t)) return -1;
 	}
 
 	return index;
 }
 
+/**
+ * @brief TCA peripheral class
+ *
+ */
 class mln_timer
 {
 	TCA_t *tim;
@@ -67,24 +91,42 @@ class mln_timer
 	float actual_period;
 
 public:
+	/**
+	 * @brief ISR function currently stored in the class
+	 *
+	 */
 	void(*isr)(void);
 
 #ifdef TCA1
-	inline mln_timer(TIMER_t new_tim, uint16_t period)
+	/**
+	 * @brief mln_timer class initializer
+	 *
+	 * @param new_tim Timer to control
+	 * @param period Desired period
+	 *
+	 */
+	inline mln_timer(mln_timer_t new_tim, uint16_t period)
 	{
-	(new_tim == TIMER0) ? (tim = &TCA0) : (tim = &TCA1);
+	(new_tim == MLN_TIMER_0) ? (tim = &TCA0) : (tim = &TCA1);
 #else
+	/**
+	 * @brief mln_timer class initializer
+	 *
+	 * @param period Desired period
+	 *
+	 */
 	inline mln_timer(uint16_t period)
 	{
 		tim = &TCA0;
 #endif
-
-		for(uint8_t i = 0; i < sizeof(mln_timer_divs) / sizeof(uint16_t); i++)
-			mln_max_periods[i] /= F_CPU / 1000000UL;
+		// Is currently done inside MLN_TIMER_GET_DIV function to not divide multiple times
+		// TODO: Check if this is working properly
+		// for(uint8_t i = 0; i < sizeof(mln_timer_divs) / sizeof(uint16_t); i++)
+		//	mln_timer_max_periods[i] /= F_CPU / 1000000UL;
 
 		uint8_t div_index = MLN_TIMER_GET_DIV(period);
 		TCA_SINGLE_CLKSEL_t TCA_SINGLE_CLKSEL_DIV_bm = mln_timer_divs_bm[div_index];
-		uint16_t max_period = (uint16_t)((float)period * 65535.0f / (float)mln_max_periods[div_index]);
+		uint16_t max_period = (uint16_t)((float)period * 65535.0f / (float)mln_timer_max_periods[div_index]);
 
 		tim->SINGLE.INTCTRL = TCA_SINGLE_OVF_bm;
 		tim->SINGLE.PER = max_period;
@@ -94,9 +136,9 @@ public:
 		actual_period = (float)max_period / 65535.0f * (float)mln_timer_divs[div_index];
 	}
 
-	/*
-	* @brief Set ISR function of TCA peripheral
-	*/
+	/**
+	 * @brief Set ISR function of TCA peripheral
+	 */
 	inline void set_isr(void(*f)(void))
 	{
 		isr = f;
@@ -108,29 +150,41 @@ public:
 #endif
 	}
 
-	/*
-	* @brief Start TCA peripheral
-	*/
+	/**
+	 * @brief Start TCA peripheral
+	 *
+	 */
 	inline const void start(void) { tim->SINGLE.CTRLA |= TCA_SINGLE_ENABLE_bm; }
-	/*
-	* @brief Stop TCA peripheral
-	*/
+	/**
+	 * @brief Stop TCA peripheral
+	 *
+	 */
 	inline const void stop(void) { tim->SINGLE.CTRLA &= ~TCA_SINGLE_ENABLE_bm; }
 
-	/*
-	* @brief Check if TCA peripheral is running
-	*
-	* @returns Whether TCA peripheral is running
-	*/
+	/**
+	 * @brief Check if TCA peripheral is running
+	 *
+	 * @returns Whether TCA peripheral is running
+	 * @retval true Peripheral is running
+	 * @retval false Peripheral is not running
+	 *
+	 */
 	inline const bool is_running(void) { return tim->SINGLE.CTRLA & TCA_SINGLE_ENABLE_bm; }
 	/*
-	* @brief Check the actual ISR period of the TCA timer
-	*
-	* @returns Actual period of TCA timer
-	*/
+	 * @brief Check the actual ISR period of the TCA timer
+	 *
+	 * @returns Actual period of TCA timer
+	 *
+	 */
 	inline const float get_period(void) { return actual_period; }
 }; //mln_timer
 
+/**
+ * @brief Standard ISR for TCA0
+ *
+ * @note Does nothing but reset the corresponding flag
+ *
+ */
 ISR(TCA0_OVF_vect)
 {
 	if(timer0_isr->isr) timer0_isr->isr();
@@ -139,6 +193,12 @@ ISR(TCA0_OVF_vect)
 }
 
 #ifdef TCA1
+/**
+ * @brief Standard ISR for TCA1
+ *
+ * @note Does nothing but reset the corresponding flag
+ *
+ */
 ISR(TCA1_OVF_vect)
 {
 	if(timer1_isr->isr) timer1_isr->isr();

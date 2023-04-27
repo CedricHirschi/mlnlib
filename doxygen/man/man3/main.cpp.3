@@ -27,10 +27,16 @@ mlnlib/main.cpp
 
 .in +1c
 .ti -1c
-.RI "\fBmln_gpio\fP \fBbtn_builtin\fP (PA5, \fBINPUT_PULLUP\fP, true)"
+.RI "\fBmln_gpio\fP \fBbtn_builtin\fP (PA5, \fBMLN_GPIO_DIR_INPUT_PULLUP\fP, true)"
 .br
 .ti -1c
-.RI "\fBmln_gpio\fP \fBled_builtin\fP (PA6, \fBOUTPUT\fP, true)"
+.RI "\fBmln_gpio\fP \fBled_builtin\fP (PA6, \fBMLN_GPIO_DIR_OUTPUT\fP, true)"
+.br
+.ti -1c
+.RI "\fBmln_opamp_inverting_init_t\fP \fBopamp_init\fP"
+.br
+.ti -1c
+.RI "\fBmln_adc\fP \fBadc\fP (PD2)"
 .br
 .in -1c
 .SH "Function Documentation"
@@ -40,7 +46,7 @@ mlnlib/main.cpp
 .PP
 Interrupt service routine for PORTA\&. 
 .PP
-Definition at line \fB90\fP of file \fBmain\&.cpp\fP\&.
+Definition at line \fB112\fP of file \fBmain\&.cpp\fP\&.
 .SS "int main (void)"
 
 .PP
@@ -53,13 +59,31 @@ int Should never return
 .PP
 
 .PP
-Definition at line \fB33\fP of file \fBmain\&.cpp\fP\&.
+Definition at line \fB45\fP of file \fBmain\&.cpp\fP\&.
 .SH "Variable Documentation"
 .PP 
-.SS "\fBmln_gpio\fP btn_builtin(PA5, \fBINPUT_PULLUP\fP, true) (PA5, \fBINPUT_PULLUP\fP, true)"
+.SS "\fBmln_adc\fP adc(PD2) (PD2)"
 
-.SS "\fBmln_gpio\fP led_builtin(PA6, \fBOUTPUT\fP, true) (PA6, \fBOUTPUT\fP, true)"
+.SS "\fBmln_gpio\fP btn_builtin(PA5, \fBMLN_GPIO_DIR_INPUT_PULLUP\fP, true) (PA5, \fBMLN_GPIO_DIR_INPUT_PULLUP\fP, true)"
 
+.SS "\fBmln_gpio\fP led_builtin(PA6, \fBMLN_GPIO_DIR_OUTPUT\fP, true) (PA6, \fBMLN_GPIO_DIR_OUTPUT\fP, true)"
+
+.SS "\fBmln_opamp_inverting_init_t\fP opamp_init"
+\fBInitial value:\fP.PP
+.nf
+= {
+    \&.opamp = MLN_OPAMP_DEVICE_0,
+    \&.runstdby = false,
+    \&.output = true,
+    \&.lowpower = false,
+    \&.gain = MLN_OPAMP_GAIN_INVERTING_1,
+    \&.in_pos = MLN_OPAMP_INVERTING_IN_POS_VDDDIV2,
+    \&.in_neg = MLN_OPAMP_INVERTING_IN_NEG_INN
+}
+.fi
+
+.PP
+Definition at line \fB28\fP of file \fBmain\&.cpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for mlnlib from the source code\&.

@@ -14,33 +14,33 @@
 
 #include <avr/io.h>
 
-#define OPAMP_MUXTOP_OUT 1
-#define OPAMP_MUXTOP_VDD 2
+#define MLN_OPAMP_MUXTOP_OUT 1
+#define MLN_OPAMP_MUXTOP_VDD 2
 
-#define OPAMP_MUXBOT_INP (1 << 2)
-#define OPAMP_MUXBOT_INN (2 << 2)
-#define OPAMP_MUXBOT_DAC (3 << 2)
-#define OPAMP_MUXBOT_LINKOUT (4 << 2)
-#define OPAMP_MUXBOT_GND (5 << 2)
+#define MLN_OPAMP_MUXBOT_INP (1 << 2)
+#define MLN_OPAMP_MUXBOT_INN (2 << 2)
+#define MLN_OPAMP_MUXBOT_DAC (3 << 2)
+#define MLN_OPAMP_MUXBOT_LINKOUT (4 << 2)
+#define MLN_OPAMP_MUXBOT_GND (5 << 2)
 
-#define OPAMP_MUXPOS_INP 0
-#define OPAMP_MUXPOS_WIP 1
-#define OPAMP_MUXPOS_DAC 2
-#define OPAMP_MUXPOS_GND 3
-#define OPAMP_MUXPOS_VDDDIV2 4
-#define OPAMP_MUXPOS_LINKOUT 5
-#define OPAMP_MUXPOS_LINKWIP 6
+#define MLN_OPAMP_MUXPOS_INP 0
+#define MLN_OPAMP_MUXPOS_WIP 1
+#define MLN_OPAMP_MUXPOS_DAC 2
+#define MLN_OPAMP_MUXPOS_GND 3
+#define MLN_OPAMP_MUXPOS_VDDDIV2 4
+#define MLN_OPAMP_MUXPOS_LINKOUT 5
+#define MLN_OPAMP_MUXPOS_LINKWIP 6
 
-#define OPAMP_MUXNEG_INN (0 << 4)
-#define OPAMP_MUXNEG_WIP (1 << 4)
-#define OPAMP_MUXNEG_OUT (2 << 4)
-#define OPAMP_MUXNEG_DAC (3 << 4)
+#define MLN_OPAMP_MUXNEG_INN (0 << 4)
+#define MLN_OPAMP_MUXNEG_WIP (1 << 4)
+#define MLN_OPAMP_MUXNEG_OUT (2 << 4)
+#define MLN_OPAMP_MUXNEG_DAC (3 << 4)
 
 /**
  * @brief Opamp timebase calculation macro
  * 
  */
-#define OPAMP_TIMEBASE_US (ceil(F_CPU / 1000000.0) - 1)
+#define MLN_OPAMP_TIMEBASE_US (ceil(F_CPU / 1000000.0) - 1)
 
 /**
  * @brief Opamp device selection enum
@@ -48,10 +48,10 @@
  */
 typedef enum
 {
-	OPAMP_DEVICE_0 = 0,
-	OPAMP_DEVICE_1,
+	MLN_OPAMP_DEVICE_0 = 0,
+	MLN_OPAMP_DEVICE_1,
 #ifdef OP2CTRLA
-	OPAMP_DEVICE_2
+	MLN_OPAMP_DEVICE_2
 #endif
 } mln_opamp_device_t;
 
@@ -61,10 +61,10 @@ typedef enum
  */
 typedef enum
 {
-	OPAMP_MODE_DIRECT = 0,
-	OPAMP_MODE_FOLLOWER,
-	OPAMP_MODE_NONINVERTING,
-	OPAMP_MODE_INVERTING
+	MLN_OPAMP_MODE_DIRECT = 0,
+	MLN_OPAMP_MODE_FOLLOWER,
+	MLN_OPAMP_MODE_NONINVERTING,
+	MLN_OPAMP_MODE_INVERTING
 } mln_opamp_mode_t;
 
 /**
@@ -73,13 +73,13 @@ typedef enum
  */
 typedef enum
 {
-	OPAMP_DIRECT_IN_POS_INP = 0,
-	OPAMP_DIRECT_IN_POS_WIP,
-	OPAMP_DIRECT_IN_POS_DAC,
-	OPAMP_DIRECT_IN_POS_GND,
-	OPAMP_DIRECT_IN_POS_VDDDIV2,
-	OPAMP_DIRECT_IN_POS_LINKOUT,
-	OPAMP_DIRECT_IN_POS_LINKWIP
+	MLN_OPAMP_DIRECT_IN_POS_INP = 0,
+	MLN_OPAMP_DIRECT_IN_POS_WIP,
+	MLN_OPAMP_DIRECT_IN_POS_DAC,
+	MLN_OPAMP_DIRECT_IN_POS_GND,
+	MLN_OPAMP_DIRECT_IN_POS_VDDDIV2,
+	MLN_OPAMP_DIRECT_IN_POS_LINKOUT,
+	MLN_OPAMP_DIRECT_IN_POS_LINKWIP
 } mln_opamp_direct_in_pos_t;
 
 /**
@@ -88,10 +88,10 @@ typedef enum
  */
 typedef enum
 {
-	OPAMP_DIRECT_IN_NEG_INN = 0,
-	OPAMP_DIRECT_IN_NEG_WIP,
-	OPAMP_DIRECT_IN_NEG_OUT,
-	OPAMP_DIRECT_IN_NEG_DAC
+	MLN_OPAMP_DIRECT_IN_NEG_INN = 0,
+	MLN_OPAMP_DIRECT_IN_NEG_WIP,
+	MLN_OPAMP_DIRECT_IN_NEG_OUT,
+	MLN_OPAMP_DIRECT_IN_NEG_DAC
 } mln_opamp_direct_in_neg_t;
 
 /**
@@ -100,13 +100,13 @@ typedef enum
  */
 typedef enum
 {
-	OPAMP_FOLLOWER_IN_INP = 0,
-	OPAMP_FOLLOWER_IN_WIP,
-	OPAMP_FOLLOWER_IN_DAC,
-	OPAMP_FOLLOWER_IN_GND,
-	OPAMP_FOLLOWER_IN_VDDDIV2,
-	OPAMP_FOLLOWER_IN_LINKOUT,
-	OPAMP_FOLLOWER_IN_LINKWIP
+	MLN_OPAMP_FOLLOWER_IN_INP = 0,
+	MLN_OPAMP_FOLLOWER_IN_WIP,
+	MLN_OPAMP_FOLLOWER_IN_DAC,
+	MLN_OPAMP_FOLLOWER_IN_GND,
+	MLN_OPAMP_FOLLOWER_IN_VDDDIV2,
+	MLN_OPAMP_FOLLOWER_IN_LINKOUT,
+	MLN_OPAMP_FOLLOWER_IN_LINKWIP
 } mln_opamp_follower_in_t;
 
 /**
@@ -115,13 +115,13 @@ typedef enum
  */
 typedef enum
 {
-	OPAMP_NONINVERTING_IN_INP = 0,
-	OPAMP_NONINVERTING_IN_WIP,
-	OPAMP_NONINVERTING_IN_DAC,
-	OPAMP_NONINVERTING_IN_GND,
-	OPAMP_NONINVERTING_IN_VDDDIV2,
-	OPAMP_NONINVERTING_IN_LINKOUT,
-	OPAMP_NONINVERTING_IN_LINKWIP
+	MLN_OPAMP_NONINVERTING_IN_INP = 0,
+	MLN_OPAMP_NONINVERTING_IN_WIP,
+	MLN_OPAMP_NONINVERTING_IN_DAC,
+	MLN_OPAMP_NONINVERTING_IN_GND,
+	MLN_OPAMP_NONINVERTING_IN_VDDDIV2,
+	MLN_OPAMP_NONINVERTING_IN_LINKOUT,
+	MLN_OPAMP_NONINVERTING_IN_LINKWIP
 } mln_opamp_noninverting_in_t;
 
 /**
@@ -130,13 +130,13 @@ typedef enum
  */
 typedef enum
 {
-	OPAMP_INVERTING_IN_POS_INP = 0,
-	OPAMP_INVERTING_IN_POS_WIP,
-	OPAMP_INVERTING_IN_POS_DAC,
-	OPAMP_INVERTING_IN_POS_GND,
-	OPAMP_INVERTING_IN_POS_VDDDIV2,
-	OPAMP_INVERTING_IN_POS_LINKOUT,
-	OPAMP_INVERTING_IN_POS_LINKWIP
+	MLN_OPAMP_INVERTING_IN_POS_INP = 0,
+	MLN_OPAMP_INVERTING_IN_POS_WIP,
+	MLN_OPAMP_INVERTING_IN_POS_DAC,
+	MLN_OPAMP_INVERTING_IN_POS_GND,
+	MLN_OPAMP_INVERTING_IN_POS_VDDDIV2,
+	MLN_OPAMP_INVERTING_IN_POS_LINKOUT,
+	MLN_OPAMP_INVERTING_IN_POS_LINKWIP
 } mln_opamp_inverting_in_pos_t;
 
 /**
@@ -145,11 +145,11 @@ typedef enum
  */
 typedef enum
 {
-	OPAMP_INVERTING_IN_NEG_INP = (1 << 4),
-	OPAMP_INVERTING_IN_NEG_INN,
-	OPAMP_INVERTING_IN_NEG_DAC,
-	OPAMP_INVERTING_IN_NEG_LINKOUT,
-	OPAMP_INVERTING_IN_NEG_GND
+	MLN_OPAMP_INVERTING_IN_NEG_INP = (1 << 4),
+	MLN_OPAMP_INVERTING_IN_NEG_INN,
+	MLN_OPAMP_INVERTING_IN_NEG_DAC,
+	MLN_OPAMP_INVERTING_IN_NEG_LINKOUT,
+	MLN_OPAMP_INVERTING_IN_NEG_GND
 } mln_opamp_inverting_in_neg_t;
 
 /**
@@ -158,14 +158,14 @@ typedef enum
  */
 typedef enum
 {
-	OPAMP_GAIN_NONINVERTING_1_06 = (0 << 5),
-	OPAMP_GAIN_NONINVERTING_1_14 = (1 << 5),
-	OPAMP_GAIN_NONINVERTING_1_33 = (2 << 5),
-	OPAMP_GAIN_NONINVERTING_2 = (3 << 5),
-	OPAMP_GAIN_NONINVERTING_2_67 = (4 << 5),
-	OPAMP_GAIN_NONINVERTING_4 = (5 << 5),
-	OPAMP_GAIN_NONINVERTING_8 = (6 << 5),
-	OPAMP_GAIN_NONINVERTING_16 = (7 << 5)
+	MLN_OPAMP_GAIN_NONINVERTING_1_06 = (0 << 5),
+	MLN_OPAMP_GAIN_NONINVERTING_1_14 = (1 << 5),
+	MLN_OPAMP_GAIN_NONINVERTING_1_33 = (2 << 5),
+	MLN_OPAMP_GAIN_NONINVERTING_2 = (3 << 5),
+	MLN_OPAMP_GAIN_NONINVERTING_2_67 = (4 << 5),
+	MLN_OPAMP_GAIN_NONINVERTING_4 = (5 << 5),
+	MLN_OPAMP_GAIN_NONINVERTING_8 = (6 << 5),
+	MLN_OPAMP_GAIN_NONINVERTING_16 = (7 << 5)
 } mln_opamp_gain_noninverting_t;
 
 /**
@@ -174,14 +174,14 @@ typedef enum
  */
 typedef enum
 {
-	OPAMP_GAIN_INVERTING_0_06 = (0 << 5),
-	OPAMP_GAIN_INVERTING_0_14 = (1 << 5),
-	OPAMP_GAIN_INVERTING_0_33 = (2 << 5),
-	OPAMP_GAIN_INVERTING_1 = (3 << 5),
-	OPAMP_GAIN_INVERTING_1_67 = (4 << 5),
-	OPAMP_GAIN_INVERTING_3 = (5 << 5),
-	OPAMP_GAIN_INVERTING_7 = (6 << 5),
-	OPAMP_GAIN_INVERTING_15 = (7 << 5)
+	MLN_OPAMP_GAIN_INVERTING_0_06 = (0 << 5),
+	MLN_OPAMP_GAIN_INVERTING_0_14 = (1 << 5),
+	MLN_OPAMP_GAIN_INVERTING_0_33 = (2 << 5),
+	MLN_OPAMP_GAIN_INVERTING_1 = (3 << 5),
+	MLN_OPAMP_GAIN_INVERTING_1_67 = (4 << 5),
+	MLN_OPAMP_GAIN_INVERTING_3 = (5 << 5),
+	MLN_OPAMP_GAIN_INVERTING_7 = (6 << 5),
+	MLN_OPAMP_GAIN_INVERTING_15 = (7 << 5)
 } mln_opamp_gain_inverting_t;
 
 /**
@@ -197,7 +197,7 @@ typedef enum
  */
 typedef struct
 {
-	mln_opamp_device_t opamp_n : 2;
+	mln_opamp_device_t opamp : 2;
 
 	bool runstdby : 1;
 	bool output : 1;
@@ -205,7 +205,7 @@ typedef struct
 
 	mln_opamp_direct_in_pos_t in_pos;
 	mln_opamp_direct_in_neg_t in_neg;
-} opamp_direct_init_t;
+} mln_opamp_direct_init_t;
 
 /**
  * @brief Opamp follower configuration struct
@@ -219,14 +219,14 @@ typedef struct
  */
 typedef struct
 {
-	mln_opamp_device_t opamp_n : 2;
+	mln_opamp_device_t opamp : 2;
 
 	bool runstdby : 1;
 	bool output : 1;
 	bool lowpower : 1;
 
 	mln_opamp_follower_in_t in;
-} opamp_follower_init_t;
+} mln_opamp_follower_init_t;
 
 /**
  * @brief Opamp non-inverting configuration struct
@@ -241,7 +241,7 @@ typedef struct
  */
 typedef struct
 {
-	mln_opamp_device_t opamp_n : 2;
+	mln_opamp_device_t opamp : 2;
 
 	bool runstdby : 1;
 	bool output : 1;
@@ -250,7 +250,7 @@ typedef struct
 	mln_opamp_gain_noninverting_t gain;
 
 	mln_opamp_noninverting_in_t in;
-} opamp_noninverting_init_t;
+} mln_opamp_noninverting_init_t;
 
 /**
  * @brief Opamp inverting configuration struct
@@ -266,20 +266,20 @@ typedef struct
  */
 typedef struct
 {
-	mln_opamp_device_t opamp_n : 2;
+	mln_opamp_device_t opamp = MLN_OPAMP_DEVICE_0;
 
-	bool runstdby : 1;
-	bool output : 1;
-	bool lowpower : 1;
+	bool runstdby = false;
+	bool output = true;
+	bool lowpower = false;
 
-	mln_opamp_gain_inverting_t gain;
+	mln_opamp_gain_inverting_t gain = MLN_OPAMP_GAIN_INVERTING_1;
 
-	mln_opamp_inverting_in_pos_t in_pos;
-	mln_opamp_inverting_in_neg_t in_neg;
-} OPAMP_INVERTING_INIT_t;
+	mln_opamp_inverting_in_pos_t in_pos = MLN_OPAMP_INVERTING_IN_POS_VDDDIV2;
+	mln_opamp_inverting_in_neg_t in_neg = MLN_OPAMP_INVERTING_IN_NEG_INN;
+} mln_opamp_inverting_init_t;
 
 /**
- * @brief Opamp namespace
+ * @brief Opamp peripheral namespace
  * 
  */
 namespace mln_opamp
@@ -292,18 +292,18 @@ namespace mln_opamp
 	 * @param muxwip Wiper resistor mux
 	 * @param muxtop Top resistor mux
 	 */
-	void init_resmux(mln_opamp_device_t opamp, uint8_t muxbot, uint8_t muxwip, uint8_t muxtop)
+	inline const void init_resmux(const mln_opamp_device_t& opamp, const uint8_t& muxbot, const uint8_t& muxwip, const uint8_t& muxtop)
 	{
 		switch (opamp)
 		{
-		case OPAMP_DEVICE_0:
+		case MLN_OPAMP_DEVICE_0:
 			OPAMP.OP0RESMUX = muxbot | muxwip | muxtop;
 			break;
-		case OPAMP_DEVICE_1:
+		case MLN_OPAMP_DEVICE_1:
 			OPAMP.OP1RESMUX = muxbot | muxwip | muxtop;
 			break;
-#ifdef OPAMP_DEVICE_2
-		case OPAMP_DEVICE_2:
+#ifdef MLN_OPAMP_DEVICE_2
+		case MLN_OPAMP_DEVICE_2:
 			OPAMP.OP2RESMUX = muxbot | muxwip | muxtop;
 			break;
 #endif
@@ -313,22 +313,22 @@ namespace mln_opamp
 	/**
 	 * @brief Helper function to set the INMUX register
 	 * 
-	 * @param opamp_n Device
+	 * @param opamp Device
 	 * @param muxpos  Positive input mux
 	 * @param muxneg  Negative input mux
 	 */
-	void init_inmux(const uint8_t& opamp_n, const uint8_t& muxpos, const uint8_t& muxneg)
+	inline const void init_inmux(const mln_opamp_device_t& opamp, const uint8_t& muxpos, const uint8_t& muxneg)
 	{
-		switch (opamp_n)
+		switch (opamp)
 		{
-		case OPAMP_DEVICE_0:
+		case MLN_OPAMP_DEVICE_0:
 			OPAMP.OP0INMUX = muxpos | muxneg;
 			break;
-		case OPAMP_DEVICE_1:
+		case MLN_OPAMP_DEVICE_1:
 			OPAMP.OP1INMUX = muxpos | muxneg;
 			break;
-#ifdef OPAMP_DEVICE_2
-		case OPAMP_DEVICE_2:
+#ifdef MLN_OPAMP_DEVICE_2
+		case MLN_OPAMP_DEVICE_2:
 			OPAMP.OP2INMUX = muxpos | muxneg;
 			break;
 #endif
@@ -342,24 +342,26 @@ namespace mln_opamp
 	 * @param output   Enable output
 	 * @param lowpower Low power mode
 	 * @param opamp_n  Device
+	 *
+	 * @note Is being called by the `init` functions
 	 */
-	void enable(const bool runstdby, const bool output, const bool lowpower, const uint8_t opamp)
+	inline const void enable(const mln_opamp_device_t& opamp, const bool runstdby, const bool output, const bool lowpower)
 	{
 		// TIMEBASE: TIMEBASE(calculate)
-		OPAMP.TIMEBASE = OPAMP_TIMEBASE_US;
+		OPAMP.TIMEBASE = MLN_OPAMP_TIMEBASE_US;
 		// PWRCTRL: IRSEL(lowpower)
 		OPAMP.PWRCTRL = (lowpower ? OPAMP_PWRCTRL_IRSEL_REDUCED_gc : OPAMP_PWRCTRL_IRSEL_FULL_gc);
 		// OPnCTRLA: ALWAYSON(true) and RUNSTDBY(runstdby) and OUTMODE(output)
 		switch (opamp)
 		{
-		case OPAMP_DEVICE_0:
+		case MLN_OPAMP_DEVICE_0:
 			OPAMP.OP0CTRLA = OPAMP_ALWAYSON_bm | (runstdby ? OPAMP_RUNSTBY_bm : 0) | (output ? OPAMP_OP1CTRLA_OUTMODE_NORMAL_gc : 0);
 			break;
-		case OPAMP_DEVICE_1:
+		case MLN_OPAMP_DEVICE_1:
 			OPAMP.OP1CTRLA = OPAMP_ALWAYSON_bm | (runstdby ? OPAMP_RUNSTBY_bm : 0) | (output ? OPAMP_OP1CTRLA_OUTMODE_NORMAL_gc : 0);
 			break;
-#ifdef OPAMP_DEVICE_2
-		case OPAMP_DEVICE_2:
+#ifdef MLN_OPAMP_DEVICE_2
+		case MLN_OPAMP_DEVICE_2:
 			OPAMP.OP2CTRLA = OPAMP_ALWAYSON_bm | (runstdby ? OPAMP_RUNSTBY_bm : 0) | (output ? OPAMP_OP2CTRLA_OUTMODE_NORMAL_gc : 0);
 			break;
 #endif
@@ -369,18 +371,34 @@ namespace mln_opamp
 	}
 
 	/**
+	 * @brief Enable Opamp peripheral
+	 *
+	 * @note Doesn't configure/enable single Opamps
+	 *
+	*/
+	inline const void enable(void) { OPAMP.CTRLA |= OPAMP_ENABLE_bm; }
+
+	/**
+	 * @brief Disable Opamp peripheral
+	 *
+	 * @warning Disables all Opamps
+	 *
+	*/
+	inline const void disable(void) { OPAMP.CTRLA &= ~OPAMP_ENABLE_bm; }
+
+	/**
 	 * @brief Construct a new mln_opamp object (direct)
 	 * 
 	 * @param init Opamp configuration struct (direct)
 	 */
-	init(const OPAMP_DIRECT_INIT_t &init)
+	inline const void init(const mln_opamp_direct_init_t &init)
 	{
 		// RESMUX: nothing to do
 
-		// INMUX: MUXPOS(in_a) and MUXNEG(in_b)
+		// INMUX: MUXPOS(in_pos) and MUXNEG(in_neg)
 		init_inmux(init.opamp, init.in_pos, init.in_neg);
 
-		enable(init.runstdby, init.output, init.lowpower, init.opamp);
+		enable(init.opamp, init.runstdby, init.output, init.lowpower);
 	}
 
 	/**
@@ -388,13 +406,13 @@ namespace mln_opamp
 	 * 
 	 * @param init Opamp configuration struct (follower)
 	 */
-	init(const OPAMP_FOLLOWER_INIT_t &init)
+	inline const void init(const mln_opamp_follower_init_t &init)
 	{
 		// RESMUX: nothing to do
-		// INMUX: MUXPOS(in_a) and MUXNEG(OUT)
-		init_inmux(init.opamp, init.in, OPAMP_MUXNEG_OUT);
+		// INMUX: MUXPOS(in) and MUXNEG(OUT)
+		init_inmux(init.opamp, init.in, MLN_OPAMP_MUXNEG_OUT);
 
-		enable(init.runstdby, init.output, init.lowpower, init.opamp);
+		enable(init.opamp, init.runstdby, init.output, init.lowpower);
 	}
 
 	/**
@@ -402,14 +420,14 @@ namespace mln_opamp
 	 * 
 	 * @param init Opamp configuration struct (non-inverting)
 	 */
-	init(const OPAMP_NONINVERTING_INIT_t &init)
+	inline const void init(const mln_opamp_noninverting_init_t &init)
 	{
 		// RESMUX: MUXBOT(GND) and MUXWIP(gain) and MUXTOP(OUT)
-		init_resmux(init.opamp, OPAMP_MUXBOT_GND, init.gain, OPAMP_MUXTOP_OUT);
-		// INMUX: MUXPOS(in_a) and MUXNEG(WIP)
-		init_inmux(init.opamp, init.in, OPAMP_MUXNEG_WIP);
+		init_resmux(init.opamp, MLN_OPAMP_MUXBOT_GND, init.gain, MLN_OPAMP_MUXTOP_OUT);
+		// INMUX: MUXPOS(in) and MUXNEG(WIP)
+		init_inmux(init.opamp, init.in, MLN_OPAMP_MUXNEG_WIP);
 
-		enable(init.runstdby, init.output, init.lowpower, init.opamp);
+		enable(init.opamp, init.runstdby, init.output, init.lowpower);
 	}
 
 	/**
@@ -417,14 +435,14 @@ namespace mln_opamp
 	 * 
 	 * @param init Opamp configuration struct (inverting)
 	 */
-	init(const OPAMP_INVERTING_INIT_t &init)
+	inline const void init(const mln_opamp_inverting_init_t &init)
 	{
-		// RESMUX: MUXBOT(in_a) and MUXWIP(gain) and MUXTOP(OUT)
-		init_resmux(init.opamp, init.in_neg, init.gain, OPAMP_MUXTOP_OUT);
-		// INMUX: MUXPOS(in_b) and MUXNEG(WIP)
-		init_inmux(init.opamp, init.in_pos, OPAMP_MUXNEG_WIP);
+		// RESMUX: MUXBOT(in_neg) and MUXWIP(gain) and MUXTOP(OUT)
+		init_resmux(init.opamp, init.in_neg, init.gain, MLN_OPAMP_MUXTOP_OUT);
+		// INMUX: MUXPOS(in_pos) and MUXNEG(WIP)
+		init_inmux(init.opamp, init.in_pos, MLN_OPAMP_MUXNEG_WIP);
 
-		enable(init.runstdby, init.output, init.lowpower, init.opamp);
+		enable(init.opamp, init.runstdby, init.output, init.lowpower);
 	}
 };
 

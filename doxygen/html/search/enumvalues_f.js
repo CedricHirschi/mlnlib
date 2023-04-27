@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['uart0_0',['UART0',['../mln__uart_8h.html#a0e76943e2cd4eba35764d225d1dad569a9283de1a2e6eea552574a50ca586df8e',1,'mln_uart.h']]],
-  ['uart1_1',['UART1',['../mln__uart_8h.html#a0e76943e2cd4eba35764d225d1dad569ad78b5dd576e9a3ab80d6c77ff9d1cd27',1,'mln_uart.h']]],
-  ['uart2_2',['UART2',['../mln__uart_8h.html#a0e76943e2cd4eba35764d225d1dad569a1131083beae26b9314a6fca36032b44a',1,'mln_uart.h']]]
+  ['vdddiv10_0',['VDDDIV10',['../mln__adc_8h.html#ae23a33ba21fc4356971ad6158e159048a164a3213a5701c9dfafd88ce8f1c9e62',1,'mln_adc.h']]],
+  ['vddio2div10_1',['VDDIO2DIV10',['../mln__adc_8h.html#ae23a33ba21fc4356971ad6158e159048aa69021e4c9a8d0603dbbb3dc5a72fa24',1,'mln_adc.h']]]
 ];

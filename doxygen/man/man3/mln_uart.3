@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-mln_uart
+mln_uart \- USART peripheral class\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -12,7 +13,7 @@ mln_uart
 
 .in +1c
 .ti -1c
-.RI "\fBmln_uart\fP (\fBUART_t\fP new_inst, uint32_t baud)"
+.RI "\fBmln_uart\fP (USART_t *new_inst, const uint32_t &baud)"
 .br
 .ti -1c
 .RI "void \fBset_isr\fP (void(*new_isr)(void))"
@@ -44,51 +45,55 @@ mln_uart
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line \fB117\fP of file \fBmln_uart\&.h\fP\&.
-.SH "Constructor & Destructor Documentation"
-.PP 
-.SS "mln_uart::mln_uart (\fBUART_t\fP new_inst, uint32_t baud)\fC [inline]\fP"
+USART peripheral class\&. 
+
 
 .PP
-Definition at line \fB180\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB100\fP of file \fBmln_uart\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "mln_uart::mln_uart (USART_t * new_inst, const uint32_t & baud)\fC [inline]\fP"
+
+.PP
+Definition at line \fB171\fP of file \fBmln_uart\&.h\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "const uint8_t mln_uart::data_available (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB268\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB258\fP of file \fBmln_uart\&.h\fP\&.
 .SS "const bool mln_uart::is_busy_rx (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB262\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB252\fP of file \fBmln_uart\&.h\fP\&.
 .SS "const bool mln_uart::is_busy_tx (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB256\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB246\fP of file \fBmln_uart\&.h\fP\&.
 .SS "uint8_t mln_uart::pull (uint8_t * new_buffer)\fC [inline]\fP"
 
 .PP
-Definition at line \fB240\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB230\fP of file \fBmln_uart\&.h\fP\&.
 .SS "void mln_uart::push (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB228\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB218\fP of file \fBmln_uart\&.h\fP\&.
 .SS "const uint8_t mln_uart::read (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB218\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB208\fP of file \fBmln_uart\&.h\fP\&.
 .SS "const void mln_uart::run_isr (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB273\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB263\fP of file \fBmln_uart\&.h\fP\&.
 .SS "void mln_uart::set_isr (void(*)(void) new_isr)\fC [inline]\fP"
 
 .PP
-Definition at line \fB204\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB194\fP of file \fBmln_uart\&.h\fP\&.
 .SS "const void mln_uart::write (const uint8_t data)\fC [inline]\fP"
 
 .PP
-Definition at line \fB209\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB199\fP of file \fBmln_uart\&.h\fP\&.
 
 .SH "Author"
 .PP 

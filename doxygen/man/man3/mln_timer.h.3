@@ -19,16 +19,19 @@ mlnlib/mln/mln_timer.h
 .ti -1c
 .RI "class \fBmln_timer\fP"
 .br
+.RI "TCA peripheral class\&. "
 .in -1c
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "uint8_t \fBMLN_TIMER_GET_DIV\fP (uint32_t T)"
+.RI "uint8_t \fBMLN_TIMER_GET_DIV\fP (uint32_t period)"
 .br
+.RI "Helper function to get the lowest possible clock division to get certain period\&. "
 .ti -1c
 .RI "\fBISR\fP (TCA0_OVF_vect)"
 .br
+.RI "Standard ISR for TCA0\&. "
 .in -1c
 .SS "Variables"
 
@@ -39,33 +42,57 @@ mlnlib/mln/mln_timer.h
 .ti -1c
 .RI "const uint16_t \fBmln_timer_divs\fP [] = {1, 2, 4, 8, 16, 64, 256, 1024}"
 .br
+.RI "Available clock dividers in the TCA peripheral in numerical form\&. "
 .ti -1c
-.RI "uint32_t \fBmln_max_periods\fP [] = {65, 131, 262, 524, 1048, 4194, 16776, 67107}"
+.RI "uint32_t \fBmln_timer_max_periods\fP [] = {65, 131, 262, 524, 1048, 4194, 16776, 67107}"
 .br
+.RI "The maximum periods achievable by clock division, in ms at 1MHz\&. "
 .ti -1c
 .RI "const TCA_SINGLE_CLKSEL_t \fBmln_timer_divs_bm\fP []"
 .br
+.RI "Available clock dividers in the TCA peripheral as bitmasks\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
 .SS "ISR (TCA0_OVF_vect)"
 
 .PP
-Definition at line \fB134\fP of file \fBmln_timer\&.h\fP\&.
-.SS "uint8_t MLN_TIMER_GET_DIV (uint32_t T)"
+Standard ISR for TCA0\&. 
+.PP
+\fBNote\fP
+.RS 4
+Does nothing but reset the corresponding flag 
+.RE
+.PP
 
 .PP
-Definition at line \fB49\fP of file \fBmln_timer\&.h\fP\&.
+Definition at line \fB188\fP of file \fBmln_timer\&.h\fP\&.
+.SS "uint8_t MLN_TIMER_GET_DIV (uint32_t period)"
+
+.PP
+Helper function to get the lowest possible clock division to get certain period\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIperiod\fP Required period
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Index for \fCmln_timer_\&.\&.\&.\fP arrays 
+.RE
+.PP
+
+.PP
+Definition at line \fB69\fP of file \fBmln_timer\&.h\fP\&.
 .SH "Variable Documentation"
 .PP 
-.SS "uint32_t mln_max_periods[] = {65, 131, 262, 524, 1048, 4194, 16776, 67107}"
-
-.PP
-Definition at line \fB37\fP of file \fBmln_timer\&.h\fP\&.
 .SS "const uint16_t mln_timer_divs[] = {1, 2, 4, 8, 16, 64, 256, 1024}"
 
 .PP
-Definition at line \fB36\fP of file \fBmln_timer\&.h\fP\&.
+Available clock dividers in the TCA peripheral in numerical form\&. 
+.PP
+Definition at line \fB40\fP of file \fBmln_timer\&.h\fP\&.
 .SS "const TCA_SINGLE_CLKSEL_t mln_timer_divs_bm[]"
 \fBInitial value:\fP.PP
 .nf
@@ -82,7 +109,15 @@ Definition at line \fB36\fP of file \fBmln_timer\&.h\fP\&.
 .fi
 
 .PP
-Definition at line \fB38\fP of file \fBmln_timer\&.h\fP\&.
+Available clock dividers in the TCA peripheral as bitmasks\&. 
+.PP
+Definition at line \fB50\fP of file \fBmln_timer\&.h\fP\&.
+.SS "uint32_t mln_timer_max_periods[] = {65, 131, 262, 524, 1048, 4194, 16776, 67107}"
+
+.PP
+The maximum periods achievable by clock division, in ms at 1MHz\&. 
+.PP
+Definition at line \fB45\fP of file \fBmln_timer\&.h\fP\&.
 .SS "\fBmln_timer\fP* timer0_isr"
 
 .PP

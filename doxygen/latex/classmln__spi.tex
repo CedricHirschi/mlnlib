@@ -2,33 +2,40 @@
 \label{classmln__spi}\index{mln\_spi@{mln\_spi}}
 
 
+SPI peripheral class.  
+
+
+
+
 {\ttfamily \#include $<$mln\+\_\+spi.\+h$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classmln__spi_a00b52c469eec2d54ed1214a4f3d9fd54}{mln\+\_\+spi}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default {\ttfamily \mbox{\hyperlink{classmln__spi}{mln\+\_\+spi}}} class initializer. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmln__spi_a1dc67d2d3a15c0f9842f67938dc91e22}{mln\+\_\+spi}} (SPI\+\_\+t $\ast$new\+\_\+spi)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize {\ttfamily \mbox{\hyperlink{classmln__spi}{mln\+\_\+spi}}} class from specific SPI peripheral. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmln__spi_a5e9bdd50fc97acdf828939d89ad236f9}{mln\+\_\+spi}} (SPI\+\_\+t $\ast$new\+\_\+spi, uint8\+\_\+t mode)
-\item 
-\mbox{\hyperlink{classmln__spi_aaf8f66aaf890aa0120e9522f3916f8d9}{mln\+\_\+spi}} (SPI\+\_\+t $\ast$new\+\_\+spi, \mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}} new\+\_\+cs)
-\item 
-\mbox{\hyperlink{classmln__spi_a713b92afa5f5872866b9445f46b4c294}{mln\+\_\+spi}} (SPI\+\_\+t $\ast$new\+\_\+spi, \mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}} new\+\_\+cs, uint8\+\_\+t mode)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize {\ttfamily \mbox{\hyperlink{classmln__spi}{mln\+\_\+spi}}} class from specific SPI peripheral and mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmln__spi_a78a3b8fc32da31e86fb279e4d62aa6e8}{mln\+\_\+spi}} (SPI\+\_\+t $\ast$new\+\_\+spi, \mbox{\hyperlink{structmln__pin__t}{mln\+\_\+pin\+\_\+t}} \&new\+\_\+cs)
+\begin{DoxyCompactList}\small\item\em Initialize {\ttfamily \mbox{\hyperlink{classmln__spi}{mln\+\_\+spi}}} class from specific SPI peripheral and cs pin. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmln__spi_ac0744fc5b0e103415bd7f6c342b3194d}{mln\+\_\+spi}} (SPI\+\_\+t $\ast$new\+\_\+spi, \mbox{\hyperlink{structmln__pin__t}{mln\+\_\+pin\+\_\+t}} \&new\+\_\+cs, const uint8\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Initialize {\ttfamily \mbox{\hyperlink{classmln__spi}{mln\+\_\+spi}}} class from specific SPI peripheral and cs pin as well as SPI mode. \end{DoxyCompactList}\item 
 const void \mbox{\hyperlink{classmln__spi_ad2fffc17a0b845791b8f4f86e667e364}{exchange}} (uint8\+\_\+t $\ast$buffer, uint8\+\_\+t length)
-\item 
+\begin{DoxyCompactList}\small\item\em Exchange package with SPI peripheral. \end{DoxyCompactList}\item 
 const void \mbox{\hyperlink{classmln__spi_af145b40e4b5496b5aa1c14f7ae6c15a2}{write}} (uint8\+\_\+t $\ast$buffer, uint8\+\_\+t length)
-\item 
+\begin{DoxyCompactList}\small\item\em Send package with SPI peripheral. \end{DoxyCompactList}\item 
 const void \mbox{\hyperlink{classmln__spi_ae799463466c65fa23df52f146961f42a}{read}} (uint8\+\_\+t $\ast$buffer, uint8\+\_\+t length)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Receive package with SPI peripheral. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+SPI peripheral class. 
 
 
-Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00029}{29}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
+
+Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00050}{50}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
 
 
 
@@ -41,7 +48,14 @@ Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00029}{29}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00035}{35}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
+Default {\ttfamily \mbox{\hyperlink{classmln__spi}{mln\+\_\+spi}}} class initializer. 
+
+\begin{DoxyNote}{Note}
+Selects SPI0 as peripheral and no CS pin as well as SPI mode 0 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00062}{62}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
 
 \mbox{\Hypertarget{classmln__spi_a1dc67d2d3a15c0f9842f67938dc91e22}\label{classmln__spi_a1dc67d2d3a15c0f9842f67938dc91e22}} 
 \index{mln\_spi@{mln\_spi}!mln\_spi@{mln\_spi}}
@@ -51,7 +65,19 @@ Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00035}{35}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00036}{36}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
+Initialize {\ttfamily \mbox{\hyperlink{classmln__spi}{mln\+\_\+spi}}} class from specific SPI peripheral. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+spi} & SPI peripheral to use\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Uses no CS pin as well as SPI mode 0 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00071}{71}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
 
 \mbox{\Hypertarget{classmln__spi_a5e9bdd50fc97acdf828939d89ad236f9}\label{classmln__spi_a5e9bdd50fc97acdf828939d89ad236f9}} 
 \index{mln\_spi@{mln\_spi}!mln\_spi@{mln\_spi}}
@@ -61,27 +87,68 @@ Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00036}{36}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00046}{46}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
+Initialize {\ttfamily \mbox{\hyperlink{classmln__spi}{mln\+\_\+spi}}} class from specific SPI peripheral and mode. 
 
-\mbox{\Hypertarget{classmln__spi_aaf8f66aaf890aa0120e9522f3916f8d9}\label{classmln__spi_aaf8f66aaf890aa0120e9522f3916f8d9}} 
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+spi} & SPI peripheral to use \\
+\hline
+{\em mode} & SPI mode to be used (0-\/3)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Uses no CS pin 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00090}{90}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
+
+\mbox{\Hypertarget{classmln__spi_a78a3b8fc32da31e86fb279e4d62aa6e8}\label{classmln__spi_a78a3b8fc32da31e86fb279e4d62aa6e8}} 
 \index{mln\_spi@{mln\_spi}!mln\_spi@{mln\_spi}}
 \index{mln\_spi@{mln\_spi}!mln\_spi@{mln\_spi}}
 \doxysubsubsection{\texorpdfstring{mln\_spi()}{mln\_spi()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
-{\footnotesize\ttfamily mln\+\_\+spi\+::mln\+\_\+spi (\begin{DoxyParamCaption}\item[{SPI\+\_\+t $\ast$}]{new\+\_\+spi,  }\item[{\mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}}}]{new\+\_\+cs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily mln\+\_\+spi\+::mln\+\_\+spi (\begin{DoxyParamCaption}\item[{SPI\+\_\+t $\ast$}]{new\+\_\+spi,  }\item[{\mbox{\hyperlink{structmln__pin__t}{mln\+\_\+pin\+\_\+t}} \&}]{new\+\_\+cs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00057}{57}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
+Initialize {\ttfamily \mbox{\hyperlink{classmln__spi}{mln\+\_\+spi}}} class from specific SPI peripheral and cs pin. 
 
-\mbox{\Hypertarget{classmln__spi_a713b92afa5f5872866b9445f46b4c294}\label{classmln__spi_a713b92afa5f5872866b9445f46b4c294}} 
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+spi} & SPI peripheral to use \\
+\hline
+{\em new\+\_\+cs} & CS pin to be used\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Uses SPI mode 0 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00110}{110}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
+
+\mbox{\Hypertarget{classmln__spi_ac0744fc5b0e103415bd7f6c342b3194d}\label{classmln__spi_ac0744fc5b0e103415bd7f6c342b3194d}} 
 \index{mln\_spi@{mln\_spi}!mln\_spi@{mln\_spi}}
 \index{mln\_spi@{mln\_spi}!mln\_spi@{mln\_spi}}
 \doxysubsubsection{\texorpdfstring{mln\_spi()}{mln\_spi()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
-{\footnotesize\ttfamily mln\+\_\+spi\+::mln\+\_\+spi (\begin{DoxyParamCaption}\item[{SPI\+\_\+t $\ast$}]{new\+\_\+spi,  }\item[{\mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}}}]{new\+\_\+cs,  }\item[{uint8\+\_\+t}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily mln\+\_\+spi\+::mln\+\_\+spi (\begin{DoxyParamCaption}\item[{SPI\+\_\+t $\ast$}]{new\+\_\+spi,  }\item[{\mbox{\hyperlink{structmln__pin__t}{mln\+\_\+pin\+\_\+t}} \&}]{new\+\_\+cs,  }\item[{const uint8\+\_\+t}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00068}{68}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
+Initialize {\ttfamily \mbox{\hyperlink{classmln__spi}{mln\+\_\+spi}}} class from specific SPI peripheral and cs pin as well as SPI mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+spi} & SPI peripheral to use \\
+\hline
+{\em new\+\_\+cs} & CS pin to bes used \\
+\hline
+{\em mode} & SPI mode to be used (0-\/3) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00129}{129}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
 
 
 
@@ -94,7 +161,18 @@ Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00068}{68}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00088}{88}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
+Exchange package with SPI peripheral. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em $\ast$buffer} & Pointer to data buffer to be exchanged \\
+\hline
+\mbox{\texttt{ in}}  & {\em length} & Length of buffer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00149}{149}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
 
 \mbox{\Hypertarget{classmln__spi_ae799463466c65fa23df52f146961f42a}\label{classmln__spi_ae799463466c65fa23df52f146961f42a}} 
 \index{mln\_spi@{mln\_spi}!read@{read}}
@@ -104,7 +182,18 @@ Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00088}{88}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00130}{130}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
+Receive package with SPI peripheral. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em $\ast$buffer} & Pointer to data buffer to be received \\
+\hline
+\mbox{\texttt{ in}}  & {\em length} & Length of buffer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00193}{193}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
 
 \mbox{\Hypertarget{classmln__spi_af145b40e4b5496b5aa1c14f7ae6c15a2}\label{classmln__spi_af145b40e4b5496b5aa1c14f7ae6c15a2}} 
 \index{mln\_spi@{mln\_spi}!write@{write}}
@@ -114,7 +203,18 @@ Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00130}{130}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00110}{110}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
+Send package with SPI peripheral. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$buffer} & Pointer to data buffer to be sent \\
+\hline
+\mbox{\texttt{ in}}  & {\em length} & Length of buffer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mln__spi_8h_source_l00172}{172}} of file \mbox{\hyperlink{mln__spi_8h_source}{mln\+\_\+spi.\+h}}.
 
 
 

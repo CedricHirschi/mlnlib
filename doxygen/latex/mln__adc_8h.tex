@@ -1,81 +1,96 @@
 \hypertarget{mln__adc_8h}{}\doxysection{mlnlib/mln/mln\+\_\+adc.h File Reference}
 \label{mln__adc_8h}\index{mlnlib/mln/mln\_adc.h@{mlnlib/mln/mln\_adc.h}}
+
+
+This peripheral is used to measure analog voltages.  
+
+
 {\ttfamily \#include $<$avr/io.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}mln\+\_\+gpio.\+h\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classmln__adc}{mln\+\_\+adc}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em ADC peripheral class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{mln__adc_8h_a681b8ad90b7d1c8e335ad74f10c2e2f2}{MLN\+\_\+\+ADC\+\_\+\+PIN\+\_\+\+TO\+\_\+\+IN}}(pin)~((pin.\+port -\/ \&PORTD) $\ast$ 8 + pin.\+pin\+\_\+num)
-\item 
+\begin{DoxyCompactList}\small\item\em Macro to convert \mbox{\hyperlink{classmln__gpio}{mln\+\_\+gpio}} pin to adc input. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{mln__adc_8h_a99ff5bc1f436c18f7f78fedf8f12fee0}{MLN\+\_\+\+ADC\+\_\+\+SHIFT}}(samples)~(samples $>$= 4 ? 4 \+: samples)
-\end{DoxyCompactItemize}
-\doxysubsection*{Typedefs}
-\begin{DoxyCompactItemize}
-\item 
-typedef enum \mbox{\hyperlink{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048}{mln\+\_\+adc\+\_\+alt\+\_\+in\+\_\+e}} \mbox{\hyperlink{mln__adc_8h_a4f03e1a0f2be54fd4eb97865059aa016}{ADC\+\_\+\+IN\+\_\+t}}
-\item 
-typedef enum \mbox{\hyperlink{mln__adc_8h_a42a13d30380ca3f35a8da79dffe825b7}{mln\+\_\+adc\+\_\+res\+\_\+e}} \mbox{\hyperlink{mln__adc_8h_a3d661f184eb34e9770e0e930f1c1b94d}{ADC\+\_\+\+RES\+\_\+t}}
-\item 
-typedef enum \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073}{mln\+\_\+adc\+\_\+presc\+\_\+e}} \mbox{\hyperlink{mln__adc_8h_a88e3055fb02640f0981b595e3fc1c8c1}{ADC\+\_\+\+PRE\+\_\+t}}
-\item 
-typedef enum \mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ad}{mln\+\_\+adc\+\_\+samp\+\_\+e}} \mbox{\hyperlink{mln__adc_8h_a7152c224e51badcff6e1155eacc6bf29}{ADC\+\_\+\+SAMP\+\_\+t}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Macro to get the required shift of an ADC reading according to samples taken. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048}{mln\+\_\+adc\+\_\+alt\+\_\+in\+\_\+e}} \{ \newline
-\mbox{\hyperlink{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a8a45fa8d32083de717b8256709c2022f}{GND}} = 0x40
-, \mbox{\hyperlink{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a84977e125ea46510daa0602e075c8c6e}{TEMPSENSE}} = 0x42
-, \mbox{\hyperlink{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a164a3213a5701c9dfafd88ce8f1c9e62}{VDDDIV10}} = 0x44
-, \mbox{\hyperlink{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048aa69021e4c9a8d0603dbbb3dc5a72fa24}{VDDIO2\+DIV10}} = 0x45
+enum \mbox{\hyperlink{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9}{mln\+\_\+adc\+\_\+in\+\_\+t}} \{ \newline
+\mbox{\hyperlink{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9ae0f2d0ddeb1124f8665b0b0374772000}{MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+GND}} = 0x40
+, \mbox{\hyperlink{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9aa48a57e4e68db8fc8c035ba0916f7991}{MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+TEMPSENSE}} = 0x42
+, \mbox{\hyperlink{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a52a7d98be097e05a1fbbb0bfff85e5b0}{MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+VDDDIV10}} = 0x44
+, \mbox{\hyperlink{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a196ac19c3a3b299694bd9fa8fa17d57f}{MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+VDDIO2\+DIV10}} = 0x45
 , \newline
-\mbox{\hyperlink{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a1bdc96b7f14d9f3d2551d0eee290ef43}{DAC}} = 0x48
-, \mbox{\hyperlink{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048ad24a8827f117a80bcc11587d8b979877}{DACREF0}} = 0x49
-, \mbox{\hyperlink{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a0c96851478b1fb0a49264716c506a11a}{DACREF1}} = 0x4A
-, \mbox{\hyperlink{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a8da65b8f393c57ae5d00ffd6ba78f13e}{DACREF2}} = 0x4B
+\mbox{\hyperlink{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9af11e174a2e8c30d46d7a1284472808ef}{MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+DAC}} = 0x48
+, \mbox{\hyperlink{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a7ca092e24d7fc8d9a7ace31116e577ee}{MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+DACREF0}} = 0x49
+, \mbox{\hyperlink{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a6dc0594f7f1c35df3e0ab813a75a5765}{MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+DACREF1}} = 0x4A
+, \mbox{\hyperlink{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a04358347251e57e0cc0996315a4ae8fd}{MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+DACREF2}} = 0x4B
  \}
-\item 
-enum \mbox{\hyperlink{mln__adc_8h_a42a13d30380ca3f35a8da79dffe825b7}{mln\+\_\+adc\+\_\+res\+\_\+e}} \{ \mbox{\hyperlink{mln__adc_8h_a42a13d30380ca3f35a8da79dffe825b7a04abac7139599aa4759fe5b5eacbb782}{HIRES}}
-, \mbox{\hyperlink{mln__adc_8h_a42a13d30380ca3f35a8da79dffe825b7a84c5e8a9d619fe58ebb53cc6b4397403}{LORES}}
+\begin{DoxyCompactList}\small\item\em ADC input selection enum. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{mln__adc_8h_a0d59f42a8f91323537152a301270a004}{mln\+\_\+adc\+\_\+resolution\+\_\+t}} \{ \mbox{\hyperlink{mln__adc_8h_a0d59f42a8f91323537152a301270a004a240434a90dbca2bdcd7e9d524096c975}{MLN\+\_\+\+ADC\+\_\+\+RESOLUTION\+\_\+\+HIGH}} = 0
+, \mbox{\hyperlink{mln__adc_8h_a0d59f42a8f91323537152a301270a004a6caecfa7277be6b2e64d78397717c568}{MLN\+\_\+\+ADC\+\_\+\+RESOLUTION\+\_\+\+LOW}}
  \}
-\item 
-enum \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073}{mln\+\_\+adc\+\_\+presc\+\_\+e}} \{ \newline
-\mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a56519a2284b7043319337ae0db4aa2e6}{DIV2}}
-, \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073afd673dd0902bd9851e1e24da847c3594}{DIV4}}
-, \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073afb74f38e5812d698bd7e53240bc3541b}{DIV8}}
-, \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a7b3f25afeb7433fa1eb24dcd4e79ce49}{DIV12}}
+\begin{DoxyCompactList}\small\item\em ADC resolution selection enum. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18}{mln\+\_\+adc\+\_\+prescaler\+\_\+t}} \{ \newline
+\mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a0d5aa31ef12977424590b033eeab4d0a}{MLN\+\_\+\+ADC\+\_\+\+DIV2}} = 0
+, \mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a7e65f324717b4c0a56aeb829d6144f49}{MLN\+\_\+\+ADC\+\_\+\+DIV4}}
+, \mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a67b9687dff32c52d04e31e47693b1f51}{MLN\+\_\+\+ADC\+\_\+\+DIV8}}
+, \mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a05be8a20c54bda53e1cbf439e09e0422}{MLN\+\_\+\+ADC\+\_\+\+DIV12}}
 , \newline
-\mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a892fd83911da21980b01397a7f9ebe01}{DIV16}}
-, \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073accefdbe99760b4d05e67cae516eb29eb}{DIV20}}
-, \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a4ced6186e0bbb48f201d45573aedefd5}{DIV24}}
-, \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a3b20ffc63c4fcb1febb09570c193b6db}{DIV28}}
+\mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a0ef1e184d55f71a49dbb913ae41a4f9e}{MLN\+\_\+\+ADC\+\_\+\+DIV16}}
+, \mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18af98f61e3c9f758676e6773c3dcfe6013}{MLN\+\_\+\+ADC\+\_\+\+DIV20}}
+, \mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a6926e9f238b1c19c4b00e70e2aecde60}{MLN\+\_\+\+ADC\+\_\+\+DIV24}}
+, \mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a9723e89b46ac9a1ad4e55c5e2ef87ff0}{MLN\+\_\+\+ADC\+\_\+\+DIV28}}
 , \newline
-\mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073aeeeb2f538f7d157cc9d2d16b35810375}{DIV32}}
-, \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a78bc0874f4205f351f47db0ee0587c8d}{DIV48}}
-, \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073abae69f433c0382aefc926500c9045df6}{DIV64}}
-, \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a5f8712e3e70a4f05a7d275344b3ce2e1}{DIV96}}
+\mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18aba13533cdcfa4a99268308d037c44d0f}{MLN\+\_\+\+ADC\+\_\+\+DIV32}}
+, \mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a0aba09102fe68ddcb6ffbc2767c16f30}{MLN\+\_\+\+ADC\+\_\+\+DIV48}}
+, \mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18ac01338c3ecc4ef458fdaba783b48353a}{MLN\+\_\+\+ADC\+\_\+\+DIV64}}
+, \mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a51ab198d9147b81370cec2073df10d97}{MLN\+\_\+\+ADC\+\_\+\+DIV96}}
 , \newline
-\mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073aa7914be1a89f098621e2f390856d16d4}{DIV128}}
-, \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a9f0f823686c79d394b381f82dc6edd8f}{DIV256}}
+\mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18afddf51219243bb59ace5c7b7f4430406}{MLN\+\_\+\+ADC\+\_\+\+DIV128}}
+, \mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a18cbe48ca48f38d976b5e682ca23ee4d}{MLN\+\_\+\+ADC\+\_\+\+DIV256}}
  \}
-\item 
-enum \mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ad}{mln\+\_\+adc\+\_\+samp\+\_\+e}} \{ \newline
-\mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9adac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}
-, \mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ada915affc8d83376dd5f2c3b6095fe6aa5}{ACC2}}
-, \mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9adac819489da295517e35b588783cf50bd5}{ACC4}}
-, \mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ada069b20c0487c26df215005029a2ee4b3}{ACC8}}
+\begin{DoxyCompactList}\small\item\em ADC prescaler selection enum. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5}{mln\+\_\+adc\+\_\+accumulation\+\_\+t}} \{ \newline
+\mbox{\hyperlink{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a43137a9bc78370efd37cd5cf0ae0b43f}{MLN\+\_\+\+ADC\+\_\+\+ACCNONE}} = 0
+, \mbox{\hyperlink{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a67c300111cc5a8c288e7f50dfdcf9782}{MLN\+\_\+\+ADC\+\_\+\+ACC2}}
+, \mbox{\hyperlink{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a2ab16542cc722821aabf39eddb02046b}{MLN\+\_\+\+ADC\+\_\+\+ACC4}}
+, \mbox{\hyperlink{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a6012dd8b8eee310a4de5c88b2e95351c}{MLN\+\_\+\+ADC\+\_\+\+ACC8}}
 , \newline
-\mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9adad42892d3f4f8a02c19edd85b021d69af}{ACC16}}
-, \mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ada75efcab31be4459dcb4ee8b5c9a78fe0}{ACC32}}
-, \mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ada9167d825625b78af94867953a90af9c6}{ACC64}}
-, \mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9adaf9f578efa5ef43a84c65f5a944157803}{ACC128}}
+\mbox{\hyperlink{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a30b89356b78706956d6f2f14eb769d16}{MLN\+\_\+\+ADC\+\_\+\+ACC16}}
+, \mbox{\hyperlink{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a673d897eb4ab6c728ef5a226e5591c9f}{MLN\+\_\+\+ADC\+\_\+\+ACC32}}
+, \mbox{\hyperlink{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a265352e9af1f6a9004a8641ab0f4539d}{MLN\+\_\+\+ADC\+\_\+\+ACC64}}
+, \mbox{\hyperlink{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5ac6036bbba4fa3a2fdbf8ef875021524f}{MLN\+\_\+\+ADC\+\_\+\+ACC128}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em ADC prescaler accumulation enum. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This peripheral is used to measure analog voltages. 
+
+\begin{DoxyAuthor}{Author}
+Cédric Hirschi (\href{mailto:cedr02@live.com}{\texttt{ cedr02@live.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/04-\/27
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+Definition in file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -87,7 +102,11 @@ enum \mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ad}{mln\+\_\+ad
 
 
 
-Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00016}{16}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+Macro to convert \mbox{\hyperlink{classmln__gpio}{mln\+\_\+gpio}} pin to adc input. 
+
+
+
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00023}{23}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
 
 \mbox{\Hypertarget{mln__adc_8h_a99ff5bc1f436c18f7f78fedf8f12fee0}\label{mln__adc_8h_a99ff5bc1f436c18f7f78fedf8f12fee0}} 
 \index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_SHIFT@{MLN\_ADC\_SHIFT}}
@@ -97,211 +116,204 @@ Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00016}{16}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00017}{17}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+Macro to get the required shift of an ADC reading according to samples taken. 
 
 
 
-\doxysubsection{Typedef Documentation}
-\mbox{\Hypertarget{mln__adc_8h_a4f03e1a0f2be54fd4eb97865059aa016}\label{mln__adc_8h_a4f03e1a0f2be54fd4eb97865059aa016}} 
-\index{mln\_adc.h@{mln\_adc.h}!ADC\_IN\_t@{ADC\_IN\_t}}
-\index{ADC\_IN\_t@{ADC\_IN\_t}!mln\_adc.h@{mln\_adc.h}}
-\doxysubsubsection{\texorpdfstring{ADC\_IN\_t}{ADC\_IN\_t}}
-{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048}{mln\+\_\+adc\+\_\+alt\+\_\+in\+\_\+e}} \mbox{\hyperlink{mln__adc_8h_a4f03e1a0f2be54fd4eb97865059aa016}{ADC\+\_\+\+IN\+\_\+t}}}
-
-\mbox{\Hypertarget{mln__adc_8h_a88e3055fb02640f0981b595e3fc1c8c1}\label{mln__adc_8h_a88e3055fb02640f0981b595e3fc1c8c1}} 
-\index{mln\_adc.h@{mln\_adc.h}!ADC\_PRE\_t@{ADC\_PRE\_t}}
-\index{ADC\_PRE\_t@{ADC\_PRE\_t}!mln\_adc.h@{mln\_adc.h}}
-\doxysubsubsection{\texorpdfstring{ADC\_PRE\_t}{ADC\_PRE\_t}}
-{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073}{mln\+\_\+adc\+\_\+presc\+\_\+e}} \mbox{\hyperlink{mln__adc_8h_a88e3055fb02640f0981b595e3fc1c8c1}{ADC\+\_\+\+PRE\+\_\+t}}}
-
-\mbox{\Hypertarget{mln__adc_8h_a3d661f184eb34e9770e0e930f1c1b94d}\label{mln__adc_8h_a3d661f184eb34e9770e0e930f1c1b94d}} 
-\index{mln\_adc.h@{mln\_adc.h}!ADC\_RES\_t@{ADC\_RES\_t}}
-\index{ADC\_RES\_t@{ADC\_RES\_t}!mln\_adc.h@{mln\_adc.h}}
-\doxysubsubsection{\texorpdfstring{ADC\_RES\_t}{ADC\_RES\_t}}
-{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{mln__adc_8h_a42a13d30380ca3f35a8da79dffe825b7}{mln\+\_\+adc\+\_\+res\+\_\+e}} \mbox{\hyperlink{mln__adc_8h_a3d661f184eb34e9770e0e930f1c1b94d}{ADC\+\_\+\+RES\+\_\+t}}}
-
-\mbox{\Hypertarget{mln__adc_8h_a7152c224e51badcff6e1155eacc6bf29}\label{mln__adc_8h_a7152c224e51badcff6e1155eacc6bf29}} 
-\index{mln\_adc.h@{mln\_adc.h}!ADC\_SAMP\_t@{ADC\_SAMP\_t}}
-\index{ADC\_SAMP\_t@{ADC\_SAMP\_t}!mln\_adc.h@{mln\_adc.h}}
-\doxysubsubsection{\texorpdfstring{ADC\_SAMP\_t}{ADC\_SAMP\_t}}
-{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ad}{mln\+\_\+adc\+\_\+samp\+\_\+e}} \mbox{\hyperlink{mln__adc_8h_a7152c224e51badcff6e1155eacc6bf29}{ADC\+\_\+\+SAMP\+\_\+t}}}
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00028}{28}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
 
 
 
 \doxysubsection{Enumeration Type Documentation}
-\mbox{\Hypertarget{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048}\label{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048}} 
-\index{mln\_adc.h@{mln\_adc.h}!mln\_adc\_alt\_in\_e@{mln\_adc\_alt\_in\_e}}
-\index{mln\_adc\_alt\_in\_e@{mln\_adc\_alt\_in\_e}!mln\_adc.h@{mln\_adc.h}}
-\doxysubsubsection{\texorpdfstring{mln\_adc\_alt\_in\_e}{mln\_adc\_alt\_in\_e}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048}{mln\+\_\+adc\+\_\+alt\+\_\+in\+\_\+e}}}
+\mbox{\Hypertarget{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5}\label{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5}} 
+\index{mln\_adc.h@{mln\_adc.h}!mln\_adc\_accumulation\_t@{mln\_adc\_accumulation\_t}}
+\index{mln\_adc\_accumulation\_t@{mln\_adc\_accumulation\_t}!mln\_adc.h@{mln\_adc.h}}
+\doxysubsubsection{\texorpdfstring{mln\_adc\_accumulation\_t}{mln\_adc\_accumulation\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5}{mln\+\_\+adc\+\_\+accumulation\+\_\+t}}}
+
+
+
+ADC prescaler accumulation enum. 
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{GND@{GND}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!GND@{GND}}}\mbox{\Hypertarget{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a8a45fa8d32083de717b8256709c2022f}\label{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a8a45fa8d32083de717b8256709c2022f}} 
-GND&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_ACCNONE@{MLN\_ADC\_ACCNONE}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_ACCNONE@{MLN\_ADC\_ACCNONE}}}\mbox{\Hypertarget{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a43137a9bc78370efd37cd5cf0ae0b43f}\label{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a43137a9bc78370efd37cd5cf0ae0b43f}} 
+MLN\+\_\+\+ADC\+\_\+\+ACCNONE&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{TEMPSENSE@{TEMPSENSE}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!TEMPSENSE@{TEMPSENSE}}}\mbox{\Hypertarget{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a84977e125ea46510daa0602e075c8c6e}\label{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a84977e125ea46510daa0602e075c8c6e}} 
-TEMPSENSE&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_ACC2@{MLN\_ADC\_ACC2}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_ACC2@{MLN\_ADC\_ACC2}}}\mbox{\Hypertarget{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a67c300111cc5a8c288e7f50dfdcf9782}\label{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a67c300111cc5a8c288e7f50dfdcf9782}} 
+MLN\+\_\+\+ADC\+\_\+\+ACC2&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{VDDDIV10@{VDDDIV10}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!VDDDIV10@{VDDDIV10}}}\mbox{\Hypertarget{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a164a3213a5701c9dfafd88ce8f1c9e62}\label{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a164a3213a5701c9dfafd88ce8f1c9e62}} 
-VDDDIV10&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_ACC4@{MLN\_ADC\_ACC4}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_ACC4@{MLN\_ADC\_ACC4}}}\mbox{\Hypertarget{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a2ab16542cc722821aabf39eddb02046b}\label{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a2ab16542cc722821aabf39eddb02046b}} 
+MLN\+\_\+\+ADC\+\_\+\+ACC4&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{VDDIO2DIV10@{VDDIO2DIV10}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!VDDIO2DIV10@{VDDIO2DIV10}}}\mbox{\Hypertarget{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048aa69021e4c9a8d0603dbbb3dc5a72fa24}\label{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048aa69021e4c9a8d0603dbbb3dc5a72fa24}} 
-VDDIO2\+DIV10&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_ACC8@{MLN\_ADC\_ACC8}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_ACC8@{MLN\_ADC\_ACC8}}}\mbox{\Hypertarget{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a6012dd8b8eee310a4de5c88b2e95351c}\label{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a6012dd8b8eee310a4de5c88b2e95351c}} 
+MLN\+\_\+\+ADC\+\_\+\+ACC8&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DAC@{DAC}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DAC@{DAC}}}\mbox{\Hypertarget{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a1bdc96b7f14d9f3d2551d0eee290ef43}\label{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a1bdc96b7f14d9f3d2551d0eee290ef43}} 
-DAC&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_ACC16@{MLN\_ADC\_ACC16}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_ACC16@{MLN\_ADC\_ACC16}}}\mbox{\Hypertarget{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a30b89356b78706956d6f2f14eb769d16}\label{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a30b89356b78706956d6f2f14eb769d16}} 
+MLN\+\_\+\+ADC\+\_\+\+ACC16&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DACREF0@{DACREF0}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DACREF0@{DACREF0}}}\mbox{\Hypertarget{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048ad24a8827f117a80bcc11587d8b979877}\label{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048ad24a8827f117a80bcc11587d8b979877}} 
-DACREF0&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_ACC32@{MLN\_ADC\_ACC32}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_ACC32@{MLN\_ADC\_ACC32}}}\mbox{\Hypertarget{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a673d897eb4ab6c728ef5a226e5591c9f}\label{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a673d897eb4ab6c728ef5a226e5591c9f}} 
+MLN\+\_\+\+ADC\+\_\+\+ACC32&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DACREF1@{DACREF1}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DACREF1@{DACREF1}}}\mbox{\Hypertarget{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a0c96851478b1fb0a49264716c506a11a}\label{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a0c96851478b1fb0a49264716c506a11a}} 
-DACREF1&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_ACC64@{MLN\_ADC\_ACC64}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_ACC64@{MLN\_ADC\_ACC64}}}\mbox{\Hypertarget{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a265352e9af1f6a9004a8641ab0f4539d}\label{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5a265352e9af1f6a9004a8641ab0f4539d}} 
+MLN\+\_\+\+ADC\+\_\+\+ACC64&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DACREF2@{DACREF2}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DACREF2@{DACREF2}}}\mbox{\Hypertarget{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a8da65b8f393c57ae5d00ffd6ba78f13e}\label{mln__adc_8h_ae23a33ba21fc4356971ad6158e159048a8da65b8f393c57ae5d00ffd6ba78f13e}} 
-DACREF2&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_ACC128@{MLN\_ADC\_ACC128}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_ACC128@{MLN\_ADC\_ACC128}}}\mbox{\Hypertarget{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5ac6036bbba4fa3a2fdbf8ef875021524f}\label{mln__adc_8h_a59aa030466723b07fda5aab69e6390a5ac6036bbba4fa3a2fdbf8ef875021524f}} 
+MLN\+\_\+\+ADC\+\_\+\+ACC128&\\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00019}{19}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00082}{82}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
 
-\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073}} 
-\index{mln\_adc.h@{mln\_adc.h}!mln\_adc\_presc\_e@{mln\_adc\_presc\_e}}
-\index{mln\_adc\_presc\_e@{mln\_adc\_presc\_e}!mln\_adc.h@{mln\_adc.h}}
-\doxysubsubsection{\texorpdfstring{mln\_adc\_presc\_e}{mln\_adc\_presc\_e}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073}{mln\+\_\+adc\+\_\+presc\+\_\+e}}}
+\mbox{\Hypertarget{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9}\label{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9}} 
+\index{mln\_adc.h@{mln\_adc.h}!mln\_adc\_in\_t@{mln\_adc\_in\_t}}
+\index{mln\_adc\_in\_t@{mln\_adc\_in\_t}!mln\_adc.h@{mln\_adc.h}}
+\doxysubsubsection{\texorpdfstring{mln\_adc\_in\_t}{mln\_adc\_in\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9}{mln\+\_\+adc\+\_\+in\+\_\+t}}}
+
+
+
+ADC input selection enum. 
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV2@{DIV2}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DIV2@{DIV2}}}\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a56519a2284b7043319337ae0db4aa2e6}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a56519a2284b7043319337ae0db4aa2e6}} 
-DIV2&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_IN\_GND@{MLN\_ADC\_IN\_GND}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_IN\_GND@{MLN\_ADC\_IN\_GND}}}\mbox{\Hypertarget{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9ae0f2d0ddeb1124f8665b0b0374772000}\label{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9ae0f2d0ddeb1124f8665b0b0374772000}} 
+MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+GND&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV4@{DIV4}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DIV4@{DIV4}}}\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073afd673dd0902bd9851e1e24da847c3594}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073afd673dd0902bd9851e1e24da847c3594}} 
-DIV4&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_IN\_TEMPSENSE@{MLN\_ADC\_IN\_TEMPSENSE}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_IN\_TEMPSENSE@{MLN\_ADC\_IN\_TEMPSENSE}}}\mbox{\Hypertarget{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9aa48a57e4e68db8fc8c035ba0916f7991}\label{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9aa48a57e4e68db8fc8c035ba0916f7991}} 
+MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+TEMPSENSE&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV8@{DIV8}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DIV8@{DIV8}}}\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073afb74f38e5812d698bd7e53240bc3541b}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073afb74f38e5812d698bd7e53240bc3541b}} 
-DIV8&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_IN\_VDDDIV10@{MLN\_ADC\_IN\_VDDDIV10}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_IN\_VDDDIV10@{MLN\_ADC\_IN\_VDDDIV10}}}\mbox{\Hypertarget{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a52a7d98be097e05a1fbbb0bfff85e5b0}\label{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a52a7d98be097e05a1fbbb0bfff85e5b0}} 
+MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+VDDDIV10&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV12@{DIV12}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DIV12@{DIV12}}}\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a7b3f25afeb7433fa1eb24dcd4e79ce49}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a7b3f25afeb7433fa1eb24dcd4e79ce49}} 
-DIV12&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_IN\_VDDIO2DIV10@{MLN\_ADC\_IN\_VDDIO2DIV10}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_IN\_VDDIO2DIV10@{MLN\_ADC\_IN\_VDDIO2DIV10}}}\mbox{\Hypertarget{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a196ac19c3a3b299694bd9fa8fa17d57f}\label{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a196ac19c3a3b299694bd9fa8fa17d57f}} 
+MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+VDDIO2\+DIV10&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV16@{DIV16}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DIV16@{DIV16}}}\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a892fd83911da21980b01397a7f9ebe01}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a892fd83911da21980b01397a7f9ebe01}} 
-DIV16&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_IN\_DAC@{MLN\_ADC\_IN\_DAC}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_IN\_DAC@{MLN\_ADC\_IN\_DAC}}}\mbox{\Hypertarget{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9af11e174a2e8c30d46d7a1284472808ef}\label{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9af11e174a2e8c30d46d7a1284472808ef}} 
+MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+DAC&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV20@{DIV20}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DIV20@{DIV20}}}\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073accefdbe99760b4d05e67cae516eb29eb}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073accefdbe99760b4d05e67cae516eb29eb}} 
-DIV20&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_IN\_DACREF0@{MLN\_ADC\_IN\_DACREF0}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_IN\_DACREF0@{MLN\_ADC\_IN\_DACREF0}}}\mbox{\Hypertarget{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a7ca092e24d7fc8d9a7ace31116e577ee}\label{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a7ca092e24d7fc8d9a7ace31116e577ee}} 
+MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+DACREF0&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV24@{DIV24}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DIV24@{DIV24}}}\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a4ced6186e0bbb48f201d45573aedefd5}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a4ced6186e0bbb48f201d45573aedefd5}} 
-DIV24&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_IN\_DACREF1@{MLN\_ADC\_IN\_DACREF1}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_IN\_DACREF1@{MLN\_ADC\_IN\_DACREF1}}}\mbox{\Hypertarget{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a6dc0594f7f1c35df3e0ab813a75a5765}\label{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a6dc0594f7f1c35df3e0ab813a75a5765}} 
+MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+DACREF1&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV28@{DIV28}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DIV28@{DIV28}}}\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a3b20ffc63c4fcb1febb09570c193b6db}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a3b20ffc63c4fcb1febb09570c193b6db}} 
-DIV28&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV32@{DIV32}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DIV32@{DIV32}}}\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073aeeeb2f538f7d157cc9d2d16b35810375}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073aeeeb2f538f7d157cc9d2d16b35810375}} 
-DIV32&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV48@{DIV48}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DIV48@{DIV48}}}\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a78bc0874f4205f351f47db0ee0587c8d}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a78bc0874f4205f351f47db0ee0587c8d}} 
-DIV48&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV64@{DIV64}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DIV64@{DIV64}}}\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073abae69f433c0382aefc926500c9045df6}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073abae69f433c0382aefc926500c9045df6}} 
-DIV64&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV96@{DIV96}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DIV96@{DIV96}}}\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a5f8712e3e70a4f05a7d275344b3ce2e1}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a5f8712e3e70a4f05a7d275344b3ce2e1}} 
-DIV96&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV128@{DIV128}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DIV128@{DIV128}}}\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073aa7914be1a89f098621e2f390856d16d4}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073aa7914be1a89f098621e2f390856d16d4}} 
-DIV128&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV256@{DIV256}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!DIV256@{DIV256}}}\mbox{\Hypertarget{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a9f0f823686c79d394b381f82dc6edd8f}\label{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a9f0f823686c79d394b381f82dc6edd8f}} 
-DIV256&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_IN\_DACREF2@{MLN\_ADC\_IN\_DACREF2}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_IN\_DACREF2@{MLN\_ADC\_IN\_DACREF2}}}\mbox{\Hypertarget{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a04358347251e57e0cc0996315a4ae8fd}\label{mln__adc_8h_a8b46c7c728d2203051bada5c588b72e9a04358347251e57e0cc0996315a4ae8fd}} 
+MLN\+\_\+\+ADC\+\_\+\+IN\+\_\+\+DACREF2&\\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00037}{37}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00034}{34}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
 
-\mbox{\Hypertarget{mln__adc_8h_a42a13d30380ca3f35a8da79dffe825b7}\label{mln__adc_8h_a42a13d30380ca3f35a8da79dffe825b7}} 
-\index{mln\_adc.h@{mln\_adc.h}!mln\_adc\_res\_e@{mln\_adc\_res\_e}}
-\index{mln\_adc\_res\_e@{mln\_adc\_res\_e}!mln\_adc.h@{mln\_adc.h}}
-\doxysubsubsection{\texorpdfstring{mln\_adc\_res\_e}{mln\_adc\_res\_e}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{mln__adc_8h_a42a13d30380ca3f35a8da79dffe825b7}{mln\+\_\+adc\+\_\+res\+\_\+e}}}
+\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18}} 
+\index{mln\_adc.h@{mln\_adc.h}!mln\_adc\_prescaler\_t@{mln\_adc\_prescaler\_t}}
+\index{mln\_adc\_prescaler\_t@{mln\_adc\_prescaler\_t}!mln\_adc.h@{mln\_adc.h}}
+\doxysubsubsection{\texorpdfstring{mln\_adc\_prescaler\_t}{mln\_adc\_prescaler\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18}{mln\+\_\+adc\+\_\+prescaler\+\_\+t}}}
+
+
+
+ADC prescaler selection enum. 
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{HIRES@{HIRES}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!HIRES@{HIRES}}}\mbox{\Hypertarget{mln__adc_8h_a42a13d30380ca3f35a8da79dffe825b7a04abac7139599aa4759fe5b5eacbb782}\label{mln__adc_8h_a42a13d30380ca3f35a8da79dffe825b7a04abac7139599aa4759fe5b5eacbb782}} 
-HIRES&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_DIV2@{MLN\_ADC\_DIV2}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_DIV2@{MLN\_ADC\_DIV2}}}\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a0d5aa31ef12977424590b033eeab4d0a}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a0d5aa31ef12977424590b033eeab4d0a}} 
+MLN\+\_\+\+ADC\+\_\+\+DIV2&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{LORES@{LORES}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!LORES@{LORES}}}\mbox{\Hypertarget{mln__adc_8h_a42a13d30380ca3f35a8da79dffe825b7a84c5e8a9d619fe58ebb53cc6b4397403}\label{mln__adc_8h_a42a13d30380ca3f35a8da79dffe825b7a84c5e8a9d619fe58ebb53cc6b4397403}} 
-LORES&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_DIV4@{MLN\_ADC\_DIV4}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_DIV4@{MLN\_ADC\_DIV4}}}\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a7e65f324717b4c0a56aeb829d6144f49}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a7e65f324717b4c0a56aeb829d6144f49}} 
+MLN\+\_\+\+ADC\+\_\+\+DIV4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_DIV8@{MLN\_ADC\_DIV8}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_DIV8@{MLN\_ADC\_DIV8}}}\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a67b9687dff32c52d04e31e47693b1f51}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a67b9687dff32c52d04e31e47693b1f51}} 
+MLN\+\_\+\+ADC\+\_\+\+DIV8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_DIV12@{MLN\_ADC\_DIV12}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_DIV12@{MLN\_ADC\_DIV12}}}\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a05be8a20c54bda53e1cbf439e09e0422}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a05be8a20c54bda53e1cbf439e09e0422}} 
+MLN\+\_\+\+ADC\+\_\+\+DIV12&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_DIV16@{MLN\_ADC\_DIV16}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_DIV16@{MLN\_ADC\_DIV16}}}\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a0ef1e184d55f71a49dbb913ae41a4f9e}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a0ef1e184d55f71a49dbb913ae41a4f9e}} 
+MLN\+\_\+\+ADC\+\_\+\+DIV16&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_DIV20@{MLN\_ADC\_DIV20}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_DIV20@{MLN\_ADC\_DIV20}}}\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18af98f61e3c9f758676e6773c3dcfe6013}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18af98f61e3c9f758676e6773c3dcfe6013}} 
+MLN\+\_\+\+ADC\+\_\+\+DIV20&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_DIV24@{MLN\_ADC\_DIV24}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_DIV24@{MLN\_ADC\_DIV24}}}\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a6926e9f238b1c19c4b00e70e2aecde60}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a6926e9f238b1c19c4b00e70e2aecde60}} 
+MLN\+\_\+\+ADC\+\_\+\+DIV24&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_DIV28@{MLN\_ADC\_DIV28}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_DIV28@{MLN\_ADC\_DIV28}}}\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a9723e89b46ac9a1ad4e55c5e2ef87ff0}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a9723e89b46ac9a1ad4e55c5e2ef87ff0}} 
+MLN\+\_\+\+ADC\+\_\+\+DIV28&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_DIV32@{MLN\_ADC\_DIV32}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_DIV32@{MLN\_ADC\_DIV32}}}\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18aba13533cdcfa4a99268308d037c44d0f}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18aba13533cdcfa4a99268308d037c44d0f}} 
+MLN\+\_\+\+ADC\+\_\+\+DIV32&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_DIV48@{MLN\_ADC\_DIV48}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_DIV48@{MLN\_ADC\_DIV48}}}\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a0aba09102fe68ddcb6ffbc2767c16f30}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a0aba09102fe68ddcb6ffbc2767c16f30}} 
+MLN\+\_\+\+ADC\+\_\+\+DIV48&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_DIV64@{MLN\_ADC\_DIV64}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_DIV64@{MLN\_ADC\_DIV64}}}\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18ac01338c3ecc4ef458fdaba783b48353a}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18ac01338c3ecc4ef458fdaba783b48353a}} 
+MLN\+\_\+\+ADC\+\_\+\+DIV64&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_DIV96@{MLN\_ADC\_DIV96}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_DIV96@{MLN\_ADC\_DIV96}}}\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a51ab198d9147b81370cec2073df10d97}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a51ab198d9147b81370cec2073df10d97}} 
+MLN\+\_\+\+ADC\+\_\+\+DIV96&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_DIV128@{MLN\_ADC\_DIV128}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_DIV128@{MLN\_ADC\_DIV128}}}\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18afddf51219243bb59ace5c7b7f4430406}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18afddf51219243bb59ace5c7b7f4430406}} 
+MLN\+\_\+\+ADC\+\_\+\+DIV128&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_DIV256@{MLN\_ADC\_DIV256}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_DIV256@{MLN\_ADC\_DIV256}}}\mbox{\Hypertarget{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a18cbe48ca48f38d976b5e682ca23ee4d}\label{mln__adc_8h_a8686df8036c6ba2fc811904bf82cfa18a18cbe48ca48f38d976b5e682ca23ee4d}} 
+MLN\+\_\+\+ADC\+\_\+\+DIV256&\\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00031}{31}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00060}{60}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
 
-\mbox{\Hypertarget{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ad}\label{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ad}} 
-\index{mln\_adc.h@{mln\_adc.h}!mln\_adc\_samp\_e@{mln\_adc\_samp\_e}}
-\index{mln\_adc\_samp\_e@{mln\_adc\_samp\_e}!mln\_adc.h@{mln\_adc.h}}
-\doxysubsubsection{\texorpdfstring{mln\_adc\_samp\_e}{mln\_adc\_samp\_e}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ad}{mln\+\_\+adc\+\_\+samp\+\_\+e}}}
+\mbox{\Hypertarget{mln__adc_8h_a0d59f42a8f91323537152a301270a004}\label{mln__adc_8h_a0d59f42a8f91323537152a301270a004}} 
+\index{mln\_adc.h@{mln\_adc.h}!mln\_adc\_resolution\_t@{mln\_adc\_resolution\_t}}
+\index{mln\_adc\_resolution\_t@{mln\_adc\_resolution\_t}!mln\_adc.h@{mln\_adc.h}}
+\doxysubsubsection{\texorpdfstring{mln\_adc\_resolution\_t}{mln\_adc\_resolution\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{mln__adc_8h_a0d59f42a8f91323537152a301270a004}{mln\+\_\+adc\+\_\+resolution\+\_\+t}}}
+
+
+
+ADC resolution selection enum. 
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{NONE@{NONE}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!NONE@{NONE}}}\mbox{\Hypertarget{mln__adc_8h_a40306ec3e591cedf7136426ee654c9adac157bdf0b85a40d2619cbc8bc1ae5fe2}\label{mln__adc_8h_a40306ec3e591cedf7136426ee654c9adac157bdf0b85a40d2619cbc8bc1ae5fe2}} 
-NONE&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_RESOLUTION\_HIGH@{MLN\_ADC\_RESOLUTION\_HIGH}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_RESOLUTION\_HIGH@{MLN\_ADC\_RESOLUTION\_HIGH}}}\mbox{\Hypertarget{mln__adc_8h_a0d59f42a8f91323537152a301270a004a240434a90dbca2bdcd7e9d524096c975}\label{mln__adc_8h_a0d59f42a8f91323537152a301270a004a240434a90dbca2bdcd7e9d524096c975}} 
+MLN\+\_\+\+ADC\+\_\+\+RESOLUTION\+\_\+\+HIGH&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ACC2@{ACC2}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!ACC2@{ACC2}}}\mbox{\Hypertarget{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ada915affc8d83376dd5f2c3b6095fe6aa5}\label{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ada915affc8d83376dd5f2c3b6095fe6aa5}} 
-ACC2&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ACC4@{ACC4}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!ACC4@{ACC4}}}\mbox{\Hypertarget{mln__adc_8h_a40306ec3e591cedf7136426ee654c9adac819489da295517e35b588783cf50bd5}\label{mln__adc_8h_a40306ec3e591cedf7136426ee654c9adac819489da295517e35b588783cf50bd5}} 
-ACC4&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ACC8@{ACC8}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!ACC8@{ACC8}}}\mbox{\Hypertarget{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ada069b20c0487c26df215005029a2ee4b3}\label{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ada069b20c0487c26df215005029a2ee4b3}} 
-ACC8&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ACC16@{ACC16}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!ACC16@{ACC16}}}\mbox{\Hypertarget{mln__adc_8h_a40306ec3e591cedf7136426ee654c9adad42892d3f4f8a02c19edd85b021d69af}\label{mln__adc_8h_a40306ec3e591cedf7136426ee654c9adad42892d3f4f8a02c19edd85b021d69af}} 
-ACC16&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ACC32@{ACC32}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!ACC32@{ACC32}}}\mbox{\Hypertarget{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ada75efcab31be4459dcb4ee8b5c9a78fe0}\label{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ada75efcab31be4459dcb4ee8b5c9a78fe0}} 
-ACC32&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ACC64@{ACC64}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!ACC64@{ACC64}}}\mbox{\Hypertarget{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ada9167d825625b78af94867953a90af9c6}\label{mln__adc_8h_a40306ec3e591cedf7136426ee654c9ada9167d825625b78af94867953a90af9c6}} 
-ACC64&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ACC128@{ACC128}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!ACC128@{ACC128}}}\mbox{\Hypertarget{mln__adc_8h_a40306ec3e591cedf7136426ee654c9adaf9f578efa5ef43a84c65f5a944157803}\label{mln__adc_8h_a40306ec3e591cedf7136426ee654c9adaf9f578efa5ef43a84c65f5a944157803}} 
-ACC128&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_ADC\_RESOLUTION\_LOW@{MLN\_ADC\_RESOLUTION\_LOW}!mln\_adc.h@{mln\_adc.h}}\index{mln\_adc.h@{mln\_adc.h}!MLN\_ADC\_RESOLUTION\_LOW@{MLN\_ADC\_RESOLUTION\_LOW}}}\mbox{\Hypertarget{mln__adc_8h_a0d59f42a8f91323537152a301270a004a6caecfa7277be6b2e64d78397717c568}\label{mln__adc_8h_a0d59f42a8f91323537152a301270a004a6caecfa7277be6b2e64d78397717c568}} 
+MLN\+\_\+\+ADC\+\_\+\+RESOLUTION\+\_\+\+LOW&\\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00055}{55}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00050}{50}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
 

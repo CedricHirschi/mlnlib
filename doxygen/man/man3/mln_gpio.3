@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-mln_gpio
+mln_gpio \- GPIO peripheral class\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -14,79 +15,152 @@ mln_gpio
 .ti -1c
 .RI "\fBmln_gpio\fP ()=default"
 .br
+.RI "Default \fBmln_gpio\fP class initializer\&. "
 .ti -1c
-.RI "\fBmln_gpio\fP (const \fBPIN_t\fP &new_pin, const \fBPIN_DIR_t\fP &dir, const bool inv=false)"
+.RI "\fBmln_gpio\fP (const \fBmln_pin_t\fP &new_pin, const \fBmln_gpio_dir_t\fP &direction, const bool inverted=false)"
 .br
+.RI "\fBmln_adc\fP class initializer "
 .ti -1c
-.RI "void \fBattach_interrupt\fP (\fBPIN_ISC_t\fP dir)"
+.RI "void \fBattach_interrupt\fP (\fBmln_gpio_isc_t\fP isc)"
 .br
+.RI "Attach interrupt to pin\&. "
 .ti -1c
 .RI "const void \fBset\fP (void)"
 .br
+.RI "Set pin to HIGH\&. "
 .ti -1c
 .RI "const void \fBclear\fP (void)"
 .br
+.RI "Clear pin to LOW\&. "
 .ti -1c
 .RI "const void \fBtoggle\fP (void)"
 .br
+.RI "Toggle pin value\&. "
 .ti -1c
 .RI "const void \fBput\fP (bool val)"
 .br
+.RI "Put value on pin\&. "
 .ti -1c
 .RI "const bool \fBget\fP (void)"
 .br
+.RI "Get value of pin\&. "
 .ti -1c
-.RI "void \fBconf_dir\fP (const \fBPIN_DIR_t\fP &dir)"
+.RI "void \fBconf_dir\fP (const \fBmln_gpio_dir_t\fP &dir)"
 .br
+.RI "Configure direction of pin\&. "
 .ti -1c
-.RI "void \fBconf_pull\fP (const \fBPIN_DIR_t\fP &pull)"
+.RI "void \fBconf_pull\fP (const \fBmln_gpio_dir_t\fP &pull)"
 .br
+.RI "Configure pull of pin\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line \fB115\fP of file \fBmln_gpio\&.h\fP\&.
+GPIO peripheral class\&. 
+
+
+.PP
+Definition at line \fB132\fP of file \fBmln_gpio\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "mln_gpio::mln_gpio ()\fC [inline]\fP, \fC [default]\fP"
 
-.SS "mln_gpio::mln_gpio (const \fBPIN_t\fP & new_pin, const \fBPIN_DIR_t\fP & dir, const bool inv = \fCfalse\fP)\fC [inline]\fP"
+.PP
+Default \fBmln_gpio\fP class initializer\&. 
+.SS "mln_gpio::mln_gpio (const \fBmln_pin_t\fP & new_pin, const \fBmln_gpio_dir_t\fP & direction, const bool inverted = \fCfalse\fP)\fC [inline]\fP"
 
 .PP
-Definition at line \fB124\fP of file \fBmln_gpio\&.h\fP\&.
+\fBmln_adc\fP class initializer 
+.PP
+\fBParameters\fP
+.RS 4
+\fInew_pin\fP Pin to control 
+.br
+\fIdirection\fP Direction to initialize pin to 
+.br
+\fIinverted\fP If true, pin is operated in inverted mde 
+.RE
+.PP
+
+.PP
+Definition at line \fB153\fP of file \fBmln_gpio\&.h\fP\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "void mln_gpio::attach_interrupt (\fBPIN_ISC_t\fP dir)\fC [inline]\fP"
+.SS "void mln_gpio::attach_interrupt (\fBmln_gpio_isc_t\fP isc)\fC [inline]\fP"
 
 .PP
-Definition at line \fB141\fP of file \fBmln_gpio\&.h\fP\&.
+Attach interrupt to pin\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIisc\fP Interrupt type 
+.RE
+.PP
+
+.PP
+Definition at line \fB171\fP of file \fBmln_gpio\&.h\fP\&.
 .SS "const void mln_gpio::clear (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB150\fP of file \fBmln_gpio\&.h\fP\&.
-.SS "void mln_gpio::conf_dir (const \fBPIN_DIR_t\fP & dir)\fC [inline]\fP"
+Clear pin to LOW\&. 
+.PP
+Definition at line \fB182\fP of file \fBmln_gpio\&.h\fP\&.
+.SS "void mln_gpio::conf_dir (const \fBmln_gpio_dir_t\fP & dir)\fC [inline]\fP"
 
 .PP
-Definition at line \fB172\fP of file \fBmln_gpio\&.h\fP\&.
-.SS "void mln_gpio::conf_pull (const \fBPIN_DIR_t\fP & pull)\fC [inline]\fP"
+Configure direction of pin\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdir\fP Direction to be set 
+.RE
+.PP
 
 .PP
-Definition at line \fB184\fP of file \fBmln_gpio\&.h\fP\&.
+Definition at line \fB208\fP of file \fBmln_gpio\&.h\fP\&.
+.SS "void mln_gpio::conf_pull (const \fBmln_gpio_dir_t\fP & pull)\fC [inline]\fP"
+
+.PP
+Configure pull of pin\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpull\fP Direction to be set 
+.RE
+.PP
+
+.PP
+Definition at line \fB221\fP of file \fBmln_gpio\&.h\fP\&.
 .SS "const bool mln_gpio::get (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB165\fP of file \fBmln_gpio\&.h\fP\&.
+Get value of pin\&. 
+.PP
+Definition at line \fB200\fP of file \fBmln_gpio\&.h\fP\&.
 .SS "const void mln_gpio::put (bool val)\fC [inline]\fP"
 
 .PP
-Definition at line \fB160\fP of file \fBmln_gpio\&.h\fP\&.
+Put value on pin\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIval\fP Value to put on pin 
+.RE
+.PP
+
+.PP
+Definition at line \fB194\fP of file \fBmln_gpio\&.h\fP\&.
 .SS "const void mln_gpio::set (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB146\fP of file \fBmln_gpio\&.h\fP\&.
+Set pin to HIGH\&. 
+.PP
+Definition at line \fB177\fP of file \fBmln_gpio\&.h\fP\&.
 .SS "const void mln_gpio::toggle (void)\fC [inline]\fP"
 
 .PP
-Definition at line \fB154\fP of file \fBmln_gpio\&.h\fP\&.
+Toggle pin value\&. 
+.PP
+Definition at line \fB187\fP of file \fBmln_gpio\&.h\fP\&.
 
 .SH "Author"
 .PP 

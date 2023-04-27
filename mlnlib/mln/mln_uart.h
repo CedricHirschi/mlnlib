@@ -1,10 +1,13 @@
-/*
-* mln_uart.h
-*
-* Created: 03.04.2023 16:16:30
-* Author: cedr0
-*/
-
+/**
+ * @file mln_uart.h
+ * @author Cédric Hirschi (cedr02@live.com)
+ * @brief This peripheral is used to communicate with USART.
+ * @version 0.1
+ * @date 2023-04-27
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 
 #ifndef __MLN_UART_H__
 #define __MLN_UART_H__
@@ -20,7 +23,13 @@
 #error "F_CPU not defined"
 #endif
 
-#define MLN_UART_BAUD			115200
+/**
+ * @brief Maximum UART buffer size
+ *
+ * @note Currently RX only
+ * @note Can be changed without further problems
+ *
+ */
 #define MLN_UART_BUF_SIZE		32
 
 #define MLN_UART0_PIN_TX		PA0
@@ -54,66 +63,40 @@
 #define MLN_UART_NUM_INSTS 3
 #endif
 
+/**
+ * @brief Macro to calculate register value from baud rate
+ *
+ */
 #define MLN_UART_BAUD_NUM(BAUD)		((float)(F_CPU * 64 / (16 * (float)BAUD)) + 0.5)
-#define IS_INT(CHAR)				((CHAR >= 48) && (CHAR <= 57))
 
-typedef enum mln_uart_inst_e
-{
-	UART0,
-	UART1,
-	UART2,
-	#ifdef USART3
-	UART3,
-	#endif
-	#ifdef USART4
-	UART4,
-	#endif
-	#ifdef USART5
-	UART5,
-	#endif
-} UART_t;
-
+/**
+ * @brief USART peripheral class
+ *
+ */
 class mln_uart;
 
+/**
+ * @brief USART stream (for printf functionality)
+ *
+ */
 mln_uart *mln_uart_stream_uart;
 
-USART_t* MLN_UART_TO_USART(UART_t uart)
-{
-	switch(uart)
-	{
-		case UART0:
-		return &USART0;
-		break;
-		case UART1:
-		return &USART1;
-		break;
-		case UART2:
-		return &USART2;
-		break;
-		#ifdef USART3
-		case UART3:
-		return &USART3;
-		break;
-		#endif
-		#ifdef USART4
-		case UART4:
-		return &USART4;
-		break;
-		#endif
-		#ifdef USART5
-		case UART5:
-		return &USART5;
-		break;
-		#endif
-	}
-
-	return &USART0;
-}
-
+/**
+ * @brief Helper function to write from std stream to USART peripheral
+ *
+ */
 int mln_uart_stream_write(char character, FILE *f);
 
+/**
+ * @brief Helper function to read USART peripheral to std stream
+ *
+ */
 int mln_uart_stream_read(FILE *f);
 
+/**
+ * @brief USART peripheral class
+ *
+ */
 class mln_uart
 {
 	USART_t* inst;
@@ -128,42 +111,50 @@ class mln_uart
 
 	void (*isr)(void);
 
-	inline void init_pins(UART_t new_inst)
+	/**
+	 * @brief Helper function to initialize pins used by `mln_uart` class
+	 *
+	 */
+	inline void init_pins(USART_t* new_inst)
 	{
-		switch(new_inst)
+		switch(new_inst - &USART0)
 		{
 			case 0:
-			pin_tx = mln_gpio(MLN_UART0_PIN_TX, OUTPUT);
-			pin_rx = mln_gpio(MLN_UART0_PIN_RX, INPUT);
-			break;
+				pin_tx = mln_gpio(MLN_UART0_PIN_TX, MLN_GPIO_DIR_OUTPUT);
+				pin_rx = mln_gpio(MLN_UART0_PIN_RX, MLN_GPIO_DIR_INPUT);
+				break;
 			case 1:
-			pin_tx = mln_gpio(MLN_UART1_PIN_TX, OUTPUT);
-			pin_rx = mln_gpio(MLN_UART1_PIN_RX, INPUT);
-			break;
+				pin_tx = mln_gpio(MLN_UART1_PIN_TX, MLN_GPIO_DIR_OUTPUT);
+				pin_rx = mln_gpio(MLN_UART1_PIN_RX, MLN_GPIO_DIR_INPUT);
+				break;
 			case 2:
-			pin_tx = mln_gpio(MLN_UART2_PIN_TX, OUTPUT);
-			pin_rx = mln_gpio(MLN_UART2_PIN_RX, INPUT);
-			break;
-			#ifdef USART3
+				pin_tx = mln_gpio(MLN_UART2_PIN_TX, MLN_GPIO_DIR_OUTPUT);
+				pin_rx = mln_gpio(MLN_UART2_PIN_RX, MLN_GPIO_DIR_INPUT);
+				break;
+#ifdef USART3
 			case 3:
-			pin_tx = mln_gpio(MLN_UART3_PIN_TX, OUTPUT);
-			pin_rx = mln_gpio(MLN_UART3_PIN_RX, INPUT);
-			break;
-			#endif
-			#ifdef USART4
+				pin_tx = mln_gpio(MLN_UART3_PIN_TX, MLN_GPIO_DIR_OUTPUT);
+				pin_rx = mln_gpio(MLN_UART3_PIN_RX, MLN_GPIO_DIR_INPUT);
+				break;
+#endif
+#ifdef USART4
 			case 4:
-			pin_tx = mln_gpio(MLN_UART4_PIN_TX, OUTPUT);
-			pin_rx = mln_gpio(MLN_UART4_PIN_RX, INPUT);
-			break;
-			#endif
-			#ifdef USART5
+				pin_tx = mln_gpio(MLN_UART4_PIN_TX, MLN_GPIO_DIR_OUTPUT);
+				pin_rx = mln_gpio(MLN_UART4_PIN_RX, MLN_GPIO_DIR_INPUT);
+				break;
+#endif
+#ifdef USART5
 			case 5:
-			pin_tx = mln_gpio(MLN_UART5_PIN_TX, OUTPUT);
-			pin_rx = mln_gpio(MLN_UART5_PIN_RX, INPUT);
-			break;
-			#endif
+				pin_tx = mln_gpio(MLN_UART5_PIN_TX, MLN_GPIO_DIR_OUTPUT);
+				pin_rx = mln_gpio(MLN_UART5_PIN_RX, MLN_GPIO_DIR_INPUT);
+				break;
+#endif
 		}
 	}
+	/**
+	 * @brief Helper function setup std stream for `mln_uart` class
+	 *
+	 */
 	inline void init_stream(void)
 	{
 		mln_uart_stream_uart = this;
@@ -177,15 +168,14 @@ class mln_uart
 	}
 
 public:
-	inline mln_uart(UART_t new_inst, uint32_t baud)
+	inline mln_uart(USART_t* new_inst, const uint32_t& baud)
 	{
-		if(new_inst > MLN_UART_NUM_INSTS)
-		return;
+		if((new_inst - &USART0) > MLN_UART_NUM_INSTS) return;
 
 		memset(buffer, 0, sizeof(buffer));
 		index = 0;
 
-		inst = MLN_UART_TO_USART(new_inst);
+		inst = new_inst;
 
 		init_pins(new_inst);
 

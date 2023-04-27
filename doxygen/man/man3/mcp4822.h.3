@@ -21,45 +21,33 @@ mlnlib/devices/mcp4822.h
 
 .in +1c
 .ti -1c
-.RI "#define \fBMCP4822_ENABLE_bm\fP   (1 << 4)"
-.br
-.in -1c
-.SS "Typedefs"
-
-.in +1c
-.ti -1c
-.RI "typedef enum \fBmln_spi_gain_s\fP \fBMCP4822_GAIN_t\fP"
-.br
-.ti -1c
-.RI "typedef enum \fBmln_spi_channel_s\fP \fBMCP4822_CHANNEL_t\fP"
+.RI "#define \fBMLN_MCP4822_ENABLE_bm\fP   (1 << 4)"
 .br
 .in -1c
 .SS "Enumerations"
 
 .in +1c
 .ti -1c
-.RI "enum \fBmln_spi_gain_s\fP { \fBGAIN2\fP, \fBGAIN1\fP }"
+.RI "enum \fBmln_mcp4822_gain_t\fP { \fBMLN_MCP4822_GAIN2\fP = 0, \fBMLN_MCP4822_GAIN1\fP }"
 .br
+.RI "MCP4822 gain enum\&. "
 .ti -1c
-.RI "enum \fBmln_spi_channel_s\fP { \fBCHANNELA\fP, \fBCHANNELB\fP }"
+.RI "enum \fBmln_mcp4822_channel_t\fP { \fBCHANNELA\fP, \fBCHANNELB\fP }"
 .br
+.RI "MCP4822 channel enum\&. "
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#define MCP4822_ENABLE_bm   (1 << 4)"
+.SS "#define MLN_MCP4822_ENABLE_bm   (1 << 4)"
 
 .PP
 Definition at line \fB13\fP of file \fBmcp4822\&.h\fP\&.
-.SH "Typedef Documentation"
-.PP 
-.SS "typedef enum \fBmln_spi_channel_s\fP \fBMCP4822_CHANNEL_t\fP"
-
-.SS "typedef enum \fBmln_spi_gain_s\fP \fBMCP4822_GAIN_t\fP"
-
 .SH "Enumeration Type Documentation"
 .PP 
-.SS "enum \fBmln_spi_channel_s\fP"
+.SS "enum \fBmln_mcp4822_channel_t\fP"
 
+.PP
+MCP4822 channel enum\&. 
 .PP
 \fBEnumerator\fP
 .in +1c
@@ -68,18 +56,20 @@ Definition at line \fB13\fP of file \fBmcp4822\&.h\fP\&.
 .TP
 \fB\fICHANNELB \fP\fP
 .PP
-Definition at line \fB25\fP of file \fBmcp4822\&.h\fP\&.
-.SS "enum \fBmln_spi_gain_s\fP"
+Definition at line \fB29\fP of file \fBmcp4822\&.h\fP\&.
+.SS "enum \fBmln_mcp4822_gain_t\fP"
 
+.PP
+MCP4822 gain enum\&. 
 .PP
 \fBEnumerator\fP
 .in +1c
 .TP
-\fB\fIGAIN2 \fP\fP
+\fB\fIMLN_MCP4822_GAIN2 \fP\fP
 .TP
-\fB\fIGAIN1 \fP\fP
+\fB\fIMLN_MCP4822_GAIN1 \fP\fP
 .PP
-Definition at line \fB16\fP of file \fBmcp4822\&.h\fP\&.
+Definition at line \fB19\fP of file \fBmcp4822\&.h\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for mlnlib from the source code\&.

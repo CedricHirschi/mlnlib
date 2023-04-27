@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-mlnlib/mln/mln_opamp.h
+mlnlib/mln/mln_opamp.h \- This peripheral are general purpose opamps which can be configured in various ways, including resistor ladders\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -13,94 +14,495 @@ mlnlib/mln/mln_opamp.h
 
 .in +1c
 .ti -1c
-.RI "struct \fBOPAMP_SETUP_s\fP"
+.RI "struct \fBmln_opamp_direct_init_t\fP"
 .br
+.RI "Opamp direct configuration struct\&. "
 .ti -1c
-.RI "class \fBmln_opamp\fP"
+.RI "struct \fBmln_opamp_follower_init_t\fP"
 .br
+.RI "Opamp follower configuration struct\&. "
+.ti -1c
+.RI "struct \fBmln_opamp_noninverting_init_t\fP"
+.br
+.RI "Opamp non-inverting configuration struct\&. "
+.ti -1c
+.RI "struct \fBmln_opamp_inverting_init_t\fP"
+.br
+.RI "Opamp inverting configuration struct\&. "
 .in -1c
 .SS "Namespaces"
 
 .in +1c
 .ti -1c
-.RI "namespace \fBOPA_SETUP\fP"
+.RI "namespace \fBmln_opamp\fP"
 .br
+.RI "Opamp peripheral namespace\&. "
 .in -1c
-.SS "Typedefs"
+.SS "Macros"
 
 .in +1c
 .ti -1c
-.RI "typedef enum \fBOPA_SETUP::CONFIG_e\fP \fBOPA_SETUP::CONFIG_t\fP"
+.RI "#define \fBMLN_OPAMP_MUXTOP_OUT\fP   1"
 .br
 .ti -1c
-.RI "typedef enum \fBOPA_SETUP::GAIN_NONINV_e\fP \fBOPA_SETUP::GAIN_NONINV_t\fP"
+.RI "#define \fBMLN_OPAMP_MUXTOP_VDD\fP   2"
 .br
 .ti -1c
-.RI "typedef enum \fBOPA_SETUP::GAIN_INV_e\fP \fBOPA_SETUP::GAIN_INV_t\fP"
+.RI "#define \fBMLN_OPAMP_MUXBOT_INP\fP   (1 << 2)"
 .br
 .ti -1c
-.RI "typedef enum \fBOPA_SETUP::PIN_e\fP \fBOPA_SETUP::PIN_t\fP"
+.RI "#define \fBMLN_OPAMP_MUXBOT_INN\fP   (2 << 2)"
 .br
 .ti -1c
-.RI "typedef enum \fBOPA_SETUP::MUX_e\fP \fBOPA_SETUP::MUX_t\fP"
+.RI "#define \fBMLN_OPAMP_MUXBOT_DAC\fP   (3 << 2)"
 .br
 .ti -1c
-.RI "typedef enum \fBOPA_SETUP::MUXNEG_IN_e\fP \fBOPA_SETUP::MUXNEG_IN_t\fP"
+.RI "#define \fBMLN_OPAMP_MUXBOT_LINKOUT\fP   (4 << 2)"
 .br
 .ti -1c
-.RI "typedef enum \fBOPA_SETUP::MUXPOS_IN_e\fP \fBOPA_SETUP::MUXPOS_IN_t\fP"
+.RI "#define \fBMLN_OPAMP_MUXBOT_GND\fP   (5 << 2)"
 .br
 .ti -1c
-.RI "typedef enum \fBOPA_SETUP::MUXTOP_IN_e\fP \fBOPA_SETUP::MUXTOP_IN_t\fP"
+.RI "#define \fBMLN_OPAMP_MUXPOS_INP\fP   0"
 .br
 .ti -1c
-.RI "typedef enum \fBOPA_SETUP::MUXBOT_IN_e\fP \fBOPA_SETUP::MUXBOT_IN_t\fP"
+.RI "#define \fBMLN_OPAMP_MUXPOS_WIP\fP   1"
 .br
 .ti -1c
-.RI "typedef enum \fBOPA_SETUP::MUXWIP_IN_e\fP \fBOPA_SETUP::MUXWIP_IN_t\fP"
+.RI "#define \fBMLN_OPAMP_MUXPOS_DAC\fP   2"
 .br
 .ti -1c
-.RI "typedef struct \fBOPAMP_SETUP_s\fP \fBOPAMP_SETUP_t\fP"
+.RI "#define \fBMLN_OPAMP_MUXPOS_GND\fP   3"
 .br
+.ti -1c
+.RI "#define \fBMLN_OPAMP_MUXPOS_VDDDIV2\fP   4"
+.br
+.ti -1c
+.RI "#define \fBMLN_OPAMP_MUXPOS_LINKOUT\fP   5"
+.br
+.ti -1c
+.RI "#define \fBMLN_OPAMP_MUXPOS_LINKWIP\fP   6"
+.br
+.ti -1c
+.RI "#define \fBMLN_OPAMP_MUXNEG_INN\fP   (0 << 4)"
+.br
+.ti -1c
+.RI "#define \fBMLN_OPAMP_MUXNEG_WIP\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBMLN_OPAMP_MUXNEG_OUT\fP   (2 << 4)"
+.br
+.ti -1c
+.RI "#define \fBMLN_OPAMP_MUXNEG_DAC\fP   (3 << 4)"
+.br
+.ti -1c
+.RI "#define \fBMLN_OPAMP_TIMEBASE_US\fP   (ceil(F_CPU / 1000000\&.0) \- 1)"
+.br
+.RI "Opamp timebase calculation macro\&. "
 .in -1c
 .SS "Enumerations"
 
 .in +1c
 .ti -1c
-.RI "enum \fBOPA_SETUP::CONFIG_e\fP { \fBOPA_SETUP::TOPINS\fP, \fBOPA_SETUP::FOLLOWER\fP, \fBOPA_SETUP::NONINV\fP, \fBOPA_SETUP::INV\fP }"
+.RI "enum \fBmln_opamp_device_t\fP { \fBMLN_OPAMP_DEVICE_0\fP = 0, \fBMLN_OPAMP_DEVICE_1\fP }"
 .br
+.RI "Opamp device selection enum\&. "
 .ti -1c
-.RI "enum \fBOPA_SETUP::GAIN_NONINV_e\fP { \fBOPA_SETUP::GAIN_1_06\fP, \fBOPA_SETUP::GAIN_1_14\fP, \fBOPA_SETUP::GAIN_1_33\fP, \fBOPA_SETUP::GAIN_2\fP, \fBOPA_SETUP::GAIN_2_67\fP, \fBOPA_SETUP::GAIN_4\fP, \fBOPA_SETUP::GAIN_8\fP, \fBOPA_SETUP::GAIN_16\fP }"
+.RI "enum \fBmln_opamp_mode_t\fP { \fBMLN_OPAMP_MODE_DIRECT\fP = 0, \fBMLN_OPAMP_MODE_FOLLOWER\fP, \fBMLN_OPAMP_MODE_NONINVERTING\fP, \fBMLN_OPAMP_MODE_INVERTING\fP }"
 .br
+.RI "Opamp mode selection enum\&. "
 .ti -1c
-.RI "enum \fBOPA_SETUP::GAIN_INV_e\fP { \fBOPA_SETUP::GAIN_INV_0_06\fP, \fBOPA_SETUP::GAIN_INV_0_14\fP, \fBOPA_SETUP::GAIN_INV_0_33\fP, \fBOPA_SETUP::GAIN_INV_1\fP, \fBOPA_SETUP::GAIN_INV_1_67\fP, \fBOPA_SETUP::GAIN_INV_3\fP, \fBOPA_SETUP::GAIN_INV_7\fP, \fBOPA_SETUP::GAIN_INV_15\fP }"
+.RI "enum \fBmln_opamp_direct_in_pos_t\fP { \fBMLN_OPAMP_DIRECT_IN_POS_INP\fP = 0, \fBMLN_OPAMP_DIRECT_IN_POS_WIP\fP, \fBMLN_OPAMP_DIRECT_IN_POS_DAC\fP, \fBMLN_OPAMP_DIRECT_IN_POS_GND\fP, \fBMLN_OPAMP_DIRECT_IN_POS_VDDDIV2\fP, \fBMLN_OPAMP_DIRECT_IN_POS_LINKOUT\fP, \fBMLN_OPAMP_DIRECT_IN_POS_LINKWIP\fP }"
 .br
+.RI "Opamp positive input selection enum (direct mode) "
 .ti -1c
-.RI "enum \fBOPA_SETUP::PIN_e\fP { \fBOPA_SETUP::PIN_INN\fP, \fBOPA_SETUP::PIN_INP\fP, \fBOPA_SETUP::PIN_OUT\fP }"
+.RI "enum \fBmln_opamp_direct_in_neg_t\fP { \fBMLN_OPAMP_DIRECT_IN_NEG_INN\fP = 0, \fBMLN_OPAMP_DIRECT_IN_NEG_WIP\fP, \fBMLN_OPAMP_DIRECT_IN_NEG_OUT\fP, \fBMLN_OPAMP_DIRECT_IN_NEG_DAC\fP }"
 .br
+.RI "Opamp negative input selection enum (direct mode) "
 .ti -1c
-.RI "enum \fBOPA_SETUP::MUX_e\fP { \fBOPA_SETUP::MUXNEG\fP, \fBOPA_SETUP::MUXPOS\fP, \fBOPA_SETUP::MUXTOP\fP, \fBOPA_SETUP::MUXBOT\fP, \fBOPA_SETUP::MUXWIP\fP }"
+.RI "enum \fBmln_opamp_follower_in_t\fP { \fBMLN_OPAMP_FOLLOWER_IN_INP\fP = 0, \fBMLN_OPAMP_FOLLOWER_IN_WIP\fP, \fBMLN_OPAMP_FOLLOWER_IN_DAC\fP, \fBMLN_OPAMP_FOLLOWER_IN_GND\fP, \fBMLN_OPAMP_FOLLOWER_IN_VDDDIV2\fP, \fBMLN_OPAMP_FOLLOWER_IN_LINKOUT\fP, \fBMLN_OPAMP_FOLLOWER_IN_LINKWIP\fP }"
 .br
+.RI "Opamp input selection enum (follower mode) "
 .ti -1c
-.RI "enum \fBOPA_SETUP::MUXNEG_IN_e\fP { \fBOPA_SETUP::MUXNEG_INN\fP, \fBOPA_SETUP::MUXNEG_WIP\fP, \fBOPA_SETUP::MUXNEG_OUT\fP, \fBOPA_SETUP::MUXNEG_DAC\fP }"
+.RI "enum \fBmln_opamp_noninverting_in_t\fP { \fBMLN_OPAMP_NONINVERTING_IN_INP\fP = 0, \fBMLN_OPAMP_NONINVERTING_IN_WIP\fP, \fBMLN_OPAMP_NONINVERTING_IN_DAC\fP, \fBMLN_OPAMP_NONINVERTING_IN_GND\fP, \fBMLN_OPAMP_NONINVERTING_IN_VDDDIV2\fP, \fBMLN_OPAMP_NONINVERTING_IN_LINKOUT\fP, \fBMLN_OPAMP_NONINVERTING_IN_LINKWIP\fP }"
 .br
+.RI "Opamp input selection enum (non-inverting mode) "
 .ti -1c
-.RI "enum \fBOPA_SETUP::MUXPOS_IN_e\fP { \fBOPA_SETUP::MUXPOS_INP\fP, \fBOPA_SETUP::MUXPOS_WIP\fP, \fBOPA_SETUP::MUXPOS_DAC\fP, \fBOPA_SETUP::MUXPOS_GND\fP, \fBOPA_SETUP::MUXPOS_VDDDIV2\fP, \fBOPA_SETUP::MUXPOS_LINKOUT\fP, \fBOPA_SETUP::MUXPOS_LINKWIP\fP }"
+.RI "enum \fBmln_opamp_inverting_in_pos_t\fP { \fBMLN_OPAMP_INVERTING_IN_POS_INP\fP = 0, \fBMLN_OPAMP_INVERTING_IN_POS_WIP\fP, \fBMLN_OPAMP_INVERTING_IN_POS_DAC\fP, \fBMLN_OPAMP_INVERTING_IN_POS_GND\fP, \fBMLN_OPAMP_INVERTING_IN_POS_VDDDIV2\fP, \fBMLN_OPAMP_INVERTING_IN_POS_LINKOUT\fP, \fBMLN_OPAMP_INVERTING_IN_POS_LINKWIP\fP }"
 .br
+.RI "Opamp positive input selection enum (inverting mode) "
 .ti -1c
-.RI "enum \fBOPA_SETUP::MUXTOP_IN_e\fP { \fBOPA_SETUP::MUXTOP_OFF\fP, \fBOPA_SETUP::MUXTOP_OUT\fP, \fBOPA_SETUP::MUXTOP_VDD\fP }"
+.RI "enum \fBmln_opamp_inverting_in_neg_t\fP { \fBMLN_OPAMP_INVERTING_IN_NEG_INP\fP = (1 << 4), \fBMLN_OPAMP_INVERTING_IN_NEG_INN\fP, \fBMLN_OPAMP_INVERTING_IN_NEG_DAC\fP, \fBMLN_OPAMP_INVERTING_IN_NEG_LINKOUT\fP, \fBMLN_OPAMP_INVERTING_IN_NEG_GND\fP }"
 .br
+.RI "Opamp negative input selection enum (inverting mode) "
 .ti -1c
-.RI "enum \fBOPA_SETUP::MUXBOT_IN_e\fP { \fBOPA_SETUP::MUXBOT_OFF\fP, \fBOPA_SETUP::MUXBOT_INP\fP, \fBOPA_SETUP::MUXBOT_INN\fP, \fBOPA_SETUP::MUXBOT_DAC\fP, \fBOPA_SETUP::MUXBOT_LINKOUT\fP, \fBOPA_SETUP::MUXBOT_GND\fP }"
+.RI "enum \fBmln_opamp_gain_noninverting_t\fP { \fBMLN_OPAMP_GAIN_NONINVERTING_1_06\fP = (0 << 5), \fBMLN_OPAMP_GAIN_NONINVERTING_1_14\fP = (1 << 5), \fBMLN_OPAMP_GAIN_NONINVERTING_1_33\fP = (2 << 5), \fBMLN_OPAMP_GAIN_NONINVERTING_2\fP = (3 << 5), \fBMLN_OPAMP_GAIN_NONINVERTING_2_67\fP = (4 << 5), \fBMLN_OPAMP_GAIN_NONINVERTING_4\fP = (5 << 5), \fBMLN_OPAMP_GAIN_NONINVERTING_8\fP = (6 << 5), \fBMLN_OPAMP_GAIN_NONINVERTING_16\fP = (7 << 5) }"
 .br
+.RI "Opamp gain selection enum (non-inverting mode) "
 .ti -1c
-.RI "enum \fBOPA_SETUP::MUXWIP_IN_e\fP { \fBOPA_SETUP::MUXWIP_WIP0\fP, \fBOPA_SETUP::MUXWIP_WIP1\fP, \fBOPA_SETUP::MUXWIP_WIP2\fP, \fBOPA_SETUP::MUXWIP_WIP3\fP, \fBOPA_SETUP::MUXWIP_WIP4\fP, \fBOPA_SETUP::MUXWIP_WIP5\fP, \fBOPA_SETUP::MUXWIP_WIP6\fP, \fBOPA_SETUP::MUXWIP_WIP7\fP }"
+.RI "enum \fBmln_opamp_gain_inverting_t\fP { \fBMLN_OPAMP_GAIN_INVERTING_0_06\fP = (0 << 5), \fBMLN_OPAMP_GAIN_INVERTING_0_14\fP = (1 << 5), \fBMLN_OPAMP_GAIN_INVERTING_0_33\fP = (2 << 5), \fBMLN_OPAMP_GAIN_INVERTING_1\fP = (3 << 5), \fBMLN_OPAMP_GAIN_INVERTING_1_67\fP = (4 << 5), \fBMLN_OPAMP_GAIN_INVERTING_3\fP = (5 << 5), \fBMLN_OPAMP_GAIN_INVERTING_7\fP = (6 << 5), \fBMLN_OPAMP_GAIN_INVERTING_15\fP = (7 << 5) }"
 .br
+.RI "Opamp gain selection enum (inverting mode) "
 .in -1c
-.SH "Typedef Documentation"
-.PP 
-.SS "typedef struct \fBOPAMP_SETUP_s\fP \fBOPAMP_SETUP_t\fP"
+.SS "Functions"
 
+.in +1c
+.ti -1c
+.RI "const void \fBmln_opamp::init_resmux\fP (const \fBmln_opamp_device_t\fP &opamp, const uint8_t &muxbot, const uint8_t &muxwip, const uint8_t &muxtop)"
+.br
+.RI "Helper function to set the RESMUX register\&. "
+.ti -1c
+.RI "const void \fBmln_opamp::init_inmux\fP (const \fBmln_opamp_device_t\fP &opamp, const uint8_t &muxpos, const uint8_t &muxneg)"
+.br
+.RI "Helper function to set the INMUX register\&. "
+.ti -1c
+.RI "const void \fBmln_opamp::enable\fP (const \fBmln_opamp_device_t\fP &opamp, const bool runstdby, const bool output, const bool lowpower)"
+.br
+.RI "Helper function to enable the opamp\&. "
+.ti -1c
+.RI "const void \fBmln_opamp::enable\fP (void)"
+.br
+.RI "Enable Opamp peripheral\&. "
+.ti -1c
+.RI "const void \fBmln_opamp::disable\fP (void)"
+.br
+.RI "Disable Opamp peripheral\&. "
+.ti -1c
+.RI "const void \fBmln_opamp::init\fP (const \fBmln_opamp_direct_init_t\fP &init)"
+.br
+.RI "Construct a new \fBmln_opamp\fP object (direct) "
+.ti -1c
+.RI "const void \fBmln_opamp::init\fP (const \fBmln_opamp_follower_init_t\fP &init)"
+.br
+.RI "Construct a new \fBmln_opamp\fP object (follower) "
+.ti -1c
+.RI "const void \fBmln_opamp::init\fP (const \fBmln_opamp_noninverting_init_t\fP &init)"
+.br
+.RI "Construct a new \fBmln_opamp\fP object (non-inverting) "
+.ti -1c
+.RI "const void \fBmln_opamp::init\fP (const \fBmln_opamp_inverting_init_t\fP &init)"
+.br
+.RI "Construct a new \fBmln_opamp\fP object (inverting) "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This peripheral are general purpose opamps which can be configured in various ways, including resistor ladders\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Cédric Hirschi (cedr02@live.com) 
+.RE
+.PP
+\fBVersion\fP
+.RS 4
+0\&.1 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+2023-04-27
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+Copyright (c) 2023 
+.RE
+.PP
+
+.PP
+Definition in file \fBmln_opamp\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MLN_OPAMP_MUXBOT_DAC   (3 << 2)"
+
+.PP
+Definition at line \fB22\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXBOT_GND   (5 << 2)"
+
+.PP
+Definition at line \fB24\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXBOT_INN   (2 << 2)"
+
+.PP
+Definition at line \fB21\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXBOT_INP   (1 << 2)"
+
+.PP
+Definition at line \fB20\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXBOT_LINKOUT   (4 << 2)"
+
+.PP
+Definition at line \fB23\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXNEG_DAC   (3 << 4)"
+
+.PP
+Definition at line \fB37\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXNEG_INN   (0 << 4)"
+
+.PP
+Definition at line \fB34\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXNEG_OUT   (2 << 4)"
+
+.PP
+Definition at line \fB36\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXNEG_WIP   (1 << 4)"
+
+.PP
+Definition at line \fB35\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXPOS_DAC   2"
+
+.PP
+Definition at line \fB28\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXPOS_GND   3"
+
+.PP
+Definition at line \fB29\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXPOS_INP   0"
+
+.PP
+Definition at line \fB26\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXPOS_LINKOUT   5"
+
+.PP
+Definition at line \fB31\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXPOS_LINKWIP   6"
+
+.PP
+Definition at line \fB32\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXPOS_VDDDIV2   4"
+
+.PP
+Definition at line \fB30\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXPOS_WIP   1"
+
+.PP
+Definition at line \fB27\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXTOP_OUT   1"
+
+.PP
+Definition at line \fB17\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_MUXTOP_VDD   2"
+
+.PP
+Definition at line \fB18\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "#define MLN_OPAMP_TIMEBASE_US   (ceil(F_CPU / 1000000\&.0) \- 1)"
+
+.PP
+Opamp timebase calculation macro\&. 
+.PP
+Definition at line \fB43\fP of file \fBmln_opamp\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBmln_opamp_device_t\fP"
+
+.PP
+Opamp device selection enum\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMLN_OPAMP_DEVICE_0 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_DEVICE_1 \fP\fP
+.PP
+Definition at line \fB49\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "enum \fBmln_opamp_direct_in_neg_t\fP"
+
+.PP
+Opamp negative input selection enum (direct mode) 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMLN_OPAMP_DIRECT_IN_NEG_INN \fP\fP
+.TP
+\fB\fIMLN_OPAMP_DIRECT_IN_NEG_WIP \fP\fP
+.TP
+\fB\fIMLN_OPAMP_DIRECT_IN_NEG_OUT \fP\fP
+.TP
+\fB\fIMLN_OPAMP_DIRECT_IN_NEG_DAC \fP\fP
+.PP
+Definition at line \fB89\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "enum \fBmln_opamp_direct_in_pos_t\fP"
+
+.PP
+Opamp positive input selection enum (direct mode) 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMLN_OPAMP_DIRECT_IN_POS_INP \fP\fP
+.TP
+\fB\fIMLN_OPAMP_DIRECT_IN_POS_WIP \fP\fP
+.TP
+\fB\fIMLN_OPAMP_DIRECT_IN_POS_DAC \fP\fP
+.TP
+\fB\fIMLN_OPAMP_DIRECT_IN_POS_GND \fP\fP
+.TP
+\fB\fIMLN_OPAMP_DIRECT_IN_POS_VDDDIV2 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_DIRECT_IN_POS_LINKOUT \fP\fP
+.TP
+\fB\fIMLN_OPAMP_DIRECT_IN_POS_LINKWIP \fP\fP
+.PP
+Definition at line \fB74\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "enum \fBmln_opamp_follower_in_t\fP"
+
+.PP
+Opamp input selection enum (follower mode) 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMLN_OPAMP_FOLLOWER_IN_INP \fP\fP
+.TP
+\fB\fIMLN_OPAMP_FOLLOWER_IN_WIP \fP\fP
+.TP
+\fB\fIMLN_OPAMP_FOLLOWER_IN_DAC \fP\fP
+.TP
+\fB\fIMLN_OPAMP_FOLLOWER_IN_GND \fP\fP
+.TP
+\fB\fIMLN_OPAMP_FOLLOWER_IN_VDDDIV2 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_FOLLOWER_IN_LINKOUT \fP\fP
+.TP
+\fB\fIMLN_OPAMP_FOLLOWER_IN_LINKWIP \fP\fP
+.PP
+Definition at line \fB101\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "enum \fBmln_opamp_gain_inverting_t\fP"
+
+.PP
+Opamp gain selection enum (inverting mode) 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMLN_OPAMP_GAIN_INVERTING_0_06 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_GAIN_INVERTING_0_14 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_GAIN_INVERTING_0_33 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_GAIN_INVERTING_1 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_GAIN_INVERTING_1_67 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_GAIN_INVERTING_3 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_GAIN_INVERTING_7 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_GAIN_INVERTING_15 \fP\fP
+.PP
+Definition at line \fB175\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "enum \fBmln_opamp_gain_noninverting_t\fP"
+
+.PP
+Opamp gain selection enum (non-inverting mode) 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMLN_OPAMP_GAIN_NONINVERTING_1_06 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_GAIN_NONINVERTING_1_14 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_GAIN_NONINVERTING_1_33 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_GAIN_NONINVERTING_2 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_GAIN_NONINVERTING_2_67 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_GAIN_NONINVERTING_4 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_GAIN_NONINVERTING_8 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_GAIN_NONINVERTING_16 \fP\fP
+.PP
+Definition at line \fB159\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "enum \fBmln_opamp_inverting_in_neg_t\fP"
+
+.PP
+Opamp negative input selection enum (inverting mode) 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMLN_OPAMP_INVERTING_IN_NEG_INP \fP\fP
+.TP
+\fB\fIMLN_OPAMP_INVERTING_IN_NEG_INN \fP\fP
+.TP
+\fB\fIMLN_OPAMP_INVERTING_IN_NEG_DAC \fP\fP
+.TP
+\fB\fIMLN_OPAMP_INVERTING_IN_NEG_LINKOUT \fP\fP
+.TP
+\fB\fIMLN_OPAMP_INVERTING_IN_NEG_GND \fP\fP
+.PP
+Definition at line \fB146\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "enum \fBmln_opamp_inverting_in_pos_t\fP"
+
+.PP
+Opamp positive input selection enum (inverting mode) 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMLN_OPAMP_INVERTING_IN_POS_INP \fP\fP
+.TP
+\fB\fIMLN_OPAMP_INVERTING_IN_POS_WIP \fP\fP
+.TP
+\fB\fIMLN_OPAMP_INVERTING_IN_POS_DAC \fP\fP
+.TP
+\fB\fIMLN_OPAMP_INVERTING_IN_POS_GND \fP\fP
+.TP
+\fB\fIMLN_OPAMP_INVERTING_IN_POS_VDDDIV2 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_INVERTING_IN_POS_LINKOUT \fP\fP
+.TP
+\fB\fIMLN_OPAMP_INVERTING_IN_POS_LINKWIP \fP\fP
+.PP
+Definition at line \fB131\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "enum \fBmln_opamp_mode_t\fP"
+
+.PP
+Opamp mode selection enum\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMLN_OPAMP_MODE_DIRECT \fP\fP
+.TP
+\fB\fIMLN_OPAMP_MODE_FOLLOWER \fP\fP
+.TP
+\fB\fIMLN_OPAMP_MODE_NONINVERTING \fP\fP
+.TP
+\fB\fIMLN_OPAMP_MODE_INVERTING \fP\fP
+.PP
+Definition at line \fB62\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "enum \fBmln_opamp_noninverting_in_t\fP"
+
+.PP
+Opamp input selection enum (non-inverting mode) 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMLN_OPAMP_NONINVERTING_IN_INP \fP\fP
+.TP
+\fB\fIMLN_OPAMP_NONINVERTING_IN_WIP \fP\fP
+.TP
+\fB\fIMLN_OPAMP_NONINVERTING_IN_DAC \fP\fP
+.TP
+\fB\fIMLN_OPAMP_NONINVERTING_IN_GND \fP\fP
+.TP
+\fB\fIMLN_OPAMP_NONINVERTING_IN_VDDDIV2 \fP\fP
+.TP
+\fB\fIMLN_OPAMP_NONINVERTING_IN_LINKOUT \fP\fP
+.TP
+\fB\fIMLN_OPAMP_NONINVERTING_IN_LINKWIP \fP\fP
+.PP
+Definition at line \fB116\fP of file \fBmln_opamp\&.h\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for mlnlib from the source code\&.

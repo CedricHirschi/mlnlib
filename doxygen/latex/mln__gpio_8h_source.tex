@@ -2,196 +2,155 @@
 \label{mln__gpio_8h_source}\index{mlnlib/mln/mln\_gpio.h@{mlnlib/mln/mln\_gpio.h}}
 \mbox{\hyperlink{mln__gpio_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00001}00001\ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00002}00002\ \textcolor{comment}{*\ mln\_gpio.h}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00003}00003\ \textcolor{comment}{*}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00004}00004\ \textcolor{comment}{*\ Created:\ 03.04.2023\ 11:41:24}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00005}00005\ \textcolor{comment}{*\ Author:\ cedr0}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00006}00006\ \textcolor{comment}{*/}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00007}00007\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00008}00008\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00009}00009\ \textcolor{preprocessor}{\#ifndef\ \_\_MLN\_GPIO\_H\_\_}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00010}00010\ \textcolor{preprocessor}{\#define\ \_\_MLN\_GPIO\_H\_\_}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00011}00011\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <avr/io.h>}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00012}00012\ \textcolor{preprocessor}{\#ifndef\ \_\_MLN\_GPIO\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00013}00013\ \textcolor{preprocessor}{\#define\ \_\_MLN\_GPIO\_H\_\_}}
 \DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00014}00014\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00015}00015\ \textcolor{comment}{//\ define\ all\ pins\ of\ the\ MCU\ (PA0\ -\/\ PA7,\ ...\ ,\ PG0\ -\/\ PG7)\ as\ PIN\_t\ define\ each\ port\ only\ if\ PORT\ is\ defined\ in\ the\ device\ header\ file}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00016}00016\ \textcolor{preprocessor}{\#ifdef\ PORTA}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00017}00017\ \textcolor{preprocessor}{\#define\ PA0\ (PIN\_t)\{\&PORTA,\ 0\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00018}00018\ \textcolor{preprocessor}{\#define\ PA1\ (PIN\_t)\{\&PORTA,\ 1\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00019}00019\ \textcolor{preprocessor}{\#define\ PA2\ (PIN\_t)\{\&PORTA,\ 2\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ PA3\ (PIN\_t)\{\&PORTA,\ 3\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00021}00021\ \textcolor{preprocessor}{\#define\ PA4\ (PIN\_t)\{\&PORTA,\ 4\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00022}00022\ \textcolor{preprocessor}{\#define\ PA5\ (PIN\_t)\{\&PORTA,\ 5\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00023}00023\ \textcolor{preprocessor}{\#define\ PA6\ (PIN\_t)\{\&PORTA,\ 6\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00024}00024\ \textcolor{preprocessor}{\#define\ PA7\ (PIN\_t)\{\&PORTA,\ 7\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00025}00025\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00027}00027\ \textcolor{preprocessor}{\#ifdef\ PORTB}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00028}00028\ \textcolor{preprocessor}{\#define\ PB0\ (PIN\_t)\{\&PORTB,\ 0\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00029}00029\ \textcolor{preprocessor}{\#define\ PB1\ (PIN\_t)\{\&PORTB,\ 1\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00030}00030\ \textcolor{preprocessor}{\#define\ PB2\ (PIN\_t)\{\&PORTB,\ 2\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00031}00031\ \textcolor{preprocessor}{\#define\ PB3\ (PIN\_t)\{\&PORTB,\ 3\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00032}00032\ \textcolor{preprocessor}{\#define\ PB4\ (PIN\_t)\{\&PORTB,\ 4\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00033}00033\ \textcolor{preprocessor}{\#define\ PB5\ (PIN\_t)\{\&PORTB,\ 5\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00034}00034\ \textcolor{preprocessor}{\#define\ PB6\ (PIN\_t)\{\&PORTB,\ 6\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00035}00035\ \textcolor{preprocessor}{\#define\ PB7\ (PIN\_t)\{\&PORTB,\ 7\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00036}00036\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00037}00037\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00038}00038\ \textcolor{preprocessor}{\#ifdef\ PORTC}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00039}00039\ \textcolor{preprocessor}{\#define\ PC0\ (PIN\_t)\{\&PORTC,\ 0\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00040}00040\ \textcolor{preprocessor}{\#define\ PC1\ (PIN\_t)\{\&PORTC,\ 1\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00041}00041\ \textcolor{preprocessor}{\#define\ PC2\ (PIN\_t)\{\&PORTC,\ 2\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00042}00042\ \textcolor{preprocessor}{\#define\ PC3\ (PIN\_t)\{\&PORTC,\ 3\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ PC4\ (PIN\_t)\{\&PORTC,\ 4\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00044}00044\ \textcolor{preprocessor}{\#define\ PC5\ (PIN\_t)\{\&PORTC,\ 5\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00045}00045\ \textcolor{preprocessor}{\#define\ PC6\ (PIN\_t)\{\&PORTC,\ 6\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00046}00046\ \textcolor{preprocessor}{\#define\ PC7\ (PIN\_t)\{\&PORTC,\ 7\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00047}00047\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00048}00048\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00049}00049\ \textcolor{preprocessor}{\#ifdef\ PORTD}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00050}00050\ \textcolor{preprocessor}{\#define\ PD0\ (PIN\_t)\{\&PORTD,\ 0\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00051}00051\ \textcolor{preprocessor}{\#define\ PD1\ (PIN\_t)\{\&PORTD,\ 1\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00052}00052\ \textcolor{preprocessor}{\#define\ PD2\ (PIN\_t)\{\&PORTD,\ 2\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00053}00053\ \textcolor{preprocessor}{\#define\ PD3\ (PIN\_t)\{\&PORTD,\ 3\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00054}00054\ \textcolor{preprocessor}{\#define\ PD4\ (PIN\_t)\{\&PORTD,\ 4\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00055}00055\ \textcolor{preprocessor}{\#define\ PD5\ (PIN\_t)\{\&PORTD,\ 5\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00056}00056\ \textcolor{preprocessor}{\#define\ PD6\ (PIN\_t)\{\&PORTD,\ 6\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00057}00057\ \textcolor{preprocessor}{\#define\ PD7\ (PIN\_t)\{\&PORTD,\ 7\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00058}00058\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00059}00059\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00060}00060\ \textcolor{preprocessor}{\#ifdef\ PORTE}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00061}00061\ \textcolor{preprocessor}{\#define\ PE0\ (PIN\_t)\{\&PORTE,\ 0\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00062}00062\ \textcolor{preprocessor}{\#define\ PE1\ (PIN\_t)\{\&PORTE,\ 1\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00063}00063\ \textcolor{preprocessor}{\#define\ PE2\ (PIN\_t)\{\&PORTE,\ 2\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00064}00064\ \textcolor{preprocessor}{\#define\ PE3\ (PIN\_t)\{\&PORTE,\ 3\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00065}00065\ \textcolor{preprocessor}{\#define\ PE4\ (PIN\_t)\{\&PORTE,\ 4\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00066}00066\ \textcolor{preprocessor}{\#define\ PE5\ (PIN\_t)\{\&PORTE,\ 5\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00067}00067\ \textcolor{preprocessor}{\#define\ PE6\ (PIN\_t)\{\&PORTE,\ 6\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00068}00068\ \textcolor{preprocessor}{\#define\ PE7\ (PIN\_t)\{\&PORTE,\ 7\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00069}00069\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00070}00070\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00071}00071\ \textcolor{preprocessor}{\#ifdef\ PORTF}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00072}00072\ \textcolor{preprocessor}{\#define\ PF0\ (PIN\_t)\{\&PORTF,\ 0\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00073}00073\ \textcolor{preprocessor}{\#define\ PF1\ (PIN\_t)\{\&PORTF,\ 1\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00074}00074\ \textcolor{preprocessor}{\#define\ PF2\ (PIN\_t)\{\&PORTF,\ 2\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00075}00075\ \textcolor{preprocessor}{\#define\ PF3\ (PIN\_t)\{\&PORTF,\ 3\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00076}00076\ \textcolor{preprocessor}{\#define\ PF4\ (PIN\_t)\{\&PORTF,\ 4\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00077}00077\ \textcolor{preprocessor}{\#define\ PF5\ (PIN\_t)\{\&PORTF,\ 5\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00078}00078\ \textcolor{preprocessor}{\#define\ PF6\ (PIN\_t)\{\&PORTF,\ 6\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00079}00079\ \textcolor{preprocessor}{\#define\ PF7\ (PIN\_t)\{\&PORTF,\ 7\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00080}00080\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00081}00081\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00082}00082\ \textcolor{preprocessor}{\#ifdef\ PORTG}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00083}00083\ \textcolor{preprocessor}{\#define\ PG0\ (PIN\_t)\{\&PORTG,\ 0\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00084}00084\ \textcolor{preprocessor}{\#define\ PG1\ (PIN\_t)\{\&PORTG,\ 1\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00085}00085\ \textcolor{preprocessor}{\#define\ PG2\ (PIN\_t)\{\&PORTG,\ 2\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00086}00086\ \textcolor{preprocessor}{\#define\ PG3\ (PIN\_t)\{\&PORTG,\ 3\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00087}00087\ \textcolor{preprocessor}{\#define\ PG4\ (PIN\_t)\{\&PORTG,\ 4\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00088}00088\ \textcolor{preprocessor}{\#define\ PG5\ (PIN\_t)\{\&PORTG,\ 5\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00089}00089\ \textcolor{preprocessor}{\#define\ PG6\ (PIN\_t)\{\&PORTG,\ 6\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00090}00090\ \textcolor{preprocessor}{\#define\ PG7\ (PIN\_t)\{\&PORTG,\ 7\}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00091}00091\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00092}00092\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00093}\mbox{\hyperlink{struct_p_i_n__t}{00093}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00094}00094\ \{}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00095}\mbox{\hyperlink{struct_p_i_n__t_ac1e997b008a77fe37b269da6e69dad5b}{00095}}\ \ \ \ \ \textcolor{keyword}{volatile}\ PORT\_t\ *\mbox{\hyperlink{struct_p_i_n__t_ac1e997b008a77fe37b269da6e69dad5b}{port}};}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00096}\mbox{\hyperlink{struct_p_i_n__t_a213da0d720ac0499f07b7fb44b5b51ce}{00096}}\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_p_i_n__t_a213da0d720ac0499f07b7fb44b5b51ce}{pin\_num}};}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00097}00097\ \}\ \mbox{\hyperlink{struct_p_i_n__t}{PIN\_t}};}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00098}00098\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00099}\mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}{00099}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00100}00100\ \{}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00101}\mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda2ab08d3e103968f5f4f26b66a52e99d6}{00101}}\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda2ab08d3e103968f5f4f26b66a52e99d6}{OUTPUT}},}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00102}\mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fdae310c909d76b003d016bef8bdf16936a}{00102}}\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fdae310c909d76b003d016bef8bdf16936a}{INPUT}},}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00103}00103\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda851c2ac60276ada62e8d9ba216c7a487}{INPUT\_PULLUP}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00104}\mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda851c2ac60276ada62e8d9ba216c7a487}{00104}}\ \}\ \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}{PIN\_DIR\_t}};}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00105}00105\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00106}\mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020}{00106}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00107}00107\ \{}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00108}\mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a40f39385238042f6ec0cbac821a19fc4}{00108}}\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a40f39385238042f6ec0cbac821a19fc4}{DISABLED}},}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00109}\mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a1c6e097f5d1eb37e8627a2fea2ce6b8d}{00109}}\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a1c6e097f5d1eb37e8627a2fea2ce6b8d}{BOTHEDGES}},}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00110}\mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020ad93abe7aced82e9a4fcac4127a36ece3}{00110}}\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020ad93abe7aced82e9a4fcac4127a36ece3}{RISING}},}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00111}\mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020ad24712a6a30c1d431b927d1ba2f84b66}{00111}}\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020ad24712a6a30c1d431b927d1ba2f84b66}{FALLING}},}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00112}00112\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a31b72f97fff0dd57a7ba86e9f8fcbc06}{LOWLEVEL}}\ =\ 5}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00113}\mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020a31b72f97fff0dd57a7ba86e9f8fcbc06}{00113}}\ \}\ \mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020}{PIN\_ISC\_t}};}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <avr/io.h>}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00017}00017\ \textcolor{preprocessor}{\#ifdef\ PORTA}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00018}00018\ \textcolor{preprocessor}{\#define\ PA0\ (mln\_pin\_t)\{\&PORTA,\ 0\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00019}00019\ \textcolor{preprocessor}{\#define\ PA1\ (mln\_pin\_t)\{\&PORTA,\ 1\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ PA2\ (mln\_pin\_t)\{\&PORTA,\ 2\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00021}00021\ \textcolor{preprocessor}{\#define\ PA3\ (mln\_pin\_t)\{\&PORTA,\ 3\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00022}00022\ \textcolor{preprocessor}{\#define\ PA4\ (mln\_pin\_t)\{\&PORTA,\ 4\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00023}00023\ \textcolor{preprocessor}{\#define\ PA5\ (mln\_pin\_t)\{\&PORTA,\ 5\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00024}00024\ \textcolor{preprocessor}{\#define\ PA6\ (mln\_pin\_t)\{\&PORTA,\ 6\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00025}00025\ \textcolor{preprocessor}{\#define\ PA7\ (mln\_pin\_t)\{\&PORTA,\ 7\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00026}00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00028}00028\ \textcolor{preprocessor}{\#ifdef\ PORTB}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00029}00029\ \textcolor{preprocessor}{\#define\ PB0\ (mln\_pin\_t)\{\&PORTB,\ 0\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00030}00030\ \textcolor{preprocessor}{\#define\ PB1\ (mln\_pin\_t)\{\&PORTB,\ 1\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00031}00031\ \textcolor{preprocessor}{\#define\ PB2\ (mln\_pin\_t)\{\&PORTB,\ 2\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00032}00032\ \textcolor{preprocessor}{\#define\ PB3\ (mln\_pin\_t)\{\&PORTB,\ 3\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00033}00033\ \textcolor{preprocessor}{\#define\ PB4\ (mln\_pin\_t)\{\&PORTB,\ 4\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00034}00034\ \textcolor{preprocessor}{\#define\ PB5\ (mln\_pin\_t)\{\&PORTB,\ 5\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00035}00035\ \textcolor{preprocessor}{\#define\ PB6\ (mln\_pin\_t)\{\&PORTB,\ 6\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00036}00036\ \textcolor{preprocessor}{\#define\ PB7\ (mln\_pin\_t)\{\&PORTB,\ 7\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00037}00037\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00039}00039\ \textcolor{preprocessor}{\#ifdef\ PORTC}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00040}00040\ \textcolor{preprocessor}{\#define\ PC0\ (mln\_pin\_t)\{\&PORTC,\ 0\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00041}00041\ \textcolor{preprocessor}{\#define\ PC1\ (mln\_pin\_t)\{\&PORTC,\ 1\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00042}00042\ \textcolor{preprocessor}{\#define\ PC2\ (mln\_pin\_t)\{\&PORTC,\ 2\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ PC3\ (mln\_pin\_t)\{\&PORTC,\ 3\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00044}00044\ \textcolor{preprocessor}{\#define\ PC4\ (mln\_pin\_t)\{\&PORTC,\ 4\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00045}00045\ \textcolor{preprocessor}{\#define\ PC5\ (mln\_pin\_t)\{\&PORTC,\ 5\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00046}00046\ \textcolor{preprocessor}{\#define\ PC6\ (mln\_pin\_t)\{\&PORTC,\ 6\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00047}00047\ \textcolor{preprocessor}{\#define\ PC7\ (mln\_pin\_t)\{\&PORTC,\ 7\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00048}00048\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00050}00050\ \textcolor{preprocessor}{\#ifdef\ PORTD}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00051}00051\ \textcolor{preprocessor}{\#define\ PD0\ (mln\_pin\_t)\{\&PORTD,\ 0\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00052}00052\ \textcolor{preprocessor}{\#define\ PD1\ (mln\_pin\_t)\{\&PORTD,\ 1\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00053}00053\ \textcolor{preprocessor}{\#define\ PD2\ (mln\_pin\_t)\{\&PORTD,\ 2\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00054}00054\ \textcolor{preprocessor}{\#define\ PD3\ (mln\_pin\_t)\{\&PORTD,\ 3\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00055}00055\ \textcolor{preprocessor}{\#define\ PD4\ (mln\_pin\_t)\{\&PORTD,\ 4\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00056}00056\ \textcolor{preprocessor}{\#define\ PD5\ (mln\_pin\_t)\{\&PORTD,\ 5\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00057}00057\ \textcolor{preprocessor}{\#define\ PD6\ (mln\_pin\_t)\{\&PORTD,\ 6\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00058}00058\ \textcolor{preprocessor}{\#define\ PD7\ (mln\_pin\_t)\{\&PORTD,\ 7\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00059}00059\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00061}00061\ \textcolor{preprocessor}{\#ifdef\ PORTE}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00062}00062\ \textcolor{preprocessor}{\#define\ PE0\ (mln\_pin\_t)\{\&PORTE,\ 0\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00063}00063\ \textcolor{preprocessor}{\#define\ PE1\ (mln\_pin\_t)\{\&PORTE,\ 1\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00064}00064\ \textcolor{preprocessor}{\#define\ PE2\ (mln\_pin\_t)\{\&PORTE,\ 2\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00065}00065\ \textcolor{preprocessor}{\#define\ PE3\ (mln\_pin\_t)\{\&PORTE,\ 3\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00066}00066\ \textcolor{preprocessor}{\#define\ PE4\ (mln\_pin\_t)\{\&PORTE,\ 4\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00067}00067\ \textcolor{preprocessor}{\#define\ PE5\ (mln\_pin\_t)\{\&PORTE,\ 5\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00068}00068\ \textcolor{preprocessor}{\#define\ PE6\ (mln\_pin\_t)\{\&PORTE,\ 6\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00069}00069\ \textcolor{preprocessor}{\#define\ PE7\ (mln\_pin\_t)\{\&PORTE,\ 7\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00070}00070\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00072}00072\ \textcolor{preprocessor}{\#ifdef\ PORTF}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00073}00073\ \textcolor{preprocessor}{\#define\ PF0\ (mln\_pin\_t)\{\&PORTF,\ 0\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00074}00074\ \textcolor{preprocessor}{\#define\ PF1\ (mln\_pin\_t)\{\&PORTF,\ 1\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00075}00075\ \textcolor{preprocessor}{\#define\ PF2\ (mln\_pin\_t)\{\&PORTF,\ 2\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00076}00076\ \textcolor{preprocessor}{\#define\ PF3\ (mln\_pin\_t)\{\&PORTF,\ 3\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00077}00077\ \textcolor{preprocessor}{\#define\ PF4\ (mln\_pin\_t)\{\&PORTF,\ 4\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00078}00078\ \textcolor{preprocessor}{\#define\ PF5\ (mln\_pin\_t)\{\&PORTF,\ 5\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00079}00079\ \textcolor{preprocessor}{\#define\ PF6\ (mln\_pin\_t)\{\&PORTF,\ 6\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00080}00080\ \textcolor{preprocessor}{\#define\ PF7\ (mln\_pin\_t)\{\&PORTF,\ 7\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00081}00081\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00083}00083\ \textcolor{preprocessor}{\#ifdef\ PORTG}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00084}00084\ \textcolor{preprocessor}{\#define\ PG0\ (mln\_pin\_t)\{\&PORTG,\ 0\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00085}00085\ \textcolor{preprocessor}{\#define\ PG1\ (mln\_pin\_t)\{\&PORTG,\ 1\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00086}00086\ \textcolor{preprocessor}{\#define\ PG2\ (mln\_pin\_t)\{\&PORTG,\ 2\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00087}00087\ \textcolor{preprocessor}{\#define\ PG3\ (mln\_pin\_t)\{\&PORTG,\ 3\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00088}00088\ \textcolor{preprocessor}{\#define\ PG4\ (mln\_pin\_t)\{\&PORTG,\ 4\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00089}00089\ \textcolor{preprocessor}{\#define\ PG5\ (mln\_pin\_t)\{\&PORTG,\ 5\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00090}00090\ \textcolor{preprocessor}{\#define\ PG6\ (mln\_pin\_t)\{\&PORTG,\ 6\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00091}00091\ \textcolor{preprocessor}{\#define\ PG7\ (mln\_pin\_t)\{\&PORTG,\ 7\}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00092}00092\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00098}\mbox{\hyperlink{structmln__pin__t}{00098}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00099}00099\ \{}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00100}\mbox{\hyperlink{structmln__pin__t_acb218068b34c351c9cd6824d105475b5}{00100}}\ \ \ \ \ \textcolor{keyword}{volatile}\ PORT\_t\ *\mbox{\hyperlink{structmln__pin__t_acb218068b34c351c9cd6824d105475b5}{port}};}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00101}\mbox{\hyperlink{structmln__pin__t_a15b083d2cc20d9d9ae3d51b7d4d60c79}{00101}}\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structmln__pin__t_a15b083d2cc20d9d9ae3d51b7d4d60c79}{pin\_num}};}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00102}00102\ \}\ \mbox{\hyperlink{structmln__pin__t}{mln\_pin\_t}};}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00108}\mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ff}{00108}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00109}00109\ \{}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00110}\mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffa1b3e51e05bb8ee323f13de27944188a1}{00110}}\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffa1b3e51e05bb8ee323f13de27944188a1}{MLN\_GPIO\_DIR\_OUTPUT}}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00111}\mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffad40bc076b4fe2b96519c9fdffd537350}{00111}}\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffad40bc076b4fe2b96519c9fdffd537350}{MLN\_GPIO\_DIR\_INPUT}},}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00112}00112\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffa2ee2e3980d3b90d98e24fd0188d6c746}{MLN\_GPIO\_DIR\_INPUT\_PULLUP}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00113}\mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffa2ee2e3980d3b90d98e24fd0188d6c746}{00113}}\ \}\ \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ff}{mln\_gpio\_dir\_t}};}
 \DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00114}00114\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00115}\mbox{\hyperlink{classmln__gpio}{00115}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmln__gpio}{mln\_gpio}}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00116}00116\ \{}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00117}00117\ \ \ \ \ \textcolor{keyword}{volatile}\ PORT\_t\ *port;}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00118}00118\ \ \ \ \ \textcolor{keyword}{volatile}\ uint8\_t\ *pin\_conf;}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00119}00119\ \ \ \ \ uint8\_t\ pin\_num;}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00120}00120\ \ \ \ \ uint8\_t\ pin\_bm;}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00121}00121\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00122}00122\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00123}\mbox{\hyperlink{classmln__gpio_ae5f3e9e14f4c417a62638716798989c5}{00123}}\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmln__gpio_ae5f3e9e14f4c417a62638716798989c5}{mln\_gpio}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00124}\mbox{\hyperlink{classmln__gpio_a9cb1217c332eaa22b60508b580025f9c}{00124}}\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmln__gpio_a9cb1217c332eaa22b60508b580025f9c}{mln\_gpio}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_p_i_n__t}{PIN\_t}}\&\ new\_pin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}{PIN\_DIR\_t}}\&\ dir,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ inv\ =\ \textcolor{keyword}{false})}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00125}00125\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ port\ =\ new\_pin.\mbox{\hyperlink{struct_p_i_n__t_ac1e997b008a77fe37b269da6e69dad5b}{port}};}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ pin\_num\ =\ new\_pin.\mbox{\hyperlink{struct_p_i_n__t_a213da0d720ac0499f07b7fb44b5b51ce}{pin\_num}};}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00128}00128\ \ \ \ \ \ \ \ \ pin\_bm\ =\ (1\ <<\ pin\_num);}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00129}00129\ \ \ \ \ \ \ \ \ pin\_conf\ =\ (uint8\_t\ *)port\ +\ 0x10\ +\ pin\_num;}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00130}00130\ \ \ \ \ \ \ \ \ *pin\_conf\ =\ PORT\_INVEN\_bm\ *\ inv;}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00131}00131\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00132}00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmln__gpio_ac4899358f5b24cdc467c7929182461f6}{conf\_dir}}(dir);}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00133}00133\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmln__gpio_ab8f369bba20e8a27950f330e8ee0e3d4}{conf\_pull}}(dir);}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00134}00134\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00135}00135\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00136}00136\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00137}00137\ \textcolor{comment}{\ \ \ \ *\ @brief\ Attach\ interrupt\ to\ pin}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00138}00138\ \textcolor{comment}{\ \ \ \ *}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00139}00139\ \textcolor{comment}{\ \ \ \ *\ @param\ dir\ Interrupt\ type}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00140}00140\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00141}\mbox{\hyperlink{classmln__gpio_afd218d68669b4156401a72225532cc12}{00141}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__gpio_afd218d68669b4156401a72225532cc12}{attach\_interrupt}}(\mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020}{PIN\_ISC\_t}}\ dir)\ \{\ *pin\_conf\ =\ (*pin\_conf\ \&\ 0xF8)\ |\ dir;\ \}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00142}00142\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00143}00143\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00144}00144\ \textcolor{comment}{\ \ \ \ *\ @brief\ Set\ pin\ to\ HIGH}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00145}00145\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00146}\mbox{\hyperlink{classmln__gpio_a6658a4ffd79c21c982ca896521db7386}{00146}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__gpio_a6658a4ffd79c21c982ca896521db7386}{set}}(\textcolor{keywordtype}{void})\ \{\ port-\/>OUTSET\ =\ pin\_bm;\ \}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00147}00147\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00148}00148\ \textcolor{comment}{\ \ \ \ *\ @brief\ Clear\ pin\ to\ LOW}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00149}00149\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00150}\mbox{\hyperlink{classmln__gpio_a0aa0cdb1d45809203f26c801dfac2a09}{00150}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__gpio_a0aa0cdb1d45809203f26c801dfac2a09}{clear}}(\textcolor{keywordtype}{void})\ \{\ port-\/>OUTCLR\ =\ pin\_bm;\ \}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00151}00151\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00152}00152\ \textcolor{comment}{\ \ \ \ *\ @brief\ Toggle\ pin\ value}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00153}00153\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00154}\mbox{\hyperlink{classmln__gpio_ac9e4e237a5fd9383a3c3f86187bf3903}{00154}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__gpio_ac9e4e237a5fd9383a3c3f86187bf3903}{toggle}}(\textcolor{keywordtype}{void})\ \{\ port-\/>OUTTGL\ =\ pin\_bm;\ \}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00155}00155\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00156}00156\ \textcolor{comment}{\ \ \ \ *\ @brief\ Put\ value\ on\ pin}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00157}00157\ \textcolor{comment}{\ \ \ \ *}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00158}00158\ \textcolor{comment}{\ \ \ \ *\ @param\ val\ Value\ to\ put\ on\ pin}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00159}00159\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00160}\mbox{\hyperlink{classmln__gpio_a0bb9556f20f7246d0b8c17bf011da273}{00160}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__gpio_a0bb9556f20f7246d0b8c17bf011da273}{put}}(\textcolor{keywordtype}{bool}\ val)\ \{\ (val\ ?\ port-\/>OUTSET\ :\ port-\/>OUTCLR)\ =\ pin\_bm;\ \}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00161}00161\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00162}00162\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00163}00163\ \textcolor{comment}{\ \ \ \ *\ @brief\ Get\ value\ of\ pin}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00164}00164\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00165}\mbox{\hyperlink{classmln__gpio_a39a371791690744ad8331f14619631f8}{00165}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmln__gpio_a39a371791690744ad8331f14619631f8}{get}}(\textcolor{keywordtype}{void})\ \{\ \textcolor{keywordflow}{return}\ port-\/>IN\ \&\ pin\_bm;\ \}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00166}00166\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00167}00167\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00168}00168\ \textcolor{comment}{\ \ \ \ *\ @brief\ Configure\ direction\ of\ pin}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00169}00169\ \textcolor{comment}{\ \ \ \ *}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00170}00170\ \textcolor{comment}{\ \ \ \ *\ @param\ dir\ Direction\ to\ be\ set}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00171}00171\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00172}\mbox{\hyperlink{classmln__gpio_ac4899358f5b24cdc467c7929182461f6}{00172}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__gpio_ac4899358f5b24cdc467c7929182461f6}{conf\_dir}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}{PIN\_DIR\_t}}\&\ dir)}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00173}00173\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(dir\ ==\ \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda2ab08d3e103968f5f4f26b66a52e99d6}{OUTPUT}})\ port-\/>DIR\ |=\ pin\_bm;}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00175}00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ port-\/>DIR\ \&=\ \string~pin\_bm;}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00176}00176\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00177}00177\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmln__gpio_ab8f369bba20e8a27950f330e8ee0e3d4}{conf\_pull}}(dir);}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00178}00178\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00179}00179\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00180}00180\ \textcolor{comment}{\ \ \ \ *\ @brief\ Configure\ pull\ of\ pin}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00181}00181\ \textcolor{comment}{\ \ \ \ *}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00182}00182\ \textcolor{comment}{\ \ \ \ *\ @param\ pull\ Direction\ to\ be\ set}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00183}00183\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00184}\mbox{\hyperlink{classmln__gpio_ab8f369bba20e8a27950f330e8ee0e3d4}{00184}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__gpio_ab8f369bba20e8a27950f330e8ee0e3d4}{conf\_pull}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}{PIN\_DIR\_t}}\&\ pull)}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00185}00185\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00186}00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pull\ ==\ \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda851c2ac60276ada62e8d9ba216c7a487}{INPUT\_PULLUP}})\ *pin\_conf\ |=\ PORT\_PULLUPEN\_bm;}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00187}00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ *pin\_conf\ \&=\ \string~PORT\_PULLUPEN\_bm;}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00188}00188\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00189}00189\ \};\ \textcolor{comment}{//mln\_gpio}}
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00190}00190\ }
-\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00191}00191\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\_\_MLN\_GPIO\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00119}\mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6c}{00119}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00120}00120\ \{}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00121}\mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca8e7030d21ed7fd33c6ce627bf5ef0744}{00121}}\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca8e7030d21ed7fd33c6ce627bf5ef0744}{MLN\_GPIO\_ISC\_DISABLED}}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00122}\mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6caa51e061e7ee6580432c0d58e7afcd865}{00122}}\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6caa51e061e7ee6580432c0d58e7afcd865}{MLN\_GPIO\_ISC\_BOTHEDGES}},}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00123}\mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca9f4cd0bdd1127b127621e55c27162fa6}{00123}}\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca9f4cd0bdd1127b127621e55c27162fa6}{MLN\_GPIO\_ISC\_RISING}},}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00124}\mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca61e5f5448e1082b69f233a5221147322}{00124}}\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca61e5f5448e1082b69f233a5221147322}{MLN\_GPIO\_ISC\_FALLING}},}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00125}00125\ \ \ \ \ \mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca602874b38c525b4b26856032749eb7a7}{MLN\_GPIO\_ISC\_LOWLEVEL}}\ =\ 5}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00126}\mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6ca602874b38c525b4b26856032749eb7a7}{00126}}\ \}\ \mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6c}{mln\_gpio\_isc\_t}};}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00132}\mbox{\hyperlink{classmln__gpio}{00132}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmln__gpio}{mln\_gpio}}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00133}00133\ \{}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00134}00134\ \ \ \ \ \textcolor{keyword}{volatile}\ PORT\_t\ *port;}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00135}00135\ \ \ \ \ \textcolor{keyword}{volatile}\ uint8\_t\ *pin\_conf;}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00136}00136\ \ \ \ \ uint8\_t\ pin\_num;}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00137}00137\ \ \ \ \ uint8\_t\ pin\_bm;}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00139}00139\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00144}\mbox{\hyperlink{classmln__gpio_ae5f3e9e14f4c417a62638716798989c5}{00144}}\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmln__gpio_ae5f3e9e14f4c417a62638716798989c5}{mln\_gpio}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00153}\mbox{\hyperlink{classmln__gpio_affe4c21e6ced29a732aca17f9d683de7}{00153}}\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmln__gpio_affe4c21e6ced29a732aca17f9d683de7}{mln\_gpio}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structmln__pin__t}{mln\_pin\_t}}\&\ new\_pin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ff}{mln\_gpio\_dir\_t}}\&\ direction,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ inverted\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00154}00154\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00155}00155\ \ \ \ \ \ \ \ \ port\ =\ new\_pin.\mbox{\hyperlink{structmln__pin__t_acb218068b34c351c9cd6824d105475b5}{port}};}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ pin\_num\ =\ new\_pin.\mbox{\hyperlink{structmln__pin__t_a15b083d2cc20d9d9ae3d51b7d4d60c79}{pin\_num}};}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00157}00157\ \ \ \ \ \ \ \ \ pin\_bm\ =\ (1\ <<\ pin\_num);}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00158}00158\ \ \ \ \ \ \ \ \ pin\_conf\ =\ (uint8\_t\ *)port\ +\ 0x10\ +\ pin\_num;}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00159}00159\ \ \ \ \ \ \ \ \ *pin\_conf\ =\ PORT\_INVEN\_bm\ *\ inverted;}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00161}00161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmln__gpio_a2f4ffd9b40007e973417f095540b4133}{conf\_dir}}(direction);}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00162}00162\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmln__gpio_a12d182512a3b0b99111f65a2f591130c}{conf\_pull}}(direction);}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00163}00163\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00171}\mbox{\hyperlink{classmln__gpio_ac41887f494ca6e20f0f3447a1ad9c80b}{00171}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__gpio_ac41887f494ca6e20f0f3447a1ad9c80b}{attach\_interrupt}}(\mbox{\hyperlink{mln__gpio_8h_a874d15679b0e76b5d3a88d83f001ad6c}{mln\_gpio\_isc\_t}}\ isc)\ \{\ *pin\_conf\ =\ (*pin\_conf\ \&\ 0xF8)\ |\ isc;\ \}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00177}\mbox{\hyperlink{classmln__gpio_a6658a4ffd79c21c982ca896521db7386}{00177}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__gpio_a6658a4ffd79c21c982ca896521db7386}{set}}(\textcolor{keywordtype}{void})\ \{\ port-\/>OUTSET\ =\ pin\_bm;\ \}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00182}\mbox{\hyperlink{classmln__gpio_a0aa0cdb1d45809203f26c801dfac2a09}{00182}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__gpio_a0aa0cdb1d45809203f26c801dfac2a09}{clear}}(\textcolor{keywordtype}{void})\ \{\ port-\/>OUTCLR\ =\ pin\_bm;\ \}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00187}\mbox{\hyperlink{classmln__gpio_ac9e4e237a5fd9383a3c3f86187bf3903}{00187}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__gpio_ac9e4e237a5fd9383a3c3f86187bf3903}{toggle}}(\textcolor{keywordtype}{void})\ \{\ port-\/>OUTTGL\ =\ pin\_bm;\ \}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00194}\mbox{\hyperlink{classmln__gpio_a0bb9556f20f7246d0b8c17bf011da273}{00194}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__gpio_a0bb9556f20f7246d0b8c17bf011da273}{put}}(\textcolor{keywordtype}{bool}\ val)\ \{\ (val\ ?\ port-\/>OUTSET\ :\ port-\/>OUTCLR)\ =\ pin\_bm;\ \}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00200}\mbox{\hyperlink{classmln__gpio_a39a371791690744ad8331f14619631f8}{00200}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmln__gpio_a39a371791690744ad8331f14619631f8}{get}}(\textcolor{keywordtype}{void})\ \{\ \textcolor{keywordflow}{return}\ port-\/>IN\ \&\ pin\_bm;\ \}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00208}\mbox{\hyperlink{classmln__gpio_a2f4ffd9b40007e973417f095540b4133}{00208}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__gpio_a2f4ffd9b40007e973417f095540b4133}{conf\_dir}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ff}{mln\_gpio\_dir\_t}}\&\ dir)}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00209}00209\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00210}00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(dir\ ==\ \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffa1b3e51e05bb8ee323f13de27944188a1}{MLN\_GPIO\_DIR\_OUTPUT}})\ port-\/>DIR\ |=\ pin\_bm;}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00211}00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ port-\/>DIR\ \&=\ \string~pin\_bm;}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00213}00213\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmln__gpio_a12d182512a3b0b99111f65a2f591130c}{conf\_pull}}(dir);}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00214}00214\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00221}\mbox{\hyperlink{classmln__gpio_a12d182512a3b0b99111f65a2f591130c}{00221}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmln__gpio_a12d182512a3b0b99111f65a2f591130c}{conf\_pull}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ff}{mln\_gpio\_dir\_t}}\&\ pull)}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00222}00222\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00223}00223\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pull\ ==\ \mbox{\hyperlink{mln__gpio_8h_a3b39a8438117dc8dc97942e72edc36ffa2ee2e3980d3b90d98e24fd0188d6c746}{MLN\_GPIO\_DIR\_INPUT\_PULLUP}})\ *pin\_conf\ |=\ PORT\_PULLUPEN\_bm;}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00224}00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ *pin\_conf\ \&=\ \string~PORT\_PULLUPEN\_bm;}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00225}00225\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00226}00226\ \};\ \textcolor{comment}{//mln\_gpio}}
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{mln__gpio_8h_source_l00228}00228\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\_\_MLN\_GPIO\_H\_\_}}
 
 \end{DoxyCode}

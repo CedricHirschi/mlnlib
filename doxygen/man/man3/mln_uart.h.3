@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-mlnlib/mln/mln_uart.h
+mlnlib/mln/mln_uart.h \- This peripheral is used to communicate with USART\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -23,16 +24,15 @@ mlnlib/mln/mln_uart.h
 .ti -1c
 .RI "class \fBmln_uart\fP"
 .br
+.RI "USART peripheral class\&. "
 .in -1c
 .SS "Macros"
 
 .in +1c
 .ti -1c
-.RI "#define \fBMLN_UART_BAUD\fP   115200"
-.br
-.ti -1c
 .RI "#define \fBMLN_UART_BUF_SIZE\fP   32"
 .br
+.RI "Maximum UART buffer size\&. "
 .ti -1c
 .RI "#define \fBMLN_UART0_PIN_TX\fP   PA0"
 .br
@@ -57,36 +57,19 @@ mlnlib/mln/mln_uart.h
 .ti -1c
 .RI "#define \fBMLN_UART_BAUD_NUM\fP(BAUD)   ((float)(F_CPU * 64 / (16 * (float)BAUD)) + 0\&.5)"
 .br
-.ti -1c
-.RI "#define \fBIS_INT\fP(CHAR)   ((CHAR >= 48) && (CHAR <= 57))"
-.br
-.in -1c
-.SS "Typedefs"
-
-.in +1c
-.ti -1c
-.RI "typedef enum \fBmln_uart_inst_e\fP \fBUART_t\fP"
-.br
-.in -1c
-.SS "Enumerations"
-
-.in +1c
-.ti -1c
-.RI "enum \fBmln_uart_inst_e\fP { \fBUART0\fP, \fBUART1\fP, \fBUART2\fP }"
-.br
+.RI "Macro to calculate register value from baud rate\&. "
 .in -1c
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "USART_t * \fBMLN_UART_TO_USART\fP (\fBUART_t\fP uart)"
-.br
-.ti -1c
 .RI "int \fBmln_uart_stream_write\fP (char character, FILE *f)"
 .br
+.RI "Helper function to write from std stream to USART peripheral\&. "
 .ti -1c
 .RI "int \fBmln_uart_stream_read\fP (FILE *f)"
 .br
+.RI "Helper function to read USART peripheral to std stream\&. "
 .ti -1c
 .RI "\fBISR\fP (USART3_RXC_vect)"
 .br
@@ -97,96 +80,114 @@ mlnlib/mln/mln_uart.h
 .ti -1c
 .RI "\fBmln_uart\fP * \fBmln_uart_stream_uart\fP"
 .br
+.RI "USART stream (for printf functionality) "
 .in -1c
-.SH "Macro Definition Documentation"
+.SH "Detailed Description"
 .PP 
-.SS "#define IS_INT(CHAR)   ((CHAR >= 48) && (CHAR <= 57))"
+This peripheral is used to communicate with USART\&. 
+
 
 .PP
-Definition at line \fB58\fP of file \fBmln_uart\&.h\fP\&.
+\fBAuthor\fP
+.RS 4
+Cédric Hirschi (cedr02@live.com) 
+.RE
+.PP
+\fBVersion\fP
+.RS 4
+0\&.1 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+2023-04-27
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+Copyright (c) 2023 
+.RE
+.PP
+
+.PP
+Definition in file \fBmln_uart\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
 .SS "#define MLN_UART0_PIN_RX   PA1"
 
 .PP
-Definition at line \fB27\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB36\fP of file \fBmln_uart\&.h\fP\&.
 .SS "#define MLN_UART0_PIN_TX   PA0"
 
 .PP
-Definition at line \fB26\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB35\fP of file \fBmln_uart\&.h\fP\&.
 .SS "#define MLN_UART1_PIN_RX   PC1"
 
 .PP
-Definition at line \fB29\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB38\fP of file \fBmln_uart\&.h\fP\&.
 .SS "#define MLN_UART1_PIN_TX   PC0"
 
 .PP
-Definition at line \fB28\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB37\fP of file \fBmln_uart\&.h\fP\&.
 .SS "#define MLN_UART2_PIN_RX   PF1"
 
 .PP
-Definition at line \fB31\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB40\fP of file \fBmln_uart\&.h\fP\&.
 .SS "#define MLN_UART2_PIN_TX   PF0"
 
 .PP
-Definition at line \fB30\fP of file \fBmln_uart\&.h\fP\&.
-.SS "#define MLN_UART_BAUD   115200"
-
-.PP
-Definition at line \fB23\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB39\fP of file \fBmln_uart\&.h\fP\&.
 .SS "#define MLN_UART_BAUD_NUM(BAUD)   ((float)(F_CPU * 64 / (16 * (float)BAUD)) + 0\&.5)"
 
 .PP
-Definition at line \fB57\fP of file \fBmln_uart\&.h\fP\&.
+Macro to calculate register value from baud rate\&. 
+.PP
+Definition at line \fB70\fP of file \fBmln_uart\&.h\fP\&.
 .SS "#define MLN_UART_BUF_SIZE   32"
 
 .PP
-Definition at line \fB24\fP of file \fBmln_uart\&.h\fP\&.
+Maximum UART buffer size\&. 
+.PP
+\fBNote\fP
+.RS 4
+Currently RX only 
+.PP
+Can be changed without further problems 
+.RE
+.PP
+
+.PP
+Definition at line \fB33\fP of file \fBmln_uart\&.h\fP\&.
 .SS "#define MLN_UART_NUM_INSTS   3"
 
 .PP
-Definition at line \fB54\fP of file \fBmln_uart\&.h\fP\&.
-.SH "Typedef Documentation"
-.PP 
-.SS "typedef enum \fBmln_uart_inst_e\fP \fBUART_t\fP"
-
-.SH "Enumeration Type Documentation"
-.PP 
-.SS "enum \fBmln_uart_inst_e\fP"
-
-.PP
-\fBEnumerator\fP
-.in +1c
-.TP
-\fB\fIUART0 \fP\fP
-.TP
-\fB\fIUART1 \fP\fP
-.TP
-\fB\fIUART2 \fP\fP
-.PP
-Definition at line \fB60\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB63\fP of file \fBmln_uart\&.h\fP\&.
 .SH "Function Documentation"
 .PP 
 .SS "ISR (USART3_RXC_vect)"
 
 .PP
-Definition at line \fB287\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB277\fP of file \fBmln_uart\&.h\fP\&.
 .SS "int mln_uart_stream_read (FILE * f)"
 
 .PP
-Definition at line \fB282\fP of file \fBmln_uart\&.h\fP\&.
+Helper function to read USART peripheral to std stream\&. 
+.PP
+Definition at line \fB272\fP of file \fBmln_uart\&.h\fP\&.
 .SS "int mln_uart_stream_write (char character, FILE * f)"
 
 .PP
-Definition at line \fB276\fP of file \fBmln_uart\&.h\fP\&.
-.SS "USART_t * MLN_UART_TO_USART (\fBUART_t\fP uart)"
-
+Helper function to write from std stream to USART peripheral\&. 
 .PP
-Definition at line \fB80\fP of file \fBmln_uart\&.h\fP\&.
+Definition at line \fB266\fP of file \fBmln_uart\&.h\fP\&.
 .SH "Variable Documentation"
 .PP 
 .SS "\fBmln_uart\fP* mln_uart_stream_uart"
 
 .PP
-Definition at line \fB78\fP of file \fBmln_uart\&.h\fP\&.
+USART stream (for printf functionality) 
+.PP
+Definition at line \fB82\fP of file \fBmln_uart\&.h\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for mlnlib from the source code\&.

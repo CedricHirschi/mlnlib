@@ -2,47 +2,63 @@
 \label{classmln__timer}\index{mln\_timer@{mln\_timer}}
 
 
+TCA peripheral class.  
+
+
+
+
 {\ttfamily \#include $<$mln\+\_\+timer.\+h$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classmln__timer_ac44fb64119f1adc515488dfa36fb5981}{mln\+\_\+timer}} (uint16\+\_\+t period)
-\item 
+\mbox{\hyperlink{classmln__timer_afe8132eb2d8c662cde554e41cccfd449}{mln\+\_\+timer}} (uint16\+\_\+t \&period)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classmln__timer}{mln\+\_\+timer}} class initializer \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmln__timer_aeb16cfd705c6627d22cf0d311094242b}{set\+\_\+isr}} (void($\ast$f)(void))
-\item 
+\begin{DoxyCompactList}\small\item\em Set ISR function of TCA peripheral. \end{DoxyCompactList}\item 
 const void \mbox{\hyperlink{classmln__timer_a6d22a0a1ba7339fb17bd8f137726bace}{start}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Start TCA peripheral. \end{DoxyCompactList}\item 
 const void \mbox{\hyperlink{classmln__timer_ad06a5923262d674648369b0fe8fee7fe}{stop}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Stop TCA peripheral. \end{DoxyCompactList}\item 
 const bool \mbox{\hyperlink{classmln__timer_aa4f9753cdeeb66e4489b6ba5802379e7}{is\+\_\+running}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Check if TCA peripheral is running. \end{DoxyCompactList}\item 
 const float \mbox{\hyperlink{classmln__timer_adfdd8df8386b642eb810a914391668bb}{get\+\_\+period}} (void)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 void($\ast$ \mbox{\hyperlink{classmln__timer_a607a0f743963cea10089758cf0600a2e}{isr}} )(void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em ISR function currently stored in the class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+TCA peripheral class. 
 
 
-Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00063}{63}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
+
+Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00087}{87}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classmln__timer_ac44fb64119f1adc515488dfa36fb5981}\label{classmln__timer_ac44fb64119f1adc515488dfa36fb5981}} 
+\mbox{\Hypertarget{classmln__timer_afe8132eb2d8c662cde554e41cccfd449}\label{classmln__timer_afe8132eb2d8c662cde554e41cccfd449}} 
 \index{mln\_timer@{mln\_timer}!mln\_timer@{mln\_timer}}
 \index{mln\_timer@{mln\_timer}!mln\_timer@{mln\_timer}}
 \doxysubsubsection{\texorpdfstring{mln\_timer()}{mln\_timer()}}
-{\footnotesize\ttfamily mln\+\_\+timer\+::mln\+\_\+timer (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{period }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily mln\+\_\+timer\+::mln\+\_\+timer (\begin{DoxyParamCaption}\item[{uint16\+\_\+t \&}]{period }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00077}{77}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
+\mbox{\hyperlink{classmln__timer}{mln\+\_\+timer}} class initializer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em period} & Desired period \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00118}{118}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
 
 
 
@@ -55,7 +71,7 @@ Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00077}{77}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00131}{131}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
+Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00179}{179}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
 
 \mbox{\Hypertarget{classmln__timer_aa4f9753cdeeb66e4489b6ba5802379e7}\label{classmln__timer_aa4f9753cdeeb66e4489b6ba5802379e7}} 
 \index{mln\_timer@{mln\_timer}!is\_running@{is\_running}}
@@ -65,7 +81,21 @@ Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00131}{131}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00125}{125}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
+Check if TCA peripheral is running. 
+
+\begin{DoxyReturn}{Returns}
+Whether TCA peripheral is running 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & Peripheral is running \\
+\hline
+{\em false} & Peripheral is not running \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00172}{172}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
 
 \mbox{\Hypertarget{classmln__timer_aeb16cfd705c6627d22cf0d311094242b}\label{classmln__timer_aeb16cfd705c6627d22cf0d311094242b}} 
 \index{mln\_timer@{mln\_timer}!set\_isr@{set\_isr}}
@@ -75,7 +105,11 @@ Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00125}{125}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00100}{100}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
+Set ISR function of TCA peripheral. 
+
+
+
+Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00142}{142}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
 
 \mbox{\Hypertarget{classmln__timer_a6d22a0a1ba7339fb17bd8f137726bace}\label{classmln__timer_a6d22a0a1ba7339fb17bd8f137726bace}} 
 \index{mln\_timer@{mln\_timer}!start@{start}}
@@ -85,7 +119,11 @@ Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00100}{100}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00114}{114}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
+Start TCA peripheral. 
+
+
+
+Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00157}{157}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
 
 \mbox{\Hypertarget{classmln__timer_ad06a5923262d674648369b0fe8fee7fe}\label{classmln__timer_ad06a5923262d674648369b0fe8fee7fe}} 
 \index{mln\_timer@{mln\_timer}!stop@{stop}}
@@ -95,7 +133,11 @@ Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00114}{114}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00118}{118}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
+Stop TCA peripheral. 
+
+
+
+Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00162}{162}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
 
 
 
@@ -108,7 +150,11 @@ Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00118}{118}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00070}{70}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
+ISR function currently stored in the class. 
+
+
+
+Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00098}{98}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
 
 
 

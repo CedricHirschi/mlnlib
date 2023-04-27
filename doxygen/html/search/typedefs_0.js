@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['adc_5fin_5ft_0',['ADC_IN_t',['../mln__adc_8h.html#a4f03e1a0f2be54fd4eb97865059aa016',1,'mln_adc.h']]],
-  ['adc_5fpre_5ft_1',['ADC_PRE_t',['../mln__adc_8h.html#a88e3055fb02640f0981b595e3fc1c8c1',1,'mln_adc.h']]],
-  ['adc_5fres_5ft_2',['ADC_RES_t',['../mln__adc_8h.html#a3d661f184eb34e9770e0e930f1c1b94d',1,'mln_adc.h']]],
-  ['adc_5fsamp_5ft_3',['ADC_SAMP_t',['../mln__adc_8h.html#a7152c224e51badcff6e1155eacc6bf29',1,'mln_adc.h']]]
+  ['mcp4822_5fchannel_5ft_0',['MCP4822_CHANNEL_t',['../mcp4822_8h.html#a616d1661b8f2ff64df13b8a248a6849c',1,'mcp4822.h']]],
+  ['mcp4822_5fgain_5ft_1',['MCP4822_GAIN_t',['../mcp4822_8h.html#a879195ec270451ec6332d445fcfc2e4e',1,'mcp4822.h']]]
 ];

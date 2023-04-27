@@ -11,7 +11,7 @@ mln_vref \- Voltage reference peripheral namespace\&.
 
 .in +1c
 .ti -1c
-.RI "const void \fBset\fP (\fBMLN_VREF_SEL_t\fP dac=\fBMLN_VREF_2V048\fP, \fBMLN_VREF_SEL_t\fP adc=\fBMLN_VREF_2V048\fP, \fBMLN_VREF_SEL_t\fP ac=\fBMLN_VREF_2V048\fP, bool standby=false)"
+.RI "const void \fBset\fP (\fBMLN_VREF_SEL_t\fP \fBadc\fP=\fBMLN_VREF_2V048\fP, \fBMLN_VREF_SEL_t\fP dac=\fBMLN_VREF_2V048\fP, \fBMLN_VREF_SEL_t\fP ac=\fBMLN_VREF_2V048\fP, bool standby=false)"
 .br
 .RI "Configure and set voltages of the VREF peripheral\&. "
 .in -1c
@@ -22,7 +22,7 @@ Voltage reference peripheral namespace\&.
 
 .SH "Function Documentation"
 .PP 
-.SS "const void mln_vref::set (\fBMLN_VREF_SEL_t\fP dac = \fC\fBMLN_VREF_2V048\fP\fP, \fBMLN_VREF_SEL_t\fP adc = \fC\fBMLN_VREF_2V048\fP\fP, \fBMLN_VREF_SEL_t\fP ac = \fC\fBMLN_VREF_2V048\fP\fP, bool standby = \fCfalse\fP)\fC [inline]\fP"
+.SS "const void mln_vref::set (\fBMLN_VREF_SEL_t\fP adc = \fC\fBMLN_VREF_2V048\fP\fP, \fBMLN_VREF_SEL_t\fP dac = \fC\fBMLN_VREF_2V048\fP\fP, \fBMLN_VREF_SEL_t\fP ac = \fC\fBMLN_VREF_2V048\fP\fP, bool standby = \fCfalse\fP)\fC [inline]\fP"
 
 .PP
 Configure and set voltages of the VREF peripheral\&. 
@@ -40,7 +40,7 @@ Configure and set voltages of the VREF peripheral\&.
 .PP
 
 .PP
-Definition at line \fB44\fP of file \fBmln_vref\&.h\fP\&.
+Definition at line \fB46\fP of file \fBmln_vref\&.h\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for mlnlib from the source code\&.

@@ -104,24 +104,24 @@ $(document).ready(function(){initNavTree('classmcp4822.html',''); initResizable(
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af197f1fb877c276e14da81be6b5d943e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcp4822.html#af197f1fb877c276e14da81be6b5d943e">mcp4822</a> (SPI_t *new_spi, <a class="el" href="struct_p_i_n__t.html">PIN_t</a> cs, <a class="el" href="struct_p_i_n__t.html">PIN_t</a> new_ldac)</td></tr>
-<tr class="memdesc:af197f1fb877c276e14da81be6b5d943e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmcp4822.html" title="MCP4822 DAC driver.">mcp4822</a> object.  <br /></td></tr>
-<tr class="separator:af197f1fb877c276e14da81be6b5d943e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14c3bb0cbbb9e726156ec01136661ece"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcp4822.html#a14c3bb0cbbb9e726156ec01136661ece">set_gain</a> (<a class="el" href="mcp4822_8h.html#a879195ec270451ec6332d445fcfc2e4e">MCP4822_GAIN_t</a> new_gain)</td></tr>
-<tr class="memdesc:a14c3bb0cbbb9e726156ec01136661ece"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the gain of the DAC.  <br /></td></tr>
-<tr class="separator:a14c3bb0cbbb9e726156ec01136661ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c444d2209b4c4c5ab3d8ebc99071a75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcp4822.html#a8c444d2209b4c4c5ab3d8ebc99071a75">write</a> (<a class="el" href="mcp4822_8h.html#a616d1661b8f2ff64df13b8a248a6849c">MCP4822_CHANNEL_t</a> channel, uint16_t value)</td></tr>
-<tr class="memdesc:a8c444d2209b4c4c5ab3d8ebc99071a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a value to the DAC.  <br /></td></tr>
-<tr class="separator:a8c444d2209b4c4c5ab3d8ebc99071a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2ce639350ba7a309227a3e510ceb183"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcp4822.html#ac2ce639350ba7a309227a3e510ceb183">mcp4822</a> (SPI_t *new_spi, <a class="el" href="structmln__pin__t.html">mln_pin_t</a> &amp;cs, <a class="el" href="structmln__pin__t.html">mln_pin_t</a> &amp;new_ldac)</td></tr>
+<tr class="memdesc:ac2ce639350ba7a309227a3e510ceb183"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmcp4822.html" title="MCP4822 DAC driver.">mcp4822</a> object.  <br /></td></tr>
+<tr class="separator:ac2ce639350ba7a309227a3e510ceb183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5995c3e631c799d35da2b1ae2ab021a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcp4822.html#ab5995c3e631c799d35da2b1ae2ab021a">set_gain</a> (<a class="el" href="mcp4822_8h.html#a405a5c74199b2cc7e82ed3bead405a91">mln_mcp4822_gain_t</a> new_gain)</td></tr>
+<tr class="memdesc:ab5995c3e631c799d35da2b1ae2ab021a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the gain of the DAC.  <br /></td></tr>
+<tr class="separator:ab5995c3e631c799d35da2b1ae2ab021a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9d33f039c793af64c51c77a6203197c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcp4822.html#ad9d33f039c793af64c51c77a6203197c">write</a> (const <a class="el" href="mcp4822_8h.html#a7e58481bb9c447a43a8cf2f482bcfcbb">mln_mcp4822_channel_t</a> channel, const uint16_t value)</td></tr>
+<tr class="memdesc:ad9d33f039c793af64c51c77a6203197c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a value to the DAC.  <br /></td></tr>
+<tr class="separator:ad9d33f039c793af64c51c77a6203197c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>MCP4822 DAC driver. </p>
-<dl class="section note"><dt>Note</dt><dd>Utilizes the <a class="el" href="classmln__spi.html">mln_spi</a> and <a class="el" href="classmln__gpio.html">mln_gpio</a> libraries </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Utilizes the <a class="el" href="classmln__spi.html" title="SPI peripheral class.">mln_spi</a> and <a class="el" href="classmln__gpio.html" title="GPIO peripheral class.">mln_gpio</a> libraries </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mcp4822_8h_source.html#l00038">38</a> of file <a class="el" href="mcp4822_8h_source.html">mcp4822.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mcp4822_8h_source.html#l00042">42</a> of file <a class="el" href="mcp4822_8h_source.html">mcp4822.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af197f1fb877c276e14da81be6b5d943e" name="af197f1fb877c276e14da81be6b5d943e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af197f1fb877c276e14da81be6b5d943e">&#9670;&#160;</a></span>mcp4822()</h2>
+<a id="ac2ce639350ba7a309227a3e510ceb183" name="ac2ce639350ba7a309227a3e510ceb183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2ce639350ba7a309227a3e510ceb183">&#9670;&#160;</a></span>mcp4822()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -138,13 +138,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_p_i_n__t.html">PIN_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structmln__pin__t.html">mln_pin_t</a> &amp;&#160;</td>
           <td class="paramname"><em>cs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_p_i_n__t.html">PIN_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structmln__pin__t.html">mln_pin_t</a> &amp;&#160;</td>
           <td class="paramname"><em>new_ldac</em>&#160;</td>
         </tr>
         <tr>
@@ -170,13 +170,13 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mcp4822_8h_source.html#l00059">59</a> of file <a class="el" href="mcp4822_8h_source.html">mcp4822.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mcp4822_8h_source.html#l00063">63</a> of file <a class="el" href="mcp4822_8h_source.html">mcp4822.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a14c3bb0cbbb9e726156ec01136661ece" name="a14c3bb0cbbb9e726156ec01136661ece"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14c3bb0cbbb9e726156ec01136661ece">&#9670;&#160;</a></span>set_gain()</h2>
+<a id="ab5995c3e631c799d35da2b1ae2ab021a" name="ab5995c3e631c799d35da2b1ae2ab021a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5995c3e631c799d35da2b1ae2ab021a">&#9670;&#160;</a></span>set_gain()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,7 +187,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void mcp4822::set_gain </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="mcp4822_8h.html#a879195ec270451ec6332d445fcfc2e4e">MCP4822_GAIN_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="mcp4822_8h.html#a405a5c74199b2cc7e82ed3bead405a91">mln_mcp4822_gain_t</a>&#160;</td>
           <td class="paramname"><em>new_gain</em></td><td>)</td>
           <td></td>
         </tr>
@@ -208,12 +208,12 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>The gain is set for both channels, only applies from the next write </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mcp4822_8h_source.html#l00074">74</a> of file <a class="el" href="mcp4822_8h_source.html">mcp4822.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mcp4822_8h_source.html#l00078">78</a> of file <a class="el" href="mcp4822_8h_source.html">mcp4822.h</a>.</p>
 
 </div>
 </div>
-<a id="a8c444d2209b4c4c5ab3d8ebc99071a75" name="a8c444d2209b4c4c5ab3d8ebc99071a75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c444d2209b4c4c5ab3d8ebc99071a75">&#9670;&#160;</a></span>write()</h2>
+<a id="ad9d33f039c793af64c51c77a6203197c" name="ad9d33f039c793af64c51c77a6203197c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9d33f039c793af64c51c77a6203197c">&#9670;&#160;</a></span>write()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -224,13 +224,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void mcp4822::write </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="mcp4822_8h.html#a616d1661b8f2ff64df13b8a248a6849c">MCP4822_CHANNEL_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="mcp4822_8h.html#a7e58481bb9c447a43a8cf2f482bcfcbb">mln_mcp4822_channel_t</a>&#160;</td>
           <td class="paramname"><em>channel</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">const uint16_t&#160;</td>
           <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
@@ -255,7 +255,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mcp4822_8h_source.html#l00082">82</a> of file <a class="el" href="mcp4822_8h_source.html">mcp4822.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mcp4822_8h_source.html#l00086">86</a> of file <a class="el" href="mcp4822_8h_source.html">mcp4822.h</a>.</p>
 
 </div>
 </div>

@@ -7,25 +7,25 @@
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classmln__timer}{mln\+\_\+timer}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em TCA peripheral class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-uint8\+\_\+t \mbox{\hyperlink{mln__timer_8h_a941f8e0ed2c3abc92dd2d61fdfef845e}{MLN\+\_\+\+TIMER\+\_\+\+GET\+\_\+\+DIV}} (uint32\+\_\+t T)
-\item 
+uint8\+\_\+t \mbox{\hyperlink{mln__timer_8h_a277a817875df0f08a3c56759de8b9f88}{MLN\+\_\+\+TIMER\+\_\+\+GET\+\_\+\+DIV}} (uint32\+\_\+t period)
+\begin{DoxyCompactList}\small\item\em Helper function to get the lowest possible clock division to get certain period. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{mln__timer_8h_a9c263623c85a6f82cee2e0ed5610625e}{ISR}} (TCA0\+\_\+\+OVF\+\_\+vect)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Standard ISR for TCA0. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classmln__timer}{mln\+\_\+timer}} $\ast$ \mbox{\hyperlink{mln__timer_8h_a6e8dd1c2b28f60698ee31371a23993ee}{timer0\+\_\+isr}}
 \item 
 const uint16\+\_\+t \mbox{\hyperlink{mln__timer_8h_a6c25be2a0a9cf79a5f1a4b9f1477c5b2}{mln\+\_\+timer\+\_\+divs}} \mbox{[}$\,$\mbox{]} = \{1, 2, 4, 8, 16, 64, 256, 1024\}
-\item 
-uint32\+\_\+t \mbox{\hyperlink{mln__timer_8h_afbcc0d4136120d41a1113af338705b37}{mln\+\_\+max\+\_\+periods}} \mbox{[}$\,$\mbox{]} = \{65, 131, 262, 524, 1048, 4194, 16776, 67107\}
-\item 
+\begin{DoxyCompactList}\small\item\em Available clock dividers in the TCA peripheral in numerical form. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{mln__timer_8h_ae75531c80076103d1cf0808af85c17d3}{mln\+\_\+timer\+\_\+max\+\_\+periods}} \mbox{[}$\,$\mbox{]} = \{65, 131, 262, 524, 1048, 4194, 16776, 67107\}
+\begin{DoxyCompactList}\small\item\em The maximum periods achievable by clock division, in ms at 1MHz. \end{DoxyCompactList}\item 
 const TCA\+\_\+\+SINGLE\+\_\+\+CLKSEL\+\_\+t \mbox{\hyperlink{mln__timer_8h_a046cdd9ee0b957825702e84b535caf56}{mln\+\_\+timer\+\_\+divs\+\_\+bm}} \mbox{[}$\,$\mbox{]}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Available clock dividers in the TCA peripheral as bitmasks. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -37,31 +37,40 @@ const TCA\+\_\+\+SINGLE\+\_\+\+CLKSEL\+\_\+t \mbox{\hyperlink{mln__timer_8h_a046
 
 
 
-Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00134}{134}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
+Standard ISR for TCA0. 
 
-\mbox{\Hypertarget{mln__timer_8h_a941f8e0ed2c3abc92dd2d61fdfef845e}\label{mln__timer_8h_a941f8e0ed2c3abc92dd2d61fdfef845e}} 
+\begin{DoxyNote}{Note}
+Does nothing but reset the corresponding flag 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00188}{188}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
+
+\mbox{\Hypertarget{mln__timer_8h_a277a817875df0f08a3c56759de8b9f88}\label{mln__timer_8h_a277a817875df0f08a3c56759de8b9f88}} 
 \index{mln\_timer.h@{mln\_timer.h}!MLN\_TIMER\_GET\_DIV@{MLN\_TIMER\_GET\_DIV}}
 \index{MLN\_TIMER\_GET\_DIV@{MLN\_TIMER\_GET\_DIV}!mln\_timer.h@{mln\_timer.h}}
 \doxysubsubsection{\texorpdfstring{MLN\_TIMER\_GET\_DIV()}{MLN\_TIMER\_GET\_DIV()}}
-{\footnotesize\ttfamily uint8\+\_\+t MLN\+\_\+\+TIMER\+\_\+\+GET\+\_\+\+DIV (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{T }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily uint8\+\_\+t MLN\+\_\+\+TIMER\+\_\+\+GET\+\_\+\+DIV (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{period }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00049}{49}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
+Helper function to get the lowest possible clock division to get certain period. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em period} & Required period\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index for {\ttfamily mln\+\_\+timer\+\_\+...} arrays 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00069}{69}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
 
 
 
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{mln__timer_8h_afbcc0d4136120d41a1113af338705b37}\label{mln__timer_8h_afbcc0d4136120d41a1113af338705b37}} 
-\index{mln\_timer.h@{mln\_timer.h}!mln\_max\_periods@{mln\_max\_periods}}
-\index{mln\_max\_periods@{mln\_max\_periods}!mln\_timer.h@{mln\_timer.h}}
-\doxysubsubsection{\texorpdfstring{mln\_max\_periods}{mln\_max\_periods}}
-{\footnotesize\ttfamily uint32\+\_\+t mln\+\_\+max\+\_\+periods\mbox{[}$\,$\mbox{]} = \{65, 131, 262, 524, 1048, 4194, 16776, 67107\}}
-
-
-
-Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00037}{37}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
-
 \mbox{\Hypertarget{mln__timer_8h_a6c25be2a0a9cf79a5f1a4b9f1477c5b2}\label{mln__timer_8h_a6c25be2a0a9cf79a5f1a4b9f1477c5b2}} 
 \index{mln\_timer.h@{mln\_timer.h}!mln\_timer\_divs@{mln\_timer\_divs}}
 \index{mln\_timer\_divs@{mln\_timer\_divs}!mln\_timer.h@{mln\_timer.h}}
@@ -70,7 +79,11 @@ Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00037}{37}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00036}{36}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
+Available clock dividers in the TCA peripheral in numerical form. 
+
+
+
+Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00040}{40}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
 
 \mbox{\Hypertarget{mln__timer_8h_a046cdd9ee0b957825702e84b535caf56}\label{mln__timer_8h_a046cdd9ee0b957825702e84b535caf56}} 
 \index{mln\_timer.h@{mln\_timer.h}!mln\_timer\_divs\_bm@{mln\_timer\_divs\_bm}}
@@ -94,7 +107,25 @@ Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00036}{36}} of file \m
 \end{DoxyCode}
 
 
-Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00038}{38}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
+Available clock dividers in the TCA peripheral as bitmasks. 
+
+
+
+Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00050}{50}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
+
+\mbox{\Hypertarget{mln__timer_8h_ae75531c80076103d1cf0808af85c17d3}\label{mln__timer_8h_ae75531c80076103d1cf0808af85c17d3}} 
+\index{mln\_timer.h@{mln\_timer.h}!mln\_timer\_max\_periods@{mln\_timer\_max\_periods}}
+\index{mln\_timer\_max\_periods@{mln\_timer\_max\_periods}!mln\_timer.h@{mln\_timer.h}}
+\doxysubsubsection{\texorpdfstring{mln\_timer\_max\_periods}{mln\_timer\_max\_periods}}
+{\footnotesize\ttfamily uint32\+\_\+t mln\+\_\+timer\+\_\+max\+\_\+periods\mbox{[}$\,$\mbox{]} = \{65, 131, 262, 524, 1048, 4194, 16776, 67107\}}
+
+
+
+The maximum periods achievable by clock division, in ms at 1MHz. 
+
+
+
+Definition at line \mbox{\hyperlink{mln__timer_8h_source_l00045}{45}} of file \mbox{\hyperlink{mln__timer_8h_source}{mln\+\_\+timer.\+h}}.
 
 \mbox{\Hypertarget{mln__timer_8h_a6e8dd1c2b28f60698ee31371a23993ee}\label{mln__timer_8h_a6e8dd1c2b28f60698ee31371a23993ee}} 
 \index{mln\_timer.h@{mln\_timer.h}!timer0\_isr@{timer0\_isr}}

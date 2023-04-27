@@ -1,0 +1,78 @@
+.TH "opamp_follower_init_t" 3 "Thu Apr 27 2023" "Version alpha" "mlnlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+opamp_follower_init_t \- Opamp follower configuration struct\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mln_opamp\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBmln_opamp_device_t\fP \fBopamp\fP: 2"
+.br
+.ti -1c
+.RI "bool \fBrunstdby\fP: 1"
+.br
+.ti -1c
+.RI "bool \fBoutput\fP: 1"
+.br
+.ti -1c
+.RI "bool \fBlowpower\fP: 1"
+.br
+.ti -1c
+.RI "\fBmln_opamp_follower_in_t\fP \fBin\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Opamp follower configuration struct\&. 
+
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIopamp_n\fP Opamp device (0-3) 
+.br
+\fIrunstdby\fP If true, the peripheral is also running in device standby 
+.br
+\fIoutput\fP If true, the output is enabled 
+.br
+\fIlowpower\fP If true, the low power mode is enabled (reduced output range) 
+.br
+\fIin\fP Input selection 
+.RE
+.PP
+
+.PP
+Definition at line \fB220\fP of file \fBmln_opamp\&.h\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBmln_opamp_follower_in_t\fP opamp_follower_init_t::in"
+
+.PP
+Definition at line \fB228\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "bool opamp_follower_init_t::lowpower"
+
+.PP
+Definition at line \fB226\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "\fBmln_opamp_device_t\fP opamp_follower_init_t::opamp"
+
+.PP
+Definition at line \fB222\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "bool opamp_follower_init_t::output"
+
+.PP
+Definition at line \fB225\fP of file \fBmln_opamp\&.h\fP\&.
+.SS "bool opamp_follower_init_t::runstdby"
+
+.PP
+Definition at line \fB224\fP of file \fBmln_opamp\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mlnlib from the source code\&.

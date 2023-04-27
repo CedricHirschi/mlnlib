@@ -43,11 +43,11 @@ namespace mln_vref
 	 * @param standby If true, the peripheral is also running in device standby
 	 *
 	 */
-	inline const void set(MLN_VREF_SEL_t dac = MLN_VREF_2V048, MLN_VREF_SEL_t adc = MLN_VREF_2V048, MLN_VREF_SEL_t ac = MLN_VREF_2V048, bool standby = false)
+	inline const void set(MLN_VREF_SEL_t adc = MLN_VREF_2V048, MLN_VREF_SEL_t dac = MLN_VREF_2V048, MLN_VREF_SEL_t ac = MLN_VREF_2V048, bool standby = false)
 	{
 		VREF.DAC0REF = (standby << 7) | dac;
 		VREF.ADC0REF = (standby << 7) | adc;
-		VREF.AC0REF = (standby << 7) | ac;
+		VREF.ACREF = (standby << 7) | dac;
 	}
 };
 
