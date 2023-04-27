@@ -1,0 +1,80 @@
+.TH "mln_timer" 3 "Thu Apr 27 2023" "Version alpha" "mlnlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mln_timer
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mln_timer\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmln_timer\fP (uint16_t period)"
+.br
+.ti -1c
+.RI "void \fBset_isr\fP (void(*f)(void))"
+.br
+.ti -1c
+.RI "const void \fBstart\fP (void)"
+.br
+.ti -1c
+.RI "const void \fBstop\fP (void)"
+.br
+.ti -1c
+.RI "const bool \fBis_running\fP (void)"
+.br
+.ti -1c
+.RI "const float \fBget_period\fP (void)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "void(* \fBisr\fP )(void)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB63\fP of file \fBmln_timer\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "mln_timer::mln_timer (uint16_t period)\fC [inline]\fP"
+
+.PP
+Definition at line \fB77\fP of file \fBmln_timer\&.h\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "const float mln_timer::get_period (void)\fC [inline]\fP"
+
+.PP
+Definition at line \fB131\fP of file \fBmln_timer\&.h\fP\&.
+.SS "const bool mln_timer::is_running (void)\fC [inline]\fP"
+
+.PP
+Definition at line \fB125\fP of file \fBmln_timer\&.h\fP\&.
+.SS "void mln_timer::set_isr (void(*)(void) f)\fC [inline]\fP"
+
+.PP
+Definition at line \fB100\fP of file \fBmln_timer\&.h\fP\&.
+.SS "const void mln_timer::start (void)\fC [inline]\fP"
+
+.PP
+Definition at line \fB114\fP of file \fBmln_timer\&.h\fP\&.
+.SS "const void mln_timer::stop (void)\fC [inline]\fP"
+
+.PP
+Definition at line \fB118\fP of file \fBmln_timer\&.h\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "void(* mln_timer::isr) (void)"
+
+.PP
+Definition at line \fB70\fP of file \fBmln_timer\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mlnlib from the source code\&.

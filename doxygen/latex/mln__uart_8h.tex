@@ -1,0 +1,271 @@
+\hypertarget{mln__uart_8h}{}\doxysection{mlnlib/mln/mln\+\_\+uart.h File Reference}
+\label{mln__uart_8h}\index{mlnlib/mln/mln\_uart.h@{mlnlib/mln/mln\_uart.h}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$avr/interrupt.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}mln\+\_\+gpio.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmln__uart}{mln\+\_\+uart}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{mln__uart_8h_a0f174722955e54972f2c8155da6da4c9}{MLN\+\_\+\+UART\+\_\+\+BAUD}}~115200
+\item 
+\#define \mbox{\hyperlink{mln__uart_8h_af296e92127536a1e65460c4de0458815}{MLN\+\_\+\+UART\+\_\+\+BUF\+\_\+\+SIZE}}~32
+\item 
+\#define \mbox{\hyperlink{mln__uart_8h_a1a434695c07951710eb0a173a65f279f}{MLN\+\_\+\+UART0\+\_\+\+PIN\+\_\+\+TX}}~PA0
+\item 
+\#define \mbox{\hyperlink{mln__uart_8h_ab005771276881b9a746a85e1932caca4}{MLN\+\_\+\+UART0\+\_\+\+PIN\+\_\+\+RX}}~PA1
+\item 
+\#define \mbox{\hyperlink{mln__uart_8h_a9c2c8bc428b370f8f37e9fab7b0208b5}{MLN\+\_\+\+UART1\+\_\+\+PIN\+\_\+\+TX}}~PC0
+\item 
+\#define \mbox{\hyperlink{mln__uart_8h_a32b2fb0bd8d40942dacdedae86748f55}{MLN\+\_\+\+UART1\+\_\+\+PIN\+\_\+\+RX}}~PC1
+\item 
+\#define \mbox{\hyperlink{mln__uart_8h_ab5cf516196dab3fb027cb0a1394c1189}{MLN\+\_\+\+UART2\+\_\+\+PIN\+\_\+\+TX}}~PF0
+\item 
+\#define \mbox{\hyperlink{mln__uart_8h_a1e086a98b618a643b43fe26adac726cc}{MLN\+\_\+\+UART2\+\_\+\+PIN\+\_\+\+RX}}~PF1
+\item 
+\#define \mbox{\hyperlink{mln__uart_8h_ad728e72885f09aa314f2436dfe99293d}{MLN\+\_\+\+UART\+\_\+\+NUM\+\_\+\+INSTS}}~3
+\item 
+\#define \mbox{\hyperlink{mln__uart_8h_a9978acfe9e00540d2e18286481e786ef}{MLN\+\_\+\+UART\+\_\+\+BAUD\+\_\+\+NUM}}(BAUD)~((float)(F\+\_\+\+CPU $\ast$ 64 / (16 $\ast$ (float)BAUD)) + 0.\+5)
+\item 
+\#define \mbox{\hyperlink{mln__uart_8h_af539f863c1d0f56684541fc0f4501aa3}{IS\+\_\+\+INT}}(CHAR)~((CHAR $>$= 48) \&\& (CHAR $<$= 57))
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569}{mln\+\_\+uart\+\_\+inst\+\_\+e}} \mbox{\hyperlink{mln__uart_8h_a467eea334c7c7896fd41a52a9e1b2458}{UART\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569}{mln\+\_\+uart\+\_\+inst\+\_\+e}} \{ \mbox{\hyperlink{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569a9283de1a2e6eea552574a50ca586df8e}{UART0}}
+, \mbox{\hyperlink{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569ad78b5dd576e9a3ab80d6c77ff9d1cd27}{UART1}}
+, \mbox{\hyperlink{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569a1131083beae26b9314a6fca36032b44a}{UART2}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+USART\+\_\+t $\ast$ \mbox{\hyperlink{mln__uart_8h_ad26ae90573f43a3ffcaf44936260ec6c}{MLN\+\_\+\+UART\+\_\+\+TO\+\_\+\+USART}} (\mbox{\hyperlink{mln__uart_8h_a467eea334c7c7896fd41a52a9e1b2458}{UART\+\_\+t}} uart)
+\item 
+int \mbox{\hyperlink{mln__uart_8h_adf9b46a7020b85c33ea70568078d17ec}{mln\+\_\+uart\+\_\+stream\+\_\+write}} (char character, FILE $\ast$f)
+\item 
+int \mbox{\hyperlink{mln__uart_8h_a6f1e39e7e87ce420c069533972807f70}{mln\+\_\+uart\+\_\+stream\+\_\+read}} (FILE $\ast$f)
+\item 
+\mbox{\hyperlink{mln__uart_8h_a1f11fdfd6a878a854419434a4a401693}{ISR}} (USART3\+\_\+\+RXC\+\_\+vect)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmln__uart}{mln\+\_\+uart}} $\ast$ \mbox{\hyperlink{mln__uart_8h_a768b1692fd426a153624045053f62395}{mln\+\_\+uart\+\_\+stream\+\_\+uart}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{mln__uart_8h_af539f863c1d0f56684541fc0f4501aa3}\label{mln__uart_8h_af539f863c1d0f56684541fc0f4501aa3}} 
+\index{mln\_uart.h@{mln\_uart.h}!IS\_INT@{IS\_INT}}
+\index{IS\_INT@{IS\_INT}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{IS\_INT}{IS\_INT}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+INT(\begin{DoxyParamCaption}\item[{}]{CHAR }\end{DoxyParamCaption})~((CHAR $>$= 48) \&\& (CHAR $<$= 57))}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00058}{58}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+\mbox{\Hypertarget{mln__uart_8h_ab005771276881b9a746a85e1932caca4}\label{mln__uart_8h_ab005771276881b9a746a85e1932caca4}} 
+\index{mln\_uart.h@{mln\_uart.h}!MLN\_UART0\_PIN\_RX@{MLN\_UART0\_PIN\_RX}}
+\index{MLN\_UART0\_PIN\_RX@{MLN\_UART0\_PIN\_RX}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{MLN\_UART0\_PIN\_RX}{MLN\_UART0\_PIN\_RX}}
+{\footnotesize\ttfamily \#define MLN\+\_\+\+UART0\+\_\+\+PIN\+\_\+\+RX~PA1}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00027}{27}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+\mbox{\Hypertarget{mln__uart_8h_a1a434695c07951710eb0a173a65f279f}\label{mln__uart_8h_a1a434695c07951710eb0a173a65f279f}} 
+\index{mln\_uart.h@{mln\_uart.h}!MLN\_UART0\_PIN\_TX@{MLN\_UART0\_PIN\_TX}}
+\index{MLN\_UART0\_PIN\_TX@{MLN\_UART0\_PIN\_TX}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{MLN\_UART0\_PIN\_TX}{MLN\_UART0\_PIN\_TX}}
+{\footnotesize\ttfamily \#define MLN\+\_\+\+UART0\+\_\+\+PIN\+\_\+\+TX~PA0}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00026}{26}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+\mbox{\Hypertarget{mln__uart_8h_a32b2fb0bd8d40942dacdedae86748f55}\label{mln__uart_8h_a32b2fb0bd8d40942dacdedae86748f55}} 
+\index{mln\_uart.h@{mln\_uart.h}!MLN\_UART1\_PIN\_RX@{MLN\_UART1\_PIN\_RX}}
+\index{MLN\_UART1\_PIN\_RX@{MLN\_UART1\_PIN\_RX}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{MLN\_UART1\_PIN\_RX}{MLN\_UART1\_PIN\_RX}}
+{\footnotesize\ttfamily \#define MLN\+\_\+\+UART1\+\_\+\+PIN\+\_\+\+RX~PC1}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00029}{29}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+\mbox{\Hypertarget{mln__uart_8h_a9c2c8bc428b370f8f37e9fab7b0208b5}\label{mln__uart_8h_a9c2c8bc428b370f8f37e9fab7b0208b5}} 
+\index{mln\_uart.h@{mln\_uart.h}!MLN\_UART1\_PIN\_TX@{MLN\_UART1\_PIN\_TX}}
+\index{MLN\_UART1\_PIN\_TX@{MLN\_UART1\_PIN\_TX}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{MLN\_UART1\_PIN\_TX}{MLN\_UART1\_PIN\_TX}}
+{\footnotesize\ttfamily \#define MLN\+\_\+\+UART1\+\_\+\+PIN\+\_\+\+TX~PC0}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00028}{28}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+\mbox{\Hypertarget{mln__uart_8h_a1e086a98b618a643b43fe26adac726cc}\label{mln__uart_8h_a1e086a98b618a643b43fe26adac726cc}} 
+\index{mln\_uart.h@{mln\_uart.h}!MLN\_UART2\_PIN\_RX@{MLN\_UART2\_PIN\_RX}}
+\index{MLN\_UART2\_PIN\_RX@{MLN\_UART2\_PIN\_RX}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{MLN\_UART2\_PIN\_RX}{MLN\_UART2\_PIN\_RX}}
+{\footnotesize\ttfamily \#define MLN\+\_\+\+UART2\+\_\+\+PIN\+\_\+\+RX~PF1}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00031}{31}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+\mbox{\Hypertarget{mln__uart_8h_ab5cf516196dab3fb027cb0a1394c1189}\label{mln__uart_8h_ab5cf516196dab3fb027cb0a1394c1189}} 
+\index{mln\_uart.h@{mln\_uart.h}!MLN\_UART2\_PIN\_TX@{MLN\_UART2\_PIN\_TX}}
+\index{MLN\_UART2\_PIN\_TX@{MLN\_UART2\_PIN\_TX}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{MLN\_UART2\_PIN\_TX}{MLN\_UART2\_PIN\_TX}}
+{\footnotesize\ttfamily \#define MLN\+\_\+\+UART2\+\_\+\+PIN\+\_\+\+TX~PF0}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00030}{30}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+\mbox{\Hypertarget{mln__uart_8h_a0f174722955e54972f2c8155da6da4c9}\label{mln__uart_8h_a0f174722955e54972f2c8155da6da4c9}} 
+\index{mln\_uart.h@{mln\_uart.h}!MLN\_UART\_BAUD@{MLN\_UART\_BAUD}}
+\index{MLN\_UART\_BAUD@{MLN\_UART\_BAUD}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{MLN\_UART\_BAUD}{MLN\_UART\_BAUD}}
+{\footnotesize\ttfamily \#define MLN\+\_\+\+UART\+\_\+\+BAUD~115200}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00023}{23}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+\mbox{\Hypertarget{mln__uart_8h_a9978acfe9e00540d2e18286481e786ef}\label{mln__uart_8h_a9978acfe9e00540d2e18286481e786ef}} 
+\index{mln\_uart.h@{mln\_uart.h}!MLN\_UART\_BAUD\_NUM@{MLN\_UART\_BAUD\_NUM}}
+\index{MLN\_UART\_BAUD\_NUM@{MLN\_UART\_BAUD\_NUM}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{MLN\_UART\_BAUD\_NUM}{MLN\_UART\_BAUD\_NUM}}
+{\footnotesize\ttfamily \#define MLN\+\_\+\+UART\+\_\+\+BAUD\+\_\+\+NUM(\begin{DoxyParamCaption}\item[{}]{BAUD }\end{DoxyParamCaption})~((float)(F\+\_\+\+CPU $\ast$ 64 / (16 $\ast$ (float)BAUD)) + 0.\+5)}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00057}{57}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+\mbox{\Hypertarget{mln__uart_8h_af296e92127536a1e65460c4de0458815}\label{mln__uart_8h_af296e92127536a1e65460c4de0458815}} 
+\index{mln\_uart.h@{mln\_uart.h}!MLN\_UART\_BUF\_SIZE@{MLN\_UART\_BUF\_SIZE}}
+\index{MLN\_UART\_BUF\_SIZE@{MLN\_UART\_BUF\_SIZE}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{MLN\_UART\_BUF\_SIZE}{MLN\_UART\_BUF\_SIZE}}
+{\footnotesize\ttfamily \#define MLN\+\_\+\+UART\+\_\+\+BUF\+\_\+\+SIZE~32}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00024}{24}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+\mbox{\Hypertarget{mln__uart_8h_ad728e72885f09aa314f2436dfe99293d}\label{mln__uart_8h_ad728e72885f09aa314f2436dfe99293d}} 
+\index{mln\_uart.h@{mln\_uart.h}!MLN\_UART\_NUM\_INSTS@{MLN\_UART\_NUM\_INSTS}}
+\index{MLN\_UART\_NUM\_INSTS@{MLN\_UART\_NUM\_INSTS}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{MLN\_UART\_NUM\_INSTS}{MLN\_UART\_NUM\_INSTS}}
+{\footnotesize\ttfamily \#define MLN\+\_\+\+UART\+\_\+\+NUM\+\_\+\+INSTS~3}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00054}{54}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{mln__uart_8h_a467eea334c7c7896fd41a52a9e1b2458}\label{mln__uart_8h_a467eea334c7c7896fd41a52a9e1b2458}} 
+\index{mln\_uart.h@{mln\_uart.h}!UART\_t@{UART\_t}}
+\index{UART\_t@{UART\_t}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{UART\_t}{UART\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569}{mln\+\_\+uart\+\_\+inst\+\_\+e}} \mbox{\hyperlink{mln__uart_8h_a467eea334c7c7896fd41a52a9e1b2458}{UART\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569}\label{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569}} 
+\index{mln\_uart.h@{mln\_uart.h}!mln\_uart\_inst\_e@{mln\_uart\_inst\_e}}
+\index{mln\_uart\_inst\_e@{mln\_uart\_inst\_e}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{mln\_uart\_inst\_e}{mln\_uart\_inst\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569}{mln\+\_\+uart\+\_\+inst\+\_\+e}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART0@{UART0}!mln\_uart.h@{mln\_uart.h}}\index{mln\_uart.h@{mln\_uart.h}!UART0@{UART0}}}\mbox{\Hypertarget{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569a9283de1a2e6eea552574a50ca586df8e}\label{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569a9283de1a2e6eea552574a50ca586df8e}} 
+UART0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART1@{UART1}!mln\_uart.h@{mln\_uart.h}}\index{mln\_uart.h@{mln\_uart.h}!UART1@{UART1}}}\mbox{\Hypertarget{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569ad78b5dd576e9a3ab80d6c77ff9d1cd27}\label{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569ad78b5dd576e9a3ab80d6c77ff9d1cd27}} 
+UART1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART2@{UART2}!mln\_uart.h@{mln\_uart.h}}\index{mln\_uart.h@{mln\_uart.h}!UART2@{UART2}}}\mbox{\Hypertarget{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569a1131083beae26b9314a6fca36032b44a}\label{mln__uart_8h_a0e76943e2cd4eba35764d225d1dad569a1131083beae26b9314a6fca36032b44a}} 
+UART2&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00060}{60}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mln__uart_8h_a1f11fdfd6a878a854419434a4a401693}\label{mln__uart_8h_a1f11fdfd6a878a854419434a4a401693}} 
+\index{mln\_uart.h@{mln\_uart.h}!ISR@{ISR}}
+\index{ISR@{ISR}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{USART3\+\_\+\+RXC\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00287}{287}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+\mbox{\Hypertarget{mln__uart_8h_a6f1e39e7e87ce420c069533972807f70}\label{mln__uart_8h_a6f1e39e7e87ce420c069533972807f70}} 
+\index{mln\_uart.h@{mln\_uart.h}!mln\_uart\_stream\_read@{mln\_uart\_stream\_read}}
+\index{mln\_uart\_stream\_read@{mln\_uart\_stream\_read}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{mln\_uart\_stream\_read()}{mln\_uart\_stream\_read()}}
+{\footnotesize\ttfamily int mln\+\_\+uart\+\_\+stream\+\_\+read (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{f }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00282}{282}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+\mbox{\Hypertarget{mln__uart_8h_adf9b46a7020b85c33ea70568078d17ec}\label{mln__uart_8h_adf9b46a7020b85c33ea70568078d17ec}} 
+\index{mln\_uart.h@{mln\_uart.h}!mln\_uart\_stream\_write@{mln\_uart\_stream\_write}}
+\index{mln\_uart\_stream\_write@{mln\_uart\_stream\_write}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{mln\_uart\_stream\_write()}{mln\_uart\_stream\_write()}}
+{\footnotesize\ttfamily int mln\+\_\+uart\+\_\+stream\+\_\+write (\begin{DoxyParamCaption}\item[{char}]{character,  }\item[{FILE $\ast$}]{f }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00276}{276}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+\mbox{\Hypertarget{mln__uart_8h_ad26ae90573f43a3ffcaf44936260ec6c}\label{mln__uart_8h_ad26ae90573f43a3ffcaf44936260ec6c}} 
+\index{mln\_uart.h@{mln\_uart.h}!MLN\_UART\_TO\_USART@{MLN\_UART\_TO\_USART}}
+\index{MLN\_UART\_TO\_USART@{MLN\_UART\_TO\_USART}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{MLN\_UART\_TO\_USART()}{MLN\_UART\_TO\_USART()}}
+{\footnotesize\ttfamily USART\+\_\+t $\ast$ MLN\+\_\+\+UART\+\_\+\+TO\+\_\+\+USART (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mln__uart_8h_a467eea334c7c7896fd41a52a9e1b2458}{UART\+\_\+t}}}]{uart }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00080}{80}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{mln__uart_8h_a768b1692fd426a153624045053f62395}\label{mln__uart_8h_a768b1692fd426a153624045053f62395}} 
+\index{mln\_uart.h@{mln\_uart.h}!mln\_uart\_stream\_uart@{mln\_uart\_stream\_uart}}
+\index{mln\_uart\_stream\_uart@{mln\_uart\_stream\_uart}!mln\_uart.h@{mln\_uart.h}}
+\doxysubsubsection{\texorpdfstring{mln\_uart\_stream\_uart}{mln\_uart\_stream\_uart}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmln__uart}{mln\+\_\+uart}}$\ast$ mln\+\_\+uart\+\_\+stream\+\_\+uart}
+
+
+
+Definition at line \mbox{\hyperlink{mln__uart_8h_source_l00078}{78}} of file \mbox{\hyperlink{mln__uart_8h_source}{mln\+\_\+uart.\+h}}.
+

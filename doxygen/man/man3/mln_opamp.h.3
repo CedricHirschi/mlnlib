@@ -1,0 +1,106 @@
+.TH "mlnlib/mln/mln_opamp.h" 3 "Thu Apr 27 2023" "Version alpha" "mlnlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mlnlib/mln/mln_opamp.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <avr/io\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBOPAMP_SETUP_s\fP"
+.br
+.ti -1c
+.RI "class \fBmln_opamp\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBOPA_SETUP\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBOPA_SETUP::CONFIG_e\fP \fBOPA_SETUP::CONFIG_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBOPA_SETUP::GAIN_NONINV_e\fP \fBOPA_SETUP::GAIN_NONINV_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBOPA_SETUP::GAIN_INV_e\fP \fBOPA_SETUP::GAIN_INV_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBOPA_SETUP::PIN_e\fP \fBOPA_SETUP::PIN_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBOPA_SETUP::MUX_e\fP \fBOPA_SETUP::MUX_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBOPA_SETUP::MUXNEG_IN_e\fP \fBOPA_SETUP::MUXNEG_IN_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBOPA_SETUP::MUXPOS_IN_e\fP \fBOPA_SETUP::MUXPOS_IN_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBOPA_SETUP::MUXTOP_IN_e\fP \fBOPA_SETUP::MUXTOP_IN_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBOPA_SETUP::MUXBOT_IN_e\fP \fBOPA_SETUP::MUXBOT_IN_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBOPA_SETUP::MUXWIP_IN_e\fP \fBOPA_SETUP::MUXWIP_IN_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBOPAMP_SETUP_s\fP \fBOPAMP_SETUP_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBOPA_SETUP::CONFIG_e\fP { \fBOPA_SETUP::TOPINS\fP, \fBOPA_SETUP::FOLLOWER\fP, \fBOPA_SETUP::NONINV\fP, \fBOPA_SETUP::INV\fP }"
+.br
+.ti -1c
+.RI "enum \fBOPA_SETUP::GAIN_NONINV_e\fP { \fBOPA_SETUP::GAIN_1_06\fP, \fBOPA_SETUP::GAIN_1_14\fP, \fBOPA_SETUP::GAIN_1_33\fP, \fBOPA_SETUP::GAIN_2\fP, \fBOPA_SETUP::GAIN_2_67\fP, \fBOPA_SETUP::GAIN_4\fP, \fBOPA_SETUP::GAIN_8\fP, \fBOPA_SETUP::GAIN_16\fP }"
+.br
+.ti -1c
+.RI "enum \fBOPA_SETUP::GAIN_INV_e\fP { \fBOPA_SETUP::GAIN_INV_0_06\fP, \fBOPA_SETUP::GAIN_INV_0_14\fP, \fBOPA_SETUP::GAIN_INV_0_33\fP, \fBOPA_SETUP::GAIN_INV_1\fP, \fBOPA_SETUP::GAIN_INV_1_67\fP, \fBOPA_SETUP::GAIN_INV_3\fP, \fBOPA_SETUP::GAIN_INV_7\fP, \fBOPA_SETUP::GAIN_INV_15\fP }"
+.br
+.ti -1c
+.RI "enum \fBOPA_SETUP::PIN_e\fP { \fBOPA_SETUP::PIN_INN\fP, \fBOPA_SETUP::PIN_INP\fP, \fBOPA_SETUP::PIN_OUT\fP }"
+.br
+.ti -1c
+.RI "enum \fBOPA_SETUP::MUX_e\fP { \fBOPA_SETUP::MUXNEG\fP, \fBOPA_SETUP::MUXPOS\fP, \fBOPA_SETUP::MUXTOP\fP, \fBOPA_SETUP::MUXBOT\fP, \fBOPA_SETUP::MUXWIP\fP }"
+.br
+.ti -1c
+.RI "enum \fBOPA_SETUP::MUXNEG_IN_e\fP { \fBOPA_SETUP::MUXNEG_INN\fP, \fBOPA_SETUP::MUXNEG_WIP\fP, \fBOPA_SETUP::MUXNEG_OUT\fP, \fBOPA_SETUP::MUXNEG_DAC\fP }"
+.br
+.ti -1c
+.RI "enum \fBOPA_SETUP::MUXPOS_IN_e\fP { \fBOPA_SETUP::MUXPOS_INP\fP, \fBOPA_SETUP::MUXPOS_WIP\fP, \fBOPA_SETUP::MUXPOS_DAC\fP, \fBOPA_SETUP::MUXPOS_GND\fP, \fBOPA_SETUP::MUXPOS_VDDDIV2\fP, \fBOPA_SETUP::MUXPOS_LINKOUT\fP, \fBOPA_SETUP::MUXPOS_LINKWIP\fP }"
+.br
+.ti -1c
+.RI "enum \fBOPA_SETUP::MUXTOP_IN_e\fP { \fBOPA_SETUP::MUXTOP_OFF\fP, \fBOPA_SETUP::MUXTOP_OUT\fP, \fBOPA_SETUP::MUXTOP_VDD\fP }"
+.br
+.ti -1c
+.RI "enum \fBOPA_SETUP::MUXBOT_IN_e\fP { \fBOPA_SETUP::MUXBOT_OFF\fP, \fBOPA_SETUP::MUXBOT_INP\fP, \fBOPA_SETUP::MUXBOT_INN\fP, \fBOPA_SETUP::MUXBOT_DAC\fP, \fBOPA_SETUP::MUXBOT_LINKOUT\fP, \fBOPA_SETUP::MUXBOT_GND\fP }"
+.br
+.ti -1c
+.RI "enum \fBOPA_SETUP::MUXWIP_IN_e\fP { \fBOPA_SETUP::MUXWIP_WIP0\fP, \fBOPA_SETUP::MUXWIP_WIP1\fP, \fBOPA_SETUP::MUXWIP_WIP2\fP, \fBOPA_SETUP::MUXWIP_WIP3\fP, \fBOPA_SETUP::MUXWIP_WIP4\fP, \fBOPA_SETUP::MUXWIP_WIP5\fP, \fBOPA_SETUP::MUXWIP_WIP6\fP, \fBOPA_SETUP::MUXWIP_WIP7\fP }"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBOPAMP_SETUP_s\fP \fBOPAMP_SETUP_t\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mlnlib from the source code\&.

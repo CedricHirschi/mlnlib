@@ -1,0 +1,179 @@
+.TH "mlnlib/mln/mln_adc.h" 3 "Thu Apr 27 2023" "Version alpha" "mlnlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mlnlib/mln/mln_adc.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <avr/io\&.h>\fP
+.br
+\fC#include 'mln_gpio\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBmln_adc\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMLN_ADC_PIN_TO_IN\fP(pin)   ((pin\&.port \- &PORTD) * 8 + pin\&.pin_num)"
+.br
+.ti -1c
+.RI "#define \fBMLN_ADC_SHIFT\fP(samples)   (samples >= 4 ? 4 : samples)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBmln_adc_alt_in_e\fP \fBADC_IN_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBmln_adc_res_e\fP \fBADC_RES_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBmln_adc_presc_e\fP \fBADC_PRE_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBmln_adc_samp_e\fP \fBADC_SAMP_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBmln_adc_alt_in_e\fP { \fBGND\fP = 0x40, \fBTEMPSENSE\fP = 0x42, \fBVDDDIV10\fP = 0x44, \fBVDDIO2DIV10\fP = 0x45, \fBDAC\fP = 0x48, \fBDACREF0\fP = 0x49, \fBDACREF1\fP = 0x4A, \fBDACREF2\fP = 0x4B }"
+.br
+.ti -1c
+.RI "enum \fBmln_adc_res_e\fP { \fBHIRES\fP, \fBLORES\fP }"
+.br
+.ti -1c
+.RI "enum \fBmln_adc_presc_e\fP { \fBDIV2\fP, \fBDIV4\fP, \fBDIV8\fP, \fBDIV12\fP, \fBDIV16\fP, \fBDIV20\fP, \fBDIV24\fP, \fBDIV28\fP, \fBDIV32\fP, \fBDIV48\fP, \fBDIV64\fP, \fBDIV96\fP, \fBDIV128\fP, \fBDIV256\fP }"
+.br
+.ti -1c
+.RI "enum \fBmln_adc_samp_e\fP { \fBNONE\fP, \fBACC2\fP, \fBACC4\fP, \fBACC8\fP, \fBACC16\fP, \fBACC32\fP, \fBACC64\fP, \fBACC128\fP }"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MLN_ADC_PIN_TO_IN(pin)   ((pin\&.port \- &PORTD) * 8 + pin\&.pin_num)"
+
+.PP
+Definition at line \fB16\fP of file \fBmln_adc\&.h\fP\&.
+.SS "#define MLN_ADC_SHIFT(samples)   (samples >= 4 ? 4 : samples)"
+
+.PP
+Definition at line \fB17\fP of file \fBmln_adc\&.h\fP\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef enum \fBmln_adc_alt_in_e\fP \fBADC_IN_t\fP"
+
+.SS "typedef enum \fBmln_adc_presc_e\fP \fBADC_PRE_t\fP"
+
+.SS "typedef enum \fBmln_adc_res_e\fP \fBADC_RES_t\fP"
+
+.SS "typedef enum \fBmln_adc_samp_e\fP \fBADC_SAMP_t\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBmln_adc_alt_in_e\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIGND \fP\fP
+.TP
+\fB\fITEMPSENSE \fP\fP
+.TP
+\fB\fIVDDDIV10 \fP\fP
+.TP
+\fB\fIVDDIO2DIV10 \fP\fP
+.TP
+\fB\fIDAC \fP\fP
+.TP
+\fB\fIDACREF0 \fP\fP
+.TP
+\fB\fIDACREF1 \fP\fP
+.TP
+\fB\fIDACREF2 \fP\fP
+.PP
+Definition at line \fB19\fP of file \fBmln_adc\&.h\fP\&.
+.SS "enum \fBmln_adc_presc_e\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIDIV2 \fP\fP
+.TP
+\fB\fIDIV4 \fP\fP
+.TP
+\fB\fIDIV8 \fP\fP
+.TP
+\fB\fIDIV12 \fP\fP
+.TP
+\fB\fIDIV16 \fP\fP
+.TP
+\fB\fIDIV20 \fP\fP
+.TP
+\fB\fIDIV24 \fP\fP
+.TP
+\fB\fIDIV28 \fP\fP
+.TP
+\fB\fIDIV32 \fP\fP
+.TP
+\fB\fIDIV48 \fP\fP
+.TP
+\fB\fIDIV64 \fP\fP
+.TP
+\fB\fIDIV96 \fP\fP
+.TP
+\fB\fIDIV128 \fP\fP
+.TP
+\fB\fIDIV256 \fP\fP
+.PP
+Definition at line \fB37\fP of file \fBmln_adc\&.h\fP\&.
+.SS "enum \fBmln_adc_res_e\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIHIRES \fP\fP
+.TP
+\fB\fILORES \fP\fP
+.PP
+Definition at line \fB31\fP of file \fBmln_adc\&.h\fP\&.
+.SS "enum \fBmln_adc_samp_e\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fINONE \fP\fP
+.TP
+\fB\fIACC2 \fP\fP
+.TP
+\fB\fIACC4 \fP\fP
+.TP
+\fB\fIACC8 \fP\fP
+.TP
+\fB\fIACC16 \fP\fP
+.TP
+\fB\fIACC32 \fP\fP
+.TP
+\fB\fIACC64 \fP\fP
+.TP
+\fB\fIACC128 \fP\fP
+.PP
+Definition at line \fB55\fP of file \fBmln_adc\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mlnlib from the source code\&.

@@ -1,51 +1,53 @@
-/*
- * mln_vref.h
+/**
+ * @file mln_vref.h
+ * @author Cédric Hirschi (cedr02@live.com)
+ * @brief This peripheral is used to generate reference voltages for use in other peripherals or on pins.
+ * @version 0.1
+ * @date 2023-04-27
  *
- * Created: 05.04.2023 17:23:37
- *  Author: cedr0
+ * @copyright Copyright (c) 2023
+ *
  */
-
 
 #ifndef MLN_VREF_H_
 #define MLN_VREF_H_
 
-typedef enum mln_vref_per_e
-{
-	ADCREF,
-	DACREF
-} VREF_PER_t;
+#include <avr/io.h>
 
-typedef enum mln_vref_sel_e
+/**
+ * @brief Reference voltage selection for DAC and ADC
+ *
+ */
+typedef enum
 {
-	_1V024,
-	_2V048,
-	_4V096,
-	_2V500,
-	VDD = 0x5,
-	VREFA
-} VREF_SEL_t;
+	MLN_VREF_1V024,
+	MLN_VREF_2V048,
+	MLN_VREF_4V096,
+	MLN_VREF_2V500,
+	MLN_VREF_VDD = 0x5,
+	MLN_VREF_VREFA
+} MLN_VREF_SEL_t;
 
-struct mln_vref
+/**
+ * @brief Voltage reference peripheral namespace
+ *
+ */
+namespace mln_vref
 {
-	bool standby = false;
-
-	/*
-	* @brief Configure the VREF peripheral
-	*
-	* @param new_standby Whether peripheral is active when device is in standby
-	*/
-	inline void config(bool new_standby) { standby = new_standby; }
-	
-	/*
-	* @brief Set voltages of VREF peripheral
-	*
-	* @param dac Reference voltage of DAC peripheral to set
-	* @param adc Reference voltage of ADC peripheral to set
-	*/
-	inline const void set(VREF_SEL_t dac, VREF_SEL_t adc)
+	/**
+	 * @brief Configure and set voltages of the VREF peripheral
+	 *
+	 * @param dac Reference voltage of DAC peripheral to set
+	 * @param adc Reference voltage of ADC peripheral to set
+	 * @param ac Reference voltage of AC peripheral to set
+	 * @param standby If true, the peripheral is also running in device standby
+	 *
+	 */
+	inline const void set(MLN_VREF_SEL_t dac = MLN_VREF_2V048, MLN_VREF_SEL_t adc = MLN_VREF_2V048, MLN_VREF_SEL_t ac = MLN_VREF_2V048, bool standby = false)
 	{
 		VREF.DAC0REF = (standby << 7) | dac;
 		VREF.ADC0REF = (standby << 7) | adc;
+		VREF.AC0REF = (standby << 7) | ac;
 	}
 };
 

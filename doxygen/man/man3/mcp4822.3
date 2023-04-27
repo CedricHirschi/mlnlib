@@ -1,0 +1,99 @@
+.TH "mcp4822" 3 "Thu Apr 27 2023" "Version alpha" "mlnlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mcp4822 \- MCP4822 DAC driver\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mcp4822\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmcp4822\fP (SPI_t *new_spi, \fBPIN_t\fP cs, \fBPIN_t\fP new_ldac)"
+.br
+.RI "Construct a new \fBmcp4822\fP object\&. "
+.ti -1c
+.RI "void \fBset_gain\fP (\fBMCP4822_GAIN_t\fP new_gain)"
+.br
+.RI "Set the gain of the DAC\&. "
+.ti -1c
+.RI "void \fBwrite\fP (\fBMCP4822_CHANNEL_t\fP channel, uint16_t value)"
+.br
+.RI "Write a value to the DAC\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+MCP4822 DAC driver\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Utilizes the \fBmln_spi\fP and \fBmln_gpio\fP libraries 
+.RE
+.PP
+
+.PP
+Definition at line \fB38\fP of file \fBmcp4822\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "mcp4822::mcp4822 (SPI_t * new_spi, \fBPIN_t\fP cs, \fBPIN_t\fP new_ldac)\fC [inline]\fP"
+
+.PP
+Construct a new \fBmcp4822\fP object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInew_spi\fP SPI interface to use 
+.br
+\fIcs\fP Chip select pin 
+.br
+\fInew_ldac\fP LDAC pin 
+.RE
+.PP
+
+.PP
+Definition at line \fB59\fP of file \fBmcp4822\&.h\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void mcp4822::set_gain (\fBMCP4822_GAIN_t\fP new_gain)\fC [inline]\fP"
+
+.PP
+Set the gain of the DAC\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInew_gain\fP The new gain
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The gain is set for both channels, only applies from the next write 
+.RE
+.PP
+
+.PP
+Definition at line \fB74\fP of file \fBmcp4822\&.h\fP\&.
+.SS "void mcp4822::write (\fBMCP4822_CHANNEL_t\fP channel, uint16_t value)\fC [inline]\fP"
+
+.PP
+Write a value to the DAC\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIchannel\fP The channel to write to 
+.br
+\fIvalue\fP The value to write 
+.RE
+.PP
+
+.PP
+Definition at line \fB82\fP of file \fBmcp4822\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mlnlib from the source code\&.

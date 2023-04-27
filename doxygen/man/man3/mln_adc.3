@@ -1,0 +1,109 @@
+.TH "mln_adc" 3 "Thu Apr 27 2023" "Version alpha" "mlnlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mln_adc
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mln_adc\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmln_adc\fP ()"
+.br
+.ti -1c
+.RI "\fBmln_adc\fP (\fBPIN_t\fP pin)"
+.br
+.ti -1c
+.RI "\fBmln_adc\fP (\fBADC_IN_t\fP in)"
+.br
+.ti -1c
+.RI "const void \fBconfig\fP (bool standby=false, \fBADC_RES_t\fP res=\fBHIRES\fP, \fBADC_SAMP_t\fP samp=\fBNONE\fP, \fBADC_PRE_t\fP presc=\fBDIV2\fP)"
+.br
+.ti -1c
+.RI "const void \fBenable\fP ()"
+.br
+.ti -1c
+.RI "const void \fBdisable\fP (void)"
+.br
+.ti -1c
+.RI "void \fBset_in\fP (\fBPIN_t\fP new_pin)"
+.br
+.ti -1c
+.RI "const void \fBset_in\fP (\fBADC_IN_t\fP in)"
+.br
+.ti -1c
+.RI "const void \fBstart\fP (void)"
+.br
+.ti -1c
+.RI "const uint16_t \fBread\fP (void)"
+.br
+.ti -1c
+.RI "uint16_t \fBread\fP (\fBPIN_t\fP pin)"
+.br
+.ti -1c
+.RI "const uint16_t \fBread\fP (\fBADC_IN_t\fP in)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB67\fP of file \fBmln_adc\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "mln_adc::mln_adc ()\fC [inline]\fP"
+
+.PP
+Definition at line \fB77\fP of file \fBmln_adc\&.h\fP\&.
+.SS "mln_adc::mln_adc (\fBPIN_t\fP pin)\fC [inline]\fP"
+
+.PP
+Definition at line \fB83\fP of file \fBmln_adc\&.h\fP\&.
+.SS "mln_adc::mln_adc (\fBADC_IN_t\fP in)\fC [inline]\fP"
+
+.PP
+Definition at line \fB89\fP of file \fBmln_adc\&.h\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "const void mln_adc::config (bool standby = \fCfalse\fP, \fBADC_RES_t\fP res = \fC\fBHIRES\fP\fP, \fBADC_SAMP_t\fP samp = \fC\fBNONE\fP\fP, \fBADC_PRE_t\fP presc = \fC\fBDIV2\fP\fP)\fC [inline]\fP"
+
+.PP
+Definition at line \fB104\fP of file \fBmln_adc\&.h\fP\&.
+.SS "const void mln_adc::disable (void)\fC [inline]\fP"
+
+.PP
+Definition at line \fB123\fP of file \fBmln_adc\&.h\fP\&.
+.SS "const void mln_adc::enable ()\fC [inline]\fP"
+
+.PP
+Definition at line \fB119\fP of file \fBmln_adc\&.h\fP\&.
+.SS "const uint16_t mln_adc::read (\fBADC_IN_t\fP in)\fC [inline]\fP"
+
+.PP
+Definition at line \fB204\fP of file \fBmln_adc\&.h\fP\&.
+.SS "uint16_t mln_adc::read (\fBPIN_t\fP pin)\fC [inline]\fP"
+
+.PP
+Definition at line \fB186\fP of file \fBmln_adc\&.h\fP\&.
+.SS "const uint16_t mln_adc::read (void)\fC [inline]\fP"
+
+.PP
+Definition at line \fB168\fP of file \fBmln_adc\&.h\fP\&.
+.SS "const void mln_adc::set_in (\fBADC_IN_t\fP in)\fC [inline]\fP"
+
+.PP
+Definition at line \fB147\fP of file \fBmln_adc\&.h\fP\&.
+.SS "void mln_adc::set_in (\fBPIN_t\fP new_pin)\fC [inline]\fP"
+
+.PP
+Definition at line \fB130\fP of file \fBmln_adc\&.h\fP\&.
+.SS "const void mln_adc::start (void)\fC [inline]\fP"
+
+.PP
+Definition at line \fB152\fP of file \fBmln_adc\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mlnlib from the source code\&.

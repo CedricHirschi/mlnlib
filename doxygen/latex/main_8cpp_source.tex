@@ -1,0 +1,99 @@
+\hypertarget{main_8cpp_source}{}\doxysection{main.\+cpp}
+\label{main_8cpp_source}\index{mlnlib/main.cpp@{mlnlib/main.cpp}}
+\mbox{\hyperlink{main_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ mlnlib.cpp}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ Created:\ 03.04.2023\ 11:13:26}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ Author\ :\ cedr0}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00006}00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mln__common_8h}{mln/mln\_common.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mln__opamp_8h}{mln/mln\_opamp.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00012}00012\ \textcolor{comment}{//\ mln\_uart\ uart(UART3,\ 115200);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00014}\mbox{\hyperlink{main_8cpp_a23b4c270c9602fd62d6f99dfdc2ba8b4}{00014}}\ \mbox{\hyperlink{classmln__gpio}{mln\_gpio}}\ \mbox{\hyperlink{main_8cpp_a23b4c270c9602fd62d6f99dfdc2ba8b4}{btn\_builtin}}(PA5,\ \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda851c2ac60276ada62e8d9ba216c7a487}{INPUT\_PULLUP}},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00015}\mbox{\hyperlink{main_8cpp_a678894dacf538c49ec17010027a68725}{00015}}\ \mbox{\hyperlink{classmln__gpio}{mln\_gpio}}\ \mbox{\hyperlink{main_8cpp_a678894dacf538c49ec17010027a68725}{led\_builtin}}(PA6,\ \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda2ab08d3e103968f5f4f26b66a52e99d6}{OUTPUT}},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00017}00017\ \textcolor{comment}{/*\ mln\_vref\ vref;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00018}00018\ \textcolor{comment}{mln\_adc\ adc;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00019}00019\ \textcolor{comment}{mln\_dac\ dac\_intern;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00020}00020\ \textcolor{comment}{mcp4822\ dac(\&SPI0,\ PC7,\ PC3);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00021}00021\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00022}00022\ \textcolor{comment}{mln\_timer\ led\_timer(TIMER0,\ 1000);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00023}00023\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00024}00024\ \textcolor{comment}{uint16\_t\ dac\_value\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00025}00025\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00026}00026\ \textcolor{comment}{void\ led\_task(void);\ */}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}\mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{00033}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{mln__common_8h_a3b98a1abb5da8c8b56cffbb4ab7d9922}{mln\_init}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{comment}{/*\ vref.config(true);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038\ \textcolor{comment}{\ \ \ \ vref.set(\_1V024,\ \_1V024);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}00040\ \textcolor{comment}{\ \ \ \ dac\_intern.config(true,\ true);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041\ \textcolor{comment}{\ \ \ \ dac.set\_gain(GAIN1);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00042}00042\ \textcolor{comment}{\ \ \ \ adc.enable();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00043}00043\ \textcolor{comment}{\ \ \ \ dac\_intern.enable();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00045}00045\ \textcolor{comment}{\ \ \ \ led\_timer.set\_isr(led\_task);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00046}00046\ \textcolor{comment}{\ \ \ \ led\_timer.start();\ */}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a23b4c270c9602fd62d6f99dfdc2ba8b4}{btn\_builtin}}.\mbox{\hyperlink{classmln__gpio_afd218d68669b4156401a72225532cc12}{attach\_interrupt}}(\mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020ad93abe7aced82e9a4fcac4127a36ece3}{RISING}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{comment}{/*\ OPAMP\_SETUP\_t\ setup;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00051}00051\ \textcolor{comment}{\ \ \ \ setup.config\ =\ OPA\_SETUP::NONINV;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00052}00052\ \textcolor{comment}{\ \ \ \ setup.gain\_noninv\ =\ OPA\_SETUP::GAIN\_2;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00053}00053\ \textcolor{comment}{\ \ \ \ setup.pin\_pos\ =\ OPA\_SETUP::MUXPOS\_DAC;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00054}00054\ \textcolor{comment}{\ \ \ \ setup.opamp\_n\ =\ 1;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00055}00055\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00056}00056\ \textcolor{comment}{\ \ \ \ mln\_opamp\ opamp(\&setup);\ */}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00058}00058\ \ \ \ \ sei();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00061}00061\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ dac\_value\ =\ (dac\_value\ +\ 16)\ \%\ 4096;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00063}00063\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00064}00064\ \textcolor{comment}{\ \ \ \ \ \ \ \ dac\_intern.set(dac\_value\ >>\ 2);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00065}00065\ \textcolor{comment}{\ \ \ \ \ \ \ \ dac.write(CHANNELA,\ dac\_value);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00066}00066\ \textcolor{comment}{\ \ \ \ \ \ \ \ dac.write(CHANNELB,\ 4095\ -\/\ dac\_value);\ */}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00067}00067\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00068}00068\ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00070}00070\ \textcolor{comment}{/*\ void\ led\_task(void)}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00071}00071\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00072}00072\ \textcolor{comment}{\ \ \ \ printf(led\_builtin.get()\ ?\ "{}LED\ is\ on\(\backslash\)t"{}\ :\ "{}LED\ is\ off\(\backslash\)t"{});}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00073}00073\ \textcolor{comment}{\ \ \ \ printf(btn\_builtin.get()\ ?\ "{}BTN\ is\ pressed\(\backslash\)n"{}\ :\ "{}BTN\ is\ released\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00074}00074\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00075}00075\ \textcolor{comment}{\ \ \ \ printf("{}\%u\(\backslash\)t\%u\(\backslash\)t\%u\(\backslash\)t\%u\(\backslash\)n"{},\ dac\_value,\ adc.read(PD0),\ adc.read(PD1),\ adc.read(DAC));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00076}00076\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00077}00077\ \textcolor{comment}{\ \ \ \ if(uart.data\_available())}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00078}00078\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00079}00079\ \textcolor{comment}{\ \ \ \ \ \ \ \ uint8\_t\ n\ =\ uart.data\_available();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00080}00080\ \textcolor{comment}{\ \ \ \ \ \ \ \ uint8\_t\ buffer[n];}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00081}00081\ \textcolor{comment}{\ \ \ \ \ \ \ \ uart.pull(buffer);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00082}00082\ \textcolor{comment}{\ \ \ \ \ \ \ \ printf("{}Received\ '\%s'\ of\ size\ \%u\(\backslash\)n"{},\ buffer,\ n);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00083}00083\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00084}00084\ \textcolor{comment}{\}\ */}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00090}\mbox{\hyperlink{main_8cpp_a117eabaadc65da06bb86ea150d7a0e36}{00090}}\ \mbox{\hyperlink{main_8cpp_a117eabaadc65da06bb86ea150d7a0e36}{ISR}}(PORTA\_PORT\_vect)}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00091}00091\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a678894dacf538c49ec17010027a68725}{led\_builtin}}.\mbox{\hyperlink{classmln__gpio_ac9e4e237a5fd9383a3c3f86187bf3903}{toggle}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00094}00094\ \ \ \ \ PORTA.INTFLAGS\ =\ PIN5\_bm;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00097}00097\ \textcolor{comment}{/*\ ISR(PORTB\_PORT\_vect)}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00098}00098\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00099}00099\ \textcolor{comment}{\ \ \ \ led\_builtin.toggle();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00100}00100\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00101}00101\ \textcolor{comment}{\ \ \ \ PORTB.INTFLAGS\ =\ PIN2\_bm;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00102}00102\ \textcolor{comment}{\}\ */}}
+
+\end{DoxyCode}

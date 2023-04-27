@@ -1,0 +1,192 @@
+.TH "mlnlib/mln/mln_uart.h" 3 "Thu Apr 27 2023" "Version alpha" "mlnlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mlnlib/mln/mln_uart.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <avr/io\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <avr/interrupt\&.h>\fP
+.br
+\fC#include 'mln_gpio\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBmln_uart\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMLN_UART_BAUD\fP   115200"
+.br
+.ti -1c
+.RI "#define \fBMLN_UART_BUF_SIZE\fP   32"
+.br
+.ti -1c
+.RI "#define \fBMLN_UART0_PIN_TX\fP   PA0"
+.br
+.ti -1c
+.RI "#define \fBMLN_UART0_PIN_RX\fP   PA1"
+.br
+.ti -1c
+.RI "#define \fBMLN_UART1_PIN_TX\fP   PC0"
+.br
+.ti -1c
+.RI "#define \fBMLN_UART1_PIN_RX\fP   PC1"
+.br
+.ti -1c
+.RI "#define \fBMLN_UART2_PIN_TX\fP   PF0"
+.br
+.ti -1c
+.RI "#define \fBMLN_UART2_PIN_RX\fP   PF1"
+.br
+.ti -1c
+.RI "#define \fBMLN_UART_NUM_INSTS\fP   3"
+.br
+.ti -1c
+.RI "#define \fBMLN_UART_BAUD_NUM\fP(BAUD)   ((float)(F_CPU * 64 / (16 * (float)BAUD)) + 0\&.5)"
+.br
+.ti -1c
+.RI "#define \fBIS_INT\fP(CHAR)   ((CHAR >= 48) && (CHAR <= 57))"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBmln_uart_inst_e\fP \fBUART_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBmln_uart_inst_e\fP { \fBUART0\fP, \fBUART1\fP, \fBUART2\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "USART_t * \fBMLN_UART_TO_USART\fP (\fBUART_t\fP uart)"
+.br
+.ti -1c
+.RI "int \fBmln_uart_stream_write\fP (char character, FILE *f)"
+.br
+.ti -1c
+.RI "int \fBmln_uart_stream_read\fP (FILE *f)"
+.br
+.ti -1c
+.RI "\fBISR\fP (USART3_RXC_vect)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBmln_uart\fP * \fBmln_uart_stream_uart\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define IS_INT(CHAR)   ((CHAR >= 48) && (CHAR <= 57))"
+
+.PP
+Definition at line \fB58\fP of file \fBmln_uart\&.h\fP\&.
+.SS "#define MLN_UART0_PIN_RX   PA1"
+
+.PP
+Definition at line \fB27\fP of file \fBmln_uart\&.h\fP\&.
+.SS "#define MLN_UART0_PIN_TX   PA0"
+
+.PP
+Definition at line \fB26\fP of file \fBmln_uart\&.h\fP\&.
+.SS "#define MLN_UART1_PIN_RX   PC1"
+
+.PP
+Definition at line \fB29\fP of file \fBmln_uart\&.h\fP\&.
+.SS "#define MLN_UART1_PIN_TX   PC0"
+
+.PP
+Definition at line \fB28\fP of file \fBmln_uart\&.h\fP\&.
+.SS "#define MLN_UART2_PIN_RX   PF1"
+
+.PP
+Definition at line \fB31\fP of file \fBmln_uart\&.h\fP\&.
+.SS "#define MLN_UART2_PIN_TX   PF0"
+
+.PP
+Definition at line \fB30\fP of file \fBmln_uart\&.h\fP\&.
+.SS "#define MLN_UART_BAUD   115200"
+
+.PP
+Definition at line \fB23\fP of file \fBmln_uart\&.h\fP\&.
+.SS "#define MLN_UART_BAUD_NUM(BAUD)   ((float)(F_CPU * 64 / (16 * (float)BAUD)) + 0\&.5)"
+
+.PP
+Definition at line \fB57\fP of file \fBmln_uart\&.h\fP\&.
+.SS "#define MLN_UART_BUF_SIZE   32"
+
+.PP
+Definition at line \fB24\fP of file \fBmln_uart\&.h\fP\&.
+.SS "#define MLN_UART_NUM_INSTS   3"
+
+.PP
+Definition at line \fB54\fP of file \fBmln_uart\&.h\fP\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef enum \fBmln_uart_inst_e\fP \fBUART_t\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBmln_uart_inst_e\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUART0 \fP\fP
+.TP
+\fB\fIUART1 \fP\fP
+.TP
+\fB\fIUART2 \fP\fP
+.PP
+Definition at line \fB60\fP of file \fBmln_uart\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "ISR (USART3_RXC_vect)"
+
+.PP
+Definition at line \fB287\fP of file \fBmln_uart\&.h\fP\&.
+.SS "int mln_uart_stream_read (FILE * f)"
+
+.PP
+Definition at line \fB282\fP of file \fBmln_uart\&.h\fP\&.
+.SS "int mln_uart_stream_write (char character, FILE * f)"
+
+.PP
+Definition at line \fB276\fP of file \fBmln_uart\&.h\fP\&.
+.SS "USART_t * MLN_UART_TO_USART (\fBUART_t\fP uart)"
+
+.PP
+Definition at line \fB80\fP of file \fBmln_uart\&.h\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBmln_uart\fP* mln_uart_stream_uart"
+
+.PP
+Definition at line \fB78\fP of file \fBmln_uart\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mlnlib from the source code\&.

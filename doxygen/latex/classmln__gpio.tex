@@ -1,0 +1,143 @@
+\hypertarget{classmln__gpio}{}\doxysection{mln\+\_\+gpio Class Reference}
+\label{classmln__gpio}\index{mln\_gpio@{mln\_gpio}}
+
+
+{\ttfamily \#include $<$mln\+\_\+gpio.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmln__gpio_ae5f3e9e14f4c417a62638716798989c5}{mln\+\_\+gpio}} ()=default
+\item 
+\mbox{\hyperlink{classmln__gpio_a9cb1217c332eaa22b60508b580025f9c}{mln\+\_\+gpio}} (const \mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}} \&new\+\_\+pin, const \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}{PIN\+\_\+\+DIR\+\_\+t}} \&dir, const bool inv=false)
+\item 
+void \mbox{\hyperlink{classmln__gpio_afd218d68669b4156401a72225532cc12}{attach\+\_\+interrupt}} (\mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020}{PIN\+\_\+\+ISC\+\_\+t}} dir)
+\item 
+const void \mbox{\hyperlink{classmln__gpio_a6658a4ffd79c21c982ca896521db7386}{set}} (void)
+\item 
+const void \mbox{\hyperlink{classmln__gpio_a0aa0cdb1d45809203f26c801dfac2a09}{clear}} (void)
+\item 
+const void \mbox{\hyperlink{classmln__gpio_ac9e4e237a5fd9383a3c3f86187bf3903}{toggle}} (void)
+\item 
+const void \mbox{\hyperlink{classmln__gpio_a0bb9556f20f7246d0b8c17bf011da273}{put}} (bool val)
+\item 
+const bool \mbox{\hyperlink{classmln__gpio_a39a371791690744ad8331f14619631f8}{get}} (void)
+\item 
+void \mbox{\hyperlink{classmln__gpio_ac4899358f5b24cdc467c7929182461f6}{conf\+\_\+dir}} (const \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}{PIN\+\_\+\+DIR\+\_\+t}} \&dir)
+\item 
+void \mbox{\hyperlink{classmln__gpio_ab8f369bba20e8a27950f330e8ee0e3d4}{conf\+\_\+pull}} (const \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}{PIN\+\_\+\+DIR\+\_\+t}} \&pull)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{mln__gpio_8h_source_l00115}{115}} of file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmln__gpio_ae5f3e9e14f4c417a62638716798989c5}\label{classmln__gpio_ae5f3e9e14f4c417a62638716798989c5}} 
+\index{mln\_gpio@{mln\_gpio}!mln\_gpio@{mln\_gpio}}
+\index{mln\_gpio@{mln\_gpio}!mln\_gpio@{mln\_gpio}}
+\doxysubsubsection{\texorpdfstring{mln\_gpio()}{mln\_gpio()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily mln\+\_\+gpio\+::mln\+\_\+gpio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [default]}}
+
+\mbox{\Hypertarget{classmln__gpio_a9cb1217c332eaa22b60508b580025f9c}\label{classmln__gpio_a9cb1217c332eaa22b60508b580025f9c}} 
+\index{mln\_gpio@{mln\_gpio}!mln\_gpio@{mln\_gpio}}
+\index{mln\_gpio@{mln\_gpio}!mln\_gpio@{mln\_gpio}}
+\doxysubsubsection{\texorpdfstring{mln\_gpio()}{mln\_gpio()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily mln\+\_\+gpio\+::mln\+\_\+gpio (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}} \&}]{new\+\_\+pin,  }\item[{const \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}{PIN\+\_\+\+DIR\+\_\+t}} \&}]{dir,  }\item[{const bool}]{inv = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__gpio_8h_source_l00124}{124}} of file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmln__gpio_afd218d68669b4156401a72225532cc12}\label{classmln__gpio_afd218d68669b4156401a72225532cc12}} 
+\index{mln\_gpio@{mln\_gpio}!attach\_interrupt@{attach\_interrupt}}
+\index{attach\_interrupt@{attach\_interrupt}!mln\_gpio@{mln\_gpio}}
+\doxysubsubsection{\texorpdfstring{attach\_interrupt()}{attach\_interrupt()}}
+{\footnotesize\ttfamily void mln\+\_\+gpio\+::attach\+\_\+interrupt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mln__gpio_8h_a615d224b3b0e9f89d18718a544213020}{PIN\+\_\+\+ISC\+\_\+t}}}]{dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__gpio_8h_source_l00141}{141}} of file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
+
+\mbox{\Hypertarget{classmln__gpio_a0aa0cdb1d45809203f26c801dfac2a09}\label{classmln__gpio_a0aa0cdb1d45809203f26c801dfac2a09}} 
+\index{mln\_gpio@{mln\_gpio}!clear@{clear}}
+\index{clear@{clear}!mln\_gpio@{mln\_gpio}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily const void mln\+\_\+gpio\+::clear (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__gpio_8h_source_l00150}{150}} of file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
+
+\mbox{\Hypertarget{classmln__gpio_ac4899358f5b24cdc467c7929182461f6}\label{classmln__gpio_ac4899358f5b24cdc467c7929182461f6}} 
+\index{mln\_gpio@{mln\_gpio}!conf\_dir@{conf\_dir}}
+\index{conf\_dir@{conf\_dir}!mln\_gpio@{mln\_gpio}}
+\doxysubsubsection{\texorpdfstring{conf\_dir()}{conf\_dir()}}
+{\footnotesize\ttfamily void mln\+\_\+gpio\+::conf\+\_\+dir (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}{PIN\+\_\+\+DIR\+\_\+t}} \&}]{dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__gpio_8h_source_l00172}{172}} of file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
+
+\mbox{\Hypertarget{classmln__gpio_ab8f369bba20e8a27950f330e8ee0e3d4}\label{classmln__gpio_ab8f369bba20e8a27950f330e8ee0e3d4}} 
+\index{mln\_gpio@{mln\_gpio}!conf\_pull@{conf\_pull}}
+\index{conf\_pull@{conf\_pull}!mln\_gpio@{mln\_gpio}}
+\doxysubsubsection{\texorpdfstring{conf\_pull()}{conf\_pull()}}
+{\footnotesize\ttfamily void mln\+\_\+gpio\+::conf\+\_\+pull (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fd}{PIN\+\_\+\+DIR\+\_\+t}} \&}]{pull }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__gpio_8h_source_l00184}{184}} of file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
+
+\mbox{\Hypertarget{classmln__gpio_a39a371791690744ad8331f14619631f8}\label{classmln__gpio_a39a371791690744ad8331f14619631f8}} 
+\index{mln\_gpio@{mln\_gpio}!get@{get}}
+\index{get@{get}!mln\_gpio@{mln\_gpio}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily const bool mln\+\_\+gpio\+::get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__gpio_8h_source_l00165}{165}} of file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
+
+\mbox{\Hypertarget{classmln__gpio_a0bb9556f20f7246d0b8c17bf011da273}\label{classmln__gpio_a0bb9556f20f7246d0b8c17bf011da273}} 
+\index{mln\_gpio@{mln\_gpio}!put@{put}}
+\index{put@{put}!mln\_gpio@{mln\_gpio}}
+\doxysubsubsection{\texorpdfstring{put()}{put()}}
+{\footnotesize\ttfamily const void mln\+\_\+gpio\+::put (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__gpio_8h_source_l00160}{160}} of file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
+
+\mbox{\Hypertarget{classmln__gpio_a6658a4ffd79c21c982ca896521db7386}\label{classmln__gpio_a6658a4ffd79c21c982ca896521db7386}} 
+\index{mln\_gpio@{mln\_gpio}!set@{set}}
+\index{set@{set}!mln\_gpio@{mln\_gpio}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily const void mln\+\_\+gpio\+::set (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__gpio_8h_source_l00146}{146}} of file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
+
+\mbox{\Hypertarget{classmln__gpio_ac9e4e237a5fd9383a3c3f86187bf3903}\label{classmln__gpio_ac9e4e237a5fd9383a3c3f86187bf3903}} 
+\index{mln\_gpio@{mln\_gpio}!toggle@{toggle}}
+\index{toggle@{toggle}!mln\_gpio@{mln\_gpio}}
+\doxysubsubsection{\texorpdfstring{toggle()}{toggle()}}
+{\footnotesize\ttfamily const void mln\+\_\+gpio\+::toggle (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__gpio_8h_source_l00154}{154}} of file \mbox{\hyperlink{mln__gpio_8h_source}{mln\+\_\+gpio.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+mlnlib/mln/\mbox{\hyperlink{mln__gpio_8h}{mln\+\_\+gpio.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,93 @@
+.TH "mln_gpio" 3 "Thu Apr 27 2023" "Version alpha" "mlnlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mln_gpio
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mln_gpio\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmln_gpio\fP ()=default"
+.br
+.ti -1c
+.RI "\fBmln_gpio\fP (const \fBPIN_t\fP &new_pin, const \fBPIN_DIR_t\fP &dir, const bool inv=false)"
+.br
+.ti -1c
+.RI "void \fBattach_interrupt\fP (\fBPIN_ISC_t\fP dir)"
+.br
+.ti -1c
+.RI "const void \fBset\fP (void)"
+.br
+.ti -1c
+.RI "const void \fBclear\fP (void)"
+.br
+.ti -1c
+.RI "const void \fBtoggle\fP (void)"
+.br
+.ti -1c
+.RI "const void \fBput\fP (bool val)"
+.br
+.ti -1c
+.RI "const bool \fBget\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconf_dir\fP (const \fBPIN_DIR_t\fP &dir)"
+.br
+.ti -1c
+.RI "void \fBconf_pull\fP (const \fBPIN_DIR_t\fP &pull)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB115\fP of file \fBmln_gpio\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "mln_gpio::mln_gpio ()\fC [inline]\fP, \fC [default]\fP"
+
+.SS "mln_gpio::mln_gpio (const \fBPIN_t\fP & new_pin, const \fBPIN_DIR_t\fP & dir, const bool inv = \fCfalse\fP)\fC [inline]\fP"
+
+.PP
+Definition at line \fB124\fP of file \fBmln_gpio\&.h\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void mln_gpio::attach_interrupt (\fBPIN_ISC_t\fP dir)\fC [inline]\fP"
+
+.PP
+Definition at line \fB141\fP of file \fBmln_gpio\&.h\fP\&.
+.SS "const void mln_gpio::clear (void)\fC [inline]\fP"
+
+.PP
+Definition at line \fB150\fP of file \fBmln_gpio\&.h\fP\&.
+.SS "void mln_gpio::conf_dir (const \fBPIN_DIR_t\fP & dir)\fC [inline]\fP"
+
+.PP
+Definition at line \fB172\fP of file \fBmln_gpio\&.h\fP\&.
+.SS "void mln_gpio::conf_pull (const \fBPIN_DIR_t\fP & pull)\fC [inline]\fP"
+
+.PP
+Definition at line \fB184\fP of file \fBmln_gpio\&.h\fP\&.
+.SS "const bool mln_gpio::get (void)\fC [inline]\fP"
+
+.PP
+Definition at line \fB165\fP of file \fBmln_gpio\&.h\fP\&.
+.SS "const void mln_gpio::put (bool val)\fC [inline]\fP"
+
+.PP
+Definition at line \fB160\fP of file \fBmln_gpio\&.h\fP\&.
+.SS "const void mln_gpio::set (void)\fC [inline]\fP"
+
+.PP
+Definition at line \fB146\fP of file \fBmln_gpio\&.h\fP\&.
+.SS "const void mln_gpio::toggle (void)\fC [inline]\fP"
+
+.PP
+Definition at line \fB154\fP of file \fBmln_gpio\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mlnlib from the source code\&.

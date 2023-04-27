@@ -1,0 +1,79 @@
+.TH "mln_dac" 3 "Thu Apr 27 2023" "Version alpha" "mlnlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mln_dac \- DAC peripheral namespace\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBconfig\fP (bool standby, bool buffer)"
+.br
+.RI "Configure the DAC peripheral\&. "
+.ti -1c
+.RI "const void \fBenable\fP (void)"
+.br
+.RI "Enable the DAC peripheral\&. "
+.ti -1c
+.RI "const void \fBdisable\fP (void)"
+.br
+.RI "Disable the DAC peripheral\&. "
+.ti -1c
+.RI "const void \fBset\fP (uint16_t value)"
+.br
+.RI "Set the output of the DAC peripheral\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+DAC peripheral namespace\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "void mln_dac::config (bool standby, bool buffer)\fC [inline]\fP"
+
+.PP
+Configure the DAC peripheral\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstandby\fP If true, the peripheral is also running in device standby 
+.br
+\fIbuffer\fP If true, the dac output is buffered and output to the pin 
+.RE
+.PP
+
+.PP
+Definition at line \fB28\fP of file \fBmln_dac\&.h\fP\&.
+.SS "const void mln_dac::disable (void)\fC [inline]\fP"
+
+.PP
+Disable the DAC peripheral\&. 
+.PP
+Definition at line \fB43\fP of file \fBmln_dac\&.h\fP\&.
+.SS "const void mln_dac::enable (void)\fC [inline]\fP"
+
+.PP
+Enable the DAC peripheral\&. 
+.PP
+Definition at line \fB38\fP of file \fBmln_dac\&.h\fP\&.
+.SS "const void mln_dac::set (uint16_t value)\fC [inline]\fP"
+
+.PP
+Set the output of the DAC peripheral\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalue\fP The output of the DAC peripheral 
+.RE
+.PP
+
+.PP
+Definition at line \fB51\fP of file \fBmln_dac\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mlnlib from the source code\&.

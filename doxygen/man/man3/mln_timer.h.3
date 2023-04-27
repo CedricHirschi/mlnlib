@@ -1,0 +1,92 @@
+.TH "mlnlib/mln/mln_timer.h" 3 "Thu Apr 27 2023" "Version alpha" "mlnlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mlnlib/mln/mln_timer.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <avr/io\&.h>\fP
+.br
+\fC#include <avr/interrupt\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBmln_timer\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBMLN_TIMER_GET_DIV\fP (uint32_t T)"
+.br
+.ti -1c
+.RI "\fBISR\fP (TCA0_OVF_vect)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBmln_timer\fP * \fBtimer0_isr\fP"
+.br
+.ti -1c
+.RI "const uint16_t \fBmln_timer_divs\fP [] = {1, 2, 4, 8, 16, 64, 256, 1024}"
+.br
+.ti -1c
+.RI "uint32_t \fBmln_max_periods\fP [] = {65, 131, 262, 524, 1048, 4194, 16776, 67107}"
+.br
+.ti -1c
+.RI "const TCA_SINGLE_CLKSEL_t \fBmln_timer_divs_bm\fP []"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "ISR (TCA0_OVF_vect)"
+
+.PP
+Definition at line \fB134\fP of file \fBmln_timer\&.h\fP\&.
+.SS "uint8_t MLN_TIMER_GET_DIV (uint32_t T)"
+
+.PP
+Definition at line \fB49\fP of file \fBmln_timer\&.h\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "uint32_t mln_max_periods[] = {65, 131, 262, 524, 1048, 4194, 16776, 67107}"
+
+.PP
+Definition at line \fB37\fP of file \fBmln_timer\&.h\fP\&.
+.SS "const uint16_t mln_timer_divs[] = {1, 2, 4, 8, 16, 64, 256, 1024}"
+
+.PP
+Definition at line \fB36\fP of file \fBmln_timer\&.h\fP\&.
+.SS "const TCA_SINGLE_CLKSEL_t mln_timer_divs_bm[]"
+\fBInitial value:\fP.PP
+.nf
+= {
+    TCA_SINGLE_CLKSEL_DIV1_gc,
+    TCA_SINGLE_CLKSEL_DIV2_gc,
+    TCA_SINGLE_CLKSEL_DIV4_gc,
+    TCA_SINGLE_CLKSEL_DIV8_gc,
+    TCA_SINGLE_CLKSEL_DIV16_gc,
+    TCA_SINGLE_CLKSEL_DIV64_gc,
+    TCA_SINGLE_CLKSEL_DIV256_gc,
+    TCA_SINGLE_CLKSEL_DIV1024_gc
+}
+.fi
+
+.PP
+Definition at line \fB38\fP of file \fBmln_timer\&.h\fP\&.
+.SS "\fBmln_timer\fP* timer0_isr"
+
+.PP
+Definition at line \fB30\fP of file \fBmln_timer\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mlnlib from the source code\&.

@@ -1,0 +1,85 @@
+.TH "mlnlib/devices/mcp4822.h" 3 "Thu Apr 27 2023" "Version alpha" "mlnlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mlnlib/devices/mcp4822.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./mln/mln_spi\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBmcp4822\fP"
+.br
+.RI "MCP4822 DAC driver\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMCP4822_ENABLE_bm\fP   (1 << 4)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBmln_spi_gain_s\fP \fBMCP4822_GAIN_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBmln_spi_channel_s\fP \fBMCP4822_CHANNEL_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBmln_spi_gain_s\fP { \fBGAIN2\fP, \fBGAIN1\fP }"
+.br
+.ti -1c
+.RI "enum \fBmln_spi_channel_s\fP { \fBCHANNELA\fP, \fBCHANNELB\fP }"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MCP4822_ENABLE_bm   (1 << 4)"
+
+.PP
+Definition at line \fB13\fP of file \fBmcp4822\&.h\fP\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef enum \fBmln_spi_channel_s\fP \fBMCP4822_CHANNEL_t\fP"
+
+.SS "typedef enum \fBmln_spi_gain_s\fP \fBMCP4822_GAIN_t\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBmln_spi_channel_s\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICHANNELA \fP\fP
+.TP
+\fB\fICHANNELB \fP\fP
+.PP
+Definition at line \fB25\fP of file \fBmcp4822\&.h\fP\&.
+.SS "enum \fBmln_spi_gain_s\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIGAIN2 \fP\fP
+.TP
+\fB\fIGAIN1 \fP\fP
+.PP
+Definition at line \fB16\fP of file \fBmcp4822\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mlnlib from the source code\&.

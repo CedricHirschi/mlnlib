@@ -1,0 +1,109 @@
+\hypertarget{classmcp4822}{}\doxysection{mcp4822 Class Reference}
+\label{classmcp4822}\index{mcp4822@{mcp4822}}
+
+
+MCP4822 DAC driver.  
+
+
+
+
+{\ttfamily \#include $<$mcp4822.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmcp4822_af197f1fb877c276e14da81be6b5d943e}{mcp4822}} (SPI\+\_\+t $\ast$new\+\_\+spi, \mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}} cs, \mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}} new\+\_\+ldac)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classmcp4822}{mcp4822}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmcp4822_a14c3bb0cbbb9e726156ec01136661ece}{set\+\_\+gain}} (\mbox{\hyperlink{mcp4822_8h_a879195ec270451ec6332d445fcfc2e4e}{MCP4822\+\_\+\+GAIN\+\_\+t}} new\+\_\+gain)
+\begin{DoxyCompactList}\small\item\em Set the gain of the DAC. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmcp4822_a8c444d2209b4c4c5ab3d8ebc99071a75}{write}} (\mbox{\hyperlink{mcp4822_8h_a616d1661b8f2ff64df13b8a248a6849c}{MCP4822\+\_\+\+CHANNEL\+\_\+t}} channel, uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Write a value to the DAC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+MCP4822 DAC driver. 
+
+\begin{DoxyNote}{Note}
+Utilizes the \mbox{\hyperlink{classmln__spi}{mln\+\_\+spi}} and \mbox{\hyperlink{classmln__gpio}{mln\+\_\+gpio}} libraries 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{mcp4822_8h_source_l00038}{38}} of file \mbox{\hyperlink{mcp4822_8h_source}{mcp4822.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmcp4822_af197f1fb877c276e14da81be6b5d943e}\label{classmcp4822_af197f1fb877c276e14da81be6b5d943e}} 
+\index{mcp4822@{mcp4822}!mcp4822@{mcp4822}}
+\index{mcp4822@{mcp4822}!mcp4822@{mcp4822}}
+\doxysubsubsection{\texorpdfstring{mcp4822()}{mcp4822()}}
+{\footnotesize\ttfamily mcp4822\+::mcp4822 (\begin{DoxyParamCaption}\item[{SPI\+\_\+t $\ast$}]{new\+\_\+spi,  }\item[{\mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}}}]{cs,  }\item[{\mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}}}]{new\+\_\+ldac }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classmcp4822}{mcp4822}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+spi} & SPI interface to use \\
+\hline
+{\em cs} & Chip select pin \\
+\hline
+{\em new\+\_\+ldac} & LDAC pin \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mcp4822_8h_source_l00059}{59}} of file \mbox{\hyperlink{mcp4822_8h_source}{mcp4822.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmcp4822_a14c3bb0cbbb9e726156ec01136661ece}\label{classmcp4822_a14c3bb0cbbb9e726156ec01136661ece}} 
+\index{mcp4822@{mcp4822}!set\_gain@{set\_gain}}
+\index{set\_gain@{set\_gain}!mcp4822@{mcp4822}}
+\doxysubsubsection{\texorpdfstring{set\_gain()}{set\_gain()}}
+{\footnotesize\ttfamily void mcp4822\+::set\+\_\+gain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mcp4822_8h_a879195ec270451ec6332d445fcfc2e4e}{MCP4822\+\_\+\+GAIN\+\_\+t}}}]{new\+\_\+gain }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the gain of the DAC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+gain} & The new gain\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The gain is set for both channels, only applies from the next write 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{mcp4822_8h_source_l00074}{74}} of file \mbox{\hyperlink{mcp4822_8h_source}{mcp4822.\+h}}.
+
+\mbox{\Hypertarget{classmcp4822_a8c444d2209b4c4c5ab3d8ebc99071a75}\label{classmcp4822_a8c444d2209b4c4c5ab3d8ebc99071a75}} 
+\index{mcp4822@{mcp4822}!write@{write}}
+\index{write@{write}!mcp4822@{mcp4822}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void mcp4822\+::write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mcp4822_8h_a616d1661b8f2ff64df13b8a248a6849c}{MCP4822\+\_\+\+CHANNEL\+\_\+t}}}]{channel,  }\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Write a value to the DAC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The channel to write to \\
+\hline
+{\em value} & The value to write \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mcp4822_8h_source_l00082}{82}} of file \mbox{\hyperlink{mcp4822_8h_source}{mcp4822.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+mlnlib/devices/\mbox{\hyperlink{mcp4822_8h}{mcp4822.\+h}}\end{DoxyCompactItemize}

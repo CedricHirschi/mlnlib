@@ -1,0 +1,94 @@
+\hypertarget{mln__vref_8h}{}\doxysection{mlnlib/mln/mln\+\_\+vref.h File Reference}
+\label{mln__vref_8h}\index{mlnlib/mln/mln\_vref.h@{mlnlib/mln/mln\_vref.h}}
+
+
+This peripheral is used to generate reference voltages for use in other peripherals or on pins.  
+
+
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemln__vref}{mln\+\_\+vref}}
+\begin{DoxyCompactList}\small\item\em Voltage reference peripheral namespace. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4a}{MLN\+\_\+\+VREF\+\_\+\+SEL\+\_\+t}} \{ \newline
+\mbox{\hyperlink{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaccfe8ee99d90fcead74c568d47e6090b}{MLN\+\_\+\+VREF\+\_\+1\+V024}}
+, \mbox{\hyperlink{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaf899c3926d4316edc5b049dd1f8f768d}{MLN\+\_\+\+VREF\+\_\+2\+V048}}
+, \mbox{\hyperlink{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaca0b0c039f902d56837d308385464eb8}{MLN\+\_\+\+VREF\+\_\+4\+V096}}
+, \mbox{\hyperlink{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aa4077ca3bed2973af04b578fd88a3f42a}{MLN\+\_\+\+VREF\+\_\+2\+V500}}
+, \newline
+\mbox{\hyperlink{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaf0fc30fefdb9426b1cdf59ae84e0e4d9}{MLN\+\_\+\+VREF\+\_\+\+VDD}} = 0x5
+, \mbox{\hyperlink{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aa6d44b1ba408a47fa64ed75f136f19ab7}{MLN\+\_\+\+VREF\+\_\+\+VREFA}}
+ \}
+\begin{DoxyCompactList}\small\item\em Reference voltage selection for DAC and ADC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const void \mbox{\hyperlink{namespacemln__vref_ac2d67fc43f0d9fe40f09b3a3c34686ad}{mln\+\_\+vref\+::set}} (\mbox{\hyperlink{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4a}{MLN\+\_\+\+VREF\+\_\+\+SEL\+\_\+t}} dac=\mbox{\hyperlink{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaf899c3926d4316edc5b049dd1f8f768d}{MLN\+\_\+\+VREF\+\_\+2\+V048}}, \mbox{\hyperlink{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4a}{MLN\+\_\+\+VREF\+\_\+\+SEL\+\_\+t}} adc=\mbox{\hyperlink{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaf899c3926d4316edc5b049dd1f8f768d}{MLN\+\_\+\+VREF\+\_\+2\+V048}}, \mbox{\hyperlink{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4a}{MLN\+\_\+\+VREF\+\_\+\+SEL\+\_\+t}} ac=\mbox{\hyperlink{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaf899c3926d4316edc5b049dd1f8f768d}{MLN\+\_\+\+VREF\+\_\+2\+V048}}, bool standby=false)
+\begin{DoxyCompactList}\small\item\em Configure and set voltages of the VREF peripheral. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This peripheral is used to generate reference voltages for use in other peripherals or on pins. 
+
+\begin{DoxyAuthor}{Author}
+Cédric Hirschi (\href{mailto:cedr02@live.com}{\texttt{ cedr02@live.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/04-\/27
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+Definition in file \mbox{\hyperlink{mln__vref_8h_source}{mln\+\_\+vref.\+h}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4a}\label{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4a}} 
+\index{mln\_vref.h@{mln\_vref.h}!MLN\_VREF\_SEL\_t@{MLN\_VREF\_SEL\_t}}
+\index{MLN\_VREF\_SEL\_t@{MLN\_VREF\_SEL\_t}!mln\_vref.h@{mln\_vref.h}}
+\doxysubsubsection{\texorpdfstring{MLN\_VREF\_SEL\_t}{MLN\_VREF\_SEL\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4a}{MLN\+\_\+\+VREF\+\_\+\+SEL\+\_\+t}}}
+
+
+
+Reference voltage selection for DAC and ADC. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_VREF\_1V024@{MLN\_VREF\_1V024}!mln\_vref.h@{mln\_vref.h}}\index{mln\_vref.h@{mln\_vref.h}!MLN\_VREF\_1V024@{MLN\_VREF\_1V024}}}\mbox{\Hypertarget{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaccfe8ee99d90fcead74c568d47e6090b}\label{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaccfe8ee99d90fcead74c568d47e6090b}} 
+MLN\+\_\+\+VREF\+\_\+1\+V024&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_VREF\_2V048@{MLN\_VREF\_2V048}!mln\_vref.h@{mln\_vref.h}}\index{mln\_vref.h@{mln\_vref.h}!MLN\_VREF\_2V048@{MLN\_VREF\_2V048}}}\mbox{\Hypertarget{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaf899c3926d4316edc5b049dd1f8f768d}\label{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaf899c3926d4316edc5b049dd1f8f768d}} 
+MLN\+\_\+\+VREF\+\_\+2\+V048&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_VREF\_4V096@{MLN\_VREF\_4V096}!mln\_vref.h@{mln\_vref.h}}\index{mln\_vref.h@{mln\_vref.h}!MLN\_VREF\_4V096@{MLN\_VREF\_4V096}}}\mbox{\Hypertarget{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaca0b0c039f902d56837d308385464eb8}\label{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaca0b0c039f902d56837d308385464eb8}} 
+MLN\+\_\+\+VREF\+\_\+4\+V096&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_VREF\_2V500@{MLN\_VREF\_2V500}!mln\_vref.h@{mln\_vref.h}}\index{mln\_vref.h@{mln\_vref.h}!MLN\_VREF\_2V500@{MLN\_VREF\_2V500}}}\mbox{\Hypertarget{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aa4077ca3bed2973af04b578fd88a3f42a}\label{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aa4077ca3bed2973af04b578fd88a3f42a}} 
+MLN\+\_\+\+VREF\+\_\+2\+V500&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_VREF\_VDD@{MLN\_VREF\_VDD}!mln\_vref.h@{mln\_vref.h}}\index{mln\_vref.h@{mln\_vref.h}!MLN\_VREF\_VDD@{MLN\_VREF\_VDD}}}\mbox{\Hypertarget{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaf0fc30fefdb9426b1cdf59ae84e0e4d9}\label{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aaf0fc30fefdb9426b1cdf59ae84e0e4d9}} 
+MLN\+\_\+\+VREF\+\_\+\+VDD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MLN\_VREF\_VREFA@{MLN\_VREF\_VREFA}!mln\_vref.h@{mln\_vref.h}}\index{mln\_vref.h@{mln\_vref.h}!MLN\_VREF\_VREFA@{MLN\_VREF\_VREFA}}}\mbox{\Hypertarget{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aa6d44b1ba408a47fa64ed75f136f19ab7}\label{mln__vref_8h_ae495fc779ce5af55e739c012fe4caf4aa6d44b1ba408a47fa64ed75f136f19ab7}} 
+MLN\+\_\+\+VREF\+\_\+\+VREFA&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{mln__vref_8h_source_l00019}{19}} of file \mbox{\hyperlink{mln__vref_8h_source}{mln\+\_\+vref.\+h}}.
+

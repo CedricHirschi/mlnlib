@@ -1,0 +1,88 @@
+.TH "mlnlib/mln/mln_vref.h" 3 "Thu Apr 27 2023" "Version alpha" "mlnlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mlnlib/mln/mln_vref.h \- This peripheral is used to generate reference voltages for use in other peripherals or on pins\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBmln_vref\fP"
+.br
+.RI "Voltage reference peripheral namespace\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBMLN_VREF_SEL_t\fP { \fBMLN_VREF_1V024\fP, \fBMLN_VREF_2V048\fP, \fBMLN_VREF_4V096\fP, \fBMLN_VREF_2V500\fP, \fBMLN_VREF_VDD\fP = 0x5, \fBMLN_VREF_VREFA\fP }"
+.br
+.RI "Reference voltage selection for DAC and ADC\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "const void \fBmln_vref::set\fP (\fBMLN_VREF_SEL_t\fP dac=\fBMLN_VREF_2V048\fP, \fBMLN_VREF_SEL_t\fP adc=\fBMLN_VREF_2V048\fP, \fBMLN_VREF_SEL_t\fP ac=\fBMLN_VREF_2V048\fP, bool standby=false)"
+.br
+.RI "Configure and set voltages of the VREF peripheral\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This peripheral is used to generate reference voltages for use in other peripherals or on pins\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Cédric Hirschi (cedr02@live.com) 
+.RE
+.PP
+\fBVersion\fP
+.RS 4
+0\&.1 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+2023-04-27
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+Copyright (c) 2023 
+.RE
+.PP
+
+.PP
+Definition in file \fBmln_vref\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBMLN_VREF_SEL_t\fP"
+
+.PP
+Reference voltage selection for DAC and ADC\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMLN_VREF_1V024 \fP\fP
+.TP
+\fB\fIMLN_VREF_2V048 \fP\fP
+.TP
+\fB\fIMLN_VREF_4V096 \fP\fP
+.TP
+\fB\fIMLN_VREF_2V500 \fP\fP
+.TP
+\fB\fIMLN_VREF_VDD \fP\fP
+.TP
+\fB\fIMLN_VREF_VREFA \fP\fP
+.PP
+Definition at line \fB19\fP of file \fBmln_vref\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mlnlib from the source code\&.

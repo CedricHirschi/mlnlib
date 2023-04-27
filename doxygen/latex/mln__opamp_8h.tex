@@ -1,0 +1,140 @@
+\hypertarget{mln__opamp_8h}{}\doxysection{mlnlib/mln/mln\+\_\+opamp.h File Reference}
+\label{mln__opamp_8h}\index{mlnlib/mln/mln\_opamp.h@{mlnlib/mln/mln\_opamp.h}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_o_p_a_m_p___s_e_t_u_p__s}{OPAMP\+\_\+\+SETUP\+\_\+s}}
+\item 
+class \mbox{\hyperlink{classmln__opamp}{mln\+\_\+opamp}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p}{OPA\+\_\+\+SETUP}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a3dde797cc3e6134c4847aa0ff22a12cc}{OPA\+\_\+\+SETUP\+::\+CONFIG\+\_\+e}} \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_abeb44ce94763048908cc68979c0f4e6a}{OPA\+\_\+\+SETUP\+::\+CONFIG\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aeef8f1cf67f927a3954901a87c11f5d0}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+\+NONINV\+\_\+e}} \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a80cd18728d1644c081f660cc8ae69581}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+\+NONINV\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aac4eedfcbe33c2b081e1ae33b45bdb28}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+\+INV\+\_\+e}} \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a4838dcd25e290f0f4a3ebf27e1db21f4}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+\+INV\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aad05fb3dcc528829631e3c744c1db05a}{OPA\+\_\+\+SETUP\+::\+PIN\+\_\+e}} \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a106909d6ab0cbaf6462096b460091848}{OPA\+\_\+\+SETUP\+::\+PIN\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a8606f091389406c235f724f9cbf3f64e}{OPA\+\_\+\+SETUP\+::\+MUX\+\_\+e}} \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a078d5ac6108d25cdb93caa37429f1934}{OPA\+\_\+\+SETUP\+::\+MUX\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a5beb302e7a7e9d1691fc8483dc9990e9}{OPA\+\_\+\+SETUP\+::\+MUXNEG\+\_\+\+IN\+\_\+e}} \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_adcbe8a9befdaae1f29a6cfc8ef2c97f4}{OPA\+\_\+\+SETUP\+::\+MUXNEG\+\_\+\+IN\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a012908cd2d1e619f3ebe06f3e0aaaa1f}{OPA\+\_\+\+SETUP\+::\+MUXPOS\+\_\+\+IN\+\_\+e}} \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aec79486b4c628edc6152331d17332225}{OPA\+\_\+\+SETUP\+::\+MUXPOS\+\_\+\+IN\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a648f13b8e8c0dc98e48f3a65eca7cebc}{OPA\+\_\+\+SETUP\+::\+MUXTOP\+\_\+\+IN\+\_\+e}} \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a5626518766d9a0b1c150e11118b25c96}{OPA\+\_\+\+SETUP\+::\+MUXTOP\+\_\+\+IN\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a7352bf6985a46a421359ac6c9ce8e488}{OPA\+\_\+\+SETUP\+::\+MUXBOT\+\_\+\+IN\+\_\+e}} \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a2bc27585c3f61e3dc4237254a6954fb7}{OPA\+\_\+\+SETUP\+::\+MUXBOT\+\_\+\+IN\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_ae541227b5b34617853f3a7461da814d8}{OPA\+\_\+\+SETUP\+::\+MUXWIP\+\_\+\+IN\+\_\+e}} \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_ae8f31684f540142ed14ae17315c22f77}{OPA\+\_\+\+SETUP\+::\+MUXWIP\+\_\+\+IN\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct_o_p_a_m_p___s_e_t_u_p__s}{OPAMP\+\_\+\+SETUP\+\_\+s}} \mbox{\hyperlink{mln__opamp_8h_ab7f693a10a8f67ee699dd9ea5ee9a596}{OPAMP\+\_\+\+SETUP\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a3dde797cc3e6134c4847aa0ff22a12cc}{OPA\+\_\+\+SETUP\+::\+CONFIG\+\_\+e}} \{ \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a3dde797cc3e6134c4847aa0ff22a12cca1081741850f6c547ff187c992107c524}{OPA\+\_\+\+SETUP\+::\+TOPINS}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a3dde797cc3e6134c4847aa0ff22a12ccae3cac036d7c8098a738d29b389255c8d}{OPA\+\_\+\+SETUP\+::\+FOLLOWER}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a3dde797cc3e6134c4847aa0ff22a12cca443291b13c754017df8320b2d6c00c75}{OPA\+\_\+\+SETUP\+::\+NONINV}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a3dde797cc3e6134c4847aa0ff22a12ccaaed4cf9643120c7269ba3a23b3d8c010}{OPA\+\_\+\+SETUP\+::\+INV}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aeef8f1cf67f927a3954901a87c11f5d0}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+\+NONINV\+\_\+e}} \{ \newline
+\mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aeef8f1cf67f927a3954901a87c11f5d0a9a060cf428aa63c29d30dac00ac5f851}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+1\+\_\+06}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aeef8f1cf67f927a3954901a87c11f5d0a65e691964de71fc09bbc8ceb6c9304f6}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+1\+\_\+14}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aeef8f1cf67f927a3954901a87c11f5d0a75b409edd615ccf1852567722487db14}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+1\+\_\+33}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aeef8f1cf67f927a3954901a87c11f5d0a5c030fd418f37d54f961f18a2e24ecc3}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+2}}
+, \newline
+\mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aeef8f1cf67f927a3954901a87c11f5d0a8559e76ba35e2de5b992906249adb6d5}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+2\+\_\+67}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aeef8f1cf67f927a3954901a87c11f5d0a5ee6df1511fb77a4627d44db93f1345e}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+4}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aeef8f1cf67f927a3954901a87c11f5d0a01426bf625b265077e1d283af674dc91}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+8}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aeef8f1cf67f927a3954901a87c11f5d0a45b404dcff1847de7996cb9807b52df3}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+16}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aac4eedfcbe33c2b081e1ae33b45bdb28}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+\+INV\+\_\+e}} \{ \newline
+\mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aac4eedfcbe33c2b081e1ae33b45bdb28a168b106b5e4c524824468fbff322ed1a}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+\+INV\+\_\+0\+\_\+06}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aac4eedfcbe33c2b081e1ae33b45bdb28acb728313d507e429474b6e2833be4699}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+\+INV\+\_\+0\+\_\+14}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aac4eedfcbe33c2b081e1ae33b45bdb28ae96d78ecea071df74288320143ac164b}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+\+INV\+\_\+0\+\_\+33}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aac4eedfcbe33c2b081e1ae33b45bdb28ae04d28de15a7002a2cd82c692d032697}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+\+INV\+\_\+1}}
+, \newline
+\mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aac4eedfcbe33c2b081e1ae33b45bdb28aa4635f58ddc1b16c67d8f3ecc58b7b8e}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+\+INV\+\_\+1\+\_\+67}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aac4eedfcbe33c2b081e1ae33b45bdb28a009ddef9b1719adcf0751567ea0b1c01}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+\+INV\+\_\+3}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aac4eedfcbe33c2b081e1ae33b45bdb28a6cd7a1536395bdb3e86ab2cd667612b9}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+\+INV\+\_\+7}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aac4eedfcbe33c2b081e1ae33b45bdb28a4ab98c0bece26f2d13dc150a0e6a0855}{OPA\+\_\+\+SETUP\+::\+GAIN\+\_\+\+INV\+\_\+15}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aad05fb3dcc528829631e3c744c1db05a}{OPA\+\_\+\+SETUP\+::\+PIN\+\_\+e}} \{ \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aad05fb3dcc528829631e3c744c1db05aa93f9f8e37c6328c3e99a6daa2f3aea54}{OPA\+\_\+\+SETUP\+::\+PIN\+\_\+\+INN}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aad05fb3dcc528829631e3c744c1db05aacbc60a50e4251d65916a43d245afdda0}{OPA\+\_\+\+SETUP\+::\+PIN\+\_\+\+INP}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_aad05fb3dcc528829631e3c744c1db05aa796df503417936bebd022961e06c2e58}{OPA\+\_\+\+SETUP\+::\+PIN\+\_\+\+OUT}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a8606f091389406c235f724f9cbf3f64e}{OPA\+\_\+\+SETUP\+::\+MUX\+\_\+e}} \{ \newline
+\mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a8606f091389406c235f724f9cbf3f64eaee7c40417a6b4a489e55d048c9ab41bd}{OPA\+\_\+\+SETUP\+::\+MUXNEG}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a8606f091389406c235f724f9cbf3f64ea7162afefc1148b3d2db41d85dcb842ae}{OPA\+\_\+\+SETUP\+::\+MUXPOS}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a8606f091389406c235f724f9cbf3f64ea63bd729c8a588e9ef236512958681e23}{OPA\+\_\+\+SETUP\+::\+MUXTOP}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a8606f091389406c235f724f9cbf3f64ea4b4f58afebe036360eb0ccadf47d25d3}{OPA\+\_\+\+SETUP\+::\+MUXBOT}}
+, \newline
+\mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a8606f091389406c235f724f9cbf3f64eadc623ca233209c70043a4a2590a6dd06}{OPA\+\_\+\+SETUP\+::\+MUXWIP}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a5beb302e7a7e9d1691fc8483dc9990e9}{OPA\+\_\+\+SETUP\+::\+MUXNEG\+\_\+\+IN\+\_\+e}} \{ \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a5beb302e7a7e9d1691fc8483dc9990e9aa5a4473e8db18d6d930564c8cf5692b6}{OPA\+\_\+\+SETUP\+::\+MUXNEG\+\_\+\+INN}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a5beb302e7a7e9d1691fc8483dc9990e9a744a84a803f183b9f3800b8bc230d177}{OPA\+\_\+\+SETUP\+::\+MUXNEG\+\_\+\+WIP}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a5beb302e7a7e9d1691fc8483dc9990e9a6a87cfa1c26c9e6cfb6ef83af1c6c742}{OPA\+\_\+\+SETUP\+::\+MUXNEG\+\_\+\+OUT}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a5beb302e7a7e9d1691fc8483dc9990e9a4ba4ff7955f4f72ceb6b78b9d0d2020f}{OPA\+\_\+\+SETUP\+::\+MUXNEG\+\_\+\+DAC}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a012908cd2d1e619f3ebe06f3e0aaaa1f}{OPA\+\_\+\+SETUP\+::\+MUXPOS\+\_\+\+IN\+\_\+e}} \{ \newline
+\mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a012908cd2d1e619f3ebe06f3e0aaaa1fab5e2015b202f0d9ee31c39fc8bfa0e43}{OPA\+\_\+\+SETUP\+::\+MUXPOS\+\_\+\+INP}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a012908cd2d1e619f3ebe06f3e0aaaa1fa86206329b9565e03e634386830b419cb}{OPA\+\_\+\+SETUP\+::\+MUXPOS\+\_\+\+WIP}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a012908cd2d1e619f3ebe06f3e0aaaa1fa07495fe5dc520ffc51543afa8d47db5a}{OPA\+\_\+\+SETUP\+::\+MUXPOS\+\_\+\+DAC}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a012908cd2d1e619f3ebe06f3e0aaaa1fab5a5287b8e57f879406d330f3fd909a4}{OPA\+\_\+\+SETUP\+::\+MUXPOS\+\_\+\+GND}}
+, \newline
+\mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a012908cd2d1e619f3ebe06f3e0aaaa1fa26b9122de82cebbdc79fd220c7dbaee9}{OPA\+\_\+\+SETUP\+::\+MUXPOS\+\_\+\+VDDDIV2}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a012908cd2d1e619f3ebe06f3e0aaaa1fa33b5c396e71a32246fd4c2d1b5e74815}{OPA\+\_\+\+SETUP\+::\+MUXPOS\+\_\+\+LINKOUT}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a012908cd2d1e619f3ebe06f3e0aaaa1fa00a02bc4e518b7226f1f1d0e58b4311c}{OPA\+\_\+\+SETUP\+::\+MUXPOS\+\_\+\+LINKWIP}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a648f13b8e8c0dc98e48f3a65eca7cebc}{OPA\+\_\+\+SETUP\+::\+MUXTOP\+\_\+\+IN\+\_\+e}} \{ \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a648f13b8e8c0dc98e48f3a65eca7cebca736a41c59a80ee17cb5aa9f6d9626142}{OPA\+\_\+\+SETUP\+::\+MUXTOP\+\_\+\+OFF}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a648f13b8e8c0dc98e48f3a65eca7cebca15f7026f1b15494340f35b0cba9cafe3}{OPA\+\_\+\+SETUP\+::\+MUXTOP\+\_\+\+OUT}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a648f13b8e8c0dc98e48f3a65eca7cebca0aab46fa183285a4d937a81be72a40c9}{OPA\+\_\+\+SETUP\+::\+MUXTOP\+\_\+\+VDD}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a7352bf6985a46a421359ac6c9ce8e488}{OPA\+\_\+\+SETUP\+::\+MUXBOT\+\_\+\+IN\+\_\+e}} \{ \newline
+\mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a7352bf6985a46a421359ac6c9ce8e488ad6ed0760470015ab73c4d749b052d74d}{OPA\+\_\+\+SETUP\+::\+MUXBOT\+\_\+\+OFF}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a7352bf6985a46a421359ac6c9ce8e488a8b22fe89673aa714c32902feb9bac4d2}{OPA\+\_\+\+SETUP\+::\+MUXBOT\+\_\+\+INP}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a7352bf6985a46a421359ac6c9ce8e488a85225fa4a6b86f6e2412ed1f90b45ca9}{OPA\+\_\+\+SETUP\+::\+MUXBOT\+\_\+\+INN}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a7352bf6985a46a421359ac6c9ce8e488a53993d059defaa25c6e57746eacb9cd2}{OPA\+\_\+\+SETUP\+::\+MUXBOT\+\_\+\+DAC}}
+, \newline
+\mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a7352bf6985a46a421359ac6c9ce8e488a8afce9690b8559a5c26b49a8d037bf34}{OPA\+\_\+\+SETUP\+::\+MUXBOT\+\_\+\+LINKOUT}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_a7352bf6985a46a421359ac6c9ce8e488ad453fcbc39b9e1b5f6eef99300dc88ee}{OPA\+\_\+\+SETUP\+::\+MUXBOT\+\_\+\+GND}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_ae541227b5b34617853f3a7461da814d8}{OPA\+\_\+\+SETUP\+::\+MUXWIP\+\_\+\+IN\+\_\+e}} \{ \newline
+\mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_ae541227b5b34617853f3a7461da814d8acfa959bae52b687477ce6d17df684532}{OPA\+\_\+\+SETUP\+::\+MUXWIP\+\_\+\+WIP0}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_ae541227b5b34617853f3a7461da814d8a2ea6b6a2c938ee63ce5b6b9f423fb629}{OPA\+\_\+\+SETUP\+::\+MUXWIP\+\_\+\+WIP1}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_ae541227b5b34617853f3a7461da814d8a659a62b7b2c491f7b9a4b3448e575830}{OPA\+\_\+\+SETUP\+::\+MUXWIP\+\_\+\+WIP2}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_ae541227b5b34617853f3a7461da814d8a814eebef03db7fccf74905873ac2b5a5}{OPA\+\_\+\+SETUP\+::\+MUXWIP\+\_\+\+WIP3}}
+, \newline
+\mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_ae541227b5b34617853f3a7461da814d8abb06a4866759bf6cc1f76e3d1007a53f}{OPA\+\_\+\+SETUP\+::\+MUXWIP\+\_\+\+WIP4}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_ae541227b5b34617853f3a7461da814d8abcc1cb3ca3759212f440a829072229c8}{OPA\+\_\+\+SETUP\+::\+MUXWIP\+\_\+\+WIP5}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_ae541227b5b34617853f3a7461da814d8a37b83ca7ba2c68fbd98297b78161d4cd}{OPA\+\_\+\+SETUP\+::\+MUXWIP\+\_\+\+WIP6}}
+, \mbox{\hyperlink{namespace_o_p_a___s_e_t_u_p_ae541227b5b34617853f3a7461da814d8aeda6762ea64546ecf685183bde8ac6db}{OPA\+\_\+\+SETUP\+::\+MUXWIP\+\_\+\+WIP7}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{mln__opamp_8h_ab7f693a10a8f67ee699dd9ea5ee9a596}\label{mln__opamp_8h_ab7f693a10a8f67ee699dd9ea5ee9a596}} 
+\index{mln\_opamp.h@{mln\_opamp.h}!OPAMP\_SETUP\_t@{OPAMP\_SETUP\_t}}
+\index{OPAMP\_SETUP\_t@{OPAMP\_SETUP\_t}!mln\_opamp.h@{mln\_opamp.h}}
+\doxysubsubsection{\texorpdfstring{OPAMP\_SETUP\_t}{OPAMP\_SETUP\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_o_p_a_m_p___s_e_t_u_p__s}{OPAMP\+\_\+\+SETUP\+\_\+s}} \mbox{\hyperlink{mln__opamp_8h_ab7f693a10a8f67ee699dd9ea5ee9a596}{OPAMP\+\_\+\+SETUP\+\_\+t}}}
+

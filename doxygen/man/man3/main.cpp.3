@@ -1,0 +1,65 @@
+.TH "mlnlib/main.cpp" 3 "Thu Apr 27 2023" "Version alpha" "mlnlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mlnlib/main.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'mln/mln_common\&.h'\fP
+.br
+\fC#include 'mln/mln_opamp\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmain\fP (void)"
+.br
+.RI "Main function\&. "
+.ti -1c
+.RI "\fBISR\fP (PORTA_PORT_vect)"
+.br
+.RI "Interrupt service routine for PORTA\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBmln_gpio\fP \fBbtn_builtin\fP (PA5, \fBINPUT_PULLUP\fP, true)"
+.br
+.ti -1c
+.RI "\fBmln_gpio\fP \fBled_builtin\fP (PA6, \fBOUTPUT\fP, true)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "ISR (PORTA_PORT_vect)"
+
+.PP
+Interrupt service routine for PORTA\&. 
+.PP
+Definition at line \fB90\fP of file \fBmain\&.cpp\fP\&.
+.SS "int main (void)"
+
+.PP
+Main function\&. 
+.PP
+\fBReturns\fP
+.RS 4
+int Should never return 
+.RE
+.PP
+
+.PP
+Definition at line \fB33\fP of file \fBmain\&.cpp\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBmln_gpio\fP btn_builtin(PA5, \fBINPUT_PULLUP\fP, true) (PA5, \fBINPUT_PULLUP\fP, true)"
+
+.SS "\fBmln_gpio\fP led_builtin(PA6, \fBOUTPUT\fP, true) (PA6, \fBOUTPUT\fP, true)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mlnlib from the source code\&.

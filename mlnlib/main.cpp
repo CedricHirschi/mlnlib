@@ -25,6 +25,11 @@ uint16_t dac_value = 0;
 
 void led_task(void); */
 
+/**
+ * @brief Main function
+ *
+ * @return int Should never return
+ */
 int main(void)
 {
 	mln_init();
@@ -59,7 +64,7 @@ int main(void)
 		dac_intern.set(dac_value >> 2);
 		dac.write(CHANNELA, dac_value);
 		dac.write(CHANNELB, 4095 - dac_value); */
-    }
+	}
 }
 
 /* void led_task(void)
@@ -78,6 +83,10 @@ int main(void)
 	}
 } */
 
+/**
+ * @brief Interrupt service routine for PORTA
+ *
+ */
 ISR(PORTA_PORT_vect)
 {
 	led_builtin.toggle();

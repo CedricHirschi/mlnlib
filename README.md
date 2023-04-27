@@ -41,3 +41,22 @@ The library can be tested inside [`main.cpp`](mlnlib/main.cpp). As this library 
 
 1. Open the project in Microchip Studio 7 and build / run the project
 2. Run `make all` in the [`Debug`](mlnlib/Debug) folder to get the binaries and upload them to the microcontroller using a different tool
+
+## TODO
+
+- **Overall:**
+  - [ ] Unify constant names (e.g. `MLN_ADC_IN_DACREF0` vs `DACREF0`)
+  - [ ] Unify function names (e.g. `start`, `init`, etc. in every class)
+  - [ ] Add documentation in form of doxygen comments and config
+- **`mln_adc`:**
+  - [ ] Add function to check if result is ready (change from private to public)
+  - [ ] Add function to check if conversion is running
+- **`mln_opamp` and `mln_dac` and `mln_vref`:**
+  - [ ] Move from class to namespace (no saved variables)
+- **`mln_uart`:**
+  - [ ] Move `push` function from public to private
+- **`mln_gpio`:**
+  - [ ] For each function, add function available outside of class (e.g. `init_pin.toggle()` vs `mln_gpio::toggle(uninit_pin)`)
+- **`mln_timer`:**
+  - [ ] Add `CMP` functionality (multiple interrupts per TCA)
+  - [ ] Add PWM

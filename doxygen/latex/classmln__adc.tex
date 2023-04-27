@@ -1,0 +1,171 @@
+\hypertarget{classmln__adc}{}\doxysection{mln\+\_\+adc Class Reference}
+\label{classmln__adc}\index{mln\_adc@{mln\_adc}}
+
+
+{\ttfamily \#include $<$mln\+\_\+adc.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmln__adc_a6e055cc7727403cd94606f5d32867ec3}{mln\+\_\+adc}} ()
+\item 
+\mbox{\hyperlink{classmln__adc_ad4aa3ee8d93e379685b4c16cd1bac1f0}{mln\+\_\+adc}} (\mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}} pin)
+\item 
+\mbox{\hyperlink{classmln__adc_a8795cf106fb6ba01312b64f26a65170e}{mln\+\_\+adc}} (\mbox{\hyperlink{mln__adc_8h_a4f03e1a0f2be54fd4eb97865059aa016}{ADC\+\_\+\+IN\+\_\+t}} in)
+\item 
+const void \mbox{\hyperlink{classmln__adc_a8c1a644bbd89b70d0c66411cf56cd4c1}{config}} (bool standby=false, \mbox{\hyperlink{mln__adc_8h_a3d661f184eb34e9770e0e930f1c1b94d}{ADC\+\_\+\+RES\+\_\+t}} res=\mbox{\hyperlink{mln__adc_8h_a42a13d30380ca3f35a8da79dffe825b7a04abac7139599aa4759fe5b5eacbb782}{HIRES}}, \mbox{\hyperlink{mln__adc_8h_a7152c224e51badcff6e1155eacc6bf29}{ADC\+\_\+\+SAMP\+\_\+t}} samp=\mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9adac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}, \mbox{\hyperlink{mln__adc_8h_a88e3055fb02640f0981b595e3fc1c8c1}{ADC\+\_\+\+PRE\+\_\+t}} presc=\mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a56519a2284b7043319337ae0db4aa2e6}{DIV2}})
+\item 
+const void \mbox{\hyperlink{classmln__adc_ab80519287f98e596a509280c414ad4d9}{enable}} ()
+\item 
+const void \mbox{\hyperlink{classmln__adc_acf7fda713d82aaaa1421c7527866b894}{disable}} (void)
+\item 
+void \mbox{\hyperlink{classmln__adc_a6917f6576872b62855080ee7fbee00d9}{set\+\_\+in}} (\mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}} new\+\_\+pin)
+\item 
+const void \mbox{\hyperlink{classmln__adc_aae0b3bb53856e70a7d4ae5b6dd058e17}{set\+\_\+in}} (\mbox{\hyperlink{mln__adc_8h_a4f03e1a0f2be54fd4eb97865059aa016}{ADC\+\_\+\+IN\+\_\+t}} in)
+\item 
+const void \mbox{\hyperlink{classmln__adc_a456941f8b507ca65e3d6866f7f2052bd}{start}} (void)
+\item 
+const uint16\+\_\+t \mbox{\hyperlink{classmln__adc_aa8ef679b5ebc4305eee3c28c74293290}{read}} (void)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classmln__adc_a6f09fd87388d0034fce87432e72f148a}{read}} (\mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}} pin)
+\item 
+const uint16\+\_\+t \mbox{\hyperlink{classmln__adc_a50904c79b977a2257f63599f511b84fc}{read}} (\mbox{\hyperlink{mln__adc_8h_a4f03e1a0f2be54fd4eb97865059aa016}{ADC\+\_\+\+IN\+\_\+t}} in)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00067}{67}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmln__adc_a6e055cc7727403cd94606f5d32867ec3}\label{classmln__adc_a6e055cc7727403cd94606f5d32867ec3}} 
+\index{mln\_adc@{mln\_adc}!mln\_adc@{mln\_adc}}
+\index{mln\_adc@{mln\_adc}!mln\_adc@{mln\_adc}}
+\doxysubsubsection{\texorpdfstring{mln\_adc()}{mln\_adc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily mln\+\_\+adc\+::mln\+\_\+adc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00077}{77}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+
+\mbox{\Hypertarget{classmln__adc_ad4aa3ee8d93e379685b4c16cd1bac1f0}\label{classmln__adc_ad4aa3ee8d93e379685b4c16cd1bac1f0}} 
+\index{mln\_adc@{mln\_adc}!mln\_adc@{mln\_adc}}
+\index{mln\_adc@{mln\_adc}!mln\_adc@{mln\_adc}}
+\doxysubsubsection{\texorpdfstring{mln\_adc()}{mln\_adc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily mln\+\_\+adc\+::mln\+\_\+adc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}}}]{pin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00083}{83}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+
+\mbox{\Hypertarget{classmln__adc_a8795cf106fb6ba01312b64f26a65170e}\label{classmln__adc_a8795cf106fb6ba01312b64f26a65170e}} 
+\index{mln\_adc@{mln\_adc}!mln\_adc@{mln\_adc}}
+\index{mln\_adc@{mln\_adc}!mln\_adc@{mln\_adc}}
+\doxysubsubsection{\texorpdfstring{mln\_adc()}{mln\_adc()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily mln\+\_\+adc\+::mln\+\_\+adc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mln__adc_8h_a4f03e1a0f2be54fd4eb97865059aa016}{ADC\+\_\+\+IN\+\_\+t}}}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00089}{89}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmln__adc_a8c1a644bbd89b70d0c66411cf56cd4c1}\label{classmln__adc_a8c1a644bbd89b70d0c66411cf56cd4c1}} 
+\index{mln\_adc@{mln\_adc}!config@{config}}
+\index{config@{config}!mln\_adc@{mln\_adc}}
+\doxysubsubsection{\texorpdfstring{config()}{config()}}
+{\footnotesize\ttfamily const void mln\+\_\+adc\+::config (\begin{DoxyParamCaption}\item[{bool}]{standby = {\ttfamily false},  }\item[{\mbox{\hyperlink{mln__adc_8h_a3d661f184eb34e9770e0e930f1c1b94d}{ADC\+\_\+\+RES\+\_\+t}}}]{res = {\ttfamily \mbox{\hyperlink{mln__adc_8h_a42a13d30380ca3f35a8da79dffe825b7a04abac7139599aa4759fe5b5eacbb782}{HIRES}}},  }\item[{\mbox{\hyperlink{mln__adc_8h_a7152c224e51badcff6e1155eacc6bf29}{ADC\+\_\+\+SAMP\+\_\+t}}}]{samp = {\ttfamily \mbox{\hyperlink{mln__adc_8h_a40306ec3e591cedf7136426ee654c9adac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}},  }\item[{\mbox{\hyperlink{mln__adc_8h_a88e3055fb02640f0981b595e3fc1c8c1}{ADC\+\_\+\+PRE\+\_\+t}}}]{presc = {\ttfamily \mbox{\hyperlink{mln__adc_8h_a028bb23c38ce58798e592bdaf034f073a56519a2284b7043319337ae0db4aa2e6}{DIV2}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00104}{104}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+
+\mbox{\Hypertarget{classmln__adc_acf7fda713d82aaaa1421c7527866b894}\label{classmln__adc_acf7fda713d82aaaa1421c7527866b894}} 
+\index{mln\_adc@{mln\_adc}!disable@{disable}}
+\index{disable@{disable}!mln\_adc@{mln\_adc}}
+\doxysubsubsection{\texorpdfstring{disable()}{disable()}}
+{\footnotesize\ttfamily const void mln\+\_\+adc\+::disable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00123}{123}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+
+\mbox{\Hypertarget{classmln__adc_ab80519287f98e596a509280c414ad4d9}\label{classmln__adc_ab80519287f98e596a509280c414ad4d9}} 
+\index{mln\_adc@{mln\_adc}!enable@{enable}}
+\index{enable@{enable}!mln\_adc@{mln\_adc}}
+\doxysubsubsection{\texorpdfstring{enable()}{enable()}}
+{\footnotesize\ttfamily const void mln\+\_\+adc\+::enable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00119}{119}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+
+\mbox{\Hypertarget{classmln__adc_a50904c79b977a2257f63599f511b84fc}\label{classmln__adc_a50904c79b977a2257f63599f511b84fc}} 
+\index{mln\_adc@{mln\_adc}!read@{read}}
+\index{read@{read}!mln\_adc@{mln\_adc}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily const uint16\+\_\+t mln\+\_\+adc\+::read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mln__adc_8h_a4f03e1a0f2be54fd4eb97865059aa016}{ADC\+\_\+\+IN\+\_\+t}}}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00204}{204}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+
+\mbox{\Hypertarget{classmln__adc_a6f09fd87388d0034fce87432e72f148a}\label{classmln__adc_a6f09fd87388d0034fce87432e72f148a}} 
+\index{mln\_adc@{mln\_adc}!read@{read}}
+\index{read@{read}!mln\_adc@{mln\_adc}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily uint16\+\_\+t mln\+\_\+adc\+::read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}}}]{pin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00186}{186}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+
+\mbox{\Hypertarget{classmln__adc_aa8ef679b5ebc4305eee3c28c74293290}\label{classmln__adc_aa8ef679b5ebc4305eee3c28c74293290}} 
+\index{mln\_adc@{mln\_adc}!read@{read}}
+\index{read@{read}!mln\_adc@{mln\_adc}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily const uint16\+\_\+t mln\+\_\+adc\+::read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00168}{168}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+
+\mbox{\Hypertarget{classmln__adc_aae0b3bb53856e70a7d4ae5b6dd058e17}\label{classmln__adc_aae0b3bb53856e70a7d4ae5b6dd058e17}} 
+\index{mln\_adc@{mln\_adc}!set\_in@{set\_in}}
+\index{set\_in@{set\_in}!mln\_adc@{mln\_adc}}
+\doxysubsubsection{\texorpdfstring{set\_in()}{set\_in()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const void mln\+\_\+adc\+::set\+\_\+in (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mln__adc_8h_a4f03e1a0f2be54fd4eb97865059aa016}{ADC\+\_\+\+IN\+\_\+t}}}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00147}{147}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+
+\mbox{\Hypertarget{classmln__adc_a6917f6576872b62855080ee7fbee00d9}\label{classmln__adc_a6917f6576872b62855080ee7fbee00d9}} 
+\index{mln\_adc@{mln\_adc}!set\_in@{set\_in}}
+\index{set\_in@{set\_in}!mln\_adc@{mln\_adc}}
+\doxysubsubsection{\texorpdfstring{set\_in()}{set\_in()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void mln\+\_\+adc\+::set\+\_\+in (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_i_n__t}{PIN\+\_\+t}}}]{new\+\_\+pin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00130}{130}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+
+\mbox{\Hypertarget{classmln__adc_a456941f8b507ca65e3d6866f7f2052bd}\label{classmln__adc_a456941f8b507ca65e3d6866f7f2052bd}} 
+\index{mln\_adc@{mln\_adc}!start@{start}}
+\index{start@{start}!mln\_adc@{mln\_adc}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily const void mln\+\_\+adc\+::start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mln__adc_8h_source_l00152}{152}} of file \mbox{\hyperlink{mln__adc_8h_source}{mln\+\_\+adc.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+mlnlib/mln/\mbox{\hyperlink{mln__adc_8h}{mln\+\_\+adc.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,67 @@
+\hypertarget{main_8cpp}{}\doxysection{mlnlib/main.cpp File Reference}
+\label{main_8cpp}\index{mlnlib/main.cpp@{mlnlib/main.cpp}}
+{\ttfamily \#include \char`\"{}mln/mln\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mln/mln\+\_\+opamp.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{main_8cpp_a117eabaadc65da06bb86ea150d7a0e36}{ISR}} (PORTA\+\_\+\+PORT\+\_\+vect)
+\begin{DoxyCompactList}\small\item\em Interrupt service routine for PORTA. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmln__gpio}{mln\+\_\+gpio}} \mbox{\hyperlink{main_8cpp_a23b4c270c9602fd62d6f99dfdc2ba8b4}{btn\+\_\+builtin}} (PA5, \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda851c2ac60276ada62e8d9ba216c7a487}{INPUT\+\_\+\+PULLUP}}, true)
+\item 
+\mbox{\hyperlink{classmln__gpio}{mln\+\_\+gpio}} \mbox{\hyperlink{main_8cpp_a678894dacf538c49ec17010027a68725}{led\+\_\+builtin}} (PA6, \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda2ab08d3e103968f5f4f26b66a52e99d6}{OUTPUT}}, true)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a117eabaadc65da06bb86ea150d7a0e36}\label{main_8cpp_a117eabaadc65da06bb86ea150d7a0e36}} 
+\index{main.cpp@{main.cpp}!ISR@{ISR}}
+\index{ISR@{ISR}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{PORTA\+\_\+\+PORT\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+
+
+Interrupt service routine for PORTA. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00090}{90}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+\begin{DoxyReturn}{Returns}
+int Should never return 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_a23b4c270c9602fd62d6f99dfdc2ba8b4}\label{main_8cpp_a23b4c270c9602fd62d6f99dfdc2ba8b4}} 
+\index{main.cpp@{main.cpp}!btn\_builtin@{btn\_builtin}}
+\index{btn\_builtin@{btn\_builtin}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{btn\_builtin}{btn\_builtin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmln__gpio}{mln\+\_\+gpio}} btn\+\_\+builtin(PA5, \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda851c2ac60276ada62e8d9ba216c7a487}{INPUT\+\_\+\+PULLUP}}, true) (\begin{DoxyParamCaption}\item[{PA5}]{,  }\item[{\mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda851c2ac60276ada62e8d9ba216c7a487}{INPUT\+\_\+\+PULLUP}}}]{,  }\item[{true}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a678894dacf538c49ec17010027a68725}\label{main_8cpp_a678894dacf538c49ec17010027a68725}} 
+\index{main.cpp@{main.cpp}!led\_builtin@{led\_builtin}}
+\index{led\_builtin@{led\_builtin}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{led\_builtin}{led\_builtin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmln__gpio}{mln\+\_\+gpio}} led\+\_\+builtin(PA6, \mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda2ab08d3e103968f5f4f26b66a52e99d6}{OUTPUT}}, true) (\begin{DoxyParamCaption}\item[{PA6}]{,  }\item[{\mbox{\hyperlink{mln__gpio_8h_a76799e70246140bb0ef2dbbf0af942fda2ab08d3e103968f5f4f26b66a52e99d6}{OUTPUT}}}]{,  }\item[{true}]{ }\end{DoxyParamCaption})}
+
