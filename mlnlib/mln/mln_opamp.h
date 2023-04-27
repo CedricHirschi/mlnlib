@@ -38,13 +38,13 @@
 
 /**
  * @brief Opamp timebase calculation macro
- * 
+ *
  */
 #define MLN_OPAMP_TIMEBASE_US (ceil(F_CPU / 1000000.0) - 1)
 
 /**
  * @brief Opamp device selection enum
- * 
+ *
  */
 typedef enum
 {
@@ -57,7 +57,7 @@ typedef enum
 
 /**
  * @brief Opamp mode selection enum
- * 
+ *
  */
 typedef enum
 {
@@ -69,7 +69,7 @@ typedef enum
 
 /**
  * @brief Opamp positive input selection enum (direct mode)
- * 
+ *
  */
 typedef enum
 {
@@ -84,7 +84,7 @@ typedef enum
 
 /**
  * @brief Opamp negative input selection enum (direct mode)
- * 
+ *
  */
 typedef enum
 {
@@ -96,7 +96,7 @@ typedef enum
 
 /**
  * @brief Opamp input selection enum (follower mode)
- * 
+ *
  */
 typedef enum
 {
@@ -111,7 +111,7 @@ typedef enum
 
 /**
  * @brief Opamp input selection enum (non-inverting mode)
- * 
+ *
  */
 typedef enum
 {
@@ -126,7 +126,7 @@ typedef enum
 
 /**
  * @brief Opamp positive input selection enum (inverting mode)
- * 
+ *
  */
 typedef enum
 {
@@ -141,7 +141,7 @@ typedef enum
 
 /**
  * @brief Opamp negative input selection enum (inverting mode)
- * 
+ *
  */
 typedef enum
 {
@@ -154,7 +154,7 @@ typedef enum
 
 /**
  * @brief Opamp gain selection enum (non-inverting mode)
- * 
+ *
  */
 typedef enum
 {
@@ -170,7 +170,7 @@ typedef enum
 
 /**
  * @brief Opamp gain selection enum (inverting mode)
- * 
+ *
  */
 typedef enum
 {
@@ -186,7 +186,7 @@ typedef enum
 
 /**
  * @brief Opamp direct configuration struct
- * 
+ *
  * @param opamp_n Opamp device (0-3)
  * @param runstdby If true, the peripheral is also running in device standby
  * @param output If true, the output is enabled
@@ -209,7 +209,7 @@ typedef struct
 
 /**
  * @brief Opamp follower configuration struct
- * 
+ *
  * @param opamp_n Opamp device (0-3)
  * @param runstdby If true, the peripheral is also running in device standby
  * @param output If true, the output is enabled
@@ -230,7 +230,7 @@ typedef struct
 
 /**
  * @brief Opamp non-inverting configuration struct
- * 
+ *
  * @param opamp_n Opamp device (0-3)
  * @param runstdby If true, the peripheral is also running in device standby
  * @param output If true, the output is enabled
@@ -254,7 +254,7 @@ typedef struct
 
 /**
  * @brief Opamp inverting configuration struct
- * 
+ *
  * @param opamp_n Opamp device (0-3)
  * @param runstdby If true, the peripheral is also running in device standby
  * @param output If true, the output is enabled
@@ -280,19 +280,19 @@ typedef struct
 
 /**
  * @brief Opamp peripheral namespace
- * 
+ *
  */
 namespace mln_opamp
 {
 	/**
 	 * @brief Helper function to set the RESMUX register
-	 * 
+	 *
 	 * @param opamp  Device
 	 * @param muxbot Bottom resistor mux
 	 * @param muxwip Wiper resistor mux
 	 * @param muxtop Top resistor mux
 	 */
-	inline const void init_resmux(const mln_opamp_device_t& opamp, const uint8_t& muxbot, const uint8_t& muxwip, const uint8_t& muxtop)
+	inline const void init_resmux(const mln_opamp_device_t &opamp, const uint8_t &muxbot, const uint8_t &muxwip, const uint8_t &muxtop)
 	{
 		switch (opamp)
 		{
@@ -312,12 +312,12 @@ namespace mln_opamp
 
 	/**
 	 * @brief Helper function to set the INMUX register
-	 * 
+	 *
 	 * @param opamp Device
 	 * @param muxpos  Positive input mux
 	 * @param muxneg  Negative input mux
 	 */
-	inline const void init_inmux(const mln_opamp_device_t& opamp, const uint8_t& muxpos, const uint8_t& muxneg)
+	inline const void init_inmux(const mln_opamp_device_t &opamp, const uint8_t &muxpos, const uint8_t &muxneg)
 	{
 		switch (opamp)
 		{
@@ -337,7 +337,7 @@ namespace mln_opamp
 
 	/**
 	 * @brief Helper function to enable the opamp
-	 * 
+	 *
 	 * @param runstdby Run in standby
 	 * @param output   Enable output
 	 * @param lowpower Low power mode
@@ -345,7 +345,7 @@ namespace mln_opamp
 	 *
 	 * @note Is being called by the `init` functions
 	 */
-	inline const void enable(const mln_opamp_device_t& opamp, const bool runstdby, const bool output, const bool lowpower)
+	inline const void enable(const mln_opamp_device_t &opamp, const bool runstdby, const bool output, const bool lowpower)
 	{
 		// TIMEBASE: TIMEBASE(calculate)
 		OPAMP.TIMEBASE = MLN_OPAMP_TIMEBASE_US;
@@ -375,7 +375,7 @@ namespace mln_opamp
 	 *
 	 * @note Doesn't configure/enable single Opamps
 	 *
-	*/
+	 */
 	inline const void enable(void) { OPAMP.CTRLA |= OPAMP_ENABLE_bm; }
 
 	/**
@@ -383,12 +383,12 @@ namespace mln_opamp
 	 *
 	 * @warning Disables all Opamps
 	 *
-	*/
+	 */
 	inline const void disable(void) { OPAMP.CTRLA &= ~OPAMP_ENABLE_bm; }
 
 	/**
 	 * @brief Construct a new mln_opamp object (direct)
-	 * 
+	 *
 	 * @param init Opamp configuration struct (direct)
 	 */
 	inline const void init(const mln_opamp_direct_init_t &init)
@@ -403,7 +403,7 @@ namespace mln_opamp
 
 	/**
 	 * @brief Construct a new mln_opamp object (follower)
-	 * 
+	 *
 	 * @param init Opamp configuration struct (follower)
 	 */
 	inline const void init(const mln_opamp_follower_init_t &init)
@@ -417,7 +417,7 @@ namespace mln_opamp
 
 	/**
 	 * @brief Construct a new mln_opamp object (non-inverting)
-	 * 
+	 *
 	 * @param init Opamp configuration struct (non-inverting)
 	 */
 	inline const void init(const mln_opamp_noninverting_init_t &init)
@@ -432,7 +432,7 @@ namespace mln_opamp
 
 	/**
 	 * @brief Construct a new mln_opamp object (inverting)
-	 * 
+	 *
 	 * @param init Opamp configuration struct (inverting)
 	 */
 	inline const void init(const mln_opamp_inverting_init_t &init)

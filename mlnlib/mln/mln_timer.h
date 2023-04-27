@@ -1,10 +1,13 @@
-/*
-* mln_timer.h
-*
-* Created: 04.04.2023 10:57:42
-* Author: cedr0
-*/
-
+/**
+ * @file mln_timer.h
+ * @author C�dric Hirschi (cedr02@live.com)
+ * @brief This peripheral is used to generate periodic interrupts
+ * @version 0.1
+ * @date 2023-04-27
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 
 #ifndef __MLN_TIMER_H__
 #define __MLN_TIMER_H__
@@ -57,8 +60,7 @@ const TCA_SINGLE_CLKSEL_t mln_timer_divs_bm[] = {
 	TCA_SINGLE_CLKSEL_DIV16_gc,
 	TCA_SINGLE_CLKSEL_DIV64_gc,
 	TCA_SINGLE_CLKSEL_DIV256_gc,
-	TCA_SINGLE_CLKSEL_DIV1024_gc
-};
+	TCA_SINGLE_CLKSEL_DIV1024_gc};
 
 /**
  * @brief Helper function to get the lowest possible clock division to get certain period
@@ -74,11 +76,12 @@ uint8_t MLN_TIMER_GET_DIV(uint32_t period)
 
 	uint32_t max_period = mln_timer_max_periods[index] / MLN_TIMER_DIV;
 
-	while(period > max_period)
-	{	
+	while (period > max_period)
+	{
 		index++;
 
-		if(index == sizeof(mln_timer_divs) / sizeof(uint16_t)) return -1;
+		if (index == sizeof(mln_timer_divs) / sizeof(uint16_t))
+			return -1;
 
 		max_period = mln_timer_max_periods[index] / MLN_TIMER_DIV;
 	}
@@ -101,7 +104,7 @@ public:
 	 * @brief ISR function currently stored in the class
 	 *
 	 */
-	void(*isr)(void);
+	void (*isr)(void);
 
 #ifdef TCA1
 	/**
@@ -113,7 +116,7 @@ public:
 	 */
 	inline mln_timer(mln_timer_t new_tim, uint16_t period)
 	{
-	(new_tim == MLN_TIMER_0) ? (tim = &TCA0) : (tim = &TCA1);
+		(new_tim == MLN_TIMER_0) ? (tim = &TCA0) : (tim = &TCA1);
 #else
 	/**
 	 * @brief mln_timer class initializer
@@ -145,7 +148,7 @@ public:
 	/**
 	 * @brief Set ISR function of TCA peripheral
 	 */
-	inline void set_isr(void(*f)(void))
+	inline void set_isr(void (*f)(void))
 	{
 		isr = f;
 
@@ -183,7 +186,7 @@ public:
 	 *
 	 */
 	inline const float get_period(void) { return actual_period; }
-}; //mln_timer
+}; // mln_timer
 
 /**
  * @brief Standard ISR for TCA0
@@ -193,7 +196,8 @@ public:
  */
 ISR(TCA0_OVF_vect)
 {
-	if(timer0_isr->isr) timer0_isr->isr();
+	if (timer0_isr->isr)
+		timer0_isr->isr();
 
 	TCA0.SINGLE.INTFLAGS = TCA_SINGLE_OVF_bm;
 }
@@ -207,7 +211,8 @@ ISR(TCA0_OVF_vect)
  */
 ISR(TCA1_OVF_vect)
 {
-	if(timer1_isr->isr) timer1_isr->isr();
+	if (timer1_isr->isr)
+		timer1_isr->isr();
 
 	TCA1.SINGLE.INTFLAGS = TCA_SINGLE_OVF_bm;
 }

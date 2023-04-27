@@ -1,6 +1,6 @@
 /**
  * @file mln_adc.h
- * @author Cédric Hirschi (cedr02@live.com)
+ * @author Cï¿½dric Hirschi (cedr02@live.com)
  * @brief This peripheral is used to measure analog voltages.
  * @version 0.1
  * @date 2023-04-27
@@ -20,12 +20,12 @@
  * @brief Macro to convert mln_gpio pin to adc input
  *
  */
-#define MLN_ADC_PIN_TO_IN(pin)		((pin.port - &PORTD) * 8 + pin.pin_num)
+#define MLN_ADC_PIN_TO_IN(pin) ((pin.port - &PORTD) * 8 + pin.pin_num)
 /**
  * @brief Macro to get the required shift of an ADC reading according to samples taken
  *
  */
-#define MLN_ADC_SHIFT(samples)		(samples >= 4 ? 4 : samples)
+#define MLN_ADC_SHIFT(samples) (samples >= 4 ? 4 : samples)
 
 /**
  * @brief ADC input selection enum
@@ -135,7 +135,7 @@ public:
 	 *
 	 * @note Set the pin as input before this
 	 */
-	inline mln_adc(const mln_pin_t& pin)
+	inline mln_adc(const mln_pin_t &pin)
 	{
 		adc = &ADC0;
 
@@ -153,30 +153,32 @@ public:
 
 		set_in(in);
 	}
-	
+
 	/**
 	 * @brief Configure the ADC peripheral
-	 * 
+	 *
 	 * @param standby If true, the peripheral is also running in device standby
 	 * @param res Resolution to be utilized
 	 * @param samp Number of samples to be acquired per reading
 	 * @param presc The frequency prescaler to be used
 	 */
 	inline const void config(const bool standby = false,
-							const mln_adc_resolution_t res = MLN_ADC_RESOLUTION_HIGH,
-							const mln_adc_accumulation_t samp = MLN_ADC_ACCNONE,
-							const mln_adc_prescaler_t presc = MLN_ADC_DIV2)
+							 const mln_adc_resolution_t res = MLN_ADC_RESOLUTION_HIGH,
+							 const mln_adc_accumulation_t samp = MLN_ADC_ACCNONE,
+							 const mln_adc_prescaler_t presc = MLN_ADC_DIV2)
 	{
-		if((res == MLN_ADC_RESOLUTION_HIGH) && (adc->CTRLA & ADC_RESSEL_10BIT_gc)) adc->CTRLA &= ~ADC_RESSEL_10BIT_gc;
-		else adc->CTRLA |= ADC_RESSEL_10BIT_gc;
-		
+		if ((res == MLN_ADC_RESOLUTION_HIGH) && (adc->CTRLA & ADC_RESSEL_10BIT_gc))
+			adc->CTRLA &= ~ADC_RESSEL_10BIT_gc;
+		else
+			adc->CTRLA |= ADC_RESSEL_10BIT_gc;
+
 		adc->CTRLA |= (uint8_t)(ADC_RUNSTBY_bm * standby);
-		
+
 		adc->CTRLB = samp;
 
 		adc->CTRLC = presc;
 	}
-	
+
 	/**
 	 * @brief Enable the ADC peripheral
 	 *
@@ -187,20 +189,20 @@ public:
 	 *
 	 */
 	inline const void disable(void) { adc->CTRLA &= ~ADC_ENABLE_bm; }
-	
+
 	/**
 	 * @brief Configure the input pin of the ADC peripheral
 	 *
 	 * @param pin Pin to read from
 	 *
 	 */
-	inline void set_in(const mln_pin_t& pin)
+	inline void set_in(const mln_pin_t &pin)
 	{
 #ifdef PORTE
-		if(pin.port == &PORTD || pin.port == &PORTE || pin.port == &PORTF)
+		if (pin.port == &PORTD || pin.port == &PORTE || pin.port == &PORTF)
 		{
 #else
-		if(pin.port == &PORTD || pin.port == &PORTF)
+		if (pin.port == &PORTD || pin.port == &PORTF)
 		{
 #endif
 			adc->MUXPOS = MLN_ADC_PIN_TO_IN(pin);
@@ -213,7 +215,7 @@ public:
 	 *
 	 */
 	inline const void set_in(const mln_adc_in_t in) { adc->MUXPOS = in; }
-	
+
 	/**
 	 * @brief Start reading of ADC peripheral
 	 *
@@ -221,7 +223,8 @@ public:
 	inline const void start(void)
 	{
 		// if conversion already running, dont start
-		if(adc->COMMAND & ADC_STCONV_bm) return;
+		if (adc->COMMAND & ADC_STCONV_bm)
+			return;
 
 		// else, start conversion
 		adc->COMMAND = ADC_STCONV_bm;
@@ -230,13 +233,13 @@ public:
 	/**
 	 * @brief Check whether ADC peripheral has a result ready
 	 *
-	 * @returns Whether ADC peripheral has a result ready 
+	 * @returns Whether ADC peripheral has a result ready
 	 * @retval true Result is ready
 	 * @retval false Result not ready
 	 *
 	 */
 	inline const bool has_result(void) { return (adc->INTFLAGS & ADC_RESRDY_bm) ? true : false; }
-	
+
 	/**
 	 * @brief Read current result from ADC peripheral
 	 *
@@ -249,12 +252,15 @@ public:
 	 */
 	inline const uint16_t read(void)
 	{
-		if(!enabled()) return -1;
+		if (!enabled())
+			return -1;
 
-		if(has_result()) return result();
+		if (has_result())
+			return result();
 
 		start();
-		while(!has_result());
+		while (!has_result())
+			;
 
 		return result();
 	}
@@ -270,14 +276,16 @@ public:
 	 * @note Previous reading will be discarded, if available and not already read out
 	 *
 	 */
-	inline const uint16_t read(const mln_pin_t& pin)
+	inline const uint16_t read(const mln_pin_t &pin)
 	{
 		set_in(pin);
 
-		if(!enabled()) return -1;
+		if (!enabled())
+			return -1;
 
 		start();
-		while(!has_result());
+		while (!has_result())
+			;
 
 		return result();
 	}
@@ -297,14 +305,16 @@ public:
 	{
 		set_in(in);
 
-		if(!enabled()) return -1;
+		if (!enabled())
+			return -1;
 
 		start();
-		while(!has_result());
+		while (!has_result())
+			;
 
 		return result();
 	}
 
-}; //mln_adc
+}; // mln_adc
 
 #endif //__MLN_ADC_H__

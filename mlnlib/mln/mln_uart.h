@@ -1,6 +1,6 @@
 /**
  * @file mln_uart.h
- * @author Cédric Hirschi (cedr02@live.com)
+ * @author Cï¿½dric Hirschi (cedr02@live.com)
  * @brief This peripheral is used to communicate with USART.
  * @version 0.1
  * @date 2023-04-27
@@ -30,34 +30,34 @@
  * @note Can be changed without further problems
  *
  */
-#define MLN_UART_BUF_SIZE		32
+#define MLN_UART_BUF_SIZE 32
 
-#define MLN_UART0_PIN_TX		PA0
-#define MLN_UART0_PIN_RX		PA1
-#define MLN_UART1_PIN_TX		PC0
-#define MLN_UART1_PIN_RX		PC1
-#define MLN_UART2_PIN_TX		PF0
-#define MLN_UART2_PIN_RX		PF1
+#define MLN_UART0_PIN_TX PA0
+#define MLN_UART0_PIN_RX PA1
+#define MLN_UART1_PIN_TX PC0
+#define MLN_UART1_PIN_RX PC1
+#define MLN_UART2_PIN_TX PF0
+#define MLN_UART2_PIN_RX PF1
 #ifdef USART5
 #ifndef MLN_UART_NUM_INSTS
 #define MLN_UART_NUM_INSTS 6
 #endif
-#define MLN_UART5_PIN_TX		PG0
-#define MLN_UART5_PIN_RX		PG1
+#define MLN_UART5_PIN_TX PG0
+#define MLN_UART5_PIN_RX PG1
 #endif
 #ifdef USART4
 #ifndef MLN_UART_NUM_INSTS
 #define MLN_UART_NUM_INSTS 5
 #endif
-#define MLN_UART4_PIN_TX		PE0
-#define MLN_UART4_PIN_RX		PE1
+#define MLN_UART4_PIN_TX PE0
+#define MLN_UART4_PIN_RX PE1
 #endif
 #ifdef USART3
 #ifndef MLN_UART_NUM_INSTS
 #define MLN_UART_NUM_INSTS 4
 #endif
-#define MLN_UART3_PIN_TX		PB0
-#define MLN_UART3_PIN_RX		PB1
+#define MLN_UART3_PIN_TX PB0
+#define MLN_UART3_PIN_RX PB1
 #endif
 #ifndef MLN_UART_NUM_INSTS
 #define MLN_UART_NUM_INSTS 3
@@ -67,7 +67,7 @@
  * @brief Macro to calculate register value from baud rate
  *
  */
-#define MLN_UART_BAUD_NUM(BAUD)		((float)(F_CPU * 64 / (16 * (float)BAUD)) + 0.5)
+#define MLN_UART_BAUD_NUM(BAUD) ((float)(F_CPU * 64 / (16 * (float)BAUD)) + 0.5)
 
 /**
  * @brief USART peripheral class
@@ -99,7 +99,7 @@ int mln_uart_stream_read(FILE *f);
  */
 class mln_uart
 {
-	USART_t* inst;
+	USART_t *inst;
 
 	mln_gpio pin_tx;
 	mln_gpio pin_rx;
@@ -115,39 +115,39 @@ class mln_uart
 	 * @brief Helper function to initialize pins used by `mln_uart` class
 	 *
 	 */
-	inline void init_pins(USART_t* new_inst)
+	inline void init_pins(USART_t *new_inst)
 	{
-		switch((new_inst - &USART0) / 2)
+		switch ((new_inst - &USART0) / 2)
 		{
-			case 0:
-				pin_tx = mln_gpio(MLN_UART0_PIN_TX, MLN_GPIO_DIR_OUTPUT);
-				pin_rx = mln_gpio(MLN_UART0_PIN_RX, MLN_GPIO_DIR_INPUT);
-				break;
-			case 1:
-				pin_tx = mln_gpio(MLN_UART1_PIN_TX, MLN_GPIO_DIR_OUTPUT);
-				pin_rx = mln_gpio(MLN_UART1_PIN_RX, MLN_GPIO_DIR_INPUT);
-				break;
-			case 2:
-				pin_tx = mln_gpio(MLN_UART2_PIN_TX, MLN_GPIO_DIR_OUTPUT);
-				pin_rx = mln_gpio(MLN_UART2_PIN_RX, MLN_GPIO_DIR_INPUT);
-				break;
+		case 0:
+			pin_tx = mln_gpio(MLN_UART0_PIN_TX, MLN_GPIO_DIR_OUTPUT);
+			pin_rx = mln_gpio(MLN_UART0_PIN_RX, MLN_GPIO_DIR_INPUT);
+			break;
+		case 1:
+			pin_tx = mln_gpio(MLN_UART1_PIN_TX, MLN_GPIO_DIR_OUTPUT);
+			pin_rx = mln_gpio(MLN_UART1_PIN_RX, MLN_GPIO_DIR_INPUT);
+			break;
+		case 2:
+			pin_tx = mln_gpio(MLN_UART2_PIN_TX, MLN_GPIO_DIR_OUTPUT);
+			pin_rx = mln_gpio(MLN_UART2_PIN_RX, MLN_GPIO_DIR_INPUT);
+			break;
 #ifdef USART3
-			case 3:
-				pin_tx = mln_gpio(MLN_UART3_PIN_TX, MLN_GPIO_DIR_OUTPUT);
-				pin_rx = mln_gpio(MLN_UART3_PIN_RX, MLN_GPIO_DIR_INPUT);
-				break;
+		case 3:
+			pin_tx = mln_gpio(MLN_UART3_PIN_TX, MLN_GPIO_DIR_OUTPUT);
+			pin_rx = mln_gpio(MLN_UART3_PIN_RX, MLN_GPIO_DIR_INPUT);
+			break;
 #endif
 #ifdef USART4
-			case 4:
-				pin_tx = mln_gpio(MLN_UART4_PIN_TX, MLN_GPIO_DIR_OUTPUT);
-				pin_rx = mln_gpio(MLN_UART4_PIN_RX, MLN_GPIO_DIR_INPUT);
-				break;
+		case 4:
+			pin_tx = mln_gpio(MLN_UART4_PIN_TX, MLN_GPIO_DIR_OUTPUT);
+			pin_rx = mln_gpio(MLN_UART4_PIN_RX, MLN_GPIO_DIR_INPUT);
+			break;
 #endif
 #ifdef USART5
-			case 5:
-				pin_tx = mln_gpio(MLN_UART5_PIN_TX, MLN_GPIO_DIR_OUTPUT);
-				pin_rx = mln_gpio(MLN_UART5_PIN_RX, MLN_GPIO_DIR_INPUT);
-				break;
+		case 5:
+			pin_tx = mln_gpio(MLN_UART5_PIN_TX, MLN_GPIO_DIR_OUTPUT);
+			pin_rx = mln_gpio(MLN_UART5_PIN_RX, MLN_GPIO_DIR_INPUT);
+			break;
 #endif
 		}
 	}
@@ -168,9 +168,10 @@ class mln_uart
 	}
 
 public:
-	inline mln_uart(USART_t* new_inst, uint32_t baud)
-	{	
-		if((new_inst - &USART0) / 2 > MLN_UART_NUM_INSTS) return;
+	inline mln_uart(USART_t *new_inst, uint32_t baud)
+	{
+		if ((new_inst - &USART0) / 2 > MLN_UART_NUM_INSTS)
+			return;
 
 		memset(buffer, 0, sizeof(buffer));
 		index = 0;
@@ -189,45 +190,47 @@ public:
 	}
 
 	/*
-	* @brief Set ISR function of USART peripheral
-	*/
+	 * @brief Set ISR function of USART peripheral
+	 */
 	inline void set_isr(void (*new_isr)(void)) { isr = new_isr; }
 
 	/*
-	* @brief Write one byte to USART peripheral
-	*/
+	 * @brief Write one byte to USART peripheral
+	 */
 	inline const void write(const uint8_t data)
 	{
-		while(is_busy_tx());
+		while (is_busy_tx())
+			;
 
 		inst->TXDATAL = data;
 	}
 	/*
-	* @brief Read one byte from USART peripheral
-	*/
+	 * @brief Read one byte from USART peripheral
+	 */
 	inline const uint8_t read(void)
 	{
-		while (is_busy_rx());
+		while (is_busy_rx())
+			;
 
 		return ((inst->RXDATAH & 0x1) << 8) | inst->RXDATAL;
 	}
 
 	/*
-	* @brief Push new read data into RX buffer of SPI class
-	*/
+	 * @brief Push new read data into RX buffer of SPI class
+	 */
 	inline void push(void)
 	{
 		buffer[index] = read();
 		index = (index + 1) % MLN_UART_BUF_SIZE;
 	}
 	/*
-	* @brief Pull data from RX buffer of SPI class
-	*
-	* @param new_buffer Buffer to copy data to
-	*
-	* @returns Length of data copied
-	*/
-	inline uint8_t pull(uint8_t* new_buffer)
+	 * @brief Pull data from RX buffer of SPI class
+	 *
+	 * @param new_buffer Buffer to copy data to
+	 *
+	 * @returns Length of data copied
+	 */
+	inline uint8_t pull(uint8_t *new_buffer)
 	{
 		memccpy(new_buffer, buffer, 0, MLN_UART_BUF_SIZE);
 		memset(buffer, 0, sizeof(buffer));
@@ -239,29 +242,29 @@ public:
 	}
 
 	/*
-	* @brief Check whether USART peripheral TX is busy
-	*
-	* @returns Whether USART peripheral TX is busy
-	*/
+	 * @brief Check whether USART peripheral TX is busy
+	 *
+	 * @returns Whether USART peripheral TX is busy
+	 */
 	inline const bool is_busy_tx(void) { return !(inst->STATUS & USART_DREIF_bm); }
 	/*
-	* @brief Check whether USART peripheral RX is busy
-	*
-	* @returns Whether USART peripheral RX is busy
-	*/
+	 * @brief Check whether USART peripheral RX is busy
+	 *
+	 * @returns Whether USART peripheral RX is busy
+	 */
 	inline const bool is_busy_rx(void) { return !(inst->STATUS & USART_RXCIF_bm); }
 	/*
-	* @brief Check whether USART class has data available
-	*
-	* @returns Amount of bytes available
-	*/
+	 * @brief Check whether USART class has data available
+	 *
+	 * @returns Amount of bytes available
+	 */
 	inline const uint8_t data_available(void) { return index; }
 
 	/*
-	* @brief Run the saved ISR function of the USART class
-	*/
+	 * @brief Run the saved ISR function of the USART class
+	 */
 	inline const void run_isr(void) { isr(); }
-}; //mln_uart
+}; // mln_uart
 
 int mln_uart_stream_write(char character, FILE *f)
 {
@@ -278,7 +281,7 @@ ISR(USART3_RXC_vect)
 {
 	mln_uart_stream_uart->push();
 
-	if(!mln_uart_stream_uart->is_busy_rx())
+	if (!mln_uart_stream_uart->is_busy_rx())
 		mln_uart_stream_uart->run_isr();
 }
 

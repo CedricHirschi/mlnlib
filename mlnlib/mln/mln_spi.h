@@ -1,6 +1,6 @@
 /**
  * @file mln_spi.h
- * @author Cédric Hirschi (cedr02@live.com)
+ * @author Cï¿½dric Hirschi (cedr02@live.com)
  * @brief This peripheral is used to communicate with SPI.
  * @version 0.1
  * @date 2023-04-27
@@ -107,7 +107,7 @@ public:
 	 * @note Uses SPI mode 0
 	 *
 	 */
-	inline mln_spi(SPI_t *new_spi, mln_pin_t& new_cs)
+	inline mln_spi(SPI_t *new_spi, mln_pin_t &new_cs)
 	{
 		spi = new_spi;
 		cs = mln_gpio(new_cs, MLN_GPIO_DIR_OUTPUT);
@@ -126,7 +126,7 @@ public:
 	 * @param mode SPI mode to be used (0-3)
 	 *
 	 */
-	inline mln_spi(SPI_t *new_spi, mln_pin_t& new_cs, const uint8_t mode)
+	inline mln_spi(SPI_t *new_spi, mln_pin_t &new_cs, const uint8_t mode)
 	{
 		spi = new_spi;
 		cs = mln_gpio(new_cs, MLN_GPIO_DIR_OUTPUT);
@@ -154,7 +154,8 @@ public:
 		{
 			spi->DATA = *buffer;
 
-			while (!(spi->INTFLAGS & SPI_RXCIF_bm));
+			while (!(spi->INTFLAGS & SPI_RXCIF_bm))
+				;
 
 			*buffer = spi->DATA;
 			buffer++;
@@ -178,7 +179,8 @@ public:
 			spi->DATA = *buffer;
 			buffer++;
 
-			while (!(spi->INTFLAGS & SPI_RXCIF_bm));
+			while (!(spi->INTFLAGS & SPI_RXCIF_bm))
+				;
 		}
 
 		cs.set();
@@ -198,7 +200,8 @@ public:
 		{
 			spi->DATA = 0;
 
-			while (!(spi->INTFLAGS & SPI_RXCIF_bm));
+			while (!(spi->INTFLAGS & SPI_RXCIF_bm))
+				;
 
 			*buffer = spi->DATA;
 			buffer++;

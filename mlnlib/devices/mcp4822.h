@@ -1,8 +1,12 @@
-/*
- * mcp4822.h
+/**
+ * @file mcp4822.h
+ * @author C�dric Hirschi (cedr02@live.com)
+ * @brief MCP4822 DAC driver
+ * @version 0.1
+ * @date 2023-04-27
  *
- * Created: 05.04.2023 00:39:27
- * Author: cedr0
+ * @copyright Copyright (c) 2023
+ *
  */
 
 #ifndef __MCP4822_H__

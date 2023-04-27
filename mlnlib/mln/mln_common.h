@@ -5,7 +5,6 @@
  *  Author: cedr0
  */
 
-
 #ifndef MLN_COMMON_H_
 #define MLN_COMMON_H_
 
