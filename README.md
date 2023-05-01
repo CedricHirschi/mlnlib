@@ -30,7 +30,7 @@ Some libraries must have `F_CPU` defined. This can be done by adding `-DF_CPU=40
 
 ## Documentation
 
-**[Click here for main documentation page](https://cedrichirschi.github.io/mlnlib/)**
+**[Click here for main documentation page](docs/html/index.html)**
 
 The documentation can be found in the [`docs`](docs) folder. The documentation is generated using doxygen. To generate the documentation yourself, run `doxygen` in the root (location of Doxyfile). Some paths inside the Doxyfile must be changed.
 
