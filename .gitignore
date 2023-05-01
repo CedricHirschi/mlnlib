@@ -9,5 +9,6 @@
 *.map
 *.srec
 
-# ignore doxygen folder
-doxygen/
+# ignore Debug and Release fodlers inside mlnlib
+mlnlib/Debug
+mlnlib/Release
