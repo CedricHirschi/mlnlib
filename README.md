@@ -32,13 +32,15 @@ Some libraries must have `F_CPU` defined. This can be done by adding `-DF_CPU=40
 
 **[Click here for main documentation page](docs/html/index.html)**
 
-The documentation can be found in the [`docs`](docs) folder. The documentation is generated using doxygen. To generate the documentation yourself, run `doxygen` in the root (location of Doxyfile). Some paths inside the Doxyfile must be changed.
+The documentation can be found in the [`docs`](docs) folder. The documentation is generated using doxygen. To generate the documentation yourself, run `doxygen` in the root (location of Doxyfile).
+
+Some methods which will were/will be used for writing this library can be found in the [`methods.md`](docs/methods.md) file. This file is not part of the main documentation.
 
 ## Building for testing
 
 The library can be tested inside [`main.cpp`](mlnlib/main.cpp). As this library was developed in Microchip Studio 7, the following methods are available to build the library for testing:
 
-Open the project in Microchip Studio 7 and build / run the project as normal.
+Open the project in Microchip Studio 7 using [`mlnlib.atsln`](mlnlib.atsln) and build / run the project as normal.
 
 ## TODO
 
