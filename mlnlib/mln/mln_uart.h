@@ -168,6 +168,17 @@ class mln_uart
 	}
 
 public:
+	/**
+	 * @brief Default mln_uart initializer
+	 *
+	 * @param new_inst Pointer to USART peripheral to be used
+	 * @param baud Baud rate of USART peripheral
+	 *
+	 * @note This initializer will initialize pins used by USART peripheral
+	 * @note This initializer will initialize std stream for printf functionality
+	 * @note This initializer will enable RX and TX interrupts
+	 *
+	 */
 	inline mln_uart(USART_t *new_inst, uint32_t baud)
 	{
 		if ((new_inst - &USART0) / 2 > MLN_UART_NUM_INSTS)
@@ -189,13 +200,20 @@ public:
 		init_stream();
 	}
 
-	/*
+	/**
 	 * @brief Set ISR function of USART peripheral
+	 *
+	 * @param new_isr New ISR function
+	 *
 	 */
 	inline void set_isr(void (*new_isr)(void)) { isr = new_isr; }
 
-	/*
+	/**
 	 * @brief Write one byte to USART peripheral
+	 *
+	 * @param data Data to write
+	 *
+	 * @note This function blocks until data is sent
 	 */
 	inline const void write(const uint8_t data)
 	{
@@ -204,8 +222,12 @@ public:
 
 		inst->TXDATAL = data;
 	}
-	/*
+	/**
 	 * @brief Read one byte from USART peripheral
+	 *
+	 * @returns Data read
+	 *
+	 * @note This function blocks until data is available
 	 */
 	inline const uint8_t read(void)
 	{
@@ -215,20 +237,24 @@ public:
 		return ((inst->RXDATAH & 0x1) << 8) | inst->RXDATAL;
 	}
 
-	/*
+	/**
 	 * @brief Push new read data into RX buffer of SPI class
+	 *
+	 * @note This function is called by ISR
+	 *
 	 */
 	inline void push(void)
 	{
 		buffer[index] = read();
 		index = (index + 1) % MLN_UART_BUF_SIZE;
 	}
-	/*
+	/**
 	 * @brief Pull data from RX buffer of SPI class
 	 *
 	 * @param new_buffer Buffer to copy data to
 	 *
 	 * @returns Length of data copied
+	 *
 	 */
 	inline uint8_t pull(uint8_t *new_buffer)
 	{
@@ -241,42 +267,71 @@ public:
 		return copied;
 	}
 
-	/*
+	/**
 	 * @brief Check whether USART peripheral TX is busy
 	 *
 	 * @returns Whether USART peripheral TX is busy
+	 * @retval true USART peripheral TX is busy
+	 * @retval false USART peripheral TX is not busy
+	 *
 	 */
 	inline const bool is_busy_tx(void) { return !(inst->STATUS & USART_DREIF_bm); }
-	/*
+	/**
 	 * @brief Check whether USART peripheral RX is busy
 	 *
 	 * @returns Whether USART peripheral RX is busy
+	 * @retval true USART peripheral RX is busy
+	 * @retval false USART peripheral RX is not busy
+	 *
 	 */
 	inline const bool is_busy_rx(void) { return !(inst->STATUS & USART_RXCIF_bm); }
-	/*
+	/**
 	 * @brief Check whether USART class has data available
 	 *
 	 * @returns Amount of bytes available
+	 *
 	 */
 	inline const uint8_t data_available(void) { return index; }
 
-	/*
+	/**
 	 * @brief Run the saved ISR function of the USART class
+	 *
 	 */
 	inline const void run_isr(void) { isr(); }
 }; // mln_uart
 
+/**
+ * @brief Helper function for printf functionality
+ *
+ * @param character Character to write
+ * @param f File to write to
+ *
+ * @returns Always 0
+ */
 int mln_uart_stream_write(char character, FILE *f)
 {
 	mln_uart_stream_uart->write(character);
 	return 0;
 }
-
+/**
+ * @brief Helper function for scanf functionality
+ *
+ * @param f File to read from
+ * @returns Character read
+ */
 int mln_uart_stream_read(FILE *f)
 {
 	return mln_uart_stream_uart->read();
 }
 
+/**
+ * @brief ISR for USART3 peripheral
+ *
+ * @note USART3 is used on discovery nano board
+ * @note This ISR will push new data into RX buffer of USART3 class
+ * @note This ISR will run the saved ISR function of USART3 class
+ *
+ */
 ISR(USART3_RXC_vect)
 {
 	mln_uart_stream_uart->push();
