@@ -104,9 +104,9 @@ $(document).ready(function(){initNavTree('classmln__twi.html',''); initResizable
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aca2ba071cd738c5a0914f8906ddcb5b5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmln__twi.html#aca2ba071cd738c5a0914f8906ddcb5b5">mln_twi</a> (const uint32_t frequency=100000UL)</td></tr>
-<tr class="memdesc:aca2ba071cd738c5a0914f8906ddcb5b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default <a class="el" href="classmln__twi.html" title="TWI peripheral class.">mln_twi</a> initializer.  <br /></td></tr>
-<tr class="separator:aca2ba071cd738c5a0914f8906ddcb5b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba7cbf9d813cccacfa3ab7e5f49ae8a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmln__twi.html#aba7cbf9d813cccacfa3ab7e5f49ae8a2">mln_twi</a> (TWI_t *new_twi=&amp;TWI0, const uint32_t frequency=100000UL)</td></tr>
+<tr class="memdesc:aba7cbf9d813cccacfa3ab7e5f49ae8a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default <a class="el" href="classmln__twi.html" title="TWI peripheral class.">mln_twi</a> initializer.  <br /></td></tr>
+<tr class="separator:aba7cbf9d813cccacfa3ab7e5f49ae8a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a362b494a7cf58d3b9d2ba1870b4ecbeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmln__twi.html#a362b494a7cf58d3b9d2ba1870b4ecbeb">read</a> (const uint8_t address, uint8_t *data, const uint8_t data_length)</td></tr>
 <tr class="memdesc:a362b494a7cf58d3b9d2ba1870b4ecbeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read certain amount of bytes from TWI slave.  <br /></td></tr>
 <tr class="separator:a362b494a7cf58d3b9d2ba1870b4ecbeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,8 +119,8 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="mln__twi_8h_source.html#l00023">23</a> of file <a class="el" href="mln__twi_8h_source.html">mln_twi.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aca2ba071cd738c5a0914f8906ddcb5b5" name="aca2ba071cd738c5a0914f8906ddcb5b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca2ba071cd738c5a0914f8906ddcb5b5">&#9670;&#160;</a></span>mln_twi()</h2>
+<a id="aba7cbf9d813cccacfa3ab7e5f49ae8a2" name="aba7cbf9d813cccacfa3ab7e5f49ae8a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba7cbf9d813cccacfa3ab7e5f49ae8a2">&#9670;&#160;</a></span>mln_twi()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -131,9 +131,19 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">mln_twi::mln_twi </td>
           <td>(</td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>frequency</em> = <code>100000UL</code></td><td>)</td>
+          <td class="paramtype">TWI_t *&#160;</td>
+          <td class="paramname"><em>new_twi</em> = <code>&amp;TWI0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>frequency</em> = <code>100000UL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -151,7 +161,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mln__twi_8h_source.html#l00174">174</a> of file <a class="el" href="mln__twi_8h_source.html">mln_twi.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__twi_8h_source.html#l00176">176</a> of file <a class="el" href="mln__twi_8h_source.html">mln_twi.h</a>.</p>
 
 </div>
 </div>
@@ -207,7 +217,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Starts and waits for completed transaction, stops it </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mln__twi_8h_source.html#l00194">194</a> of file <a class="el" href="mln__twi_8h_source.html">mln_twi.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__twi_8h_source.html#l00198">198</a> of file <a class="el" href="mln__twi_8h_source.html">mln_twi.h</a>.</p>
 
 </div>
 </div>
@@ -270,7 +280,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Starts and waits for completed transaction, stops it </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mln__twi_8h_source.html#l00218">218</a> of file <a class="el" href="mln__twi_8h_source.html">mln_twi.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mln__twi_8h_source.html#l00222">222</a> of file <a class="el" href="mln__twi_8h_source.html">mln_twi.h</a>.</p>
 
 </div>
 </div>
@@ -283,7 +293,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classmln__twi.html">mln_twi</a></li>
-    <li class="footer">Generated on Mon May 1 2023 15:33:22 for mlnlib by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+    <li class="footer">Generated on Tue May 2 2023 23:45:11 for mlnlib by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>
 </body>

@@ -24,6 +24,8 @@ class mln_twi
 {
 	int32_t I2Ccount;
 
+	TWI_t *twi;
+
 	/**
 	 * @brief Read one byte from TWI bus
 	 *
@@ -37,15 +39,15 @@ class mln_twi
 		if (I2Ccount != 0)
 			I2Ccount--;
 
-		while (!(TWI0.MSTATUS & TWI_RIF_bm))
+		while (!(twi->MSTATUS & TWI_RIF_bm))
 			;
 
-		uint8_t data = TWI0.MDATA;
+		uint8_t data = twi->MDATA;
 
 		if (I2Ccount != 0)
-			TWI0.MCTRLB = TWI_MCMD_RECVTRANS_gc;
+			twi->MCTRLB = TWI_MCMD_RECVTRANS_gc;
 		else
-			TWI0.MCTRLB = TWI_ACKACT_NACK_gc;
+			twi->MCTRLB = TWI_ACKACT_NACK_gc;
 
 		return data;
 	}
@@ -79,16 +81,16 @@ class mln_twi
 	 */
 	inline bool write(const uint8_t data)
 	{
-		TWI0.MCTRLB = TWI_MCMD_RECVTRANS_gc;
+		twi->MCTRLB = TWI_MCMD_RECVTRANS_gc;
 
-		TWI0.MDATA = data;
+		twi->MDATA = data;
 
-		while (!(TWI0.MSTATUS & TWI_WIF_bm))
+		while (!(twi->MSTATUS & TWI_WIF_bm))
 			;
-		if (TWI0.MSTATUS & (TWI_ARBLOST_bm | TWI_BUSERR_bm))
+		if (twi->MSTATUS & (TWI_ARBLOST_bm | TWI_BUSERR_bm))
 			return false;
 
-		return !(TWI0.MSTATUS & TWI_RXACK_bm);
+		return !(twi->MSTATUS & TWI_RXACK_bm);
 	}
 
 	/**
@@ -112,23 +114,23 @@ class mln_twi
 			I2Ccount = readcount;
 			read = 1;
 		}
-		TWI0.MADDR = address << 1 | read;
+		twi->MADDR = address << 1 | read;
 
-		while (!(TWI0.MSTATUS & (TWI_WIF_bm | TWI_RIF_bm)))
+		while (!(twi->MSTATUS & (TWI_WIF_bm | TWI_RIF_bm)))
 			;
 
-		if (TWI0.MSTATUS & TWI_ARBLOST_bm)
+		if (twi->MSTATUS & TWI_ARBLOST_bm)
 		{
-			while (!(TWI0.MSTATUS & TWI_BUSSTATE_IDLE_gc))
+			while (!(twi->MSTATUS & TWI_BUSSTATE_IDLE_gc))
 				;
 
 			return false;
 		}
-		else if (TWI0.MSTATUS & TWI_RXACK_bm)
+		else if (twi->MSTATUS & TWI_RXACK_bm)
 		{
-			TWI0.MCTRLB |= TWI_MCMD_STOP_gc;
+			twi->MCTRLB |= TWI_MCMD_STOP_gc;
 
-			while (!(TWI0.MSTATUS & TWI_BUSSTATE_IDLE_gc))
+			while (!(twi->MSTATUS & TWI_BUSSTATE_IDLE_gc))
 				;
 
 			return false;
@@ -159,8 +161,8 @@ class mln_twi
 	 */
 	inline void stop(void)
 	{
-		TWI0.MCTRLB |= TWI_MCMD_STOP_gc; // Send STOP
-		while (!(TWI0.MSTATUS & TWI_BUSSTATE_IDLE_gc))
+		twi->MCTRLB |= TWI_MCMD_STOP_gc; // Send STOP
+		while (!(twi->MSTATUS & TWI_BUSSTATE_IDLE_gc))
 			; // Wait for bus to return to idle state
 	}
 
@@ -171,14 +173,16 @@ public:
 	 * @param frequency TWI frequency to be used (default 100000)
 	 *
 	 */
-	inline mln_twi(const uint32_t frequency = 100000UL)
+	inline mln_twi(TWI_t* new_twi = &TWI0, const uint32_t frequency = 100000UL)
 	{
+		twi = new_twi;
+
 		uint32_t baud = ((F_CPU / frequency) - (((F_CPU * MLN_TWI_TRISE) / 1000) / 1000) / 1000 - 10) / 2;
-		TWI0.MBAUD = (uint8_t)baud;
+		twi->MBAUD = (uint8_t)baud;
 
-		TWI0.MCTRLA = TWI_ENABLE_bm;
+		twi->MCTRLA = TWI_ENABLE_bm;
 
-		TWI0.MSTATUS = TWI_BUSSTATE_IDLE_gc;
+		twi->MSTATUS = TWI_BUSSTATE_IDLE_gc;
 	}
 
 	/**

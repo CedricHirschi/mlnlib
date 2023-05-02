@@ -1,5 +1,6 @@
 var annotated_dup =
 [
+    [ "mcp4725", "classmcp4725.html", null ],
     [ "mcp4822", "classmcp4822.html", "classmcp4822" ],
     [ "mln_adc", "classmln__adc.html", "classmln__adc" ],
     [ "mln_gpio", "classmln__gpio.html", "classmln__gpio" ],

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>mlnlib: mlnlib/devices/mcp4822.h File Reference</title>
+<title>mlnlib: mlnlib/devices/mcp4725.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,7 +64,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('mcp4822_8h.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('mcp4725_8h.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -94,99 +94,109 @@ $(document).ready(function(){initNavTree('mcp4822_8h.html',''); initResizable();
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
-  <div class="headertitle"><div class="title">mcp4822.h File Reference</div></div>
+  <div class="headertitle"><div class="title">mcp4725.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>MCP4822 DAC driver.  
+<p>MCP4725 DAC driver.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="mln__spi_8h_source.html">../mln/mln_spi.h</a>&quot;</code><br />
-</div>
-<p><a href="mcp4822_8h_source.html">Go to the source code of this file.</a></p>
+
+<p><a href="mcp4725_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcp4822.html">mcp4822</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">MCP4822 DAC driver.  <a href="classmcp4822.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcp4725.html">mcp4725</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a436e620a00671eac997a981cd58b88ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mcp4822_8h.html#a436e620a00671eac997a981cd58b88ba">MLN_MCP4822_ENABLE_bm</a>&#160;&#160;&#160;(1 &lt;&lt; 4)</td></tr>
-<tr class="separator:a436e620a00671eac997a981cd58b88ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6ac4e0116bb43596af8aa611c9a40c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mcp4725_8h.html#ab6ac4e0116bb43596af8aa611c9a40c6">MLN_MCP4725_C_FAST</a>&#160;&#160;&#160;(0 &lt;&lt; 5)</td></tr>
+<tr class="separator:ab6ac4e0116bb43596af8aa611c9a40c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67bf95449c66579cb842a4b206c9a38b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mcp4725_8h.html#a67bf95449c66579cb842a4b206c9a38b">MLN_MCP4725_C_DAC</a>&#160;&#160;&#160;(1 &lt;&lt; 5)</td></tr>
+<tr class="separator:a67bf95449c66579cb842a4b206c9a38b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff9a15af252ecbfa5f77bf74cf507cc4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mcp4725_8h.html#aff9a15af252ecbfa5f77bf74cf507cc4">MLN_MCP4725_C_EEPROM</a>&#160;&#160;&#160;(2 &lt;&lt; 5)</td></tr>
+<tr class="separator:aff9a15af252ecbfa5f77bf74cf507cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a405a5c74199b2cc7e82ed3bead405a91"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mcp4822_8h.html#a405a5c74199b2cc7e82ed3bead405a91">mln_mcp4822_gain_t</a> { <b>MLN_MCP4822_GAIN2</b> = 0
-, <b>MLN_MCP4822_GAIN1</b>
+<tr class="memitem:aaf6c9b8ffa6d75e547a6065109a35645"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>mln_mcp4725_pd_t</b> { <b>MLN_MCP4725_PD_NORMAL</b> = (0 &lt;&lt; 3)
+, <b>MLN_MCP4725_PD_1k</b> = (1 &lt;&lt; 3)
+, <b>MLN_MCP4725_PD_100k</b> = (2 &lt;&lt; 3)
+, <b>MLN_MCP4725_PD_500k</b> = (3 &lt;&lt; 3)
  }</td></tr>
-<tr class="memdesc:a405a5c74199b2cc7e82ed3bead405a91"><td class="mdescLeft">&#160;</td><td class="mdescRight">MCP4822 gain enum.  <a href="mcp4822_8h.html#a405a5c74199b2cc7e82ed3bead405a91">More...</a><br /></td></tr>
-<tr class="separator:a405a5c74199b2cc7e82ed3bead405a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e58481bb9c447a43a8cf2f482bcfcbb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mcp4822_8h.html#a7e58481bb9c447a43a8cf2f482bcfcbb">mln_mcp4822_channel_t</a> { <b>CHANNELA</b>
-, <b>CHANNELB</b>
- }</td></tr>
-<tr class="memdesc:a7e58481bb9c447a43a8cf2f482bcfcbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">MCP4822 channel enum.  <a href="mcp4822_8h.html#a7e58481bb9c447a43a8cf2f482bcfcbb">More...</a><br /></td></tr>
-<tr class="separator:a7e58481bb9c447a43a8cf2f482bcfcbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:aaf6c9b8ffa6d75e547a6065109a35645"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>MCP4822 DAC driver. </p>
-<dl class="section author"><dt>Author</dt><dd>C�dric Hirschi (<a href="#" onclick="location.href='mai'+'lto:'+'ced'+'r0'+'2@l'+'iv'+'e.c'+'om'; return false;">cedr0<span class="obfuscator">.nosp@m.</span>2@li<span class="obfuscator">.nosp@m.</span>ve.co<span class="obfuscator">.nosp@m.</span>m</a>) </dd></dl>
+<div class="textblock"><p>MCP4725 DAC driver. </p>
+<dl class="section author"><dt>Author</dt><dd>C?dric Hirschi (<a href="#" onclick="location.href='mai'+'lto:'+'ced'+'r0'+'2@l'+'iv'+'e.c'+'om'; return false;">cedr0<span class="obfuscator">.nosp@m.</span>2@li<span class="obfuscator">.nosp@m.</span>ve.co<span class="obfuscator">.nosp@m.</span>m</a>) </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2023-04-27</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2023-05-02</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
 
-<p class="definition">Definition in file <a class="el" href="mcp4822_8h_source.html">mcp4822.h</a>.</p>
+<p class="definition">Definition in file <a class="el" href="mcp4725_8h_source.html">mcp4725.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a436e620a00671eac997a981cd58b88ba" name="a436e620a00671eac997a981cd58b88ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a436e620a00671eac997a981cd58b88ba">&#9670;&#160;</a></span>MLN_MCP4822_ENABLE_bm</h2>
+<a id="a67bf95449c66579cb842a4b206c9a38b" name="a67bf95449c66579cb842a4b206c9a38b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67bf95449c66579cb842a4b206c9a38b">&#9670;&#160;</a></span>MLN_MCP4725_C_DAC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MLN_MCP4822_ENABLE_bm&#160;&#160;&#160;(1 &lt;&lt; 4)</td>
+          <td class="memname">#define MLN_MCP4725_C_DAC&#160;&#160;&#160;(1 &lt;&lt; 5)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mcp4822_8h_source.html#l00017">17</a> of file <a class="el" href="mcp4822_8h_source.html">mcp4822.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mcp4725_8h_source.html#l00017">17</a> of file <a class="el" href="mcp4725_8h_source.html">mcp4725.h</a>.</p>
+
+</div>
+</div>
+<a id="aff9a15af252ecbfa5f77bf74cf507cc4" name="aff9a15af252ecbfa5f77bf74cf507cc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff9a15af252ecbfa5f77bf74cf507cc4">&#9670;&#160;</a></span>MLN_MCP4725_C_EEPROM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MLN_MCP4725_C_EEPROM&#160;&#160;&#160;(2 &lt;&lt; 5)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="mcp4725_8h_source.html#l00018">18</a> of file <a class="el" href="mcp4725_8h_source.html">mcp4725.h</a>.</p>
+
+</div>
+</div>
+<a id="ab6ac4e0116bb43596af8aa611c9a40c6" name="ab6ac4e0116bb43596af8aa611c9a40c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6ac4e0116bb43596af8aa611c9a40c6">&#9670;&#160;</a></span>MLN_MCP4725_C_FAST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MLN_MCP4725_C_FAST&#160;&#160;&#160;(0 &lt;&lt; 5)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="mcp4725_8h_source.html#l00016">16</a> of file <a class="el" href="mcp4725_8h_source.html">mcp4725.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a7e58481bb9c447a43a8cf2f482bcfcbb" name="a7e58481bb9c447a43a8cf2f482bcfcbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e58481bb9c447a43a8cf2f482bcfcbb">&#9670;&#160;</a></span>mln_mcp4822_channel_t</h2>
+<a id="aaf6c9b8ffa6d75e547a6065109a35645" name="aaf6c9b8ffa6d75e547a6065109a35645"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf6c9b8ffa6d75e547a6065109a35645">&#9670;&#160;</a></span>mln_mcp4725_pd_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="mcp4822_8h.html#a7e58481bb9c447a43a8cf2f482bcfcbb">mln_mcp4822_channel_t</a></td>
+          <td class="memname">enum mln_mcp4725_pd_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>MCP4822 channel enum. </p>
-
-<p class="definition">Definition at line <a class="el" href="mcp4822_8h_source.html#l00033">33</a> of file <a class="el" href="mcp4822_8h_source.html">mcp4822.h</a>.</p>
-
-</div>
-</div>
-<a id="a405a5c74199b2cc7e82ed3bead405a91" name="a405a5c74199b2cc7e82ed3bead405a91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a405a5c74199b2cc7e82ed3bead405a91">&#9670;&#160;</a></span>mln_mcp4822_gain_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="mcp4822_8h.html#a405a5c74199b2cc7e82ed3bead405a91">mln_mcp4822_gain_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>MCP4822 gain enum. </p>
-
-<p class="definition">Definition at line <a class="el" href="mcp4822_8h_source.html#l00023">23</a> of file <a class="el" href="mcp4822_8h_source.html">mcp4822.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mcp4725_8h_source.html#l00020">20</a> of file <a class="el" href="mcp4725_8h_source.html">mcp4725.h</a>.</p>
 
 </div>
 </div>
@@ -195,7 +205,7 @@ Enumerations</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8fb66e83de1dccebd84447d5e24b3b77.html">mlnlib</a></li><li class="navelem"><a class="el" href="dir_9196924e98278c12d51b2429b8a824d0.html">devices</a></li><li class="navelem"><a class="el" href="mcp4822_8h.html">mcp4822.h</a></li>
+    <li class="navelem"><a class="el" href="dir_8fb66e83de1dccebd84447d5e24b3b77.html">mlnlib</a></li><li class="navelem"><a class="el" href="dir_9196924e98278c12d51b2429b8a824d0.html">devices</a></li><li class="navelem"><a class="el" href="mcp4725_8h.html">mcp4725.h</a></li>
     <li class="footer">Generated on Tue May 2 2023 23:45:11 for mlnlib by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>
