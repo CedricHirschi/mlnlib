@@ -45,7 +45,7 @@ public:
 		printf("powerdown = %u\taddress = 0x%x\n", powerdown, address);
 	}
 
-	inline const bool write(uint16_t data, bool eeprom = false)
+	inline const bool write(const uint16_t data, const bool eeprom = false)
 	{
 		buffer[0] = powerdown | (eeprom ? MLN_MCP4725_C_EEPROM : MLN_MCP4725_C_FAST) | (uint8_t)(data >> 8);
 		buffer[1] = (uint8_t)(data & 0xFF);
@@ -53,7 +53,7 @@ public:
 		return twi.write(address, buffer, 2);
 	}
 
-	inline bool power(mln_mcp4725_pd_t new_powerdown)
+	inline const bool power(const mln_mcp4725_pd_t new_powerdown)
 	{
 		buffer[0] = powerdown;
 		buffer[1] = 0x00;

@@ -20,9 +20,9 @@ mln_timer led_timer(MLN_TIMER_0, 1000);
 #define TWO_BYTE_BUFFER(data) {(uint8_t)(data >> 8), (uint8_t)(data & 0xFF)}
 
 mln_adc adc;
-/* mcp4822 dac(&SPI0, PC7, PC3);
+mcp4822 dac(&SPI0, PC7, PC3);
 
-uint16_t dac_value = 0;
+/* uint16_t dac_value = 0;
 
 
 
@@ -64,13 +64,10 @@ int main(void)
 {
 	mln_init();
 
-	/* mln_opamp::init(opamp_init);
-	mln_opamp::init(opamp1_init);
+// 	mln_opamp::init(opamp_init);
+// 	mln_opamp::init(opamp1_init);
 
 	// adc.config(false, MLN_ADC_RESOLUTION_HIGH, MLN_ADC_ACCNONE, MLN_ADC_DIV2);
-	adc.enable();
-
-	dac.set_gain(MLN_MCP4822_GAIN1); */
 	adc.enable();
 	mln_vref::set(MLN_VREF_VDD, MLN_VREF_VDD);
 	mln_dac::config(false, true);
@@ -92,7 +89,7 @@ int main(void)
 
 	while (1)
 	{
-		mln_dac::set(dac_value >> 2);
+ 		// mln_dac::set(dac_value >> 2);
 		// dac.write(CHANNELA, dac_value);
 		// dac.write(CHANNELB, 4095 - dac_value);
 
@@ -100,11 +97,15 @@ int main(void)
 
 		// status = i2c.write(0x60, buffer, 2);
 
-		status = dac.write(dac_value);
+ 		dac.write(dac_value);
 
-		dac_value += 1;
+ 		dac_value += 1;
 
-		if(dac_value > 4095) dac_value = 0;
+ 		if(dac_value > 4095) dac_value = 0;
+		// led_builtin.toggle();
+
+		// mln_gpio::toggle(PB3);
+		// led_builtin.toggle();
 	}
 }
 
@@ -124,12 +125,6 @@ void periodic_task0(void)
 		uart.pull(buffer);
 		printf("Received '%s' of size %u\n", buffer, n);
 	}
-
-
-	/* i2c.start(0x60, 0);
-	i2c.write(buffer[0]);
-	i2c.write(buffer[1]);
-	i2c.stop(); */
 
 	uint16_t internal = adc.read(MLN_ADC_IN_DAC);
 	uint16_t external = adc.read(PD0);
