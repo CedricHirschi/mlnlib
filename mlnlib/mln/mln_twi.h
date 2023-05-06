@@ -195,14 +195,16 @@ public:
 	 * @note Starts and waits for completed transaction, stops it
 	 *
 	 */
-	inline void read(const uint8_t address, uint8_t *data, const uint8_t data_length)
+	inline bool read(const uint8_t address, uint8_t *data, const uint8_t data_length)
 	{
-		start(address, data_length);
+		if(!start(address, data_length)) return false;
 
 		for (uint8_t i = 0; i < data_length; i++)
 			data[i] = read();
 
 		stop();
+		
+		return true;
 	}
 
 	/**

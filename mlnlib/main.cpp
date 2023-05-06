@@ -9,6 +9,8 @@
 
 #include "devices/mcp4725.h"
 
+#include "devices/mcp3421.h"
+
 mln_uart uart(&USART3, 115200);
 // mln_twi i2c(&TWI0, 700000UL);
 
@@ -22,7 +24,7 @@ mln_timer led_timer(MLN_TIMER_0, 1000);
 mln_adc adc;
 mcp4822 dac(&SPI0, PC7, PC3);
 
-/* uint16_t dac_value = 0;
+/* uint16_t dac_value = 0; */
 
 
 
@@ -36,7 +38,7 @@ mln_opamp_follower_init_t opamp_init = {
 	.in = MLN_OPAMP_FOLLOWER_IN_DAC
 };
 
-mln_opamp_noninverting_init_t opamp1_init = {
+/* mln_opamp_noninverting_init_t opamp1_init = {
 	.opamp = MLN_OPAMP_DEVICE_1,
 
 	.runstdby = true,
@@ -64,45 +66,54 @@ int main(void)
 {
 	mln_init();
 
-// 	mln_opamp::init(opamp_init);
+    mln_opamp::init(opamp_init);
 // 	mln_opamp::init(opamp1_init);
 
 	// adc.config(false, MLN_ADC_RESOLUTION_HIGH, MLN_ADC_ACCNONE, MLN_ADC_DIV2);
 	adc.enable();
-	mln_vref::set(MLN_VREF_VDD, MLN_VREF_VDD);
+	mln_vref::set(MLN_VREF_2V048, MLN_VREF_2V048);
 	mln_dac::config(false, true);
 	mln_dac::enable();
 
 	btn_builtin.attach_interrupt(MLN_GPIO_ISC_RISING);
 
 	led_timer.set_isr(periodic_task0);
-	led_timer.start();
+	// led_timer.start();
 
 	printf("\n\nHello, world!\n");
 	int actual_period = led_timer.get_period();
 	printf("LED task will be executed every %d ms\n", actual_period);
 
-	mcp4725 dac;
-	dac.power(MLN_MCP4725_PD_NORMAL);
+	// mcp4725 dac;
+	// dac.power(MLN_MCP4725_PD_NORMAL);
+	
+	mcp3421 mcp(&TWI0);
 
 	sei();
+	
+	printf("Hello, world!\n");
 
 	while (1)
 	{
- 		// mln_dac::set(dac_value >> 2);
-		// dac.write(CHANNELA, dac_value);
-		// dac.write(CHANNELB, 4095 - dac_value);
-
-		// uint8_t buffer[] = TWO_BYTE_BUFFER(dac_value);
-
-		// status = i2c.write(0x60, buffer, 2);
-
- 		dac.write(dac_value);
-
- 		dac_value += 1;
-
- 		if(dac_value > 4095) dac_value = 0;
+ 		mln_dac::set(dac_value);
+		 
+		printf("%u\t", dac_value);
+		
+		_delay_ms(100);
+		
+		int32_t value = mcp.read();
+		
+		if(value == 0) printf("error in reading\n");
+		else printf("%li\n", value);
+		
+		dac_value += 100;
+		if(dac_value > 1000) dac_value = 100;
+		
+		_delay_ms(1000);
+		
 		// led_builtin.toggle();
+		
+		// _delay_ms(500);
 
 		// mln_gpio::toggle(PB3);
 		// led_builtin.toggle();
