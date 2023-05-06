@@ -42,7 +42,7 @@ public:
 
 		power(new_powerdown);
 
-		printf("powerdown = %u\taddress = 0x%x\n", powerdown, address);
+		// printf("powerdown = %u\taddress = 0x%x\n", powerdown, address);
 	}
 
 	inline const bool write(const uint16_t data, const bool eeprom = false)

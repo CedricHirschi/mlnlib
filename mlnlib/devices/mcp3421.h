@@ -9,40 +9,35 @@
 #ifndef MCP3421_H_
 #define MCP3421_H_
 
+const uint8_t mcp3421_reset_arr[] = {0x06};
+const uint8_t mcp3421_config_arr[] = {0b00011100};
+
 class mcp3421
 {
 	mln_twi twi;
+	
+	uint8_t buffer[5];
 	
 public:
 	mcp3421(TWI_t* new_twi)
 	{
 		twi = mln_twi(new_twi);
 		
-		printf("mcp3421 resetting...\t");
-		
-		uint8_t reset[] = {0x06};
-			
-		twi.write(0x00, reset, 1);
-		
-		_delay_ms(10);
-		
-		printf("done\n");
-		printf("mcp3421 configuring...\t");
-		
-		uint8_t config[] = {0b00011100};
-		
-		twi.write(0x68, config, 1);
-		
-		printf("done\n");
+		generalcall_reset();
+		configure();
 	}
 	
-	int32_t read(void)
+	inline const bool generalcall_reset(void) { return twi.write(0x00, mcp3421_reset_arr, 1); }
+	
+	inline const bool configure(void) { return twi.write(0x68, mcp3421_config_arr, 1); }
+	
+	inline const bool read(int32_t& value)
 	{
-		uint8_t buffer[5] = {0};
+		if(!twi.read(0x68, buffer, 5)) return false;
 		
-		if(!twi.read(0x68, buffer, 5)) return 0;
+		value = ((int32_t)(buffer[0] & 0x03) << 16) | ((int32_t)buffer[1] << 8) | (int32_t)(buffer[2]);
 		
-		return ((int32_t)(buffer[0] & 0x03) << 16) | ((int32_t)buffer[1] << 8) | (int32_t)(buffer[2]);
+		return true;
 	}
 	
 };

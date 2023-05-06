@@ -7,8 +7,7 @@
 
 #include "mln/mln_common.h"
 
-#include "devices/mcp4725.h"
-
+// #include "devices/mcp4725.h"
 #include "devices/mcp3421.h"
 
 mln_uart uart(&USART3, 115200);
@@ -17,16 +16,11 @@ mln_uart uart(&USART3, 115200);
 mln_gpio btn_builtin(PB2, MLN_GPIO_DIR_INPUT_PULLUP, true);
 mln_gpio led_builtin(PB3, MLN_GPIO_DIR_OUTPUT, true);
 
-mln_timer led_timer(MLN_TIMER_0, 1000);
-
-#define TWO_BYTE_BUFFER(data) {(uint8_t)(data >> 8), (uint8_t)(data & 0xFF)}
+mln_timer led_timer(MLN_TIMER_0, 500);
 
 mln_adc adc;
-mcp4822 dac(&SPI0, PC7, PC3);
-
-/* uint16_t dac_value = 0; */
-
-
+// mcp4822 dac(&SPI0, PC7, PC3);
+mcp3421 mcp(&TWI0);
 
 mln_opamp_follower_init_t opamp_init = {
 	.opamp = MLN_OPAMP_DEVICE_0,
@@ -50,7 +44,8 @@ mln_opamp_follower_init_t opamp_init = {
 	.in = MLN_OPAMP_NONINVERTING_IN_LINKOUT
 }; */
 
-uint16_t dac_value = 0;
+uint16_t dac_value = 100;
+int32_t value;
 
 void periodic_task0(void);
 
@@ -78,16 +73,11 @@ int main(void)
 	btn_builtin.attach_interrupt(MLN_GPIO_ISC_RISING);
 
 	led_timer.set_isr(periodic_task0);
-	// led_timer.start();
+	led_timer.start();
 
 	printf("\n\nHello, world!\n");
 	int actual_period = led_timer.get_period();
 	printf("LED task will be executed every %d ms\n", actual_period);
-
-	// mcp4725 dac;
-	// dac.power(MLN_MCP4725_PD_NORMAL);
-	
-	mcp3421 mcp(&TWI0);
 
 	sei();
 	
@@ -95,38 +85,12 @@ int main(void)
 
 	while (1)
 	{
- 		mln_dac::set(dac_value);
-		 
-		printf("%u\t", dac_value);
-		
-		_delay_ms(100);
-		
-		int32_t value = mcp.read();
-		
-		if(value == 0) printf("error in reading\n");
-		else printf("%li\n", value);
-		
-		dac_value += 100;
-		if(dac_value > 1000) dac_value = 100;
-		
-		_delay_ms(1000);
-		
-		// led_builtin.toggle();
-		
-		// _delay_ms(500);
-
-		// mln_gpio::toggle(PB3);
-		// led_builtin.toggle();
+ 		
 	}
 }
 
 void periodic_task0(void)
 {
-	// printf(led_builtin.get() ? "LED is on\t" : "LED is off\t");
-	// printf(btn_builtin.get() ? "BTN is pressed\n" : "BTN is released\n");
-
-	// printf("%u\t%u\t%u\t%u\t%u\n", dac_value, adc.read(PD1), adc.read(PD3), adc.read(PD6), adc.read(PD2), adc.read(PD5));
-
 	led_builtin.toggle();
 
 	if(uart.data_available())
@@ -136,21 +100,34 @@ void periodic_task0(void)
 		uart.pull(buffer);
 		printf("Received '%s' of size %u\n", buffer, n);
 	}
-
-	uint16_t internal = adc.read(MLN_ADC_IN_DAC);
-	uint16_t external = adc.read(PD0);
-	int16_t diff = (int16_t)internal - (int16_t)external;
-
-	printf("Internal:  %u\tMCP4725:  %u\tdiff:  %d\n", internal, external, diff);
-
-	if(!status && last_status) printf("\nSPI transfer returned an error\n");
-	if(!last_status && status) printf("Problem is resolved\n");
+	
+	status = mcp.read(value);
+	
+	if(!status)
+	{
+		if(last_status) printf("mcp3421 reading failed\n");
+	}
+	else
+	{
+		float value_float = value * 2.048f / 131072.0f;
+		
+		printf("%u\t%li\t%.4f\n", dac_value, value, (double)value_float);
+	}
+	
 	last_status = status;
+	
+	dac_value += 10;
+	if(dac_value > 1000) dac_value = 0;
+	
+	mln_dac::set(dac_value);
 }
 
 ISR(PORTB_PORT_vect)
 {
-	if(status) printf("Everything is still ok.\n");
+	if(status) printf(" > Everything is still ok.\n");
+	else printf(" > Last reading not successcul.\n");
+	
+	dac_value = 0;
 
 	PORTB.INTFLAGS = PIN2_bm;
 }

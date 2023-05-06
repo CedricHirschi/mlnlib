@@ -26,6 +26,78 @@ class mln_twi
 
 	TWI_t *twi;
 
+	
+
+public:
+	/**
+	 * @brief Default mln_twi initializer
+	 *
+	 * @param frequency TWI frequency to be used (default 100000)
+	 *
+	 */
+	inline mln_twi(TWI_t* new_twi = &TWI0, const uint32_t frequency = 100000UL)
+	{
+		twi = new_twi;
+
+		uint32_t baud = ((F_CPU / frequency) - (((F_CPU * MLN_TWI_TRISE) / 1000) / 1000) / 1000 - 10) / 2;
+		twi->MBAUD = (uint8_t)baud;
+
+		twi->MCTRLA = TWI_ENABLE_bm;
+
+		twi->MSTATUS = TWI_BUSSTATE_IDLE_gc;
+	}
+
+	/**
+	 * @brief Read certain amount of bytes from TWI slave
+	 *
+	 * @param address Address of the slave device
+	 * @param data Pointer to data buffer to be save data in
+	 * @param data_length Amount of bytes to be read
+	 *
+	 * @note Starts and waits for completed transaction, stops it
+	 *
+	 */
+	inline bool read(const uint8_t address, uint8_t *data, const uint8_t data_length)
+	{
+		if(!start(address, data_length)) return false;
+
+		for (uint8_t i = 0; i < data_length; i++)
+			data[i] = read();
+
+		stop();
+		
+		return true;
+	}
+
+	/**
+	 * @brief Send certain amount of bytes to TWI slave
+	 *
+	 * @param address Address of the slave device
+	 * @param data Pointer to data buffer to be sent
+	 * @param data_length Length of data buffer to be sent
+	 *
+	 * @returns Whether transaction was successful
+	 * @retval true Transaction was successful
+	 * @retval false Transaction at address could not be started or was not acknowledged
+	 *
+	 * @note Starts and waits for completed transaction, stops it
+	 *
+	 */
+	inline bool write(const uint8_t address, const uint8_t *data, const uint8_t data_length)
+	{
+		if (!start(address, 0))
+			return false;
+
+		for (uint8_t i = 0; i < data_length; i++)
+			if (!write(data[i]))
+				return false;
+
+		stop();
+
+		return true;
+	}
+	
+	
 	/**
 	 * @brief Read one byte from TWI bus
 	 *
@@ -106,15 +178,15 @@ class mln_twi
 	 */
 	inline bool start(const uint8_t address, const int32_t readcount)
 	{
-		bool read;
+		bool command;
 		if (readcount == 0)
-			read = 0;
+			command = 0;
 		else
 		{
 			I2Ccount = readcount;
-			read = 1;
+			command = 1;
 		}
-		twi->MADDR = address << 1 | read;
+		twi->MADDR = address << 1 | command;
 
 		while (!(twi->MSTATUS & (TWI_WIF_bm | TWI_RIF_bm)))
 			;
@@ -123,7 +195,8 @@ class mln_twi
 		{
 			while (!(twi->MSTATUS & TWI_BUSSTATE_IDLE_gc))
 				;
-
+			
+			printf("arblost\n");
 			return false;
 		}
 		else if (twi->MSTATUS & TWI_RXACK_bm)
@@ -132,7 +205,8 @@ class mln_twi
 
 			while (!(twi->MSTATUS & TWI_BUSSTATE_IDLE_gc))
 				;
-
+				
+			printf("rx nack\n");
 			return false;
 		}
 
@@ -164,75 +238,6 @@ class mln_twi
 		twi->MCTRLB |= TWI_MCMD_STOP_gc; // Send STOP
 		while (!(twi->MSTATUS & TWI_BUSSTATE_IDLE_gc))
 			; // Wait for bus to return to idle state
-	}
-
-public:
-	/**
-	 * @brief Default mln_twi initializer
-	 *
-	 * @param frequency TWI frequency to be used (default 100000)
-	 *
-	 */
-	inline mln_twi(TWI_t* new_twi = &TWI0, const uint32_t frequency = 100000UL)
-	{
-		twi = new_twi;
-
-		uint32_t baud = ((F_CPU / frequency) - (((F_CPU * MLN_TWI_TRISE) / 1000) / 1000) / 1000 - 10) / 2;
-		twi->MBAUD = (uint8_t)baud;
-
-		twi->MCTRLA = TWI_ENABLE_bm;
-
-		twi->MSTATUS = TWI_BUSSTATE_IDLE_gc;
-	}
-
-	/**
-	 * @brief Read certain amount of bytes from TWI slave
-	 *
-	 * @param address Address of the slave device
-	 * @param data Pointer to data buffer to be save data in
-	 * @param data_length Amount of bytes to be read
-	 *
-	 * @note Starts and waits for completed transaction, stops it
-	 *
-	 */
-	inline bool read(const uint8_t address, uint8_t *data, const uint8_t data_length)
-	{
-		if(!start(address, data_length)) return false;
-
-		for (uint8_t i = 0; i < data_length; i++)
-			data[i] = read();
-
-		stop();
-		
-		return true;
-	}
-
-	/**
-	 * @brief Send certain amount of bytes to TWI slave
-	 *
-	 * @param address Address of the slave device
-	 * @param data Pointer to data buffer to be sent
-	 * @param data_length Length of data buffer to be sent
-	 *
-	 * @returns Whether transaction was successful
-	 * @retval true Transaction was successful
-	 * @retval false Transaction at address could not be started or was not acknowledged
-	 *
-	 * @note Starts and waits for completed transaction, stops it
-	 *
-	 */
-	inline bool write(const uint8_t address, const uint8_t *data, const uint8_t data_length)
-	{
-		if (!start(address, 0))
-			return false;
-
-		for (uint8_t i = 0; i < data_length; i++)
-			if (!write(data[i]))
-				return false;
-
-		stop();
-
-		return true;
 	}
 };
 
